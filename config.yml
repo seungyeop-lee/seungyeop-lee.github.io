@@ -1,4 +1,4 @@
-baseurl: 'http://seungyeop-lee.github.io/blog/'
+baseurl: 'https://seungyeop-lee.github.io/blog/'
 languageCode: ko-KR
 theme: hugo-theme-stack
 paginate: 5
