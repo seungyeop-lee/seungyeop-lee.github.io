@@ -1,18 +1,13 @@
+title: '팽귄의 외부 저장소'
 baseurl: 'https://seungyeop-lee.github.io/blog/'
 languageCode: ko-KR
-theme: hugo-theme-stack
 paginate: 5
-title: 'My New Hugo Site'
+theme: hugo-theme-stack
 
-# Change it to your Disqus shortname before using
-# disqusShortname: hugo-theme-stack
-
-# Theme i18n support
-# Available values: en, fr, id, ja, ko, pt-br, zh-cn
 DefaultContentLanguage: ko
 
 permalinks:
-  post: /p/:slug/
+  post: /:sections/:slug/
   page: /:slug/
 
 params:
@@ -20,19 +15,18 @@ params:
     - post
   featuredImageField: image
   rssFullContent: true
-  favicon:
+  # favicon:
 
   footer:
-    since: 2020
-    customText:
+    since: 2021
+    # customText:
 
   dateFormat:
     published: Jan 02, 2006
-    lastUpdated: Jan 02, 2006 15:04 MST
+    lastUpdated: Jan 02, 2006 15:04 KST
 
   sidebar:
-    emoji: 🍥
-    subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    subtitle: '읽은 것, 본 것, 배운 것, 삽질, etc'
     avatar:
       local: true
       src: img/avatar.png
@@ -45,45 +39,41 @@ params:
 
   comments:
     enabled: true
-    provider: disqus
+    provider: utterances
     utterances:
-      repo:
+      repo: seungyeop-lee/blog
       issueTerm: pathname
-      label:
+      label: comment
       theme: preferred-color-scheme
 
   widgets:
     enabled:
       - search
-      - archives
       - tag-cloud
-
+      - archives
     archives:
       limit: 5
-
     tagCloud:
-      limit: 10
+      limit: 50
 
   opengraph:
     twitter:
       # Your Twitter username
-      site:
-
+      site: '@xbeast7'
       # Available values: summary, summary_large_image
       card: summary_large_image
 
   defaultImage:
     opengraph:
-      enabled: false
-      local: false
-      src:
+      enabled: true
+      local: true
+      src: img/avatar.png
 
   colorScheme:
     # Display toggle
     toggle: true
-
     # Available values: auto, light, dark
-    default: auto
+    default: dark
 
   imageProcessing:
     cover:
@@ -95,27 +85,33 @@ menu:
   main:
     - identifier: home
       name: Home
-      url: /
+      url:
       weight: -100
       pre: home
-
-    - identifier: about
-      name: About
-      url: about
-      weight: -90
-      pre: user
 
     - identifier: archives
       name: Archives
       url: archives
-      weight: -70
+      weight: -90
       pre: archives
 
     - identifier: search
       name: Search
       url: search
-      weight: -60
+      weight: -70
       pre: search
+
+    # - identifier: about
+    #   name: About
+    #   url: about
+    #   weight: -60
+    #   pre: user
+
+    - identifier: github
+      name: github
+      url: https://github.com/seungyeop-lee
+      weight: -40
+      pre: github
 
 related:
   includeNewer: true
