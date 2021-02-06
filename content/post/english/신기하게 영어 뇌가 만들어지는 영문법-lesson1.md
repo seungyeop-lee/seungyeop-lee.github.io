@@ -8,7 +8,8 @@ tags:
   - 신기하게 영어 뇌가 만들어지는 영문법
   - 동영상
 license: false
-draft: false
+hidden: true
+draft: true
 ---
 
 {{< youtube oRXyeR3QGNk >}}
