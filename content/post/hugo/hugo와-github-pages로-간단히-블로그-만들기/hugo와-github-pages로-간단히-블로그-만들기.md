@@ -13,11 +13,11 @@ draft: false
 
 ## 목표
 
-- 블로그 진입점을 github pages의 루트가 아닌, 서브 path로 한다.
+- 블로그 진입점을 github pages의 루트가 아닌, 서브 path로 합니다.
   - ex. `https://seungyeop-lee.github.io/test-blog/`
-- 하나의 repository에서 hugo의 소스파일과 생성된 html을 전부 관리한다.
-- github actions를 이용하여 push 할 경우, 자동으로 배포가 되게 한다.
-- utterances를 사용하여 댓글도 같은 레포지토리에서 관리한다.
+- 하나의 repository에서 hugo의 소스파일과 생성된 html을 전부 관리합니다.
+- github actions를 이용하여 push 할 경우, 자동으로 배포가 되게 합니다.
+- utterances를 사용하여 댓글도 같은 repository에서 관리합니다.
 
 ## 실습전 확인 사항
 
@@ -43,13 +43,13 @@ draft: false
 
 ### hugo 설치하기
 
-1. brew를 이용하여 hugo를 설치한다.
+1. brew를 이용하여 hugo를 설치합니다.
 
 ```bash
 $ brew install hugo
 ```
 
-2. hugo의 버전을 확인하여 잘 설치되었는지 확인한다.
+2. hugo의 버전을 확인하여 잘 설치되었는지 확인합니다.
 
 ```bash
 $ hugo version
@@ -57,8 +57,8 @@ $ hugo version
 
 ### 블로그 만들기
 
-1. hugo를 이용하여 블로그를 만든다.
-   - 블로그의 이름으로 폴더가 만들어진다.
+1. hugo를 이용하여 블로그를 만듭니다.
+   - 블로그의 이름으로 폴더가 만들어집니다.
 
 ```bash
 $ hugo new site test-blog
@@ -67,33 +67,33 @@ $ hugo new site test-blog
 
 ### 테마 추가하기
 
-이번 포스팅에서는 [Stack](https://themes.gohugo.io/hugo-theme-stack/) 테마를 사용한다. 다른 테마들은 [여기](https://themes.gohugo.io/)에서 찾아볼 수 있다.
+이번 포스팅에서는 [Stack](https://themes.gohugo.io/hugo-theme-stack/) 테마를 사용합니다. 다른 테마들은 [Hugo Themes](https://themes.gohugo.io/)에서 찾아볼 수 있습니다.
 
-1. 만들어진 폴더로 이동한다.
+1. 만들어진 폴더로 이동합니다.
 
 ```bash
 $ cd test-blog
 ```
 
-2. git 저장소를 초기화 한다.
+2. git 저장소를 초기화 합니다.
 
 ```bash
 $ git init
 ```
 
-3. Stack 테마를 [서브모듈](https://git-scm.com/book/ko/v2/Git-%EB%8F%84%EA%B5%AC-%EC%84%9C%EB%B8%8C%EB%AA%A8%EB%93%88)로 추가한다.
+3. Stack 테마를 [서브모듈](https://git-scm.com/book/ko/v2/Git-%EB%8F%84%EA%B5%AC-%EC%84%9C%EB%B8%8C%EB%AA%A8%EB%93%88)로 추가합니다.
 
 ```bash
 $ git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack
 ```
 
-4. vscode를 실행시킨다.
+4. vscode를 실행시킵니다.
 
 ```bash
 $ code .
 ```
 
-5. config.toml 파일에 아래의 코드를 추가한다.
+5. config.toml 파일에 아래의 코드를 추가합니다.
 
 ```toml
 theme = "hugo-theme-stack"
@@ -102,18 +102,18 @@ theme = "hugo-theme-stack"
 enabled = false
 ```
 
-6. 블로그를 로컬에서 가동 시킨다.
+6. 블로그를 로컬에서 가동 시킵니다.
 
 ```bash
 $ hugo server
 ```
 
-7. 웹브라우저를 이용하여 http://localhost:1313/ 로 접속해본다.
-   - 블로그 가동 시 나오는 주소이다. 
+7. 웹브라우저를 이용하여 http://localhost:1313/ 로 접속해봅니다.
+   - 블로그 가동 시 나오는 주소입니다.
     
      `Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)`
 
-   - `control + C`를 누르면 기동이 중지된다.
+   - `control + C`를 누르면 기동이 중지됩니다.
 
 ![](1.png)
 
@@ -121,16 +121,16 @@ $ hugo server
 
 ### github repository 만들기
 
-1. Repositories 탭에서 New 버튼을 누른다.
+1. Repositories 탭에서 New 버튼을 누릅니다.
 
 ![](2.png)
 
-2. Repository name을 블로그 이름과 같게하고 Create repository 버튼을 누른다.
+2. Repository name을 블로그 이름과 같게하고 Create repository 버튼을 누릅니다.
 
 ![](3.png)
 
-3. 로컬에 만들어 놓은 블로그에 지금 만든 repository를 연결한다.
-   - 만든 repository의 https에 쓰여있는 주소를 이용한다.
+3. 로컬에 만들어 놓은 블로그에 지금 만든 repository를 연결합니다.
+   - 만든 repository의 https에 쓰여있는 주소를 이용합니다.
 
 ![](4.png)
 
@@ -143,9 +143,9 @@ $ git remote add origin https://github.com/seungyeop-lee/test-blog.git
 
 [GitHub Pages action](https://github.com/marketplace/actions/github-pages-action)과 [Hugo setup](https://github.com/marketplace/actions/hugo-setup)를 이용한다.
 
-1. 로컬에 만들어 놓은 블로그 폴더에 github actions 파일을 만든다.
+1. 로컬에 만들어 놓은 블로그 폴더에 github actions 파일을 만듭니다.
    - ex. `.github/workflows/gh-pages.yml`
-2. github actions 파일에 아래의 코드를 추가한다.
+2. github actions 파일에 아래의 코드를 추가합니다.
 
 ```yaml
 name: github pages
