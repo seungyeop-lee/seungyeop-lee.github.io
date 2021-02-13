@@ -4,6 +4,9 @@ languageCode: ko-KR
 paginate: 5
 theme: hugo-theme-stack
 
+# GA Tracking ID
+googleAnalytics: G-DYF1N3W5RT
+
 DefaultContentLanguage: ko
 
 permalinks:
