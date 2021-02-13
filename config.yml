@@ -5,7 +5,7 @@ paginate: 5
 theme: hugo-theme-stack
 
 # GA Tracking ID
-googleAnalytics: G-DYF1N3W5RT
+googleAnalytics: UA-189675722-1
 
 DefaultContentLanguage: ko
 
