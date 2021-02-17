@@ -1,6 +1,6 @@
 ---
 title: "hugo와 github pages로 간단히 블로그 만들기 - 포스팅 작성"
-date: 2021-02-13
+date: 2021-02-17
 categories:
   - hugo
 tags:
