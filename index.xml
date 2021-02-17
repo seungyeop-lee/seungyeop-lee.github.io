@@ -38,7 +38,7 @@
 &lt;ul>
 &lt;li>macOS 환경&lt;/li>
 &lt;li>brew, vscode 사용&lt;/li>
-&lt;/ul></description></item><item><title>hugo와 github pages로 간단히 블로그 만들기 - github pages로 배포하기</title><link>https://seungyeop-lee.github.io/blog/post/hugo/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/2/</link><pubDate>Sat, 13 Feb 2021 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/hugo/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/2/</guid><description>&lt;p>&lt;a class="link" href="../index" >목차&lt;/a> / &lt;a class="link" href="../1" >이전글&lt;/a>&lt;/p>
+&lt;/ul></description></item><item><title>hugo와 github pages로 간단히 블로그 만들기 - github pages로 배포하기</title><link>https://seungyeop-lee.github.io/blog/post/hugo/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/2/</link><pubDate>Sat, 13 Feb 2021 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/hugo/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/2/</guid><description>&lt;p>&lt;a class="link" href="../index/" >목차&lt;/a> / &lt;a class="link" href="../1" >이전글&lt;/a>&lt;/p>
 &lt;h2 id="github-pages를-이용하여-배포하기">github pages를 이용하여 배포하기&lt;/h2>
 &lt;h3 id="github-repository-만들기">github repository 만들기&lt;/h3>
 &lt;ol>
@@ -159,7 +159,7 @@ $ git push
 &lt;/li>
 &lt;/ol>
 &lt;p>&lt;img src="12.png" alt="" />&lt;/p>
-&lt;p>&lt;a class="link" href="../index" >목차&lt;/a> / &lt;a class="link" href="../3" >다음글&lt;/a>&lt;/p></description></item><item><title>hugo와 github pages로 간단히 블로그 만들기 - 기본 설정</title><link>https://seungyeop-lee.github.io/blog/post/hugo/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/3/</link><pubDate>Sat, 13 Feb 2021 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/hugo/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/3/</guid><description>&lt;p>&lt;a class="link" href="../index" >목차&lt;/a> / &lt;a class="link" href="../2" >이전글&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="../index/" >목차&lt;/a> / &lt;a class="link" href="../3" >다음글&lt;/a>&lt;/p></description></item><item><title>hugo와 github pages로 간단히 블로그 만들기 - 기본 설정</title><link>https://seungyeop-lee.github.io/blog/post/hugo/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/3/</link><pubDate>Sat, 13 Feb 2021 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/hugo/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/3/</guid><description>&lt;p>&lt;a class="link" href="../index/" >목차&lt;/a> / &lt;a class="link" href="../2" >이전글&lt;/a>&lt;/p>
 &lt;h2 id="기본-설정">기본 설정&lt;/h2>
 &lt;p>config.toml 파일에 내용을 수정, 추가하여 블로그의 형태를 만듭니다.&lt;/p>
 &lt;h3 id="블로그-제목-변경">블로그 제목 변경&lt;/h3>
@@ -219,7 +219,7 @@ $ git push
 &lt;/ul>
 &lt;p>&lt;img src="4.png" alt="" />&lt;/p>
 &lt;p>현재는 Archives와 Search 페이지가 만들어져 있지 않아서, 클릭하면 &lt;code>404 page not found&lt;/code>가 페이지에 표시됩니다. Archives와 Search 페이지 추가는 다음글에서 수행하겠습니다.&lt;/p>
-&lt;p>&lt;a class="link" href="../index" >목차&lt;/a> / &lt;a class="link" href="../4" >다음글&lt;/a>&lt;/p></description></item><item><title>hugo와 github pages로 간단히 블로그 만들기 - 포스팅 작성</title><link>https://seungyeop-lee.github.io/blog/post/hugo/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/4/</link><pubDate>Sat, 13 Feb 2021 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/hugo/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/4/</guid><description>&lt;p>&lt;a class="link" href="../index" >목차&lt;/a> / &lt;a class="link" href="../3" >이전글&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="../index/" >목차&lt;/a> / &lt;a class="link" href="../4" >다음글&lt;/a>&lt;/p></description></item><item><title>hugo와 github pages로 간단히 블로그 만들기 - 포스팅 작성</title><link>https://seungyeop-lee.github.io/blog/post/hugo/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/4/</link><pubDate>Sat, 13 Feb 2021 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/hugo/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/4/</guid><description>&lt;p>&lt;a class="link" href="../index/" >목차&lt;/a> / &lt;a class="link" href="../3" >이전글&lt;/a>&lt;/p>
 &lt;h2 id="포스팅-작성">포스팅 작성&lt;/h2>
 &lt;h3 id="포스팅-경로-설정">포스팅 경로 설정&lt;/h3>
 &lt;p>hugo에서 모든 컨텐츠는 content 폴더 하부에 위치하게 됩니다. 포스팅을 하기 전, 포스팅 폴더 설정을 하겠습니다.&lt;/p>
@@ -287,7 +287,7 @@ outputs:
 &lt;/ul>
 &lt;p>&lt;img src="5.png" alt="" />&lt;/p>
 &lt;p>&lt;img src="6.png" alt="" />&lt;/p>
-&lt;p>&lt;a class="link" href="../index" >목차&lt;/a>&lt;/p></description></item><item><title>hugo와 github pages로 간단히 블로그 만들기 - 블로그 만들기</title><link>https://seungyeop-lee.github.io/blog/post/hugo/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/1/</link><pubDate>Mon, 08 Feb 2021 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/hugo/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/1/</guid><description>&lt;p>&lt;a class="link" href="../index" >목차&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="../index/" >목차&lt;/a>&lt;/p></description></item><item><title>hugo와 github pages로 간단히 블로그 만들기 - 블로그 만들기</title><link>https://seungyeop-lee.github.io/blog/post/hugo/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/1/</link><pubDate>Mon, 08 Feb 2021 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/hugo/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/1/</guid><description>&lt;p>&lt;a class="link" href="../index/" >목차&lt;/a>&lt;/p>
 &lt;h2 id="로컬에서-블로그-만들기">로컬에서 블로그 만들기&lt;/h2>
 &lt;h3 id="hugo-설치하기">hugo 설치하기&lt;/h3>
 &lt;ol>
@@ -353,4 +353,4 @@ outputs:
 &lt;/li>
 &lt;/ol>
 &lt;p>&lt;img src="1.png" alt="" />&lt;/p>
-&lt;p>&lt;a class="link" href="../index" >목차&lt;/a> / &lt;a class="link" href="../2" >다음글&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;p>&lt;a class="link" href="../index/" >목차&lt;/a> / &lt;a class="link" href="../2" >다음글&lt;/a>&lt;/p></description></item></channel></rss>
