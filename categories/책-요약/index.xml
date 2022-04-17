@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>펭귄의 외부 저장소</title><link>https://seungyeop-lee.github.io/blog/</link><description>Recent content on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sun, 17 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://seungyeop-lee.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>프로그래머의 뇌 요약</title><link>https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/</link><pubDate>Sun, 17 Apr 2022 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/</guid><description>&lt;img src="https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/cover.png" alt="Featured image of post 프로그래머의 뇌 요약" />&lt;p>&lt;a class="link" href="http://www.yes24.com/Product/Goods/105911017" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>책 요약 on 펭귄의 외부 저장소</title><link>https://seungyeop-lee.github.io/blog/categories/%EC%B1%85-%EC%9A%94%EC%95%BD/</link><description>Recent content in 책 요약 on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sun, 17 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://seungyeop-lee.github.io/blog/categories/%EC%B1%85-%EC%9A%94%EC%95%BD/index.xml" rel="self" type="application/rss+xml"/><item><title>프로그래머의 뇌 요약</title><link>https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/</link><pubDate>Sun, 17 Apr 2022 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/</guid><description>&lt;img src="https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/cover.png" alt="Featured image of post 프로그래머의 뇌 요약" />&lt;p>&lt;a class="link" href="http://www.yes24.com/Product/Goods/105911017" target="_blank" rel="noopener"
 >프로그래머의 뇌&lt;/a>란 책을 읽고, 인상 깊었던 내용을 정리한다.&lt;/p>
 &lt;h2 id="코드가-초래하는-세-가지-종류의-혼란">코드가 초래하는 세 가지 종류의 혼란&lt;/h2>
 &lt;ol>
@@ -137,44 +137,4 @@
 &lt;li>ex. java의 반복문을 알고있는 사람이 golang의 반복문을 학습하는 경우&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>hugo와 github pages로 간단히 블로그 만들기</title><link>https://seungyeop-lee.github.io/blog/post/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/index/</link><pubDate>Sat, 13 Feb 2021 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/index/</guid><description>&lt;img src="https://seungyeop-lee.github.io/blog/post/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/index/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0.png" alt="Featured image of post hugo와 github pages로 간단히 블로그 만들기" />&lt;h2 id="목차">목차&lt;/h2>
-&lt;ol>
-&lt;li>&lt;a class="link" href="../1" >블로그 만들기&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="../2" >github pages로 배포하기&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="../3" >기본 설정&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="../4" >포스팅 작성&lt;/a>&lt;/li>
-&lt;li>블로그 꾸미기&lt;/li>
-&lt;li>utterances로 댓글기능 추가하기&lt;/li>
-&lt;/ol>
-&lt;h2 id="목표">목표&lt;/h2>
-&lt;ul>
-&lt;li>블로그 진입점을 github pages의 루트가 아닌, 서브 path로 합니다.
-&lt;ul>
-&lt;li>ex. &lt;code>https://seungyeop-lee.github.io/test-blog/&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>하나의 repository에서 hugo의 소스파일과 생성된 html을 전부 관리합니다.&lt;/li>
-&lt;li>github actions를 이용하여 push 할 경우, 자동으로 배포가 되게 합니다.&lt;/li>
-&lt;li>utterances를 사용하여 댓글도 같은 repository에서 관리합니다.&lt;/li>
-&lt;/ul>
-&lt;h2 id="실습전-확인-사항">실습전 확인 사항&lt;/h2>
-&lt;h3 id="주의">주의&lt;/h3>
-&lt;p>시간이 지남에 따라 내용이 정확하지 않을 수 있습니다. 화면이나 움직임이 다를경우 공식 문서를 참고해주세요.&lt;/p>
-&lt;ul>
-&lt;li>&lt;a class="link" href="https://gohugo.io/documentation/" target="_blank" rel="noopener"
->hugo&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="https://docs.github.com/en/github/working-with-github-pages" target="_blank" rel="noopener"
->github pages&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="https://utteranc.es/" target="_blank" rel="noopener"
->utterances&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="전제-조건">전제 조건&lt;/h3>
-&lt;ul>
-&lt;li>git 설치&lt;/li>
-&lt;li>github 계정 준비&lt;/li>
-&lt;/ul>
-&lt;h3 id="실습-환경">실습 환경&lt;/h3>
-&lt;ul>
-&lt;li>macOS 환경&lt;/li>
-&lt;li>brew, vscode 사용&lt;/li>
-&lt;/ul></description></item><item><title>Search</title><link>https://seungyeop-lee.github.io/blog/search/</link><pubDate>Sat, 06 Feb 2021 13:00:08 +0900</pubDate><guid>https://seungyeop-lee.github.io/blog/search/</guid><description/></item><item><title>Archives</title><link>https://seungyeop-lee.github.io/blog/archives/</link><pubDate>Sat, 06 Feb 2021 12:58:52 +0900</pubDate><guid>https://seungyeop-lee.github.io/blog/archives/</guid><description/></item></channel></rss>
+&lt;/ul></description></item></channel></rss>
