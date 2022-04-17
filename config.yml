@@ -124,12 +124,12 @@ menu:
     #   weight: -60
     #   pre: user
 
+  social:
     - identifier: github
-      name: github
+      name: GitHub
       url: https://github.com/seungyeop-lee
-      weight: -40
       params:
-        icon: github
+        icon: brand-github
 
 related:
   includeNewer: true
@@ -143,5 +143,19 @@ related:
       weight: 200
 
 markup:
+  goldmark:
+    renderer:
+      ## Set to true if you have HTML content inside Markdown
+      unsafe: false
+  tableOfContents:
+    endLevel: 4
+    ordered: true
+    startLevel: 2
   highlight:
     noClasses: false
+    codeFences: true
+    guessSyntax: true
+    lineNoStart: 1
+    lineNos: true
+    lineNumbersInTable: true
+    tabWidth: 4
