@@ -10,7 +10,7 @@ tags:
   - github actions
   - 블로그 만들기
 draft: false
-hidden: false
+hidden: true
 slug: "1"
 ---
 
@@ -92,6 +92,6 @@ $ hugo server
 
    - `control + C`를 누르면 기동이 중지됩니다.
 
-![image1](1.png)
+![](1.png)
 
 [목차](../index/) / [다음글](../2)

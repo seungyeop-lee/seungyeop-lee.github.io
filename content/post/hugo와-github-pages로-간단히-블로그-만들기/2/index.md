@@ -10,7 +10,7 @@ tags:
   - github actions
   - 블로그 만들기
 draft: false
-hidden: false
+hidden: true
 slug: "2"
 ---
 
