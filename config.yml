@@ -24,7 +24,7 @@ params:
     - post
   featuredImageField: image
   rssFullContent: true
-  # favicon:
+  favicon: icon/favicon.ico
 
   footer:
     since: 2021
@@ -128,6 +128,7 @@ menu:
     - identifier: github
       name: GitHub
       url: https://github.com/seungyeop-lee
+      weight: -100
       params:
         icon: brand-github
 
