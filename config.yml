@@ -2,7 +2,13 @@ title: '펭귄의 외부 저장소'
 baseurl: 'https://seungyeop-lee.github.io/blog/'
 languageCode: ko-KR
 paginate: 5
-theme: hugo-theme-stack
+
+module:
+  # uncomment line below for temporary local development of module
+  # replacements: "github.com/CaiJimmy/hugo-theme-stack/v3 -> ../../hugo-theme-stack"
+  imports:
+    - path: github.com/CaiJimmy/hugo-theme-stack/v3
+      disable: false
 
 # GA Tracking ID
 googleAnalytics: UA-189675722-1
@@ -50,14 +56,19 @@ params:
       theme: preferred-color-scheme
 
   widgets:
-    enabled:
-      - search
-      - tag-cloud
-      - archives
-    archives:
-      limit: 5
-    tagCloud:
-      limit: 50
+    homepage:
+      - type: search
+      - type: categories
+        params:
+          limit: 10
+      - type: tag-cloud
+        params:
+          limit: 50
+      - type: archives
+        params:
+          limit: 5
+    page:
+      - type: toc
 
   opengraph:
     twitter:
@@ -76,7 +87,7 @@ params:
     # Display toggle
     toggle: true
     # Available values: auto, light, dark
-    default: dark
+    default: light
 
   imageProcessing:
     cover:
@@ -90,19 +101,22 @@ menu:
       name: Home
       url:
       weight: -100
-      pre: home
+      params:
+        icon: home
 
     - identifier: archives
       name: Archives
       url: archives
       weight: -90
-      pre: archives
+      params:
+        icon: archives
 
     - identifier: search
       name: Search
       url: search
       weight: -70
-      pre: search
+      params:
+        icon: search
 
     # - identifier: about
     #   name: About
@@ -114,7 +128,8 @@ menu:
       name: github
       url: https://github.com/seungyeop-lee
       weight: -40
-      pre: github
+      params:
+        icon: github
 
 related:
   includeNewer: true

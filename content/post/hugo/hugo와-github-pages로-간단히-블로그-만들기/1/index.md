@@ -92,6 +92,6 @@ $ hugo server
 
    - `control + C`를 누르면 기동이 중지됩니다.
 
-![](1.png)
+![image1](1.png)
 
 [목차](../index/) / [다음글](../2)

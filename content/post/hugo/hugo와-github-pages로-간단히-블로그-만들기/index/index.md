@@ -12,7 +12,7 @@ tags:
 draft: false
 layout: "single"
 slug: "index"
-image: "/blog/img/hugo/hugo와-github-pages로-간단히-블로그-만들기.png"
+image: "hugo와-github-pages로-간단히-블로그-만들기.png"
 ---
 
 ## 목차
