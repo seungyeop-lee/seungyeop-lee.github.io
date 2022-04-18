@@ -41,6 +41,7 @@ params:
       src: img/avatar.png
 
   article:
+    readingTime: false
     math: false
     license:
       enabled: true
@@ -117,6 +118,13 @@ menu:
       weight: -70
       params:
         icon: search
+
+    - identifier: links
+      name: Links
+      url: links
+      weight: -60
+      params:
+        icon: link
 
     # - identifier: about
     #   name: About
