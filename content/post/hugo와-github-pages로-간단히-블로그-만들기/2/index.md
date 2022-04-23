@@ -1,7 +1,7 @@
 ---
 title: "hugo와 github pages로 간단히 블로그 만들기 - github pages로 배포하기"
 date: 2021-02-13
-lastmod: 2021-02-13
+lastmod: 2022-04-23
 categories:
   - hugo
 tags:
