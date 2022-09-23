@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 펭귄의 외부 저장소</title><link>https://seungyeop-lee.github.io/blog/post/</link><description>Recent content in Posts on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sun, 17 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://seungyeop-lee.github.io/blog/post/index.xml" rel="self" type="application/rss+xml"/><item><title>프로그래머의 뇌 요약</title><link>https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/</link><pubDate>Sun, 17 Apr 2022 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/</guid><description>&lt;img src="https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/cover.png" alt="Featured image of post 프로그래머의 뇌 요약" />&lt;p>&lt;a class="link" href="http://www.yes24.com/Product/Goods/105911017" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 펭귄의 외부 저장소</title><link>https://seungyeop-lee.github.io/blog/post/</link><description>Recent content in Posts on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://seungyeop-lee.github.io/blog/post/index.xml" rel="self" type="application/rss+xml"/><item><title>CSS Tips</title><link>https://seungyeop-lee.github.io/blog/post/css-tips/</link><pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/css-tips/</guid><description>&lt;img src="https://seungyeop-lee.github.io/blog/post/css-tips/cover.png" alt="Featured image of post CSS Tips" />&lt;h2 id="상속">상속&lt;/h2>
+&lt;ul>
+&lt;li>부모로부터 상속받은 속성은 브라우저의 디폴트 CSS 속성보다 우선순위가 낮다.&lt;/li>
+&lt;/ul>
+&lt;h2 id="여백-상쇄">여백 상쇄&lt;/h2>
+&lt;ul>
+&lt;li>여백 상쇄(margin collapsing)로 인해 margin이 설정한 것과 다르게 보이는 경우가 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener"
+>참조&lt;/a>)
+&lt;ol>
+&lt;li>둘 다 margin을 가진 인접 형제 요소&lt;/li>
+&lt;li>첫째 및/또는 마지막 (혹은 유일한)의 자식 요소에 margin이 설정된 하나 또는 둘 이상의 자식 요소를 가진 부모 요소 (자식의 margin이 부모의 margin보다 클 경우 발생)&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul></description></item><item><title>프로그래머의 뇌 요약</title><link>https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/</link><pubDate>Sun, 17 Apr 2022 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/</guid><description>&lt;img src="https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/cover.png" alt="Featured image of post 프로그래머의 뇌 요약" />&lt;p>&lt;a class="link" href="http://www.yes24.com/Product/Goods/105911017" target="_blank" rel="noopener"
 >프로그래머의 뇌&lt;/a>란 책을 읽고, 인상 깊었던 내용을 정리한다.&lt;/p>
 &lt;h2 id="코드가-초래하는-세-가지-종류의-혼란">코드가 초래하는 세 가지 종류의 혼란&lt;/h2>
 &lt;ol>
