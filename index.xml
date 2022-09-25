@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>펭귄의 외부 저장소</title><link>https://seungyeop-lee.github.io/blog/</link><description>Recent content on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://seungyeop-lee.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>CSS Tips</title><link>https://seungyeop-lee.github.io/blog/post/css-tips/</link><pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/css-tips/</guid><description>&lt;img src="https://seungyeop-lee.github.io/blog/post/css-tips/cover.png" alt="Featured image of post CSS Tips" />&lt;h2 id="상속">상속&lt;/h2>
-&lt;ul>
-&lt;li>부모로부터 상속받은 속성은 브라우저의 디폴트 CSS 속성보다 우선순위가 낮다.&lt;/li>
-&lt;/ul>
+&lt;p>부모로부터 상속받은 속성은 브라우저의 디폴트 CSS 속성보다 우선순위가 낮다.&lt;/p>
 &lt;h2 id="여백-상쇄">여백 상쇄&lt;/h2>
-&lt;ul>
-&lt;li>여백 상쇄(margin collapsing)로 인해 margin이 설정한 것과 다르게 보이는 경우가 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener"
->참조&lt;/a>)
+&lt;p>여백 상쇄(margin collapsing)로 인해 margin이 설정한 것과 다르게 보이는 경우가 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener"
+>참조&lt;/a>)&lt;/p>
 &lt;ol>
 &lt;li>둘 다 margin을 가진 인접 형제 요소&lt;/li>
 &lt;li>첫째 및/또는 마지막 (혹은 유일한)의 자식 요소에 margin이 설정된 하나 또는 둘 이상의 자식 요소를 가진 부모 요소 (자식의 margin이 부모의 margin보다 클 경우 발생)&lt;/li>
 &lt;/ol>
-&lt;/li>
-&lt;/ul>
 &lt;h2 id="줄바꿈-문자">줄바꿈 문자&lt;/h2>
-&lt;ul>
-&lt;li>줄바꿈 문자도 문자로 판단하여, 그만큼의 공간을 차지한다.&lt;/li>
-&lt;/ul>
+&lt;p>줄바꿈 문자도 문자로 판단하여, 그만큼의 공간을 차지한다.&lt;/p>
 &lt;h3 id="예시">예시&lt;/h3>
 &lt;p>두 태그를 한 줄에 놓는 html 예제&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
