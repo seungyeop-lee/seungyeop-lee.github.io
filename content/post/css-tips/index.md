@@ -1,7 +1,7 @@
 ---
 title: "CSS Tips"
 date: 2022-09-23
-lastmod: 2022-09-23
+lastmod: 2022-09-26
 categories:
 - FrontEnd
 tags:
@@ -67,3 +67,7 @@ image: cover.png
 - 태그에 선언된 클래스의 선언 순서는 영향을 미치지 않는다.
 - 태그에 선언된 클래스를 선택자로 한 CSS의 정의 순서만이 적용에 영향을 미친다.
     - 나중에 정의된 CSS가 먼저 정의된 CSS를 덮어쓴다.
+
+## border vs. outline
+
+border는 box model의 일부이며, outline은 box model에 속하지 않는다. outline은 border를 포함해서 요소를 완전히 둘러싼다. outline의 경우 해당 요소를 특별히 강조하기 위해 사용된다. ([참고](https://cssdeck.com/blog/css-tips-outline-vs-border/))
