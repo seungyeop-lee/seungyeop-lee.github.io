@@ -78,4 +78,7 @@
 &lt;li>나중에 정의된 CSS가 먼저 정의된 CSS를 덮어쓴다.&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul>
+&lt;h2 id="border-vs-outline">border vs. outline&lt;/h2>
+&lt;p>border는 box model의 일부이며, outline은 box model에 속하지 않는다. outline은 border를 포함해서 요소를 완전히 둘러싼다. outline의 경우 해당 요소를 특별히 강조하기 위해 사용된다. (&lt;a class="link" href="https://cssdeck.com/blog/css-tips-outline-vs-border/" target="_blank" rel="noopener"
+>참고&lt;/a>)&lt;/p></description></item></channel></rss>

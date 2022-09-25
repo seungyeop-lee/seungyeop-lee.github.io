@@ -78,7 +78,10 @@
 &lt;li>나중에 정의된 CSS가 먼저 정의된 CSS를 덮어쓴다.&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>프로그래머의 뇌 요약</title><link>https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/</link><pubDate>Sun, 17 Apr 2022 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/</guid><description>&lt;img src="https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/cover.png" alt="Featured image of post 프로그래머의 뇌 요약" />&lt;p>&lt;a class="link" href="http://www.yes24.com/Product/Goods/105911017" target="_blank" rel="noopener"
+&lt;/ul>
+&lt;h2 id="border-vs-outline">border vs. outline&lt;/h2>
+&lt;p>border는 box model의 일부이며, outline은 box model에 속하지 않는다. outline은 border를 포함해서 요소를 완전히 둘러싼다. outline의 경우 해당 요소를 특별히 강조하기 위해 사용된다. (&lt;a class="link" href="https://cssdeck.com/blog/css-tips-outline-vs-border/" target="_blank" rel="noopener"
+>참고&lt;/a>)&lt;/p></description></item><item><title>프로그래머의 뇌 요약</title><link>https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/</link><pubDate>Sun, 17 Apr 2022 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/</guid><description>&lt;img src="https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/cover.png" alt="Featured image of post 프로그래머의 뇌 요약" />&lt;p>&lt;a class="link" href="http://www.yes24.com/Product/Goods/105911017" target="_blank" rel="noopener"
 >프로그래머의 뇌&lt;/a>란 책을 읽고, 인상 깊었던 내용을 정리한다.&lt;/p>
 &lt;h2 id="코드가-초래하는-세-가지-종류의-혼란">코드가 초래하는 세 가지 종류의 혼란&lt;/h2>
 &lt;ol>
