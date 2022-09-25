@@ -69,4 +69,13 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item></channel></rss>
+&lt;/div>&lt;h2 id="2개-이상의-클래스">2개 이상의 클래스&lt;/h2>
+&lt;p>2개 이상의 클래스가 1개의 태그에 설정 된 경우 클래스를 선택자로 하여 정의한 CSS 적용 룰&lt;/p>
+&lt;ul>
+&lt;li>태그에 선언된 클래스의 선언 순서는 영향을 미치지 않는다.&lt;/li>
+&lt;li>태그에 선언된 클래스를 선택자로 한 CSS의 정의 순서만이 적용에 영향을 미친다.
+&lt;ul>
+&lt;li>나중에 정의된 CSS가 먼저 정의된 CSS를 덮어쓴다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>
