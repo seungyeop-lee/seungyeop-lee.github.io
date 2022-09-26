@@ -84,7 +84,9 @@
 >참고&lt;/a>)&lt;/p>
 &lt;h2 id="margin-auto">&lt;code>margin: auto&lt;/code>&lt;/h2>
 &lt;p>&lt;code>margin: auto&lt;/code>로 할 경우, 해당 태그가 width나 height 기준으로 100%에 맞도록 자동으로 margin을 추가해준다.
-일반적으로는 width를 % 단위로 줄이고, &lt;code>margin: auto&lt;/code>를 사용하여 중앙 정렬을 할 때 많이 사용된다.&lt;/p></description></item><item><title>프로그래머의 뇌 요약</title><link>https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/</link><pubDate>Sun, 17 Apr 2022 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/</guid><description>&lt;img src="https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/cover.png" alt="Featured image of post 프로그래머의 뇌 요약" />&lt;p>&lt;a class="link" href="http://www.yes24.com/Product/Goods/105911017" target="_blank" rel="noopener"
+일반적으로는 width를 % 단위로 줄이고, &lt;code>margin: auto&lt;/code>를 사용하여 중앙 정렬을 할 때 많이 사용된다.&lt;/p>
+&lt;h2 id="동일-z-index">동일 z-index&lt;/h2>
+&lt;p>&lt;code>position: fixed&lt;/code>인 2개 이상의 태그가 동일한 z-index를 가진경우에는 나중에 정의된 태그가 더 위에 위치한다.&lt;/p></description></item><item><title>프로그래머의 뇌 요약</title><link>https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/</link><pubDate>Sun, 17 Apr 2022 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/</guid><description>&lt;img src="https://seungyeop-lee.github.io/blog/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/cover.png" alt="Featured image of post 프로그래머의 뇌 요약" />&lt;p>&lt;a class="link" href="http://www.yes24.com/Product/Goods/105911017" target="_blank" rel="noopener"
 >프로그래머의 뇌&lt;/a>란 책을 읽고, 인상 깊었던 내용을 정리한다.&lt;/p>
 &lt;h2 id="코드가-초래하는-세-가지-종류의-혼란">코드가 초래하는 세 가지 종류의 혼란&lt;/h2>
 &lt;ol>
