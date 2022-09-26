@@ -1,7 +1,7 @@
 ---
 title: "CSS Tips"
 date: 2022-09-23
-lastmod: 2022-09-26
+lastmod: 2022-09-27
 categories:
 - FrontEnd
 tags:
@@ -76,3 +76,7 @@ border는 box model의 일부이며, outline은 box model에 속하지 않는다
 
 `margin: auto`로 할 경우, 해당 태그가 width나 height 기준으로 100%에 맞도록 자동으로 margin을 추가해준다. 
 일반적으로는 width를 % 단위로 줄이고, `margin: auto`를 사용하여 중앙 정렬을 할 때 많이 사용된다.
+
+## 동일 z-index
+
+`position: fixed`인 2개 이상의 태그가 동일한 z-index를 가진경우에는 나중에 정의된 태그가 더 위에 위치한다.
