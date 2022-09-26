@@ -71,3 +71,8 @@ image: cover.png
 ## border vs. outline
 
 border는 box model의 일부이며, outline은 box model에 속하지 않는다. outline은 border를 포함해서 요소를 완전히 둘러싼다. outline의 경우 해당 요소를 특별히 강조하기 위해 사용된다. ([참고](https://cssdeck.com/blog/css-tips-outline-vs-border/))
+
+## `margin: auto`
+
+`margin: auto`로 할 경우, 해당 태그가 width나 height 기준으로 100%에 맞도록 자동으로 margin을 추가해준다. 
+일반적으로는 width를 % 단위로 줄이고, `margin: auto`를 사용하여 중앙 정렬을 할 때 많이 사용된다.
