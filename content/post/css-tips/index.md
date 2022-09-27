@@ -1,7 +1,7 @@
 ---
 title: "CSS Tips"
 date: 2022-09-23
-lastmod: 2022-09-27
+lastmod: 2022-09-28
 categories:
 - FrontEnd
 tags:
@@ -80,3 +80,7 @@ border는 box model의 일부이며, outline은 box model에 속하지 않는다
 ## 동일 z-index
 
 `position: fixed`인 2개 이상의 태그가 동일한 z-index를 가진경우에는 나중에 정의된 태그가 더 위에 위치한다.
+
+## stacking context
+
+형제 태그에 대한 z-index 적용은 서로 독립적이어서, 자식 태그의 z-index는 부모 태그에게만 영향을 줄 수 있다. ([참고](https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context))
