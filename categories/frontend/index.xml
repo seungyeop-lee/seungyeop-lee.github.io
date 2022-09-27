@@ -86,4 +86,7 @@
 &lt;p>&lt;code>margin: auto&lt;/code>로 할 경우, 해당 태그가 width나 height 기준으로 100%에 맞도록 자동으로 margin을 추가해준다.
 일반적으로는 width를 % 단위로 줄이고, &lt;code>margin: auto&lt;/code>를 사용하여 중앙 정렬을 할 때 많이 사용된다.&lt;/p>
 &lt;h2 id="동일-z-index">동일 z-index&lt;/h2>
-&lt;p>&lt;code>position: fixed&lt;/code>인 2개 이상의 태그가 동일한 z-index를 가진경우에는 나중에 정의된 태그가 더 위에 위치한다.&lt;/p></description></item></channel></rss>
+&lt;p>&lt;code>position: fixed&lt;/code>인 2개 이상의 태그가 동일한 z-index를 가진경우에는 나중에 정의된 태그가 더 위에 위치한다.&lt;/p>
+&lt;h2 id="stacking-context">stacking context&lt;/h2>
+&lt;p>형제 태그에 대한 z-index 적용은 서로 독립적이어서, 자식 태그의 z-index는 부모 태그에게만 영향을 줄 수 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context" target="_blank" rel="noopener"
+>참고&lt;/a>)&lt;/p></description></item></channel></rss>
