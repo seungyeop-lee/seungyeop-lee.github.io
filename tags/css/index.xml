@@ -89,4 +89,10 @@
 &lt;p>&lt;code>position: fixed&lt;/code>인 2개 이상의 태그가 동일한 z-index를 가진경우에는 나중에 정의된 태그가 더 위에 위치한다.&lt;/p>
 &lt;h2 id="stacking-context">stacking context&lt;/h2>
 &lt;p>형제 태그에 대한 z-index 적용은 서로 독립적이어서, 자식 태그의 z-index는 부모 태그에게만 영향을 줄 수 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context" target="_blank" rel="noopener"
->참고&lt;/a>)&lt;/p></description></item></channel></rss>
+>참고&lt;/a>)&lt;/p>
+&lt;h2 id="이미지와-컨테이너-사이에-공백이-생기는-문제-대응">이미지와 컨테이너 사이에 공백이 생기는 문제 대응&lt;/h2>
+&lt;p>컨테이너가 둘려진 이미지가 인라인 요소라면 컨테이너에 공백이 생기는 버그가 있다. 해결하기 위한 방법은 아래와 같다.&lt;/p>
+&lt;ol>
+&lt;li>이미지에 &lt;code>vertial-align: top&lt;/code>을 설정&lt;/li>
+&lt;li>이미지를 &lt;code>display: block&lt;/code>으로 변경&lt;/li>
+&lt;/ol></description></item></channel></rss>
