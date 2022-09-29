@@ -1,7 +1,7 @@
 ---
 title: "CSS Tips"
 date: 2022-09-23
-lastmod: 2022-09-28
+lastmod: 2022-09-29
 categories:
 - FrontEnd
 tags:
@@ -84,3 +84,10 @@ border는 box model의 일부이며, outline은 box model에 속하지 않는다
 ## stacking context
 
 형제 태그에 대한 z-index 적용은 서로 독립적이어서, 자식 태그의 z-index는 부모 태그에게만 영향을 줄 수 있다. ([참고](https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context))
+
+## 이미지와 컨테이너 사이에 공백이 생기는 문제 대응
+
+컨테이너가 둘려진 이미지가 인라인 요소라면 컨테이너에 공백이 생기는 버그가 있다. 해결하기 위한 방법은 아래와 같다.
+
+1. 이미지에 `vertial-align: top`을 설정
+2. 이미지를 `display: block`으로 변경
