@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>jakarta.persistence on 펭귄의 외부 저장소</title><link>https://seungyeop-lee.github.io/blog/tags/jakarta.persistence/</link><description>Recent content in jakarta.persistence on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Mon, 07 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://seungyeop-lee.github.io/blog/tags/jakarta.persistence/index.xml" rel="self" type="application/rss+xml"/><item><title>Spring Boot 3에서 QueryDSL 사용 시 build 실패 문제 해결</title><link>https://seungyeop-lee.github.io/blog/post/spring-boot-3%EC%97%90%EC%84%9C-querydsl-%EC%82%AC%EC%9A%A9-%EC%8B%9C-build-%EC%8B%A4%ED%8C%A8-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0/</link><pubDate>Mon, 07 Nov 2022 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/spring-boot-3%EC%97%90%EC%84%9C-querydsl-%EC%82%AC%EC%9A%A9-%EC%8B%9C-build-%EC%8B%A4%ED%8C%A8-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0/</guid><description>&lt;img src="https://seungyeop-lee.github.io/blog/post/spring-boot-3%EC%97%90%EC%84%9C-querydsl-%EC%82%AC%EC%9A%A9-%EC%8B%9C-build-%EC%8B%A4%ED%8C%A8-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0/cover.png" alt="Featured image of post Spring Boot 3에서 QueryDSL 사용 시 build 실패 문제 해결" />&lt;h2 id="spring-boot-3에-기존-querydsl-설정을-사용하면-벌어지는-일">Spring Boot 3에 기존 QueryDSL 설정을 사용하면 벌어지는 일&lt;/h2>
+&lt;p>기존 Spring Boot 2.6.7 버전에서 사용하던 QueryDSL 설정은 아래와 같다.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-gradle" data-lang="gradle">&lt;span class="line">&lt;span class="cl">&lt;span class="n">dependencies&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">implementation&lt;/span> &lt;span class="s1">&amp;#39;com.querydsl:querydsl-jpa&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">annotationProcessor&lt;/span> &lt;span class="s2">&amp;#34;com.querydsl:querydsl-apt:${dependencyManagement.importedProperties[&amp;#39;querydsl.version&amp;#39;]}:jpa&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">annotationProcessor&lt;/span> &lt;span class="s1">&amp;#39;jakarta.persistence:jakarta.persistence-api&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">annotationProcessor&lt;/span> &lt;span class="s1">&amp;#39;jakarta.annotation:jakarta.annotation-api&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>동일 설정을 유지한 상태에서 Spring Boot 3.0.0-SNAPSHOT (RC2 + RC3)로 올려서 빌드를 시도하였으나 아래와 같은 에러 메세지가 발생하면서 실패하였다.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">org.gradle.api.tasks.TaskExecutionException: Execution failed for task &amp;#39;:compileJava&amp;#39;.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Caused by: java.lang.RuntimeException: java.lang.NoClassDefFoundError: javax/persistence/Entity
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.invocationHelper(JavacTaskImpl.java:168)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.doCall(JavacTaskImpl.java:100)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.call(JavacTaskImpl.java:94)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Caused by: java.lang.NoClassDefFoundError: javax/persistence/Entity
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at com.querydsl.apt.jpa.JPAAnnotationProcessor.createConfiguration(JPAAnnotationProcessor.java:37)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at com.querydsl.apt.AbstractQuerydslProcessor.process(AbstractQuerydslProcessor.java:82)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Caused by: java.lang.ClassNotFoundException: javax.persistence.Entity
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="해결책">해결책&lt;/h2>
+&lt;p>QueryDSL 설정은 아래와 같이 변경하여 해결하였다.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-gradle" data-lang="gradle">&lt;span class="line">&lt;span class="cl">&lt;span class="n">dependencies&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">implementation&lt;/span> &lt;span class="s2">&amp;#34;com.querydsl:querydsl-jpa:${dependencyManagement.importedProperties[&amp;#39;querydsl.version&amp;#39;]}:jakarta&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">annotationProcessor&lt;/span> &lt;span class="s2">&amp;#34;com.querydsl:querydsl-apt:${dependencyManagement.importedProperties[&amp;#39;querydsl.version&amp;#39;]}:jakarta&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">annotationProcessor&lt;/span> &lt;span class="s1">&amp;#39;jakarta.persistence:jakarta.persistence-api&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">annotationProcessor&lt;/span> &lt;span class="s1">&amp;#39;jakarta.annotation:jakarta.annotation-api&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="원인-및-해결-과정">원인 및 해결 과정&lt;/h2>
+&lt;p>빌드 실패의 원인은 기존 &lt;code>javax.persistence&lt;/code> 패키지가 &lt;code>jakarta.persistence&lt;/code>로 변경되면서 발생한 문제로 확인되었다.&lt;/p>
+&lt;p>QueryDSL의 github repository issue를 살펴보면 querydsl-apt에 대해서만 classifier로 jakarta를 설정하면 문제가 해결된다는 comment를 발견하였고, 실제로 적용하면 build 실패 문제가 해결되었으나, &lt;code>QuerydslPredicateExecutor&lt;/code>를 이용하여 query를 실행 할 경우, runtime에서 아래와 같은 예외가 발생 함을 확인 할 수 있었다.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">java.lang.ClassNotFoundException: javax.persistence.NoResultException
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[na:na]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.data.jpa.repository.support.Querydsl.createQuery(Querydsl.java:85) ~[spring-data-jpa-3.0.0-RC2.jar:3.0.0-RC2]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.data.jpa.repository.support.Querydsl.createQuery(Querydsl.java:102) ~[spring-data-jpa-3.0.0-RC2.jar:3.0.0-RC2]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.data.jpa.repository.support.QuerydslJpaPredicateExecutor.doCreateQuery(QuerydslJpaPredicateExecutor.java:256) ~[spring-data-jpa-3.0.0-RC2.jar:3.0.0-RC2]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.data.jpa.repository.support.QuerydslJpaPredicateExecutor.createCountQuery(QuerydslJpaPredicateExecutor.java:225) ~[spring-data-jpa-3.0.0-RC2.jar:3.0.0-RC2]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.data.jpa.repository.support.QuerydslJpaPredicateExecutor.findAll(QuerydslJpaPredicateExecutor.java:140) ~[spring-data-jpa-3.0.0-RC2.jar:3.0.0-RC2]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:288) ~[spring-data-commons-3.0.0-RC2.jar:3.0.0-RC2]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:136) ~[spring-data-commons-3.0.0-RC2.jar:3.0.0-RC2]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:120) ~[spring-data-commons-3.0.0-RC2.jar:3.0.0-RC2]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516) ~[spring-data-commons-3.0.0-RC2.jar:3.0.0-RC2]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285) ~[spring-data-commons-3.0.0-RC2.jar:3.0.0-RC2]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628) ~[spring-data-commons-3.0.0-RC2.jar:3.0.0-RC2]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.0-RC3.jar:6.0.0-RC3]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168) ~[spring-data-commons-3.0.0-RC2.jar:3.0.0-RC2]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143) ~[spring-data-commons-3.0.0-RC2.jar:3.0.0-RC2]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.0-RC3.jar:6.0.0-RC3]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:77) ~[spring-data-commons-3.0.0-RC2.jar:3.0.0-RC2]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.0-RC3.jar:6.0.0-RC3]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.0.0-RC3.jar:6.0.0-RC3]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-6.0.0-RC3.jar:6.0.0-RC3]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.0.0-RC3.jar:6.0.0-RC3]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.0-RC3.jar:6.0.0-RC3]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-6.0.0-RC3.jar:6.0.0-RC3]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.0-RC3.jar:6.0.0-RC3]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:163) ~[spring-data-jpa-3.0.0-RC2.jar:3.0.0-RC2]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.0-RC3.jar:6.0.0-RC3]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.0.0-RC3.jar:6.0.0-RC3]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.0-RC3.jar:6.0.0-RC3]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:218) ~[spring-aop-6.0.0-RC3.jar:6.0.0-RC3]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> at jdk.proxy4/jdk.proxy4.$Proxy120.findAll(Unknown Source) ~[na:na]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-gradle" data-lang="gradle">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 예외가 발생했을 때의 QueryDSL 설정
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="n">dependencies&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">implementation&lt;/span> &lt;span class="s1">&amp;#39;com.querydsl:querydsl-jpa&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">annotationProcessor&lt;/span> &lt;span class="s2">&amp;#34;com.querydsl:querydsl-apt:${dependencyManagement.importedProperties[&amp;#39;querydsl.version&amp;#39;]}:jakarta&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">annotationProcessor&lt;/span> &lt;span class="s1">&amp;#39;jakarta.persistence:jakarta.persistence-api&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">annotationProcessor&lt;/span> &lt;span class="s1">&amp;#39;jakarta.annotation:jakarta.annotation-api&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>코드를 확인해보니 &lt;code>org.springframework.data.jpa.repository.support.Querydsl&lt;/code>에서 &lt;code>com.querydsl.jpa.impl.JPAQuery&lt;/code>를 사용하고 있으나, data.jpa에서는 &lt;code>jakarta.persistence.EntityManager&lt;/code>를 querydsl.jap에서는 &lt;code>javax.persistence.EntityManager&lt;/code>를 사용하고 있어서 발생한 문제였다.&lt;/p>
+&lt;p>&lt;code>com.querydsl.jpa.impl.JPAQuery&lt;/code>는 &lt;code>com.querydsl:querydsl-jpa&lt;/code>의존성에 속해 있으므로, &lt;code>com.querydsl:querydsl-jpa&lt;/code>에도 jakarta classifier를 추가하여 문제를 해결하였다.&lt;/p>
+&lt;p>현재 (2022년 11월 7일) 위의 내용은 공식 문서를 포함하여 어디에도 제대로 기재되어 있는 곳이 없고, 다른 분들은 나와 같은 삽질을 하지 않길 바라는 마음에 블로깅을 해본다. 많은 분들의 시간이 절약되기를&amp;hellip;&lt;/p>
+&lt;h2 id="ref">ref.&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://github.com/querydsl/querydsl/issues/3421" target="_blank" rel="noopener"
+>With SpringBoot 3.0.0-RC1 build failed.&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/querydsl/querydsl/issues/3371" target="_blank" rel="noopener"
+>Q classes are not generated by AP where using jakarta.persistence.* instead of javax.persistence.*&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/querydsl/querydsl/issues/3233" target="_blank" rel="noopener"
+>[Feature Request] Hibernate 6 support&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
