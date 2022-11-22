@@ -1,4 +1,59 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>펭귄의 외부 저장소</title><link>https://seungyeop-lee.github.io/blog/</link><description>Recent content on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Mon, 07 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://seungyeop-lee.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Spring Boot 3에서 QueryDSL 사용 시 build 실패 문제 해결</title><link>https://seungyeop-lee.github.io/blog/post/spring-boot-3%EC%97%90%EC%84%9C-querydsl-%EC%82%AC%EC%9A%A9-%EC%8B%9C-build-%EC%8B%A4%ED%8C%A8-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0/</link><pubDate>Mon, 07 Nov 2022 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/spring-boot-3%EC%97%90%EC%84%9C-querydsl-%EC%82%AC%EC%9A%A9-%EC%8B%9C-build-%EC%8B%A4%ED%8C%A8-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0/</guid><description>&lt;img src="https://seungyeop-lee.github.io/blog/post/spring-boot-3%EC%97%90%EC%84%9C-querydsl-%EC%82%AC%EC%9A%A9-%EC%8B%9C-build-%EC%8B%A4%ED%8C%A8-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0/cover.png" alt="Featured image of post Spring Boot 3에서 QueryDSL 사용 시 build 실패 문제 해결" />&lt;h2 id="spring-boot-3에-기존-querydsl-설정을-사용하면-벌어지는-일">Spring Boot 3에 기존 QueryDSL 설정을 사용하면 벌어지는 일&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>펭귄의 외부 저장소</title><link>https://seungyeop-lee.github.io/blog/</link><description>Recent content on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Tue, 22 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://seungyeop-lee.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>React Standard Architecture</title><link>https://seungyeop-lee.github.io/blog/post/react-standard-architecture/</link><pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/react-standard-architecture/</guid><description>&lt;p>Next.js에서 사용 가능한 React 범용 아키텍처를 고민 할 일이 생겨서 여기에 그 과정을 정리한다.&lt;/p>
+&lt;h2 id="version1">version1&lt;/h2>
+&lt;p>&lt;img src="https://seungyeop-lee.github.io/blog/blog/post/react-standard-architecture/front-archetecture-version1.png"
+width="1422"
+height="602"
+srcset="https://seungyeop-lee.github.io/blog/blog/post/react-standard-architecture/front-archetecture-version1_hub9e6408302b398891b5046358d5509c6_50535_480x0_resize_box_3.png 480w, https://seungyeop-lee.github.io/blog/blog/post/react-standard-architecture/front-archetecture-version1_hub9e6408302b398891b5046358d5509c6_50535_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="front-archetecture-version1"
+class="gallery-image"
+data-flex-grow="236"
+data-flex-basis="566px"
+>&lt;/p>
+&lt;h2 id="version2">version2&lt;/h2>
+&lt;p>&lt;img src="https://seungyeop-lee.github.io/blog/blog/post/react-standard-architecture/front-archetecture-version2.png"
+width="2282"
+height="1440"
+srcset="https://seungyeop-lee.github.io/blog/blog/post/react-standard-architecture/front-archetecture-version2_hu283887e9c5f03a10c66a37e72765c820_190333_480x0_resize_box_3.png 480w, https://seungyeop-lee.github.io/blog/blog/post/react-standard-architecture/front-archetecture-version2_hu283887e9c5f03a10c66a37e72765c820_190333_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="front-archetecture-version2"
+class="gallery-image"
+data-flex-grow="158"
+data-flex-basis="380px"
+>&lt;/p>
+&lt;h2 id="version3">version3&lt;/h2>
+&lt;p>&lt;img src="https://seungyeop-lee.github.io/blog/blog/post/react-standard-architecture/front-archetecture-version3.png"
+width="2202"
+height="1502"
+srcset="https://seungyeop-lee.github.io/blog/blog/post/react-standard-architecture/front-archetecture-version3_hud4c65f90d2851e552a53d032a12553d3_244261_480x0_resize_box_3.png 480w, https://seungyeop-lee.github.io/blog/blog/post/react-standard-architecture/front-archetecture-version3_hud4c65f90d2851e552a53d032a12553d3_244261_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="front-archetecture-version3"
+class="gallery-image"
+data-flex-grow="146"
+data-flex-basis="351px"
+>&lt;/p>
+&lt;h2 id="version4">version4&lt;/h2>
+&lt;p>&lt;img src="https://seungyeop-lee.github.io/blog/blog/post/react-standard-architecture/front-archetecture-version4.png"
+width="2202"
+height="1622"
+srcset="https://seungyeop-lee.github.io/blog/blog/post/react-standard-architecture/front-archetecture-version4_huf50315dfba439bdcf25d7af8964d3731_263525_480x0_resize_box_3.png 480w, https://seungyeop-lee.github.io/blog/blog/post/react-standard-architecture/front-archetecture-version4_huf50315dfba439bdcf25d7af8964d3731_263525_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="front-archetecture-version4"
+class="gallery-image"
+data-flex-grow="135"
+data-flex-basis="325px"
+>&lt;/p>
+&lt;h2 id="version5">version5&lt;/h2>
+&lt;p>&lt;img src="https://seungyeop-lee.github.io/blog/blog/post/react-standard-architecture/front-archetecture-version5.png"
+width="2202"
+height="1622"
+srcset="https://seungyeop-lee.github.io/blog/blog/post/react-standard-architecture/front-archetecture-version5_hud4d4def15cc909a546a1bd6011fcc5ff_241774_480x0_resize_box_3.png 480w, https://seungyeop-lee.github.io/blog/blog/post/react-standard-architecture/front-archetecture-version5_hud4d4def15cc909a546a1bd6011fcc5ff_241774_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="front-archetecture-version5"
+class="gallery-image"
+data-flex-grow="135"
+data-flex-basis="325px"
+>&lt;/p></description></item><item><title>Spring Boot 3에서 QueryDSL 사용 시 build 실패 문제 해결</title><link>https://seungyeop-lee.github.io/blog/post/spring-boot-3%EC%97%90%EC%84%9C-querydsl-%EC%82%AC%EC%9A%A9-%EC%8B%9C-build-%EC%8B%A4%ED%8C%A8-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0/</link><pubDate>Mon, 07 Nov 2022 00:00:00 +0000</pubDate><guid>https://seungyeop-lee.github.io/blog/post/spring-boot-3%EC%97%90%EC%84%9C-querydsl-%EC%82%AC%EC%9A%A9-%EC%8B%9C-build-%EC%8B%A4%ED%8C%A8-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0/</guid><description>&lt;img src="https://seungyeop-lee.github.io/blog/post/spring-boot-3%EC%97%90%EC%84%9C-querydsl-%EC%82%AC%EC%9A%A9-%EC%8B%9C-build-%EC%8B%A4%ED%8C%A8-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0/cover.png" alt="Featured image of post Spring Boot 3에서 QueryDSL 사용 시 build 실패 문제 해결" />&lt;h2 id="spring-boot-3에-기존-querydsl-설정을-사용하면-벌어지는-일">Spring Boot 3에 기존 QueryDSL 설정을 사용하면 벌어지는 일&lt;/h2>
 &lt;p>기존 Spring Boot 2.6.7 버전에서 사용하던 QueryDSL 설정은 아래와 같다.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
