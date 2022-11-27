@@ -1,5 +1,5 @@
 title: '펭귄의 외부 저장소'
-baseurl: 'https://seungyeop-lee.github.io/blog/'
+baseurl: 'https://seungyeop-lee.github.io'
 languageCode: ko-KR
 paginate: 5
 
@@ -51,7 +51,7 @@ params:
     enabled: true
     provider: utterances
     utterances:
-      repo: seungyeop-lee/blog
+      repo: seungyeop-lee/seungyeop-lee.github.io
       issueTerm: pathname
       label: comment
       theme: preferred-color-scheme
