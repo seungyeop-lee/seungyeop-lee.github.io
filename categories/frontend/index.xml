@@ -1,5 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FrontEnd on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/categories/frontend/</link><description>Recent content in FrontEnd on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Wed, 23 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/categories/frontend/index.xml" rel="self" type="application/rss+xml"/><item><title>React Standard Architecture</title><link>https://blog.seungyeop-lee.com/post/react-standard-architecture/</link><pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/react-standard-architecture/</guid><description>&lt;p>Next.js에서 사용 가능한 React 범용 아키텍처를 고민 할 일이 생겨서 여기에 그 과정을 정리한다.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FrontEnd on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/categories/frontend/</link><description>Recent content in FrontEnd on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Wed, 23 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/categories/frontend/index.xml" rel="self" type="application/rss+xml"/><item><title>React Standard Architecture</title><link>https://blog.seungyeop-lee.com/post/react-standard-architecture/</link><pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/react-standard-architecture/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/cover.png" alt="Featured image of post React Standard Architecture" />&lt;p>Next.js에서 사용 가능한 React 표준(범용) 아키텍처를 고민 할 일이 생겨서 여기에 그 과정을 정리한다.&lt;/p>
+&lt;p>아키텍처는 아직 완성되지 않았다고 생각하며, 개선점이 나올 때마다 이 글에 업데이트 할 예정이다.&lt;/p>
+&lt;p>(&lt;strong>이 글을 참고하여 저작물을 생산하시는 경우, 출처를 남겨주시길 부탁드리겠습니다.&lt;/strong>)&lt;/p>
+&lt;h2 id="기본-설계-방향">기본 설계 방향&lt;/h2>
+&lt;ul>
+&lt;li>각 요소의 역할이 뚜렷하고 중복되지 않도록한다.&lt;/li>
+&lt;li>의존관계가 순환하지 않도록한다.&lt;/li>
+&lt;/ul>
 &lt;h2 id="version1">version1&lt;/h2>
+&lt;p>&lt;a class="link" href="https://medium.com/@yujso66/%EB%B2%88%EC%97%AD-%EC%9C%84%EC%A0%AF-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C-b3e95b261c18" title="[번역] 위젯 주도 개발"
+target="_blank" rel="noopener"
+>위젯 주도 개발&lt;/a>이라는 글에서 힌트를 얻어 기본적인 역할 별로 요소를 나누고 서로의 의존관계를 설정하였다.&lt;/p>
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version1.png"
 width="1422"
 height="602"
@@ -10,7 +20,19 @@ class="gallery-image"
 data-flex-grow="236"
 data-flex-basis="566px"
 >&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>pages&lt;/strong>: routing에 대한 책임을 갖는다. nextjs의 특성상 pages폴더의 구조가 routing rule이므로 단순히 해당 page에 해당하는 widget을 호출하는 역할 만 수행한다.&lt;/li>
+&lt;li>&lt;strong>widgets&lt;/strong>: 특정 페이지에서 사용되는 complex component를 조합하는 책임을 갖는다. query를 사용해 페이지 내 공통 데이터 관리 및 complex component 사이의 연결 책임도 수행한다.&lt;/li>
+&lt;li>&lt;strong>components&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>complex&lt;/strong>: base component를 조합하고, 연결하는 책임을 갖는다. query를 사용해 기능 내 데이터 관리를 수행한다.&lt;/li>
+&lt;li>&lt;strong>base&lt;/strong>: 화면에 보여지는 markup &amp;amp; css를 담당한다. view에 대한 책임을 갖는다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>queries&lt;/strong>: 데이터 상태를 관리한다. 주로 API 서버와 통신하는 역할을 한다.&lt;/li>
+&lt;/ul>
 &lt;h2 id="version2">version2&lt;/h2>
+&lt;p>&lt;a class="link" href="#version1" >version1&lt;/a>의 구조를 바탕으로 각 역할에 대해 좀 더 드릴 다운하였다.&lt;/p>
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version2.png"
 width="2282"
 height="1440"
@@ -21,7 +43,47 @@ class="gallery-image"
 data-flex-grow="158"
 data-flex-basis="380px"
 >&lt;/p>
+&lt;ul>
+&lt;li>이하를 제외하고는 &lt;a class="link" href="#version1" >version1&lt;/a>과 상동&lt;/li>
+&lt;li>&lt;strong>widgets&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>widget&lt;/strong>: 특정 페이지의 layout 및 complext component를 조합한다.&lt;/li>
+&lt;li>&lt;strong>hook&lt;/strong>: 영속화 데이터 로직을 책임진다. query를 이용해 데이터를 다룬다.&lt;/li>
+&lt;li>&lt;strong>css&lt;/strong>: layout에 필요한 스타일을 정의한다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>components&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>complex&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>component&lt;/strong>: base component를 조합하고, 배치한다.&lt;/li>
+&lt;li>&lt;strong>hook&lt;/strong>: UI 로직을 책임진다.&lt;/li>
+&lt;li>&lt;strong>store&lt;/strong>: complex component의 내부 상태를 관리한다.&lt;/li>
+&lt;li>&lt;strong>css&lt;/strong>: complex component에 필요한 스타일을 정의한다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>base&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>component&lt;/strong>: 더 기본적인 base component의 조합 및 markup을 담당한다.&lt;/li>
+&lt;li>&lt;strong>css&lt;/strong>: base component에 필요한 스타일을 정의한다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>queries&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>query&lt;/strong>: 서버에서 받은 데이터를 상태로서 관리한다.&lt;/li>
+&lt;li>&lt;strong>data&lt;/strong>: 서버에서 받은 데이터이다.&lt;/li>
+&lt;li>&lt;strong>util func&lt;/strong>: 서버에서 받은 데이터를 해석하여 기능을 제공해주는 함수 집합이다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
 &lt;h2 id="version3">version3&lt;/h2>
+&lt;p>&lt;a class="link" href="#version2" >version2&lt;/a>의 의존관계가 명료하지 않고, 역할이 중복된 느낌을 받아 전체적인 리팩토링이 필요하다고 판단하였다.&lt;/p>
+&lt;p>widget의 모음을 나타내는 단어로서 &lt;a class="link" href="https://github.com/alan2207/bulletproof-react" title="Bulletproof React"
+target="_blank" rel="noopener"
+>Bulletproof React&lt;/a> 레포지토리에서 사용된 feature(기능)라는 용어를 차용하여 아키텍처를 재구성하였다.&lt;/p>
+&lt;p>기능을 계층적으로 세분화하여 만드는 경우를 고려하여 프랙털 구조를 갖도록 설계하였다.&lt;/p>
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version3.png"
 width="2202"
 height="1502"
@@ -32,7 +94,46 @@ class="gallery-image"
 data-flex-grow="146"
 data-flex-basis="351px"
 >&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>page&lt;/strong>: routing 및 static page를 생성한다. feature가 배치될 layout도 여기서 정해진다.&lt;/li>
+&lt;li>&lt;strong>feature&lt;/strong>: 하나의 기능을 나타내는 단위로, page에서 호출 될 때는 Header, LNB, GNB, Footer를 제외한 main 부분(contents 부분)을 의미한다.
+&lt;ul>
+&lt;li>&lt;strong>entry&lt;/strong>: feature를 호출하기위한 입구에 해당하는 요소, widget을 조합하고, feature mode에 따라 widget을 변경한다.
+&lt;ul>
+&lt;li>&lt;strong>feature logic&lt;/strong>: feature mode관리, feature 내 공통 데이터 관리 등을 담당한다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>widget&lt;/strong>: main 부분을 구성하는 소 기능을 담당한다.
+&lt;ul>
+&lt;li>&lt;strong>container&lt;/strong>: data logic을 만들어서 presentation에 주입하는 역할을 한다.
+&lt;ul>
+&lt;li>&lt;strong>data logic&lt;/strong>: 영속화 데이터 로직을 책임진다. react query를 이용하여 데이터를 다룬다.&lt;/li>
+&lt;li>&lt;strong>react query&lt;/strong>: 영속화 데이터 상태 관리 라이브러리로서, API를 통해 받은 데이터를 관리한다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>presentation&lt;/strong>: 여러개의 component를 조합하고, ui logic을 이용해 각 component를 연결한다.
+&lt;ul>
+&lt;li>&lt;strong>ui logic&lt;/strong>: ui 내부의 상태를 관리한다. zustand를 이용하여 상태를 저장, 조작한다.&lt;/li>
+&lt;li>&lt;strong>zustand&lt;/strong>: 범용 상태 관리 라이브러리로서 상태와 로직을 응집성 높게 관리 할 수 있는 장점이 있다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>api&lt;/strong>: API호출의 역할을 갖는다.&lt;/li>
+&lt;li>&lt;strong>component&lt;/strong>: 화면에 보여지는 markup &amp;amp; css를 담당한다. view에 대한 책임을 갖는다. 특정 상황에서는 스스로의 상태도 갖는다. (ex. form)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>util&lt;/strong>: 공통 유틸 함수 모음&lt;/li>
+&lt;li>&lt;strong>lib&lt;/strong>: 외부 라이브러리 wrapping 함수 모음&lt;/li>
+&lt;li>&lt;strong>component&lt;/strong>: 프로젝트의 공용 component&lt;/li>
+&lt;li>&lt;strong>state&lt;/strong>: 프로젝트 내 공통 데이터 상태 관리&lt;/li>
+&lt;/ul>
 &lt;h2 id="version4">version4&lt;/h2>
+&lt;p>영속화 데이터 상태 관리부분과 api 호출부분의 연관성이 높으므로 repository로 그룹화하였다.
+그로인해 widget의 책임이 줄어들고, 역할이 더 명확해졌다.
+또한, repository부분을 mocking하는 것으로 서버부분의 구현이 없이도 화면개발이 용이해져 유연성이 향상되었다.&lt;/p>
+&lt;p>단순 API호출이 필요한 경우에는 react query를 통하지 않고, widget에서 바로 api호출이 가능하도록하였다.&lt;/p>
+&lt;p>zustand를 제외 함으로서, 상태관리를 구현자의 재량에 맡기도록하였다.&lt;/p>
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version4.png"
 width="2202"
 height="1622"
@@ -43,7 +144,24 @@ class="gallery-image"
 data-flex-grow="135"
 data-flex-basis="325px"
 >&lt;/p>
+&lt;ul>
+&lt;li>이하를 제외하고는 &lt;a class="link" href="#version3" >version3&lt;/a>와 상동&lt;/li>
+&lt;li>&lt;strong>feature&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>repository&lt;/strong>: widget에서 사용할 데이터에 대한 CRUD의 책임을 갖는 요소
+&lt;ul>
+&lt;li>&lt;strong>react query&lt;/strong>: widget에서 사용할 데이터의 상태를 관리한다.&lt;/li>
+&lt;li>&lt;strong>api&lt;/strong>: react query 및 widget에서 직접 호출해서 사용할 API의 호출 역할을 갖는다.&lt;/li>
+&lt;li>&lt;strong>type&lt;/strong>: 기능 내 사용 데이터 타입을 정의한다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
 &lt;h2 id="version5">version5&lt;/h2>
+&lt;p>widget의 책임이 줄어듦으로서, container와 presentation, data logic과 ui logic으로 나눈 설계가 표준 아키텍처로 사용하기에는 과해 보였다.
+(&lt;a class="link" href="#version4" >version4&lt;/a>로 만든 간단한 게시판에서 컬럼 1개를 삭제하는 작업을 했을 때, 수정해야하는 부분이 너무 많다고 느껴졌다.)&lt;/p>
+&lt;p>그래서 container와 presentation을 widget으로, data logic과 ui logic을 widget logic으로 통폐합하였다.&lt;/p>
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version5.png"
 width="2202"
 height="1622"
@@ -54,7 +172,23 @@ class="gallery-image"
 data-flex-grow="135"
 data-flex-basis="325px"
 >&lt;/p>
+&lt;ul>
+&lt;li>이하를 제외하고는 &lt;a class="link" href="#version4" >version4&lt;/a>와 상동&lt;/li>
+&lt;li>&lt;strong>feature&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>widget&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>widget&lt;/strong>: main 부분을 구성하는 소 기능을 담당한다. component를 조합하고, widget logic을 이용해 각 component를 연결한다.&lt;/li>
+&lt;li>&lt;strong>widget logic&lt;/strong>: 영속화 데이터 로직과 UI 로직을 담당한다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
 &lt;h2 id="version6">version6&lt;/h2>
+&lt;p>widget에서 사용하는 데이터 타입과 api를 통해 전달되는 데이터의 형태가 다른 패턴이 발생 할 수 있음을 확인하였으므로 수정작업을 진행하였다.
+(ex. 1개의 widget에서 사용하는 데이터가 2개 이상의 api를 조합하여 만들 필요가 있는 경우)&lt;/p>
+&lt;p>그래서 api 매핑용 데이터 타입 (api type)과 widget용 데이터 타입(type)으로 나누었다.&lt;/p>
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version6.png"
 width="2202"
 height="1622"
@@ -64,7 +198,29 @@ alt="version6"
 class="gallery-image"
 data-flex-grow="135"
 data-flex-basis="325px"
->&lt;/p></description></item><item><title>CSS Tips</title><link>https://blog.seungyeop-lee.com/post/css-tips/</link><pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/css-tips/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/css-tips/cover.png" alt="Featured image of post CSS Tips" />&lt;h2 id="상속">상속&lt;/h2>
+>&lt;/p>
+&lt;ul>
+&lt;li>이하를 제외하고는 &lt;a class="link" href="#version5" >version5&lt;/a>와 상동&lt;/li>
+&lt;li>&lt;strong>feature&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>type&lt;/strong>: widget에서 사용하는 데이터의 타입을 정의한다.&lt;/li>
+&lt;li>&lt;strong>repository&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>api type&lt;/strong>: API를 통해 받은 데이터를 매핑하기 위한 타입을 정의한다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="ref">ref.&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://medium.com/@yujso66/%EB%B2%88%EC%97%AD-%EC%9C%84%EC%A0%AF-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C-b3e95b261c18" title="[번역] 위젯 주도 개발"
+target="_blank" rel="noopener"
+>[번역] 위젯 주도 개발&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/alan2207/bulletproof-react" title="Bulletproof React"
+target="_blank" rel="noopener"
+>Bulletproof React&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>CSS Tips</title><link>https://blog.seungyeop-lee.com/post/css-tips/</link><pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/css-tips/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/css-tips/cover.png" alt="Featured image of post CSS Tips" />&lt;h2 id="상속">상속&lt;/h2>
 &lt;p>부모로부터 상속받은 속성은 브라우저의 디폴트 CSS 속성보다 우선순위가 낮다.&lt;/p>
 &lt;h2 id="여백-상쇄">여백 상쇄&lt;/h2>
 &lt;p>여백 상쇄(margin collapsing)로 인해 margin이 설정한 것과 다르게 보이는 경우가 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener"
