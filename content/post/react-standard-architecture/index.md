@@ -139,6 +139,45 @@ widget에서 사용하는 데이터 타입과 api를 통해 전달되는 데이�
     - **repository**
       - **api type**: API를 통해 받은 데이터를 매핑하기 위한 타입을 정의한다.
 
+## version7
+
+version6를 실제로 사용해 보았을 때, widget logic이 react query가 제공하는 타입에 암묵적 의존하는 것을 확인하였다.
+그로 인해, 서버가 아직 준비되어 있지 않아, mock 데이터를 우선 사용하여 화면작업을 해야하는 경우, 
+주니어 개발자들이 많이 헤메는 현상을 확인하였다. 
+
+이러한 어려움을 해소하고자, repository와 react query를 분리하는 수정작업을 진행하였다. 
+
+또한 api type의 사용을 선택적으로 하도록 변경하였다.
+(기본적으로 화면 전용 API를 서버에서 제공해주기로 내부 의사 결정이 일어난것에 따름)
+
+![version7](front-archetecture-version7.png)
+
+- 이하를 제외하고는 [version6](#version6)와 상동
+- **feature**
+    - **repository**: widget에서 사용 할 데이터 핸들링을 담당한다. react query가 api type으로 데이터를 제공하는 경우, type 형태로 매핑하는 역할도 담당한다.
+    - **query**
+        - **react query**: API를 통해 받은 데이터의 상태를 관리한다.
+        - **api**: react query에서 사용할 API의 호출 역할을 갖는다.
+        - **api type**: API를 통해 받은 데이터를 매핑하기 위한 타입을 정의한다. API에서 주는 데이터와 widget에서 사용하는 type이 다를경우 사용한다.
+
+## version8
+
+서버에서 화면전용 API를 제공해주지 않고, 각 feature가 여러개의 API를 조합하여 사용해야하는 경우를 대비한 아키텍처이다.
+
+범용 아키텍처를 지향하므로 react query 부분도 optional하게 변경하였다.
+
+![version8](front-archetecture-version8.png)
+
+- 이하를 제외하고는 [version7](#version7)와 상동
+
+- **feature**
+    - **repository**: 
+      - **repository**: widget에서 사용 할 데이터 핸들링을 담당한다. 
+      - **react query**: n개의 API를 통해 받은 데이터의 상태를 통합하여 관리한다. api type을 type 형태로 매핑하는 역할도 담당한다.
+    - **query**
+        - **api**: 서버가 제공하는 API의 호출 역할을 갖는다.
+        - **api type**: API를 통해 받은 데이터를 매핑하기 위한 타입을 정의한다.
+
 ## ref.
 
 - [[번역] 위젯 주도 개발][1]
