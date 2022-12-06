@@ -1,7 +1,7 @@
 ---
 title: "React Standard Architecture"
 date: 2022-11-23
-lastmod: 2022-12-05
+lastmod: 2022-12-06
 categories:
 - Frontend
 tags:
@@ -152,7 +152,7 @@ version6를 실제로 사용해 보았을 때, widget logic이 react query가 �
 
 ![version7](front-archetecture-version7.png)
 
-- 이하를 제외하고는 [version6](#version6)와 상동
+- 이하를 제외하고는 [version6](#version6)과 상동
 - **feature**
     - **repository**: widget에서 사용 할 데이터 핸들링을 담당한다. react query가 api type으로 데이터를 제공하는 경우, type 형태로 매핑하는 역할도 담당한다.
     - **query**
@@ -168,8 +168,7 @@ version6를 실제로 사용해 보았을 때, widget logic이 react query가 �
 
 ![version8](front-archetecture-version8.png)
 
-- 이하를 제외하고는 [version7](#version7)와 상동
-
+- 이하를 제외하고는 [version7](#version7)과 상동
 - **feature**
     - **repository**: 
       - **repository**: widget에서 사용 할 데이터 핸들링을 담당한다. 
@@ -177,6 +176,23 @@ version6를 실제로 사용해 보았을 때, widget logic이 react query가 �
     - **query**
         - **api**: 서버가 제공하는 API의 호출 역할을 갖는다.
         - **api type**: API를 통해 받은 데이터를 매핑하기 위한 타입을 정의한다.
+
+## version9
+
+feature와 관계없이 공통으로 사용되어야 하는 요소들을 위치시키기위해 common widget을 추가하였다. 
+
+(ex. 시스템에 등록되어 있는 전체 회원이 표시되는 dropdown component)
+
+또한 선택적으로 사용되는 부분의 경우 점선을 이용하여 선택 이용 부분임을 나타내었다.
+
+![version9](front-archetecture-version9.png)
+
+- 이하를 제외하고는 [version8](#version8)과 상동
+- **common widget**: 2개 이상의 feature내 widget에서 공통으로 사용 될 widget 모음
+    - **widget**: 공통 widget에 대한 component, repository를 조합하는 역할을 한다. 외부에서 common widget을 호출 할 때의 진입점
+    - **repository**: widget에서 필요로 하는 데이터를 공급하는 역할을 한다.
+    - **component**: widget의 markup, style을 담당한다.
+    - **type**: widget에서 사용하는 데이터의 타입을 정의한다.
 
 ## ref.
 
