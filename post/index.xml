@@ -282,13 +282,13 @@ data-flex-basis="259px"
 &lt;p>또한 선택적으로 사용되는 부분의 경우 점선을 이용하여 선택 이용 부분임을 나타내었다.&lt;/p>
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version9.png"
 width="2282"
-height="2184"
-srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version9_hu60c53f8072c21685e82a92d382d83fbf_309657_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version9_hu60c53f8072c21685e82a92d382d83fbf_309657_1024x0_resize_box_3.png 1024w"
+height="2058"
+srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version9_hu2b645a08818623256efad3b0e2770e6d_305838_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version9_hu2b645a08818623256efad3b0e2770e6d_305838_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="version9"
 class="gallery-image"
-data-flex-grow="104"
-data-flex-basis="250px"
+data-flex-grow="110"
+data-flex-basis="266px"
 >&lt;/p>
 &lt;ul>
 &lt;li>이하를 제외하고는 &lt;a class="link" href="#version8" >version8&lt;/a>과 상동&lt;/li>
@@ -301,6 +301,18 @@ data-flex-basis="250px"
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
+&lt;h2 id="version9---simple">version9 - simple&lt;/h2>
+&lt;p>version이 올라갈 수록 아키텍처가 복잡해져서, 선택적 요소를 제외한 가장 단순한 아키텍처를 다시 그려보았다.&lt;/p>
+&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version9-simple.png"
+width="1882"
+height="1282"
+srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version9-simple_hu7db6a0a613ba8db9a333d9cbf5d26dc0_154078_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version9-simple_hu7db6a0a613ba8db9a333d9cbf5d26dc0_154078_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="version9-simple"
+class="gallery-image"
+data-flex-grow="146"
+data-flex-basis="352px"
+>&lt;/p>
 &lt;h2 id="ref">ref.&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a class="link" href="https://medium.com/@yujso66/%EB%B2%88%EC%97%AD-%EC%9C%84%EC%A0%AF-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C-b3e95b261c18" title="[번역] 위젯 주도 개발"
