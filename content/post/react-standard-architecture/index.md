@@ -1,7 +1,7 @@
 ---
 title: "React Standard Architecture"
 date: 2022-11-23
-lastmod: 2022-12-06
+lastmod: 2022-12-10
 categories:
 - Frontend
 tags:
@@ -193,6 +193,12 @@ feature와 관계없이 공통으로 사용되어야 하는 요소들을 위치�
     - **repository**: widget에서 필요로 하는 데이터를 공급하는 역할을 한다.
     - **component**: widget의 markup, style을 담당한다.
     - **type**: widget에서 사용하는 데이터의 타입을 정의한다.
+
+## version9 - simple
+
+version이 올라갈 수록 아키텍처가 복잡해져서, 선택적 요소를 제외한 가장 단순한 아키텍처를 다시 그려보았다.
+
+![version9-simple](front-archetecture-version9-simple.png)
 
 ## ref.
 
