@@ -170,7 +170,7 @@ version6를 실제로 사용해 보았을 때, widget logic이 react query가 �
 
 - 이하를 제외하고는 [version7](#version7)과 상동
 - **feature**
-    - **repository**: 
+    - **repository**
       - **repository**: widget에서 사용 할 데이터 핸들링을 담당한다. 
       - **react query**: n개의 API를 통해 받은 데이터의 상태를 통합하여 관리한다. api type을 type 형태로 매핑하는 역할도 담당한다.
     - **query**
@@ -194,11 +194,24 @@ feature와 관계없이 공통으로 사용되어야 하는 요소들을 위치�
     - **component**: widget의 markup, style을 담당한다.
     - **type**: widget에서 사용하는 데이터의 타입을 정의한다.
 
-## version9 - simple
+## version10
+
+단순 CRUD가 아닌 비즈니스 로직에 대한 책임을 갖는 요소가 없어서 Service를 도입하였다. Repository는 필요 시 사용하고, Service를 통해서만 접근하도록 하였다.
+
+또한 영속화 데이터에 대한 관리를 Repository에게 위임함으로서, React Query를 생략하였다.
+
+![version10](front-archetecture-version10.png)
+
+- 이하를 제외하고는 [version9](#version9)과 상동
+- **service**
+    - **service**: 비즈니스 로직을 수행 할 책임을 갖는다. 실제 비즈니스 로직은 API를 통해 서버에 위임 할수도 있고, 클라이언트에서 수행 할 수도 있다.
+    - **repository**: widget에서 사용 할 데이터 로직 및 상태관리를 수행한다. 필요에 따라 내부에서는 React Query를 사용 할 수도 있다.
+
+## version10 - simple
 
 version이 올라갈 수록 아키텍처가 복잡해져서, 선택적 요소를 제외한 가장 단순한 아키텍처를 다시 그려보았다.
 
-![version9-simple](front-archetecture-version9-simple.png)
+![version10-simple](front-archetecture-version10-simple.png)
 
 ## ref.
 
