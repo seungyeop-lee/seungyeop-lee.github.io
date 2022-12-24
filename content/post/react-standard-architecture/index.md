@@ -207,11 +207,19 @@ feature와 관계없이 공통으로 사용되어야 하는 요소들을 위치�
     - **service**: 비즈니스 로직을 수행 할 책임을 갖는다. 실제 비즈니스 로직은 API를 통해 서버에 위임 할수도 있고, 클라이언트에서 수행 할 수도 있다.
     - **repository**: widget에서 사용 할 데이터 로직 및 상태관리를 수행한다. 필요에 따라 내부에서는 React Query를 사용 할 수도 있다.
 
-## version10 - simple
+## version11
+
+widget에서 공통 component를 사용 할 때, 커스텀해서 사용해야 하는 경우가 빈번하게 발생하고, 그럴 경우 커스텀하는 코드가 widget에 섞이게 되는 문제가 확인되었다.
+
+이를 피하기위해 공통 component를 사용하는 곳을 feature component로 이동시키고, widget은 feature component만 사용하는 방식으로 수정하였다.
+
+![version11](front-archetecture-version11.png)
+
+## version11 - simple
 
 version이 올라갈 수록 아키텍처가 복잡해져서, 선택적 요소를 제외한 가장 단순한 아키텍처를 다시 그려보았다.
 
-![version10-simple](front-archetecture-version10-simple.png)
+![version11-simple](front-archetecture-version11-simple.png)
 
 ## ref.
 
