@@ -323,14 +323,27 @@ data-flex-basis="266px"
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="version10---simple">version10 - simple&lt;/h2>
+&lt;h2 id="version11">version11&lt;/h2>
+&lt;p>widget에서 공통 component를 사용 할 때, 커스텀해서 사용해야 하는 경우가 빈번하게 발생하고, 그럴 경우 커스텀하는 코드가 widget에 섞이게 되는 문제가 확인되었다.&lt;/p>
+&lt;p>이를 피하기위해 공통 component를 사용하는 곳을 feature component로 이동시키고, widget은 feature component만 사용하는 방식으로 수정하였다.&lt;/p>
+&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version11.png"
+width="2282"
+height="2032"
+srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version11_hua6540f92a9a3b4d4ebf07c77070e3e7f_300468_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version11_hua6540f92a9a3b4d4ebf07c77070e3e7f_300468_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="version11"
+class="gallery-image"
+data-flex-grow="112"
+data-flex-basis="269px"
+>&lt;/p>
+&lt;h2 id="version11---simple">version11 - simple&lt;/h2>
 &lt;p>version이 올라갈 수록 아키텍처가 복잡해져서, 선택적 요소를 제외한 가장 단순한 아키텍처를 다시 그려보았다.&lt;/p>
-&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version10-simple.png"
+&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version11-simple.png"
 width="1882"
 height="1282"
-srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version10-simple_hua4ea7ee334025a0857581a1c5a30ef8d_155368_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version10-simple_hua4ea7ee334025a0857581a1c5a30ef8d_155368_1024x0_resize_box_3.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version11-simple_hua4ea7ee334025a0857581a1c5a30ef8d_155368_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version11-simple_hua4ea7ee334025a0857581a1c5a30ef8d_155368_1024x0_resize_box_3.png 1024w"
 loading="lazy"
-alt="version10-simple"
+alt="version11-simple"
 class="gallery-image"
 data-flex-grow="146"
 data-flex-basis="352px"
