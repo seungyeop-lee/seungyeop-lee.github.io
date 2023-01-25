@@ -3,6 +3,11 @@ baseurl: 'https://blog.seungyeop-lee.com'
 languageCode: ko-KR
 paginate: 5
 
+sitemap:
+  changefreq: weekly
+  filename: sitemap.xml
+  priority: 0.5
+
 module:
   # uncomment line below for temporary local development of module
   # replacements: "github.com/CaiJimmy/hugo-theme-stack/v3 -> ../../hugo-theme-stack"
