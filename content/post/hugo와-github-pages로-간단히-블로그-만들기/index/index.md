@@ -13,6 +13,7 @@ draft: false
 layout: "single"
 slug: "index"
 image: "hugo와-github-pages로-간단히-블로그-만들기.png"
+aliases: [/blog/post/hugo와-github-pages로-간단히-블로그-만들기/index/]
 ---
 
 ## 목차

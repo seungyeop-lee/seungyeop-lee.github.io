@@ -12,6 +12,7 @@ tags:
 draft: false
 hidden: true
 slug: "2"
+aliases: [/blog/post/hugo와-github-pages로-간단히-블로그-만들기/2/]
 ---
 
 [목차](../index/) / [이전글](../1)

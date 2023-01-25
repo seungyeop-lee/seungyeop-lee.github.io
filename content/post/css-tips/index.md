@@ -9,7 +9,8 @@ tags:
 - Tips
 draft: false
 hidden: false
-image: cover.png
+image: cover.png 
+aliases: [/blog/post/css-tips/]
 ---
 
 ## 상속

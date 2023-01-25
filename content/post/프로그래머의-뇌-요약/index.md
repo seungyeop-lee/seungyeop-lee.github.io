@@ -14,6 +14,7 @@ links:
   - title: 프로그래머의 뇌
     website: http://www.yes24.com/Product/Goods/105911017
     image: cover.png
+aliases: [/blog/post/프로그래머의-뇌-요약/]
 ---
 
 [프로그래머의 뇌](http://www.yes24.com/Product/Goods/105911017)란 책을 읽고, 인상 깊었던 내용을 정리한다.
