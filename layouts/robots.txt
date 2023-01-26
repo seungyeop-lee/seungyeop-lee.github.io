@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://blog.seungyeop-lee.com/sitemap.xml
+Sitemap: https://blog.seungyeop-lee.com/index.xml
