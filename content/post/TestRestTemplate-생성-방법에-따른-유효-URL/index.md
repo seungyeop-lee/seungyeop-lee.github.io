@@ -3,7 +3,7 @@ title: TestRestTemplate 생성 방법에 따른 유효 URL
 date: 2023-01-29
 lastmod: 2023-01-29
 categories:
-- 학습 테스트
+- Backend
 tags:
 - 학습 테스트
 - Spring Boot 3 Test
