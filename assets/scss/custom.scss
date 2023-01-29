@@ -2,3 +2,11 @@
   font-weight: bold;
   background-color: #f8f8f8;
 }
+
+@media (min-width: 1280px) {
+  .container.extended {
+    max-width: 1920px;
+    --left-sidebar-max-width: 15%;
+    --right-sidebar-max-width: 20%;
+  }
+}
