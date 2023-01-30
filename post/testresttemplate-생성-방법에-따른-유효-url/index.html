@@ -110,23 +110,45 @@
 </span></span><span class=line><span class=cl>    <span class=o>}</span>
 </span></span><span class=line><span class=cl><span class=o>}</span>
 </span></span></code></pre></td></tr></table></div></div><h2 id=testresttemplate-코드-분석>TestRestTemplate 코드 분석</h2><h3 id=기본-흐름>기본 흐름</h3><p><code>TestRestTemplate</code>는 내부적으로 <code>RestTemplate</code>를 가지고 있어, 실제 행위는 <code>RestTemplate</code>에게 위임하는 방식으로 동작한다.
-<code>RestTemplate</code>는 <code>UriTemplateHandler</code>를 통해 URI를 확정한다.</p><h3 id=new-testresttemplate-1><code>new TestRestTemplate</code></h3><p>객체를 직접 생성하는 경우, <code>UriTemplateHandler</code>의 구현체로 <code>DefaultUriBuilderFactory</code>가 사용된다.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=c1>// spring-web-6.0.4-sources.jar!/org/springframework/web/client/RestTemplate.java:218#RestTemplate()
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>this</span><span class=o>.</span><span class=na>uriTemplateHandler</span> <span class=o>=</span> <span class=n>initUriTemplateHandler</span><span class=o>();</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1>// spring-web-6.0.4-sources.jar!/org/springframework/web/client/RestTemplate.java:252#initUriTemplateHandler()
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>private</span> <span class=kd>static</span> <span class=n>DefaultUriBuilderFactory</span> <span class=nf>initUriTemplateHandler</span><span class=o>()</span> <span class=o>{</span>
-</span></span><span class=line><span class=cl>    <span class=n>DefaultUriBuilderFactory</span> <span class=n>uriFactory</span> <span class=o>=</span> <span class=k>new</span> <span class=n>DefaultUriBuilderFactory</span><span class=o>();</span>
-</span></span><span class=line><span class=cl>    <span class=n>uriFactory</span><span class=o>.</span><span class=na>setEncodingMode</span><span class=o>(</span><span class=n>EncodingMode</span><span class=o>.</span><span class=na>URI_COMPONENT</span><span class=o>);</span>  <span class=c1>// for backwards compatibility..
-</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>return</span> <span class=n>uriFactory</span><span class=o>;</span>
+<code>RestTemplate</code>는 <code>UriTemplateHandler</code>를 통해 URI를 확정한다.</p><h3 id=new-testresttemplate-1><code>new TestRestTemplate</code></h3><p>객체를 직접 생성하는 경우, <code>UriTemplateHandler</code>의 구현체로 <code>DefaultUriBuilderFactory</code>가 사용된다.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=c1>// spring-web-6.0.4-sources.jar!/org/springframework/web/client/RestTemplate.java:109
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>public</span> <span class=kd>class</span> <span class=nc>RestTemplate</span> <span class=kd>extends</span> <span class=n>InterceptingHttpAccessor</span> <span class=kd>implements</span> <span class=n>RestOperations</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    <span class=o>...</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=n>UriTemplateHandler</span> <span class=n>uriTemplateHandler</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=o>...</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=nf>RestTemplate</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=o>...</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=o>.</span><span class=na>uriTemplateHandler</span> <span class=o>=</span> <span class=n>initUriTemplateHandler</span><span class=o>();</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=kd>static</span> <span class=n>DefaultUriBuilderFactory</span> <span class=nf>initUriTemplateHandler</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>DefaultUriBuilderFactory</span> <span class=n>uriFactory</span> <span class=o>=</span> <span class=k>new</span> <span class=n>DefaultUriBuilderFactory</span><span class=o>();</span>
+</span></span><span class=line><span class=cl>        <span class=n>uriFactory</span><span class=o>.</span><span class=na>setEncodingMode</span><span class=o>(</span><span class=n>EncodingMode</span><span class=o>.</span><span class=na>URI_COMPONENT</span><span class=o>);</span>  <span class=c1>// for backwards compatibility..
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>return</span> <span class=n>uriFactory</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
 </span></span><span class=line><span class=cl><span class=o>}</span>
 </span></span></code></pre></td></tr></table></div></div><p><code>new DefaultUriBuilderFactory()</code>로 생성될 경우, <code>expand</code>메서드를 통해 URI 확정 시, 클라이언트에서 입력한 URL그대로를 사용한다.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
@@ -190,6 +212,14 @@
 </span><span class=lnt>60
 </span><span class=lnt>61
 </span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=c1>// spring-web-6.0.4-sources.jar!/org/springframework/web/util/DefaultUriBuilderFactory.java:42
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>public</span> <span class=kd>class</span> <span class=nc>DefaultUriBuilderFactory</span> <span class=kd>implements</span> <span class=n>UriBuilderFactory</span> <span class=o>{</span>
 </span></span><span class=line><span class=cl>    <span class=nd>@Nullable</span>
@@ -226,9 +256,17 @@
 </span></span><span class=line><span class=cl>            <span class=n>UriComponentsBuilder</span> <span class=n>result</span><span class=o>;</span>
 </span></span><span class=line><span class=cl>            
 </span></span><span class=line><span class=cl>            <span class=o>...</span>
-</span></span><span class=line><span class=cl>                
-</span></span><span class=line><span class=cl>                <span class=n>result</span> <span class=o>=</span> <span class=n>UriComponentsBuilder</span><span class=o>.</span><span class=na>fromUriString</span><span class=o>(</span><span class=n>uriTemplate</span><span class=o>);</span>
 </span></span><span class=line><span class=cl>            
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=o>(!</span><span class=n>StringUtils</span><span class=o>.</span><span class=na>hasLength</span><span class=o>(</span><span class=n>uriTemplate</span><span class=o>))</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>                <span class=o>...</span>
+</span></span><span class=line><span class=cl>            <span class=o>}</span>
+</span></span><span class=line><span class=cl>            <span class=k>else</span> <span class=k>if</span> <span class=o>(</span><span class=n>baseUri</span> <span class=o>!=</span> <span class=kc>null</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>                <span class=o>...</span>
+</span></span><span class=line><span class=cl>            <span class=o>}</span>
+</span></span><span class=line><span class=cl>            <span class=k>else</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>                <span class=n>result</span> <span class=o>=</span> <span class=n>UriComponentsBuilder</span><span class=o>.</span><span class=na>fromUriString</span><span class=o>(</span><span class=n>uriTemplate</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>            <span class=o>}</span>
+</span></span><span class=line><span class=cl>                
 </span></span><span class=line><span class=cl>            <span class=o>...</span>
 </span></span><span class=line><span class=cl>            
 </span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=n>result</span><span class=o>;</span>
@@ -292,7 +330,7 @@
 </span></span><span class=line><span class=cl>    
 </span></span><span class=line><span class=cl>    <span class=o>...</span>
 </span></span><span class=line><span class=cl><span class=o>}</span>
-</span></span></code></pre></td></tr></table></div></div><p><code>new LocalHostUriTemplateHandler(applicationContext.getEnvironment())</code>로 생성될 경우,
+</span></span></code></pre></td></tr></table></div></div><p><code>new LocalHostUriTemplateHandler(applicationContext.getEnvironment(), "http")</code>로 생성될 경우,
 <code>expand</code>메서드를 통해 URI 확정 시, 클라이언트에서 입력한 URL이 &lsquo;/&lsquo;로 시작 할 경우, rootUri를 추가하여 사용한다.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -321,7 +359,24 @@
 </span><span class=lnt>26
 </span><span class=lnt>27
 </span><span class=lnt>28
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=c1>// spring-boot-test-3.0.2-sources.jar!/org/springframework/boot/test/web/client/LocalHostUriTemplateHandler.java:35
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=c1>// spring-boot-3.0.2-sources.jar!/org/springframework/boot/web/client/RootUriTemplateHandler.java:35
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>public</span> <span class=kd>class</span> <span class=nc>RootUriTemplateHandler</span> <span class=kd>implements</span> <span class=n>UriTemplateHandler</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    <span class=o>...</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=nd>@Override</span>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=n>URI</span> <span class=nf>expand</span><span class=o>(</span><span class=n>String</span> <span class=n>uriTemplate</span><span class=o>,</span> <span class=n>Object</span><span class=o>...</span> <span class=n>uriVariables</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=k>this</span><span class=o>.</span><span class=na>handler</span><span class=o>.</span><span class=na>expand</span><span class=o>(</span><span class=n>apply</span><span class=o>(</span><span class=n>uriTemplate</span><span class=o>),</span> <span class=n>uriVariables</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=n>String</span> <span class=nf>apply</span><span class=o>(</span><span class=n>String</span> <span class=n>uriTemplate</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=o>(</span><span class=n>StringUtils</span><span class=o>.</span><span class=na>startsWithIgnoreCase</span><span class=o>(</span><span class=n>uriTemplate</span><span class=o>,</span> <span class=s>&#34;/&#34;</span><span class=o>))</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=n>getRootUri</span><span class=o>()</span> <span class=o>+</span> <span class=n>uriTemplate</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>uriTemplate</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// spring-boot-test-3.0.2-sources.jar!/org/springframework/boot/test/web/client/LocalHostUriTemplateHandler.java:35
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>public</span> <span class=kd>class</span> <span class=nc>LocalHostUriTemplateHandler</span> <span class=kd>extends</span> <span class=n>RootUriTemplateHandler</span> <span class=o>{</span>
 </span></span><span class=line><span class=cl>    <span class=o>...</span>
 </span></span><span class=line><span class=cl>    
@@ -330,23 +385,6 @@
 </span></span><span class=line><span class=cl>        <span class=n>String</span> <span class=n>port</span> <span class=o>=</span> <span class=k>this</span><span class=o>.</span><span class=na>environment</span><span class=o>.</span><span class=na>getProperty</span><span class=o>(</span><span class=s>&#34;local.server.port&#34;</span><span class=o>,</span> <span class=s>&#34;8080&#34;</span><span class=o>);</span>
 </span></span><span class=line><span class=cl>        <span class=n>String</span> <span class=n>contextPath</span> <span class=o>=</span> <span class=k>this</span><span class=o>.</span><span class=na>environment</span><span class=o>.</span><span class=na>getProperty</span><span class=o>(</span><span class=n>PREFIX</span> <span class=o>+</span> <span class=s>&#34;context-path&#34;</span><span class=o>,</span> <span class=s>&#34;&#34;</span><span class=o>);</span>
 </span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=k>this</span><span class=o>.</span><span class=na>scheme</span> <span class=o>+</span> <span class=s>&#34;://localhost:&#34;</span> <span class=o>+</span> <span class=n>port</span> <span class=o>+</span> <span class=n>contextPath</span><span class=o>;</span>
-</span></span><span class=line><span class=cl>    <span class=o>}</span>
-</span></span><span class=line><span class=cl><span class=o>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1>// spring-boot-3.0.2-sources.jar!/org/springframework/boot/web/client/RootUriTemplateHandler.java:35
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>public</span> <span class=kd>class</span> <span class=nc>RootUriTemplateHandler</span> <span class=kd>implements</span> <span class=n>UriTemplateHandler</span> <span class=o>{</span>
-</span></span><span class=line><span class=cl>    <span class=o>...</span>
-</span></span><span class=line><span class=cl>    
-</span></span><span class=line><span class=cl>    <span class=nd>@Override</span>
-</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=n>URI</span> <span class=nf>expand</span><span class=o>(</span><span class=n>String</span> <span class=n>uriTemplate</span><span class=o>,</span> <span class=n>Object</span><span class=o>...</span> <span class=n>uriVariables</span><span class=o>)</span> <span class=o>{</span>
-</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=k>this</span><span class=o>.</span><span class=na>handler</span><span class=o>.</span><span class=na>expand</span><span class=o>(</span><span class=n>apply</span><span class=o>(</span><span class=n>uriTemplate</span><span class=o>),</span> <span class=n>uriVariables</span><span class=o>);</span>
-</span></span><span class=line><span class=cl>    <span class=o>}</span>
-</span></span><span class=line><span class=cl>	
-</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=n>String</span> <span class=nf>apply</span><span class=o>(</span><span class=n>String</span> <span class=n>uriTemplate</span><span class=o>)</span> <span class=o>{</span>
-</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=o>(</span><span class=n>StringUtils</span><span class=o>.</span><span class=na>startsWithIgnoreCase</span><span class=o>(</span><span class=n>uriTemplate</span><span class=o>,</span> <span class=s>&#34;/&#34;</span><span class=o>))</span> <span class=o>{</span>
-</span></span><span class=line><span class=cl>        	<span class=k>return</span> <span class=n>getRootUri</span><span class=o>()</span> <span class=o>+</span> <span class=n>uriTemplate</span><span class=o>;</span>
-</span></span><span class=line><span class=cl>        <span class=o>}</span>
-</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>uriTemplate</span><span class=o>;</span>
 </span></span><span class=line><span class=cl>    <span class=o>}</span>
 </span></span><span class=line><span class=cl><span class=o>}</span>
 </span></span></code></pre></td></tr></table></div></div><h3 id=testresttemplate-의존성-다이어그램>TestRestTemplate 의존성 다이어그램</h3><p><img src=/post/testresttemplate-%EC%83%9D%EC%84%B1-%EB%B0%A9%EB%B2%95%EC%97%90-%EB%94%B0%EB%A5%B8-%EC%9C%A0%ED%9A%A8-url/TestRestTemplate-diagram.png width=2142 height=982 srcset="/post/testresttemplate-%EC%83%9D%EC%84%B1-%EB%B0%A9%EB%B2%95%EC%97%90-%EB%94%B0%EB%A5%B8-%EC%9C%A0%ED%9A%A8-url/TestRestTemplate-diagram_hua9bd88340f5a051643cd2020aee085e6_106161_480x0_resize_box_3.png 480w, /post/testresttemplate-%EC%83%9D%EC%84%B1-%EB%B0%A9%EB%B2%95%EC%97%90-%EB%94%B0%EB%A5%B8-%EC%9C%A0%ED%9A%A8-url/TestRestTemplate-diagram_hua9bd88340f5a051643cd2020aee085e6_106161_1024x0_resize_box_3.png 1024w" loading=lazy alt="TestRestTemplate 의존성 다이어그램" class=gallery-image data-flex-grow=218 data-flex-basis=523px></p><h2 id=학습-테스트---내부-구현-확인>학습 테스트 - 내부 구현 확인</h2><p>TestRestTemplate가 사용하는 rootUri와 uri를 해결하는 Handler의 구현체가 상이함을 테스트로 확인하였다.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
