@@ -117,14 +117,25 @@ public class AutowiredTestRestTemplateTest {
 객체를 직접 생성하는 경우, `UriTemplateHandler`의 구현체로 `DefaultUriBuilderFactory`가 사용된다.
 
 ```java
-// spring-web-6.0.4-sources.jar!/org/springframework/web/client/RestTemplate.java:218#RestTemplate()
-this.uriTemplateHandler = initUriTemplateHandler();
-
-// spring-web-6.0.4-sources.jar!/org/springframework/web/client/RestTemplate.java:252#initUriTemplateHandler()
-private static DefaultUriBuilderFactory initUriTemplateHandler() {
-    DefaultUriBuilderFactory uriFactory = new DefaultUriBuilderFactory();
-    uriFactory.setEncodingMode(EncodingMode.URI_COMPONENT);  // for backwards compatibility..
-    return uriFactory;
+// spring-web-6.0.4-sources.jar!/org/springframework/web/client/RestTemplate.java:109
+public class RestTemplate extends InterceptingHttpAccessor implements RestOperations {
+    ...
+    
+    private UriTemplateHandler uriTemplateHandler;
+    
+    ...
+    
+    public RestTemplate() {
+        ...
+        
+        this.uriTemplateHandler = initUriTemplateHandler();
+    }
+    
+    private static DefaultUriBuilderFactory initUriTemplateHandler() {
+        DefaultUriBuilderFactory uriFactory = new DefaultUriBuilderFactory();
+        uriFactory.setEncodingMode(EncodingMode.URI_COMPONENT);  // for backwards compatibility..
+        return uriFactory;
+    }
 }
 ```
 
@@ -167,9 +178,17 @@ public class DefaultUriBuilderFactory implements UriBuilderFactory {
             UriComponentsBuilder result;
             
             ...
-                
-                result = UriComponentsBuilder.fromUriString(uriTemplate);
             
+            if (!StringUtils.hasLength(uriTemplate)) {
+                ...
+            }
+            else if (baseUri != null) {
+                ...
+            }
+            else {
+                result = UriComponentsBuilder.fromUriString(uriTemplate);
+            }
+                
             ...
             
             return result;
@@ -222,10 +241,27 @@ public static class TestRestTemplateFactory implements FactoryBean<TestRestTempl
 }
 ```
 
-`new LocalHostUriTemplateHandler(applicationContext.getEnvironment())`로 생성될 경우, 
+`new LocalHostUriTemplateHandler(applicationContext.getEnvironment(), "http")`로 생성될 경우, 
 `expand`메서드를 통해 URI 확정 시, 클라이언트에서 입력한 URL이 '/'로 시작 할 경우, rootUri를 추가하여 사용한다.
 
 ```java
+// spring-boot-3.0.2-sources.jar!/org/springframework/boot/web/client/RootUriTemplateHandler.java:35
+public class RootUriTemplateHandler implements UriTemplateHandler {
+    ...
+    
+    @Override
+    public URI expand(String uriTemplate, Object... uriVariables) {
+        return this.handler.expand(apply(uriTemplate), uriVariables);
+    }
+    
+    private String apply(String uriTemplate) {
+        if (StringUtils.startsWithIgnoreCase(uriTemplate, "/")) {
+            return getRootUri() + uriTemplate;
+        }
+        return uriTemplate;
+    }
+}
+
 // spring-boot-test-3.0.2-sources.jar!/org/springframework/boot/test/web/client/LocalHostUriTemplateHandler.java:35
 public class LocalHostUriTemplateHandler extends RootUriTemplateHandler {
     ...
@@ -235,23 +271,6 @@ public class LocalHostUriTemplateHandler extends RootUriTemplateHandler {
         String port = this.environment.getProperty("local.server.port", "8080");
         String contextPath = this.environment.getProperty(PREFIX + "context-path", "");
         return this.scheme + "://localhost:" + port + contextPath;
-    }
-}
-
-// spring-boot-3.0.2-sources.jar!/org/springframework/boot/web/client/RootUriTemplateHandler.java:35
-public class RootUriTemplateHandler implements UriTemplateHandler {
-    ...
-    
-    @Override
-    public URI expand(String uriTemplate, Object... uriVariables) {
-        return this.handler.expand(apply(uriTemplate), uriVariables);
-    }
-	
-    private String apply(String uriTemplate) {
-        if (StringUtils.startsWithIgnoreCase(uriTemplate, "/")) {
-        	return getRootUri() + uriTemplate;
-        }
-        return uriTemplate;
     }
 }
 ```
