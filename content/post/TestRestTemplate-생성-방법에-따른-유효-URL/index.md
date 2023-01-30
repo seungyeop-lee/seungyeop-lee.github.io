@@ -176,9 +176,6 @@ public class DefaultUriBuilderFactory implements UriBuilderFactory {
         
         private UriComponentsBuilder initUriComponentsBuilder(String uriTemplate) {
             UriComponentsBuilder result;
-            
-            ...
-            
             if (!StringUtils.hasLength(uriTemplate)) {
                 ...
             }
