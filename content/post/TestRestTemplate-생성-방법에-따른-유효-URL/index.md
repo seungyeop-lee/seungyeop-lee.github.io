@@ -1,7 +1,7 @@
 ---
 title: TestRestTemplate 생성 방법에 따른 유효 URL
 date: 2023-01-29
-lastmod: 2023-01-29
+lastmod: 2023-01-30
 categories:
 - Backend
 tags:
@@ -165,21 +165,13 @@ public class DefaultUriBuilderFactory implements UriBuilderFactory {
         
         private UriComponentsBuilder initUriComponentsBuilder(String uriTemplate) {
             UriComponentsBuilder result;
-            if (!StringUtils.hasLength(uriTemplate)) {
-                result = (baseUri != null ? baseUri.cloneBuilder() : UriComponentsBuilder.newInstance());
-            }
-            else if (baseUri != null) {
-                UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(uriTemplate);
-                UriComponents uri = builder.build();
-                result = (uri.getHost() == null ? baseUri.cloneBuilder().uriComponents(uri) : builder);
-            }
-            else {
+            
+            ...
+                
                 result = UriComponentsBuilder.fromUriString(uriTemplate);
-            }
-            if (encodingMode.equals(EncodingMode.TEMPLATE_AND_VALUES)) {
-                result.encode();
-            }
-            parsePathIfNecessary(result);
+            
+            ...
+            
             return result;
         }
         
@@ -187,12 +179,8 @@ public class DefaultUriBuilderFactory implements UriBuilderFactory {
         
         @Override
         public URI build(Object... uriVars) {
-            if (ObjectUtils.isEmpty(uriVars) && !defaultUriVariables.isEmpty()) {
-                return build(Collections.emptyMap());
-            }
-            if (encodingMode.equals(EncodingMode.VALUES_ONLY)) {
-                uriVars = UriUtils.encodeUriVariables(uriVars);
-            }
+            ...
+            
             UriComponents uric = this.uriComponentsBuilder.build().expand(uriVars);
             return createUri(uric);
         }
@@ -243,11 +231,11 @@ public class LocalHostUriTemplateHandler extends RootUriTemplateHandler {
     ...
     
     @Override
-	public String getRootUri() {
-		String port = this.environment.getProperty("local.server.port", "8080");
-		String contextPath = this.environment.getProperty(PREFIX + "context-path", "");
-		return this.scheme + "://localhost:" + port + contextPath;
-	}
+    public String getRootUri() {
+        String port = this.environment.getProperty("local.server.port", "8080");
+        String contextPath = this.environment.getProperty(PREFIX + "context-path", "");
+        return this.scheme + "://localhost:" + port + contextPath;
+    }
 }
 
 // spring-boot-3.0.2-sources.jar!/org/springframework/boot/web/client/RootUriTemplateHandler.java:35
@@ -255,16 +243,16 @@ public class RootUriTemplateHandler implements UriTemplateHandler {
     ...
     
     @Override
-	public URI expand(String uriTemplate, Object... uriVariables) {
-		return this.handler.expand(apply(uriTemplate), uriVariables);
-	}
+    public URI expand(String uriTemplate, Object... uriVariables) {
+        return this.handler.expand(apply(uriTemplate), uriVariables);
+    }
 	
-	private String apply(String uriTemplate) {
-		if (StringUtils.startsWithIgnoreCase(uriTemplate, "/")) {
-			return getRootUri() + uriTemplate;
-		}
-		return uriTemplate;
-	}
+    private String apply(String uriTemplate) {
+        if (StringUtils.startsWithIgnoreCase(uriTemplate, "/")) {
+        	return getRootUri() + uriTemplate;
+        }
+        return uriTemplate;
+    }
 }
 ```
 
