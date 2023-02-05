@@ -1,5 +1,5 @@
 ---
-title: 자바에서 덕 타이핑 하는 방법
+title: 자바에서 덕 타이핑하기
 date: 2023-02-05
 lastmod: 2023-02-05
 categories:
