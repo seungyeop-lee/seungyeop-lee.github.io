@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Architecture on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/tags/architecture/</link><description>Recent content in Architecture on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Wed, 23 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/tags/architecture/index.xml" rel="self" type="application/rss+xml"/><item><title>React Standard Architecture</title><link>https://blog.seungyeop-lee.com/post/react-standard-architecture/</link><pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/react-standard-architecture/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/cover.png" alt="Featured image of post React Standard Architecture" />&lt;p>Next.js에서 사용 가능한 React 표준(범용) 아키텍처를 고민 할 일이 생겨서 여기에 그 과정을 정리한다.&lt;/p>
 &lt;p>아키텍처는 아직 완성되지 않았다고 생각하며, 개선점이 나올 때마다 이 글에 업데이트 할 예정이다.&lt;/p>
-&lt;p>(&lt;strong>이 글을 참고하여 저작물을 생산하시는 경우, 출처를 남겨주시길 부탁드리겠습니다.&lt;/strong>)&lt;/p>
 &lt;h2 id="기본-설계-방향">기본 설계 방향&lt;/h2>
 &lt;ul>
 &lt;li>각 요소의 역할이 뚜렷하고 중복되지 않도록한다.&lt;/li>
