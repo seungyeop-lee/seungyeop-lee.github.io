@@ -133,19 +133,18 @@ menu:
       params:
         icon: link
 
+    - identifier: github
+      name: Github
+      url: https://github.com/seungyeop-lee
+      weight: -50
+      params:
+        icon: brand-github
+
     # - identifier: about
     #   name: About
     #   url: about
     #   weight: -60
     #   pre: user
-
-  social:
-    - identifier: github
-      name: GitHub
-      url: https://github.com/seungyeop-lee
-      weight: -100
-      params:
-        icon: brand-github
 
 related:
   includeNewer: true
