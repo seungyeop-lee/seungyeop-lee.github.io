@@ -107,28 +107,28 @@ menu:
   main:
     - identifier: home
       name: Home
-      url:
+      url: /
       weight: -100
       params:
         icon: home
 
     - identifier: archives
       name: Archives
-      url: archives
+      url: /archives
       weight: -90
       params:
         icon: archives
 
     - identifier: search
       name: Search
-      url: search
+      url: /search
       weight: -70
       params:
         icon: search
 
     - identifier: links
       name: Links
-      url: links
+      url: /links
       weight: -60
       params:
         icon: link
