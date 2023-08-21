@@ -1,7 +1,7 @@
 ---
 title: "Spring MVC와 Mybatis 기반의 단순 아키텍처"
 date: 2023-08-20
-lastmod: 2023-08-20
+lastmod: 2023-08-21
 categories:
 - Backend
 tags:
@@ -13,7 +13,7 @@ hidden: false
 image: cover.png
 links:
   - title: 예제코드
-    website: https://github.com/seungyeop-lee/blog-example/tree/main/architecture-in-spring
+    website: https://github.com/seungyeop-lee/blog-example/tree/main/architecture-in-spring/modules
 ---
 
 ## 서론
@@ -25,7 +25,7 @@ links:
 
 이해를 돕기위해 간단한 생성, 조회 기능을 하는 예제를 같이 같이 작성해보았다.
 
-여기에서 사용하는 모든 예제 코드는 [Github Repository](https://github.com/seungyeop-lee/blog-example/tree/main/architecture-in-spring)에서 확인 가능하다.
+여기에서 사용하는 모든 예제 코드는 [Github Repository](https://github.com/seungyeop-lee/blog-example/tree/main/architecture-in-spring/modules)에서 확인 가능하다.
 
 ## AS-IS
 
@@ -115,11 +115,11 @@ public class BookService {
 무분별한 Map 사용은 [깨진 유리창 이론](https://ko.wikipedia.org/wiki/%EA%B9%A8%EC%A7%84_%EC%9C%A0%EB%A6%AC%EC%B0%BD_%EC%9D%B4%EB%A1%A0)의 깨진 유리창과 같은 역할을 한다. 
 구현을 빠르게 할 수 있는 만큼, 빠르게 레거시화 된다는 것이 내 생각이다.
 
-## TO-BE
+## TO-BE v1
 
 ### 구성도
 
-![TO-BE 의존관계 구성도](SimpleBackend-tobe.png)
+![TO-BE v1 의존관계 구성도](SimpleBackend-tobe-v1.png)
 
 고안해본 구조의 핵심은 public method에서의 Map사용을 지양하는 것과 endpoint 별로 package를 나누는 것이다.
 
@@ -170,12 +170,17 @@ public class EXAM001Controller {
         private String isbn;
         private LocalDate publishedDate;
 
-        public static Response from(Book book) {
+        public static Response of(
+                Long bookId,
+                String title,
+                String isbn,
+                LocalDate publishedDate
+        ) {
             Response response = new Response();
-            response.bookId = book.getBookId();
-            response.title = book.getTitle();
-            response.isbn = book.getIsbn();
-            response.publishedDate = book.getPublishedDate();
+            response.bookId = bookId;
+            response.title = title;
+            response.isbn = isbn;
+            response.publishedDate = publishedDate;
             response.markOk();
             return response;
         }
@@ -248,7 +253,12 @@ class DataManager {
     }
 
     public EXAM001Controller.Response buildResponse() {
-        return EXAM001Controller.Response.from(book);
+        return EXAM001Controller.Response.of(
+                book.getBookId(),
+                book.getTitle(),
+                book.getIsbn(),
+                book.getPublishedDate()
+        );
     }
 }
 ```
@@ -259,3 +269,149 @@ class DataManager {
 
 개인적으로는 Service계층을 위한 전용 타입이 있어야 하고, 의존성 방향에 맞춰서 의존하는 쪽 계층에서 타입 전환 및 생성 책임을 가져야한다고 생각하지만, 
 인터페이스와 DB설계가 먼저 다 완료되고, 마지막으로 서비스 계층의 설계 및 구현이 되는 조직의 특성상 이러한 형태가 좀 더 실리적이라고 생각한다.
+
+## TO-BE v2
+
+회사에서 v1을 도입하여 작업한 결과, DataManager가 가독성을 저하시키는 요인으로 작용 할 여지가 크게 보임에 따라 아키텍처를 수정하였다.
+
+### 구성도
+
+![TO-BE v2 의존관계 구성도](SimpleBackend-tobe-v2.png)
+
+DataManager를 제거하고, Service계층을 위한 전용 타입인 Command와 Result를 추가하였다.
+
+### 예제 코드
+
+```java
+@RestController
+@RequiredArgsConstructor
+public class EXAM001Controller {
+
+    private final EXAM001Service service;
+
+    @PostMapping("/createBook")
+    public Response createBook(@RequestBody Request request) {
+        request.validate();
+
+        EXAM001Service.Result result = service.createBook(request.toCommand());
+
+        return Response.from(result);
+    }
+
+    @Data
+    static class Request {
+        private String title;
+        private String isbn;
+        private LocalDate publishedDate;
+
+        public void validate() {
+            if (title == null || isbn == null || publishedDate == null) {
+                throw new RequiredValueException();
+            }
+        }
+
+        public EXAM001Service.Command toCommand() {
+            return EXAM001Service.Command.of(title, isbn, publishedDate);
+        }
+    }
+
+    @Getter
+    static class Response extends BaseApiResponse {
+        private Long bookId;
+        private String title;
+        private String isbn;
+        private LocalDate publishedDate;
+
+        public static Response from(EXAM001Service.Result result) {
+            Response response = new Response();
+            response.bookId = result.getBookId();
+            response.title = result.getTitle();
+            response.isbn = result.getIsbn();
+            response.publishedDate = result.getPublishedDate();
+            response.markOk();
+            return response;
+        }
+    }
+}
+```
+
+Request는 Command 객체를 생성하는 책임이 추가되었고, Response는 Result로 부터 스스로를 생성 할 책임이 추가되었다. 
+
+```java
+@Service
+@Transactional
+@RequiredArgsConstructor
+class EXAM001Service {
+
+    private final BookMapper bookMapper;
+
+    public Result createBook(Command command) {
+        checkIsbnDuplication(command);
+
+        Book book = command.bookForInsert();
+        bookMapper.insert(book);
+
+        return Result.from(book);
+    }
+
+    private void checkIsbnDuplication(Command command) {
+        BookExample example = new BookExample();
+        example.createCriteria().andIsbnEqualTo(command.getIsbn());
+
+        List<Book> books = bookMapper.selectByExample(example);
+        if (!books.isEmpty()) {
+            throw new Exceptions.ISBNDuplicationException();
+        }
+    }
+
+    @Getter
+    static class Command {
+        private String title;
+        private String isbn;
+        private LocalDate publishedDate;
+
+        public static Command of(
+                String title,
+                String isbn,
+                LocalDate publishedDate
+        ) {
+            Command command = new Command();
+            command.title = title;
+            command.isbn = isbn;
+            command.publishedDate = publishedDate;
+            return command;
+        }
+
+        public Book bookForInsert() {
+            Book book = new Book();
+            book.setTitle(title);
+            book.setIsbn(isbn);
+            book.setPublishedDate(publishedDate);
+            return book;
+        }
+    }
+
+    @Getter
+    static class Result {
+        private Long bookId;
+        private String title;
+        private String isbn;
+        private LocalDate publishedDate;
+
+        public static Result from(Book book) {
+            Result result = new Result();
+            result.bookId = book.getBookId();
+            result.title = book.getTitle();
+            result.isbn = book.getIsbn();
+            result.publishedDate = book.getPublishedDate();
+            return result;
+        }
+    }
+}
+```
+
+서비스 메서드의 파라미터는 Command, 반환 값은 Result로 변경되었다. 이로인해 서비스 메서드에 어떤 데이터가 필요하고, 실행 결과 어떤 데이터가 반환되는지 확인하기 용이해졌다.
+
+Command는 Mapper에서 사용 할 객체를 생성하는 책임이 추가되었고, Result는 Entity로부터 스스로를 생성 할 책임이 추가되었다.
+
+Controller의 Request와 Service의 Command, Controller의 Response와 Service의 Result가 중복으로 보일 수 있으나 내 생각에는 **우발적 중복**이라 생각한다. (해당 내용은 클린 아키텍처 "16장.독립성#중복" 부분을 참고)
