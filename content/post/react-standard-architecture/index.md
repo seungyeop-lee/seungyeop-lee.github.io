@@ -1,7 +1,7 @@
 ---
 title: "React Standard Architecture"
 date: 2022-11-23
-lastmod: 2022-12-10
+lastmod: 2023-08-26
 categories:
 - Frontend
 tags:

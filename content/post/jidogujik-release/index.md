@@ -1,7 +1,7 @@
 ---
 title: 지도구직 - 지도로 찾는 개발자 구인공고 서비스
 date: 2023-02-15
-lastmod: 2023-02-15
+lastmod: 2023-08-26
 categories:
 - Side Project
 tags:

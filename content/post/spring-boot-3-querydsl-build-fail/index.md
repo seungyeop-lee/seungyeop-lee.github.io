@@ -1,7 +1,7 @@
 ---
 title: "Spring Boot 3에서 QueryDSL 사용 시 build 실패 문제 해결"
 date: 2022-11-07
-lastmod: 2022-11-07
+lastmod: 2023-08-26
 categories:
 - Backend
 tags:

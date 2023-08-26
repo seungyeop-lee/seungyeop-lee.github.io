@@ -1,7 +1,7 @@
 ---
 title: "Spring MVC와 Mybatis 기반의 단순 아키텍처"
 date: 2023-08-20
-lastmod: 2023-08-21
+lastmod: 2023-08-26
 categories:
 - Backend
 tags:

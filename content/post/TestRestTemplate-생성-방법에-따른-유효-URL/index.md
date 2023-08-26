@@ -1,7 +1,7 @@
 ---
 title: TestRestTemplate 생성 방법에 따른 유효 URL
 date: 2023-01-29
-lastmod: 2023-01-30
+lastmod: 2023-08-26
 categories:
 - Backend
 tags:
