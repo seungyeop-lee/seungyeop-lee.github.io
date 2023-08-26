@@ -5,9 +5,13 @@ lastmod: 2023-08-21
 categories:
 - Backend
 tags:
+- Spring
 - Spring MVC
 - Mybatis
 - Architecture
+- 스프링
+- 마이바티스
+- 아키텍처
 draft: false
 hidden: false 
 image: cover.png

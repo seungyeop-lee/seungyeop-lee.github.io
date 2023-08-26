@@ -5,9 +5,11 @@ lastmod: 2023-02-05
 categories:
 - Backend
 tags:
-- Java 8
+- Java
 - Duck Typing
 - Method References
+- 자바
+- 덕 타이핑
 draft: false
 hidden: false 
 image: cover.jpg

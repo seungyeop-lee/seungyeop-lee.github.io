@@ -8,6 +8,8 @@ tags:
 - React
 - Next.js
 - Architecture
+- 리엑트
+- 아키텍처
 draft: false
 hidden: false 
 image: cover.png

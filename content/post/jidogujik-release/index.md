@@ -6,6 +6,9 @@ categories:
 - Side Project
 tags:
 - 지도구직
+- 사람인
+- 구인공고
+- 사이드 프로젝트
 draft: false
 hidden: false 
 image: cover.jpg

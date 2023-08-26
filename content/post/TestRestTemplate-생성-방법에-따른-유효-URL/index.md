@@ -6,7 +6,7 @@ categories:
 - Backend
 tags:
 - 학습 테스트
-- Spring Boot 3 Test
+- Spring Boot 3
 - TestRestTemplate
 draft: false
 hidden: false
