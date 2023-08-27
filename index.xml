@@ -7,15 +7,15 @@
 >Github Repository&lt;/a>에서 확인 가능하다.&lt;/p>
 &lt;h2 id="as-is">AS-IS&lt;/h2>
 &lt;h3 id="구성도">구성도&lt;/h3>
-&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-asis.png"
-width="1472"
-height="870"
-srcset="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-asis_hu35612692980421e9dfb265241afb5a8d_95910_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-asis_hu35612692980421e9dfb265241afb5a8d_95910_1024x0_resize_box_3.png 1024w"
+&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-AS-IS.png"
+width="1450"
+height="850"
+srcset="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-AS-IS_hu6aaead2f89cc7b1ed856fe9a0327d11b_325095_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-AS-IS_hu6aaead2f89cc7b1ed856fe9a0327d11b_325095_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="AS-IS 의존관계 구성도"
 class="gallery-image"
-data-flex-grow="169"
-data-flex-basis="406px"
+data-flex-grow="170"
+data-flex-basis="409px"
 >&lt;/p>
 &lt;p>사내에서 지금까지 진행된 프로젝트는 전형적인 Controller-Service-Mapper 구조를 가지고 있고,
 계층별 통신에 사용되는 데이터는 Map&amp;lt;String, Object&amp;gt;를 이용하고 있었다.&lt;/p>
@@ -157,15 +157,15 @@ data-flex-basis="406px"
 구현을 빠르게 할 수 있는 만큼, 빠르게 레거시화 된다는 것이 내 생각이다.&lt;/p>
 &lt;h2 id="to-be-v1">TO-BE v1&lt;/h2>
 &lt;h3 id="구성도-1">구성도&lt;/h3>
-&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-tobe-v1.png"
-width="1882"
-height="1102"
-srcset="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-tobe-v1_hu7defe071037fd46f8606f252d2c39b8f_152976_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-tobe-v1_hu7defe071037fd46f8606f252d2c39b8f_152976_1024x0_resize_box_3.png 1024w"
+&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-TO-BE-v1.png"
+width="1860"
+height="1080"
+srcset="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-TO-BE-v1_huaf2aba1625b5351074849c59d287be59_834456_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-TO-BE-v1_huaf2aba1625b5351074849c59d287be59_834456_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="TO-BE v1 의존관계 구성도"
 class="gallery-image"
-data-flex-grow="170"
-data-flex-basis="409px"
+data-flex-grow="172"
+data-flex-basis="413px"
 >&lt;/p>
 &lt;p>고안해본 구조의 핵심은 public method에서의 Map사용을 지양하는 것과 endpoint 별로 package를 나누는 것이다.&lt;/p>
 &lt;p>인터페이스 정의서를 작성 후 구현에 들어가는데, 인터페이스 정의서는 엑셀로 작성 및 관리되고, 1개의 endpoint 당 1개의 시트를 사용하여 작성된다.
@@ -426,15 +426,15 @@ data-flex-basis="409px"
 &lt;h2 id="to-be-v2">TO-BE v2&lt;/h2>
 &lt;p>회사에서 v1을 도입하여 작업한 결과, DataManager가 가독성을 저하시키는 요인으로 작용 할 여지가 크게 보임에 따라 아키텍처를 수정하였다.&lt;/p>
 &lt;h3 id="구성도-2">구성도&lt;/h3>
-&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-tobe-v2.png"
-width="2262"
-height="1042"
-srcset="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-tobe-v2_hu827142bf8e25d50fdc0036f18ab38101_185301_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-tobe-v2_hu827142bf8e25d50fdc0036f18ab38101_185301_1024x0_resize_box_3.png 1024w"
+&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-TO-BE-v2.png"
+width="2242"
+height="1026"
+srcset="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-TO-BE-v2_hu12b8b5d7ca80c2db54cd82ac3d736d25_905939_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-TO-BE-v2_hu12b8b5d7ca80c2db54cd82ac3d736d25_905939_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="TO-BE v2 의존관계 구성도"
 class="gallery-image"
-data-flex-grow="217"
-data-flex-basis="520px"
+data-flex-grow="218"
+data-flex-basis="524px"
 >&lt;/p>
 &lt;p>DataManager를 제거하고, Service계층을 위한 전용 타입인 Command와 Result를 추가하였다.&lt;/p>
 &lt;h3 id="예제-코드-2">예제 코드&lt;/h3>
