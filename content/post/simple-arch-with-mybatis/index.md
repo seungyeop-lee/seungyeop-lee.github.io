@@ -1,7 +1,7 @@
 ---
 title: "Spring MVC와 Mybatis 기반의 단순 아키텍처"
 date: 2023-08-20
-lastmod: 2023-08-26
+lastmod: 2023-08-27
 categories:
 - Backend
 tags:
@@ -35,7 +35,7 @@ links:
 
 ### 구성도
 
-![AS-IS 의존관계 구성도](SimpleBackend-asis.png)
+![AS-IS 의존관계 구성도](SimpleBackend-AS-IS.png)
 
 사내에서 지금까지 진행된 프로젝트는 전형적인 Controller-Service-Mapper 구조를 가지고 있고,
 계층별 통신에 사용되는 데이터는 Map<String, Object>를 이용하고 있었다.
@@ -123,7 +123,7 @@ public class BookService {
 
 ### 구성도
 
-![TO-BE v1 의존관계 구성도](SimpleBackend-tobe-v1.png)
+![TO-BE v1 의존관계 구성도](SimpleBackend-TO-BE-v1.png)
 
 고안해본 구조의 핵심은 public method에서의 Map사용을 지양하는 것과 endpoint 별로 package를 나누는 것이다.
 
@@ -280,7 +280,7 @@ class DataManager {
 
 ### 구성도
 
-![TO-BE v2 의존관계 구성도](SimpleBackend-tobe-v2.png)
+![TO-BE v2 의존관계 구성도](SimpleBackend-TO-BE-v2.png)
 
 DataManager를 제거하고, Service계층을 위한 전용 타입인 Command와 Result를 추가하였다.
 
