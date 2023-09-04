@@ -1,7 +1,7 @@
 ---
 title: "Spring MVC와 Mybatis 기반의 단순 아키텍처"
 date: 2023-08-20
-lastmod: 2023-08-27
+lastmod: 2023-09-04
 categories:
 - Backend
 tags:
@@ -12,6 +12,7 @@ tags:
 - 스프링
 - 마이바티스
 - 아키텍처
+- 아키텍처 설계
 draft: false
 hidden: false 
 image: cover.png
@@ -19,6 +20,8 @@ links:
   - title: 예제코드
     website: https://github.com/seungyeop-lee/blog-example/tree/main/architecture-in-spring/modules
 ---
+
+2023-09-04 추가: TO-BE v3까지 오면서 더 이상 "단순 아키텍처"라고 부르기 힘든 수준이 된거 같다...
 
 ## 서론
 
@@ -419,3 +422,119 @@ class EXAM001Service {
 Command는 Mapper에서 사용 할 객체를 생성하는 책임이 추가되었고, Result는 Entity로부터 스스로를 생성 할 책임이 추가되었다.
 
 Controller의 Request와 Service의 Command, Controller의 Response와 Service의 Result가 중복으로 보일 수 있으나 내 생각에는 **우발적 중복**이라 생각한다. (해당 내용은 클린 아키텍처 "16장.독립성#중복" 부분을 참고)
+
+## TO-BE v3
+
+회사에서 v2를 도입하여 작업해보니, 특정 도메인 로직이 여러 인터페이스의 서비스에 분산되서 나타나기 시작하였다. 도메인 로직의 유지보수성 향상을 목적으로 아키텍처를 수정하였다.
+
+### 구성도
+
+![TO-BE v3 의존관계 구성도](SimpleBackend-TO-BE-v3.png)
+
+도메인 로직을 관리하기위한 Usecase가 추가 되었다. Usecase 용 Command와 Result 객체는 표현력이 더 필요 할 때에 한해서 사용하고, 보통은 Entity를 사용하도록 하였다.
+
+### 예제 코드
+
+Controller의 코드는 TO-BE v2와 동일하여 생략하였다.
+
+```java
+@Service
+@Transactional
+@RequiredArgsConstructor
+class EXAM001Service {
+
+    private final BookUsecase bookUsecase;
+
+    public Result createBook(Command command) {
+        if (bookUsecase.findByIsbn(command.getIsbn()).isPresent()) {
+            throw new Exceptions.ISBNDuplicationException();
+        }
+
+        Book book = bookUsecase.createBook(
+                CreateBookCommand.of(
+                        command.getTitle(),
+                        command.getIsbn(),
+                        command.getPublishedDate()
+                )
+        );
+
+        return Result.from(book);
+    }
+
+    @Getter
+    static class Command {
+        private String title;
+        private String isbn;
+        private LocalDate publishedDate;
+
+        public static Command of(
+                String title,
+                String isbn,
+                LocalDate publishedDate
+        ) {
+            Command command = new Command();
+            command.title = title;
+            command.isbn = isbn;
+            command.publishedDate = publishedDate;
+            return command;
+        }
+    }
+
+    @Getter
+    static class Result {
+        private Long bookId;
+        private String title;
+        private String isbn;
+        private LocalDate publishedDate;
+
+        public static Result from(Book book) {
+            Result result = new Result();
+            result.bookId = book.getBookId();
+            result.title = book.getTitle();
+            result.isbn = book.getIsbn();
+            result.publishedDate = book.getPublishedDate();
+            return result;
+        }
+    }
+}
+```
+
+기존의 BookMapper를 직접호출하던 것과 달리, BookUsecase에 위임하는 방식으로 변경하였다.
+
+```java
+@Service
+@Transactional
+@RequiredArgsConstructor
+public class BookUsecase {
+
+    private final BookMapper bookMapper;
+
+    public Book createBook(CreateBookCommand command) {
+        Book book = new Book()
+                .withTitle(command.getTitle())
+                .withIsbn(command.getIsbn())
+                .withPublishedDate(command.getPublishedDate());
+
+        bookMapper.insert(book);
+
+        return book;
+    }
+
+    ...
+
+    public Optional<Book> findByIsbn(String isbn) {
+        BookExample example = new BookExample();
+        example.createCriteria().andIsbnEqualTo(isbn);
+
+        List<Book> books = bookMapper.selectByExample(example);
+        if (books.isEmpty()) {
+            return Optional.empty();
+        } else {
+            return Optional.of(books.get(0));
+        }
+    }
+}
+```
+
+Book 도메인에 대한 로직을 BookUsecase에 모음으로서 유지보수성이 향상되었다. 
+Book 객체를 생성 할 때의 `.withXXX()` 는 Mybatis Generator의 FluentBuilderMethodsPlugin 플러그인을 적용하여 추가된 구문이다.
