@@ -1,7 +1,7 @@
 ---
 title: TestRestTemplate 생성 방법에 따른 유효 URL
 date: 2023-01-29
-lastmod: 2023-08-26
+lastmod: 2023-09-07
 categories:
 - Backend
 tags:
@@ -11,6 +11,9 @@ tags:
 draft: false
 hidden: false
 image: cover.png
+links:
+  - title: 예제코드
+    website: https://github.com/seungyeop-lee/blog-example/tree/main/spring-test/for-testresttemplate
 ---
 
 ## TL;DR
@@ -317,4 +320,4 @@ public class TestRestTemplateInitTest {
 
 [1]: <https://www.inflearn.com/course/토비-스프링부트-이해와원리> "토비의 스프링 부트 - 이해와 원리"
 [2]: <https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#features.testing.spring-boot-applications.with-running-server> "Spring Boot Reference Documentation - Testing With a Running Server"
-[3]: <https://github.com/seungyeop-lee/study-test/tree/main/framework/spring/test/testRestTemplate> "study-test TestRestTemplate"
+[3]: <https://github.com/seungyeop-lee/blog-example/tree/main/spring-test/for-testresttemplate> "study-test TestRestTemplate"
