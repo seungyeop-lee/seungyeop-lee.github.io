@@ -31,7 +31,7 @@ target="_blank" rel="noopener"
 &lt;li>원인 파악을 위해 &lt;a class="link" href="#testresttemplate-%ec%bd%94%eb%93%9c-%eb%b6%84%ec%84%9d" >소스 코드를 분석&lt;/a>하였고, 차이점을 확인하여 내부구현을 확인하는 &lt;a class="link" href="#%ed%95%99%ec%8a%b5-%ed%85%8c%ec%8a%a4%ed%8a%b8---%eb%82%b4%eb%b6%80-%ea%b5%ac%ed%98%84-%ed%99%95%ec%9d%b8" >학습 테스트&lt;/a>를 작성하였다.&lt;/li>
 &lt;li>생성 방식에 따른 구현 차이에 대한 이해를 돕기위해 &lt;a class="link" href="#testresttemplate-%ec%9d%98%ec%a1%b4%ec%84%b1-%eb%8b%a4%ec%9d%b4%ec%96%b4%ea%b7%b8%eb%9e%a8" >다이어그램&lt;/a>을 작성하였다.&lt;/li>
 &lt;/ol>
-&lt;p>학습 테스트는 &lt;a class="link" href="https://github.com/seungyeop-lee/study-test/tree/main/framework/spring/test/testRestTemplate" title="study-test TestRestTemplate"
+&lt;p>학습 테스트는 &lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/spring-test/for-testresttemplate" title="study-test TestRestTemplate"
 target="_blank" rel="noopener"
 >Github Repository&lt;/a>에 공개되어 있으며, Spring Boot 3.0.2 버전 기준으로 작성되었다.&lt;/p>
 &lt;h2 id="학습-테스트---생성-방법에-따른-url-사용-가능-여부-확인">학습 테스트 - 생성 방법에 따른 URL 사용 가능 여부 확인&lt;/h2>
@@ -537,7 +537,7 @@ target="_blank" rel="noopener"
 &lt;li>&lt;a class="link" href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#features.testing.spring-boot-applications.with-running-server" title="Spring Boot Reference Documentation - Testing With a Running Server"
 target="_blank" rel="noopener"
 >Spring Boot Reference Documentation - Testing With a Running Server&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="https://github.com/seungyeop-lee/study-test/tree/main/framework/spring/test/testRestTemplate" title="study-test TestRestTemplate"
+&lt;li>&lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/spring-test/for-testresttemplate" title="study-test TestRestTemplate"
 target="_blank" rel="noopener"
 >학습 테스트 Github Repository&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>
