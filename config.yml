@@ -104,6 +104,18 @@ params:
       enabled: true
 
 menu:
+  social:
+    - identifier: github
+      name: Github
+      url: https://github.com/seungyeop-lee
+      params:
+        icon: brand-github
+    - identifier: mail
+      name: mail
+      url: 'mailto:me@seungyeop-lee.com'
+      params:
+        icon: mail
+
   main:
     - identifier: home
       name: Home
@@ -139,6 +151,13 @@ menu:
       weight: -50
       params:
         icon: brand-github
+
+    - identifier: Email
+      name: Email
+      url: 'mailto:me@seungyeop-lee.com'
+      weight: -40
+      params:
+        icon: mail
 
     # - identifier: about
     #   name: About
