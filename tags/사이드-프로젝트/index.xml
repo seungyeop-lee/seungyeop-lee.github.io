@@ -1,4 +1,90 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>사이드 프로젝트 on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/tags/%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/</link><description>Recent content in 사이드 프로젝트 on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Wed, 15 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/tags/%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/index.xml" rel="self" type="application/rss+xml"/><item><title>지도구직 - 지도로 찾는 개발자 구인공고 서비스</title><link>https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EC%A7%80%EB%8F%84%EB%A1%9C-%EC%B0%BE%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B5%AC%EC%9D%B8%EA%B3%B5%EA%B3%A0-%EC%84%9C%EB%B9%84%EC%8A%A4/</link><pubDate>Wed, 15 Feb 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EC%A7%80%EB%8F%84%EB%A1%9C-%EC%B0%BE%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B5%AC%EC%9D%B8%EA%B3%B5%EA%B3%A0-%EC%84%9C%EB%B9%84%EC%8A%A4/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EC%A7%80%EB%8F%84%EB%A1%9C-%EC%B0%BE%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B5%AC%EC%9D%B8%EA%B3%B5%EA%B3%A0-%EC%84%9C%EB%B9%84%EC%8A%A4/cover.jpg" alt="Featured image of post 지도구직 - 지도로 찾는 개발자 구인공고 서비스" />&lt;p>근무지 및 회사 주소를 기반으로 개발자 구인공고를 지도에서 확인 할 수 있는 서비스(가칭 &amp;lsquo;지도구직&amp;rsquo;)를 런칭하였다!&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>사이드 프로젝트 on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/tags/%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/</link><description>Recent content in 사이드 프로젝트 on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sun, 17 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/tags/%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/index.xml" rel="self" type="application/rss+xml"/><item><title>지도구직 개선 회고</title><link>https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/</link><pubDate>Sun, 17 Dec 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/cover.png" alt="Featured image of post 지도구직 개선 회고" />&lt;p>재취업을 준비하던 시기에 만들었던 &lt;a class="link" href="https://jidogujik.seungyeop-lee.com" target="_blank" rel="noopener"
+>지도구직&lt;/a>을 9월 중순부터 틈틈히 개선하는 작업을 해왔다.
+개선 목표를 어느정도 달성했다고 생각되어 지금까지의 개선작업을 되돌아보기 위해 글을 남긴다.&lt;/p>
+&lt;h2 id="기능-개선-목표">기능 개선 목표&lt;/h2>
+&lt;p>개선 작업에 들어가면서 목표했던 것들은 아래와 같다.&lt;/p>
+&lt;ul>
+&lt;li>검색조건 확대&lt;/li>
+&lt;li>디자인 개편&lt;/li>
+&lt;li>모바일 브라우저 대응&lt;/li>
+&lt;/ul>
+&lt;h2 id="검색조건-확대">검색조건 확대&lt;/h2>
+&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B2%80%EC%83%89%EC%A1%B0%EA%B1%B4%EB%B3%80%EA%B2%BD.png"
+width="1422"
+height="940"
+srcset="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B2%80%EC%83%89%EC%A1%B0%EA%B1%B4%EB%B3%80%EA%B2%BD_hu1dbb073c2304977ffe25837c6a3c7a22_105298_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B2%80%EC%83%89%EC%A1%B0%EA%B1%B4%EB%B3%80%EA%B2%BD_hu1dbb073c2304977ffe25837c6a3c7a22_105298_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Before -&amp;gt; After"
+class="gallery-image"
+data-flex-grow="151"
+data-flex-basis="363px"
+>&lt;/p>
+&lt;p>기존에는 프로그래밍 언어 5개를 키워드로 해서 검색한 결과로 데이터를 제공하였으나, 좀 더 다양한 조건으로 검색하고 싶다는 피드백을 많이 받았다.
+그래서 사람인의 &amp;lsquo;IT개발·데이터&amp;rsquo; 직무의 하위 직무에 대해 직무별 데이터를 제공하는 것으로 변경하였다. 그에 더해, 선택개수가 많아진 만큼 Autocomplete과 multiselect를 도입하였다.&lt;/p>
+&lt;p>시스템적으로 가장 큰 개선이어서, 개선 전에 프로젝트의 전반적인 리팩토링을 거치고 기능 추가작업을 진행하였다.&lt;/p>
+&lt;h2 id="디자인-개편">디자인 개편&lt;/h2>
+&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%94%94%EC%9E%90%EC%9D%B8%EB%B3%80%EA%B2%BD.png"
+width="1396"
+height="1007"
+srcset="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%94%94%EC%9E%90%EC%9D%B8%EB%B3%80%EA%B2%BD_hua0da16c6f724ccb42a14dae195cd9fee_1471170_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%94%94%EC%9E%90%EC%9D%B8%EB%B3%80%EA%B2%BD_hua0da16c6f724ccb42a14dae195cd9fee_1471170_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="138"
+data-flex-basis="332px"
+>&lt;/p>
+&lt;p>폰트 변경, 마커 스타일 변경, 재정렬 등을 했지만, 사실 티가 잘 나지 않는다&amp;hellip;&lt;/p>
+&lt;h2 id="모바일-브라우저-대응">모바일 브라우저 대응&lt;/h2>
+&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%AA%A8%EB%B0%94%EC%9D%BC%EB%8C%80%EC%9D%91.png"
+width="1316"
+height="1040"
+srcset="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%AA%A8%EB%B0%94%EC%9D%BC%EB%8C%80%EC%9D%91_hu57da8684f708c73e3336f01604fced95_506428_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%AA%A8%EB%B0%94%EC%9D%BC%EB%8C%80%EC%9D%91_hu57da8684f708c73e3336f01604fced95_506428_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Before -&amp;gt; After"
+class="gallery-image"
+data-flex-grow="126"
+data-flex-basis="303px"
+>&lt;/p>
+&lt;p>처음 만들때는 최소 기능 구현을 목표로 삼아서 모바일 대응은 전혀 염두해 두지 않았다. 하지만 주변에서 휴대폰에서 볼 수 있으면 좋겠다는 피드백을 많이 받아서 고려하게되었다.&lt;/p>
+&lt;p>사실 CSS와 그리 친하지 않아서, 차일피일 미루고 있다가 &lt;a class="link" href="https://tailwindcss.com/" target="_blank" rel="noopener"
+>Tailwinds CSS&lt;/a>에 대해 좋은 평가를 해주시는 개발자 지인분의 이야기를 듣고 공부해보니 너무 편해서 실습겸 적용하게 되었다.&lt;/p>
+&lt;h2 id="그-외-개선사항">그 외 개선사항&lt;/h2>
+&lt;h3 id="자잘한-기능-개선">자잘한 기능 개선&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>검색조건에 &amp;lsquo;학력&amp;rsquo; 추가&lt;/strong>: 고졸 개발자한테는 학력도 중요한 필터링 요건이라는 피드백을 듣고 추가하였다.&lt;/li>
+&lt;li>&lt;strong>잡플레닛 검색 링크 추가&lt;/strong>: 잡플레닛의 평점도 회사를 결정하는 중요 요인이므로, 잡플레닛 검색을 편히 할 수 있게 링크를 추가하였다.&lt;/li>
+&lt;/ul>
+&lt;h3 id="vite---nextjs">Vite -&amp;gt; Next.js&lt;/h3>
+&lt;ul>
+&lt;li>추후 확장이나 관리 측면에서의 편의성을 생각해서 Next.js로 마이그레이션 하였다.&lt;/li>
+&lt;/ul>
+&lt;h3 id="caddy---traefik-k8s---docker">Caddy -&amp;gt; Traefik, K8s -&amp;gt; Docker&lt;/h3>
+&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%B0%B0%ED%8F%AC%ED%99%98%EA%B2%BDv2.png"
+width="3140"
+height="1300"
+srcset="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%B0%B0%ED%8F%AC%ED%99%98%EA%B2%BDv2_hu7936392f189ad3195886fdd3f9954adb_778784_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%B0%B0%ED%8F%AC%ED%99%98%EA%B2%BDv2_hu7936392f189ad3195886fdd3f9954adb_778784_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="241"
+data-flex-basis="579px"
+>&lt;/p>
+&lt;ul>
+&lt;li>Caddy를 걷어내고 전부 Traefik으로 변경하였다. 편한 설정으로 https를 적용해주는 것 까지는 좋았지만, 나머지 부분은 전부 Traefik보다 못해서, 결국은 교체하였다.&lt;/li>
+&lt;li>로컬 개발 환경은 docker compose로, 운영 환경은 K8s로 이원화해서 사용하였으나, 트래픽도 거의 없고, 무중단 배포 등에 목맬 필요가 없는 프로젝트라고 생각해서 관리 편의상 운영 환경도 docker compose로 마이그레이션하였다.
+&lt;ul>
+&lt;li>현재 회사에서는 K8s는 고사하고, Docker도 사용하지 않던 곳이라 k8s에 대한 지식이 잊혀짐에 따라 K8s로 운영하기 점점 힘들어지는 것도 컸다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="db-백업">DB 백업&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://github.com/offen/docker-volume-backup" target="_blank" rel="noopener"
+>docker-volume-backup&lt;/a>을 이용해서 DB Data Volume을 하루에 한번 백업을 수행한다.&lt;/li>
+&lt;/ul>
+&lt;h2 id="소감">소감&lt;/h2>
+&lt;p>일하면서 틈틈이 마음이 동할 때 조금씩 고쳐나간 것이 어느정도 완성된 것을 보니 이제야 &amp;lsquo;어디에 좀 내놓을 수 있는 서비스가 되었구나&amp;rsquo;란 생각이 들었다.&lt;/p>
+&lt;p>근무지 주소 정보를 사람인 사이트에서 스크래핑하는 부분도 있다보니 언제 블락당할지 몰라서 많이 정을 많이 주지 않은 것도 사실이다. 그리고 그 위험은 여전히 존재한다.&lt;/p>
+&lt;p>그래도 뭔가를 배워서 회사가 아닌 곳에 사용 할 수 있는 곳이 있다는게 참 좋았고, 좀 더 완성도있는 서비스를 만들었다는 생각에 뿌듯했다.&lt;/p>
+&lt;p>개인화 기능과 검색 엔진을 통해 더 지능화된 검색을 지원하는 등 아이디어는 많은데 언제 또 작업할지는 모르겠다. 마음이 동할때, 그리고 해당 기술을 배우고 적용하고 싶을 때, 다시 시작해보련다.&lt;/p></description></item><item><title>지도구직 - 지도로 찾는 개발자 구인공고 서비스</title><link>https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EC%A7%80%EB%8F%84%EB%A1%9C-%EC%B0%BE%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B5%AC%EC%9D%B8%EA%B3%B5%EA%B3%A0-%EC%84%9C%EB%B9%84%EC%8A%A4/</link><pubDate>Wed, 15 Feb 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EC%A7%80%EB%8F%84%EB%A1%9C-%EC%B0%BE%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B5%AC%EC%9D%B8%EA%B3%B5%EA%B3%A0-%EC%84%9C%EB%B9%84%EC%8A%A4/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EC%A7%80%EB%8F%84%EB%A1%9C-%EC%B0%BE%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B5%AC%EC%9D%B8%EA%B3%B5%EA%B3%A0-%EC%84%9C%EB%B9%84%EC%8A%A4/cover.jpg" alt="Featured image of post 지도구직 - 지도로 찾는 개발자 구인공고 서비스" />&lt;p>근무지 및 회사 주소를 기반으로 개발자 구인공고를 지도에서 확인 할 수 있는 서비스(가칭 &amp;lsquo;지도구직&amp;rsquo;)를 런칭하였다!&lt;/p>
 &lt;p>지도구직은 &lt;a class="link" href="http://jidogujik.seungyeop-lee.com" target="_blank" rel="noopener"
 >http://jidogujik.seungyeop-lee.com&lt;/a> 에서 확인 할 수 있다.&lt;/p>
 &lt;p>예정대로라면 소스코드 전체를 오픈하고, 저장소의 README에 자세한 내용을 기재하였을 것이다.
