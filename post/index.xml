@@ -81,7 +81,7 @@ data-flex-basis="579px"
 >docker-volume-backup&lt;/a>을 이용해서 DB Data Volume을 하루에 한번 백업을 수행한다.&lt;/li>
 &lt;/ul>
 &lt;h2 id="소감">소감&lt;/h2>
-&lt;p>일하면서 틈틈이 마음이 동할 때 조금씩 고쳐나간 것이 어느정도 완성된 것을 보니 이제야 &amp;lsquo;어디에 좀 내놓을 수 있는 서비스가 되었구나&amp;rsquo;란 생각이 들었다.&lt;/p>
+&lt;p>퇴근 후 틈틈이 마음이 동할 때 조금씩 고쳐나간 것이 어느정도 완성된 것을 보니 이제야 &amp;lsquo;어디에 좀 내놓을 수 있는 서비스가 되었구나&amp;rsquo;란 생각이 들었다.&lt;/p>
 &lt;p>근무지 주소 정보를 사람인 사이트에서 스크래핑하는 부분도 있다보니 언제 블락당할지 몰라서 정을 많이 주지 않은 것도 사실이다. 그리고 그 위험은 여전히 존재한다.&lt;/p>
 &lt;p>그래도 뭔가를 배워서 회사가 아닌 곳에 사용 할 수 있는 곳이 있다는게 참 좋았고, 좀 더 완성도있는 서비스를 만들었다는 생각에 뿌듯했다.&lt;/p>
 &lt;p>개인화 기능과 검색 엔진을 통해 더 지능화된 검색을 지원하는 등 아이디어는 많은데 언제 또 작업할지는 모르겠다. 마음이 동할때, 그리고 해당 기술을 배우고 적용하고 싶을 때, 다시 시작해보련다.&lt;/p></description></item><item><title>Spring MVC와 Mybatis 기반의 단순 아키텍처</title><link>https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/</link><pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/cover.png" alt="Featured image of post Spring MVC와 Mybatis 기반의 단순 아키텍처" />&lt;p>2023-09-04 추가: TO-BE v3까지 오면서 더 이상 &amp;ldquo;단순 아키텍처&amp;quot;라고 부르기 힘든 수준이 된거 같다&amp;hellip;&lt;/p>
