@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/</link><description>Recent content on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sun, 17 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>지도구직 개선 회고</title><link>https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/</link><pubDate>Sun, 17 Dec 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/cover.png" alt="Featured image of post 지도구직 개선 회고" />&lt;p>재취업을 준비하던 시기에 만들었던 &lt;a class="link" href="https://jidogujik.seungyeop-lee.com" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/</link><description>Recent content on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Wed, 27 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>지도구직 개선 회고</title><link>https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/</link><pubDate>Sun, 17 Dec 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/cover.png" alt="Featured image of post 지도구직 개선 회고" />&lt;p>재취업을 준비하던 시기에 만들었던 &lt;a class="link" href="https://jidogujik.seungyeop-lee.com" target="_blank" rel="noopener"
 >지도구직&lt;/a>을 9월 중순부터 틈틈히 개선하는 작업을 해왔다.
 개선 목표를 어느정도 달성했다고 생각되어 지금까지의 개선작업을 되돌아보기 위해 글을 남긴다.&lt;/p>
 &lt;h2 id="기능-개선-목표">기능 개선 목표&lt;/h2>
@@ -90,7 +90,7 @@ data-flex-basis="579px"
 &lt;li>&lt;a class="link" href="../chap01" >chap01. 코드 품질&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="../chap02" >chap02. 추상화 계층&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="../chap03" >chap03. 다른 개발자와 코드 계약&lt;/a>&lt;/li>
-&lt;li>chap04. 오류&lt;/li>
+&lt;li>&lt;a class="link" href="../chap04" >chap04. 오류&lt;/a>&lt;/li>
 &lt;li>chap05. 가독성 높은 코드를 작성하라&lt;/li>
 &lt;li>chap06. 예측 가능한 코드를 작성하라&lt;/li>
 &lt;li>chap07. 코드를 오용하기 어렵게 만들라&lt;/li>
