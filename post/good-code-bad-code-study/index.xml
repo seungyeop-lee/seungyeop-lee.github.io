@@ -1,5 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/post/good-code-bad-code-study/</link><description>Recent content on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Wed, 27 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/post/good-code-bad-code-study/index.xml" rel="self" type="application/rss+xml"/><item><title>좋은 코드, 나쁜 코드 북스터디</title><link>https://blog.seungyeop-lee.com/post/good-code-bad-code-study/index/</link><pubDate>Wed, 27 Dec 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/good-code-bad-code-study/index/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/good-code-bad-code-study/index/cover.jpeg" alt="Featured image of post 좋은 코드, 나쁜 코드 북스터디" />&lt;p>회사에서 진행 중인 &lt;a class="link" href="https://product.kyobobook.co.kr/detail/S000061353995" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/post/good-code-bad-code-study/</link><description>Recent content on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sat, 16 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/post/good-code-bad-code-study/index.xml" rel="self" type="application/rss+xml"/><item><title>좋은 코드, 나쁜 코드 북스터디</title><link>https://blog.seungyeop-lee.com/post/good-code-bad-code-study/index/</link><pubDate>Tue, 05 Dec 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/good-code-bad-code-study/index/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/good-code-bad-code-study/index/cover.jpeg" alt="Featured image of post 좋은 코드, 나쁜 코드 북스터디" />&lt;p>회사에서 진행 중인 &lt;a class="link" href="https://product.kyobobook.co.kr/detail/S000061353995" target="_blank" rel="noopener"
 >좋은 코드, 나쁜 코드&lt;/a> 북스터디 결과물을 기록&lt;/p>
 &lt;ul>
-&lt;li>&lt;a class="link" href="../chap01" >Chap01. 코드 품질&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../chap01" >chap01. 코드 품질&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../chap02" >chap02. 추상화 계층&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../chap03" >chap03. 다른 개발자와 코드 계약&lt;/a>&lt;/li>
+&lt;li>chap04. 오류&lt;/li>
+&lt;li>chap05. 가독성 높은 코드를 작성하라&lt;/li>
+&lt;li>chap06. 예측 가능한 코드를 작성하라&lt;/li>
+&lt;li>chap07. 코드를 오용하기 어렵게 만들라&lt;/li>
+&lt;li>chap08. 코드를 모듈화하라&lt;/li>
+&lt;li>chap09. 코드를 재사용하고 일반화할 수 있도록 하라&lt;/li>
+&lt;li>chap10. 단위 테스트의 원칙&lt;/li>
+&lt;li>chap11. 단위 테스트의 실제&lt;/li>
 &lt;/ul></description></item></channel></rss>
