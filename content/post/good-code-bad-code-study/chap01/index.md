@@ -1,5 +1,5 @@
 ---
-title: "좋은 코드, 나쁜 코드 북스터디 - Chap01. 코드 품질"
+title: "좋은 코드, 나쁜 코드 북스터디 - chap01. 코드 품질"
 date: 2023-12-27
 lastmod: 2023-12-27
 categories:
