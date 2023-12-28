@@ -127,7 +127,8 @@ data-flex-basis="579px"
 &lt;td>chap05. 가독성 높은 코드를 작성하라&lt;/td>
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>
-&lt;td>&lt;/td>
+&lt;td>&lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/good-code-bad-code/chap05/src/main/java/com/github/seungyeop_lee/blog_example/good_code_bad_code" target="_blank" rel="noopener"
+>실습 코드&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>chap06. 예측 가능한 코드를 작성하라&lt;/td>
