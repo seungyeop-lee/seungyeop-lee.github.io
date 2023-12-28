@@ -18,7 +18,9 @@ module:
       disable: false
 
 # GA Tracking ID
-googleAnalytics: UA-189675722-1
+services:
+  googleAnalytics:
+    ID: G-HGMQJP4T94
 
 DefaultContentLanguage: ko
 
