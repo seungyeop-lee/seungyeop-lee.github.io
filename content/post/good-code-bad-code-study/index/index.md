@@ -1,7 +1,7 @@
 ---
 title: "좋은 코드, 나쁜 코드 북스터디"
 date: 2023-12-05
-lastmod: 2024-01-17
+lastmod: 2024-01-21
 categories:
   - 스터디
   - 책 요약
@@ -25,9 +25,9 @@ image: cover.jpeg
 | chap03. 다른 개발자와 코드 계약           | 23.12.19 | [요약](../chap03) | [실습 코드](https://github.com/seungyeop-lee/blog-example/tree/main/good-code-bad-code/chap03/src/main/java/com/github/seungyeop_lee/blog_example/good_code_bad_code) |
 | chap04. 오류                      | 24.01.02 | [요약](../chap04) | [실습 코드](https://github.com/seungyeop-lee/blog-example/tree/main/good-code-bad-code/chap04/src/main/java/com/github/seungyeop_lee/blog_example/good_code_bad_code) |
 | chap05. 가독성 높은 코드를 작성하라         | 24.01.09 | [요약](../chap05) | [실습 코드](https://github.com/seungyeop-lee/blog-example/tree/main/good-code-bad-code/chap05/src/main/java/com/github/seungyeop_lee/blog_example/good_code_bad_code) |
-| chap06. 예측 가능한 코드를 작성하라         |          | [요약](../chap06) | [실습 코드](https://github.com/seungyeop-lee/blog-example/tree/main/good-code-bad-code/chap06/src/main/java/com/github/seungyeop_lee/blog_example/good_code_bad_code) |
+| chap06. 예측 가능한 코드를 작성하라         | 24.01.18 | [요약](../chap06) | [실습 코드](https://github.com/seungyeop-lee/blog-example/tree/main/good-code-bad-code/chap06/src/main/java/com/github/seungyeop_lee/blog_example/good_code_bad_code) |
 | chap07. 코드를 오용하기 어렵게 만들라        |          | [요약](../chap07) | [실습 코드](https://github.com/seungyeop-lee/blog-example/tree/main/good-code-bad-code/chap07/src/main/java/com/github/seungyeop_lee/blog_example/good_code_bad_code) |
-| chap08. 코드를 모듈화하라               |          |                 |                                                                                                                                                                   |
+| chap08. 코드를 모듈화하라               |          | [요약](../chap08) | [실습 코드](https://github.com/seungyeop-lee/blog-example/tree/main/good-code-bad-code/chap08/src/main/java/com/github/seungyeop_lee/blog_example/good_code_bad_code) |
 | chap09. 코드를 재사용하고 일반화할 수 있도록 하라 |          |                 |                                                                                                                                                                   |
 | chap10. 단위 테스트의 원칙              |          |                 |                                                                                                                                                                   |
 | chap11. 단위 테스트의 실제              |          |                 |                                                                                                                                                                   |
