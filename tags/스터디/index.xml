@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>스터디 on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/tags/%EC%8A%A4%ED%84%B0%EB%94%94/</link><description>Recent content in 스터디 on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Wed, 17 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/tags/%EC%8A%A4%ED%84%B0%EB%94%94/index.xml" rel="self" type="application/rss+xml"/><item><title>좋은 코드, 나쁜 코드 북스터디</title><link>https://blog.seungyeop-lee.com/post/good-code-bad-code-study/index/</link><pubDate>Tue, 05 Dec 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/good-code-bad-code-study/index/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/good-code-bad-code-study/index/cover.jpeg" alt="Featured image of post 좋은 코드, 나쁜 코드 북스터디" />&lt;p>회사에서 진행 중인 &lt;a class="link" href="https://product.kyobobook.co.kr/detail/S000061353995" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>스터디 on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/tags/%EC%8A%A4%ED%84%B0%EB%94%94/</link><description>Recent content in 스터디 on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sun, 21 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/tags/%EC%8A%A4%ED%84%B0%EB%94%94/index.xml" rel="self" type="application/rss+xml"/><item><title>좋은 코드, 나쁜 코드 북스터디</title><link>https://blog.seungyeop-lee.com/post/good-code-bad-code-study/index/</link><pubDate>Tue, 05 Dec 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/good-code-bad-code-study/index/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/good-code-bad-code-study/index/cover.jpeg" alt="Featured image of post 좋은 코드, 나쁜 코드 북스터디" />&lt;p>회사에서 진행 중인 &lt;a class="link" href="https://product.kyobobook.co.kr/detail/S000061353995" target="_blank" rel="noopener"
 >좋은 코드, 나쁜 코드&lt;/a> 북스터디 결과물을 기록&lt;/p>
 &lt;table>
 &lt;thead>
@@ -46,7 +46,7 @@
 &lt;/tr>
 &lt;tr>
 &lt;td>chap06. 예측 가능한 코드를 작성하라&lt;/td>
-&lt;td>&lt;/td>
+&lt;td>24.01.18&lt;/td>
 &lt;td>&lt;a class="link" href="../chap06" >요약&lt;/a>&lt;/td>
 &lt;td>&lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/good-code-bad-code/chap06/src/main/java/com/github/seungyeop_lee/blog_example/good_code_bad_code" target="_blank" rel="noopener"
 >실습 코드&lt;/a>&lt;/td>
@@ -61,8 +61,9 @@
 &lt;tr>
 &lt;td>chap08. 코드를 모듈화하라&lt;/td>
 &lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
+&lt;td>&lt;a class="link" href="../chap08" >요약&lt;/a>&lt;/td>
+&lt;td>&lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/good-code-bad-code/chap08/src/main/java/com/github/seungyeop_lee/blog_example/good_code_bad_code" target="_blank" rel="noopener"
+>실습 코드&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>chap09. 코드를 재사용하고 일반화할 수 있도록 하라&lt;/td>
