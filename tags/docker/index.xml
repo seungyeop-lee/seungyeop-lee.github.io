@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/tags/docker/</link><description>Recent content in Docker on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Wed, 24 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker와 Web browser로 MySQL Workbench 사용하기</title><link>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link><pubDate>Wed, 24 Jan 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/cover.png" alt="Featured image of post Docker와 Web browser로 MySQL Workbench 사용하기" />&lt;h2 id="tldr">TL;DR&lt;/h2>
+&lt;ol>
+&lt;li>&lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker" target="_blank" rel="noopener"
+>mysqlworkbench-on-docker 예제&lt;/a>를 다운로드한다.&lt;/li>
+&lt;li>&lt;code>make up&lt;/code> 명령어를 실행한다.&lt;/li>
+&lt;li>웹 브라우저에서 &lt;code>http://localhost:3000&lt;/code>으로 접속하여, MySQL Workbench를 사용한다.&lt;/li>
+&lt;li>사용이 끝나면 &lt;code>make down&lt;/code> 명령어를 실행하여 컨테이너를 종료한다.&lt;/li>
+&lt;/ol>
+&lt;h2 id="발단">발단&lt;/h2>
+&lt;p>MySQL Workbench는 GUI 기반의 MySQL 관리 툴이다. 여기에는 ERD를 그리는 기능도 포함되어 있다.
+무료로 사용 할 수있는 여러 ERD Tool을 비교했을 때, MySQL Workbench의 ERD가 가장 편리하다고 생각한다.&lt;/p>
+&lt;p>그러나, MacOS Sonoma 업데이트 후에 MySQL Workbench에서 ERD 모델을 열려고하면 강제종료 되는 문제가 발생했고, (8.0.34 버전)
+2024년 01월 24일 현재 최신 버전인 8.0.36을 설치하여 사용 할 경우에도, 다음과 같은 문제가 발생한다.&lt;/p>
+&lt;ul>
+&lt;li>부분적으로 UI가 표시되지 않음&lt;/li>
+&lt;li>간혈적으로 프로그램이 강제 종료 됨&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1.png"
+width="1371"
+height="959"
+srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1_hubaa7cd1251a84d0bd5aa506332f8b42d_128444_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1_hubaa7cd1251a84d0bd5aa506332f8b42d_128444_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="부분적으로 UI가 표시되지 않음"
+class="gallery-image"
+data-flex-grow="142"
+data-flex-basis="343px"
+>&lt;/p>
+&lt;p>이러한 문제가 언제 고쳐질지 알 수 없고, 이번처럼 운영체제 업데이트로 인한 이슈가 언제 또 발생 할 지 모르지만 다른 대안이 없기 때문에 MacOS에서 MySQL Workbench를 안정적으로 실행 할 수 있는 대안을 찾기 시작했다.&lt;/p>
+&lt;h2 id="docker로-mysql-workbench-실행시키기">Docker로 MySQL Workbench 실행시키기&lt;/h2>
+&lt;p>&lt;a class="link" href="https://docs.linuxserver.io/images/docker-mysql-workbench/" target="_blank" rel="noopener"
+>linuxserver/mysql-workbench&lt;/a>를 발견하였다.
+linuxserver라는 Docker를 통해 linux 어플리케이션을 실행시킬 수 있게 이미지화하는 작업을 전문적으로 하는 그룹에서 만든 이미지이다.&lt;/p>
+&lt;p>문서에 나와있는대로 따라하면 간단히 MySQL Workbench 컨테이너를 띄우고, 접속 할 수 있다.&lt;/p>
+&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1.png"
+width="1609"
+height="1012"
+srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1_huae9d86b810f8dff2dc345ea551b92c41_128131_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1_huae9d86b810f8dff2dc345ea551b92c41_128131_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="UI가 문제없이 표시된다."
+class="gallery-image"
+data-flex-grow="158"
+data-flex-basis="381px"
+>&lt;/p>
+&lt;p>하지만 한글이 입력되지 않는다는 문제가 있었다.&lt;/p>
+&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2.png"
+width="893"
+height="320"
+srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2_hua03b06ae4cd618eec0c4069e19e58ce0_44907_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2_hua03b06ae4cd618eec0c4069e19e58ce0_44907_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="한글입력이 되지 않는다."
+class="gallery-image"
+data-flex-grow="279"
+data-flex-basis="669px"
+>&lt;/p>
+&lt;h2 id="한글-입출력-문제-대응">한글 입출력 문제 대응&lt;/h2>
+&lt;p>해당이미지에 한글 폰트가 없어서 생기는 문제로 보고 기존 이미지에 한글 폰트를 추가하는 Dockerfile을 작성하여 사용하였다.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span class="line">&lt;span class="cl">&lt;span class="k">FROM&lt;/span>&lt;span class="s"> lscr.io/linuxserver/mysql-workbench:8.0.36&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> apt-get -y update &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> apt-get install -y fonts-nanum&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>그리고 IME 입력을 활성화 시켜준다. (활성화하지 않으면 자모 분리가 일어남)&lt;/p>
+&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3.png"
+width="1353"
+height="940"
+srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3_hu8871e7862df766fe77c3ca697bbabad4_185011_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3_hu8871e7862df766fe77c3ca697bbabad4_185011_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="IME 입력 활성화"
+class="gallery-image"
+data-flex-grow="143"
+data-flex-basis="345px"
+>&lt;/p>
+&lt;p>테스트를 해보면 한글입력이 잘 되는 것을 확인 할 수 있다.&lt;/p>
+&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4.png"
+width="1185"
+height="308"
+srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4_hu21ead88ce360a00f850aa081c2e98015_44889_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4_hu21ead88ce360a00f850aa081c2e98015_44889_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="한글입력에 문제가 없다."
+class="gallery-image"
+data-flex-grow="384"
+data-flex-basis="923px"
+>&lt;/p>
+&lt;h2 id="결론">결론&lt;/h2>
+&lt;p>이제 MacOS에서 걱정없이 MySQL Workbench 사용이 가능해졌다!&lt;/p>
+&lt;p>바로 실행 가능한 설정 파일은 &lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker" target="_blank" rel="noopener"
+>mysqlworkbench-on-docker 예제&lt;/a>를 참고하기 바란다.&lt;/p></description></item></channel></rss>
