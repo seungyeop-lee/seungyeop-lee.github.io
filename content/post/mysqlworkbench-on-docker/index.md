@@ -22,7 +22,7 @@ links:
 
 1. [mysqlworkbench-on-docker 예제](https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker)를 다운로드한다.
 2. `make up` 명령어를 실행한다.
-3. 웹 브라우저에서 `http://localhost:3000`으로 접속하여, MySQL Workbench를 사용한다.
+3. 웹 브라우저에서 `http://localhost:3000`으로 접속하여, 'IME 입력 모드'를 활성화 시킨 후 MySQL Workbench를 사용한다.
 4. 사용이 끝나면 `make down` 명령어를 실행하여 컨테이너를 종료한다.
 
 ## 발단
@@ -38,12 +38,14 @@ MySQL Workbench는 GUI 기반의 MySQL 관리 툴이다. 여기에는 ERD를 그
 
 ![부분적으로 UI가 표시되지 않음](macos-1.png)
 
-이러한 문제가 언제 고쳐질지 알 수 없고, 이번처럼 운영체제 업데이트로 인한 이슈가 언제 또 발생 할 지 모르지만 다른 대안이 없기 때문에 MacOS에서 MySQL Workbench를 안정적으로 실행 할 수 있는 대안을 찾기 시작했다. 
+이러한 문제가 언제 고쳐질지 알 수 없고, 이번처럼 운영체제 업데이트로 인한 이슈가 언제 또 발생 할 지 모른다는 불안감이 생겼다.
+
+하지만 다른 대안이 없기 때문에 MacOS에서 MySQL Workbench를 안정적으로 실행 할 수 있는 방안을 찾기 시작했다. 
 
 ## Docker로 MySQL Workbench 실행시키기
 
 [linuxserver/mysql-workbench](https://docs.linuxserver.io/images/docker-mysql-workbench/)를 발견하였다. 
-linuxserver라는 Docker를 통해 linux 어플리케이션을 실행시킬 수 있게 이미지화하는 작업을 전문적으로 하는 그룹에서 만든 이미지이다.
+linuxserver라는 그룹은 Docker를 이용해 linux 어플리케이션을 실행시킬 수 있게 이미지화하는 작업을 전문적한다.
 
 문서에 나와있는대로 따라하면 간단히 MySQL Workbench 컨테이너를 띄우고, 접속 할 수 있다.
 
@@ -76,4 +78,4 @@ RUN apt-get -y update \
 
 이제 MacOS에서 걱정없이 MySQL Workbench 사용이 가능해졌다!
 
-바로 실행 가능한 설정 파일은 [mysqlworkbench-on-docker 예제](https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker)를 참고하기 바란다.
+전체적인 설정 파일은 [mysqlworkbench-on-docker 예제](https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker)를 참고하기 바란다.
