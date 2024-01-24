@@ -3,7 +3,7 @@
 &lt;li>&lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker" target="_blank" rel="noopener"
 >mysqlworkbench-on-docker 예제&lt;/a>를 다운로드한다.&lt;/li>
 &lt;li>&lt;code>make up&lt;/code> 명령어를 실행한다.&lt;/li>
-&lt;li>웹 브라우저에서 &lt;code>http://localhost:3000&lt;/code>으로 접속하여, MySQL Workbench를 사용한다.&lt;/li>
+&lt;li>웹 브라우저에서 &lt;code>http://localhost:3000&lt;/code>으로 접속하여, &amp;lsquo;IME 입력 모드&amp;rsquo;를 활성화 시킨 후 MySQL Workbench를 사용한다.&lt;/li>
 &lt;li>사용이 끝나면 &lt;code>make down&lt;/code> 명령어를 실행하여 컨테이너를 종료한다.&lt;/li>
 &lt;/ol>
 &lt;h2 id="발단">발단&lt;/h2>
@@ -25,11 +25,12 @@ class="gallery-image"
 data-flex-grow="142"
 data-flex-basis="343px"
 >&lt;/p>
-&lt;p>이러한 문제가 언제 고쳐질지 알 수 없고, 이번처럼 운영체제 업데이트로 인한 이슈가 언제 또 발생 할 지 모르지만 다른 대안이 없기 때문에 MacOS에서 MySQL Workbench를 안정적으로 실행 할 수 있는 대안을 찾기 시작했다.&lt;/p>
+&lt;p>이러한 문제가 언제 고쳐질지 알 수 없고, 이번처럼 운영체제 업데이트로 인한 이슈가 언제 또 발생 할 지 모른다는 불안감이 생겼다.&lt;/p>
+&lt;p>하지만 다른 대안이 없기 때문에 MacOS에서 MySQL Workbench를 안정적으로 실행 할 수 있는 방안을 찾기 시작했다.&lt;/p>
 &lt;h2 id="docker로-mysql-workbench-실행시키기">Docker로 MySQL Workbench 실행시키기&lt;/h2>
 &lt;p>&lt;a class="link" href="https://docs.linuxserver.io/images/docker-mysql-workbench/" target="_blank" rel="noopener"
 >linuxserver/mysql-workbench&lt;/a>를 발견하였다.
-linuxserver라는 Docker를 통해 linux 어플리케이션을 실행시킬 수 있게 이미지화하는 작업을 전문적으로 하는 그룹에서 만든 이미지이다.&lt;/p>
+linuxserver라는 그룹은 Docker를 이용해 linux 어플리케이션을 실행시킬 수 있게 이미지화하는 작업을 전문적한다.&lt;/p>
 &lt;p>문서에 나와있는대로 따라하면 간단히 MySQL Workbench 컨테이너를 띄우고, 접속 할 수 있다.&lt;/p>
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1.png"
 width="1609"
@@ -92,7 +93,7 @@ data-flex-basis="923px"
 >&lt;/p>
 &lt;h2 id="결론">결론&lt;/h2>
 &lt;p>이제 MacOS에서 걱정없이 MySQL Workbench 사용이 가능해졌다!&lt;/p>
-&lt;p>바로 실행 가능한 설정 파일은 &lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker" target="_blank" rel="noopener"
+&lt;p>전체적인 설정 파일은 &lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker" target="_blank" rel="noopener"
 >mysqlworkbench-on-docker 예제&lt;/a>를 참고하기 바란다.&lt;/p></description></item><item><title>CSS Tips</title><link>https://blog.seungyeop-lee.com/post/css-tips/</link><pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/css-tips/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/css-tips/cover.png" alt="Featured image of post CSS Tips" />&lt;h2 id="상속">상속&lt;/h2>
 &lt;p>부모로부터 상속받은 속성은 브라우저의 디폴트 CSS 속성보다 우선순위가 낮다.&lt;/p>
 &lt;h2 id="여백-상쇄">여백 상쇄&lt;/h2>
