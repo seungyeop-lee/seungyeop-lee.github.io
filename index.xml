@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/</link><description>Recent content on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sun, 04 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker와 Web browser로 MySQL Workbench 사용하기</title><link>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link><pubDate>Wed, 24 Jan 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/cover.png" alt="Featured image of post Docker와 Web browser로 MySQL Workbench 사용하기" />&lt;h2 id="tldr">TL;DR&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/</link><description>Recent content on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sun, 18 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker와 Web browser로 MySQL Workbench 사용하기</title><link>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link><pubDate>Wed, 24 Jan 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/cover.png" alt="Featured image of post Docker와 Web browser로 MySQL Workbench 사용하기" />&lt;h2 id="tldr">TL;DR&lt;/h2>
 &lt;ol>
 &lt;li>&lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker" target="_blank" rel="noopener"
 >mysqlworkbench-on-docker 예제&lt;/a>를 다운로드한다.&lt;/li>
@@ -249,22 +249,22 @@ data-flex-basis="579px"
 &lt;/tr>
 &lt;tr>
 &lt;td>chap09. 코드를 재사용하고 일반화할 수 있도록 하라&lt;/td>
-&lt;td>&lt;/td>
+&lt;td>24.02.06&lt;/td>
 &lt;td>&lt;a class="link" href="../chap09" >요약&lt;/a>&lt;/td>
 &lt;td>&lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/good-code-bad-code/chap09/src/main/java/com/github/seungyeop_lee/blog_example/good_code_bad_code" target="_blank" rel="noopener"
 >실습 코드&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>chap10. 단위 테스트의 원칙&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
+&lt;td>24.02.13&lt;/td>
+&lt;td>&lt;a class="link" href="../chap10" >요약&lt;/a>&lt;/td>
+&lt;td>-&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>chap11. 단위 테스트의 실제&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
+&lt;td>24.02.20&lt;/td>
+&lt;td>&lt;a class="link" href="../chap11" >요약&lt;/a>&lt;/td>
+&lt;td>-&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Spring MVC와 Mybatis 기반의 단순 아키텍처</title><link>https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/</link><pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/cover.png" alt="Featured image of post Spring MVC와 Mybatis 기반의 단순 아키텍처" />&lt;p>2023-09-04 추가: TO-BE v3까지 오면서 더 이상 &amp;ldquo;단순 아키텍처&amp;quot;라고 부르기 힘든 수준이 된거 같다&amp;hellip;&lt;/p>
