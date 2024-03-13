@@ -1,7 +1,7 @@
 ---
 title: 지도구직 개선 회고
 date: 2023-12-17
-lastmod: 2023-12-19
+lastmod: 2024-03-13
 categories:
 - Side Project
 tags:
@@ -13,10 +13,15 @@ tags:
 draft: false
 hidden: false 
 image: cover.png
-links:
-- title: 지도구직
-  website: https://jidogujik.seungyeop-lee.com
 ---
+
+> ## 2024. 03. 13 추가
+> 
+> 2024년 2월 17일 이후로 서버의 IP가 사람인 쪽 블랙리스트에 올라간듯하다. 우려했던 상황이 벌어진 것이다.
+> 
+> IP를 바꿔가며 서비스를 지속 할 수도 있지만, 사람인 쪽에서 부정행위로 인식한 이상 그만 두는 것이 맞는 것 같다.
+> 
+> 그래서 오늘부로 서비스를 종료한다.
 
 재취업을 준비하던 시기에 만들었던 [지도구직](https://jidogujik.seungyeop-lee.com)을 9월 중순부터 틈틈히 개선하는 작업을 해왔다.
 개선 목표를 어느정도 달성했다고 생각되어 지금까지의 개선작업을 되돌아보기 위해 글을 남긴다.
