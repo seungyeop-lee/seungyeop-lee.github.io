@@ -14,9 +14,6 @@ links:
   - title: local-dev-environment-based-on-docker
     description: react(vite), spring boot, mariadb, redis, golang, caddy로 이루어져있는 docker 기반 로컬 개발환경 template
     website: https://github.com/seungyeop-lee/local-dev-environment-based-on-docker
-  - title: 지도구직
-    description: 지도에서 찾는 개발자 구인공고
-    website: https://jidogujik.seungyeop-lee.com
 slug: "links"
 comments: false
 license: false
