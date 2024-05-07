@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSS on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/tags/css/</link><description>Recent content in CSS on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/tags/css/index.xml" rel="self" type="application/rss+xml"/><item><title>CSS Tips</title><link>https://blog.seungyeop-lee.com/post/css-tips/</link><pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/css-tips/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/css-tips/cover.png" alt="Featured image of post CSS Tips" />&lt;h2 id="상속">상속&lt;/h2>
-&lt;p>부모로부터 상속받은 속성은 브라우저의 디폴트 CSS 속성보다 우선순위가 낮다.&lt;/p>
-&lt;h2 id="여백-상쇄">여백 상쇄&lt;/h2>
-&lt;p>여백 상쇄(margin collapsing)로 인해 margin이 설정한 것과 다르게 보이는 경우가 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSS on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/tags/css/</link><description>Recent content in CSS on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/tags/css/index.xml" rel="self" type="application/rss+xml"/><item><title>CSS Tips</title><link>https://blog.seungyeop-lee.com/post/css-tips/</link><pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/css-tips/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/css-tips/cover.png" alt="Featured image of post CSS Tips" />&lt;h2 id="상속">상속
+&lt;/h2>&lt;p>부모로부터 상속받은 속성은 브라우저의 디폴트 CSS 속성보다 우선순위가 낮다.&lt;/p>
+&lt;h2 id="여백-상쇄">여백 상쇄
+&lt;/h2>&lt;p>여백 상쇄(margin collapsing)로 인해 margin이 설정한 것과 다르게 보이는 경우가 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener"
 >참조&lt;/a>)&lt;/p>
 &lt;ol>
 &lt;li>둘 다 margin을 가진 인접 형제 요소&lt;/li>
 &lt;li>첫째 및/또는 마지막 (혹은 유일한)의 자식 요소에 margin이 설정된 하나 또는 둘 이상의 자식 요소를 가진 부모 요소 (자식의 margin이 부모의 margin보다 클 경우 발생)&lt;/li>
 &lt;/ol>
-&lt;h2 id="줄바꿈-문자">줄바꿈 문자&lt;/h2>
-&lt;p>줄바꿈 문자도 문자로 판단하여, 그만큼의 공간을 차지한다.&lt;/p>
-&lt;h3 id="예시">예시&lt;/h3>
-&lt;p>두 태그를 한 줄에 놓는 html 예제&lt;/p>
+&lt;h2 id="줄바꿈-문자">줄바꿈 문자
+&lt;/h2>&lt;p>줄바꿈 문자도 문자로 판단하여, 그만큼의 공간을 차지한다.&lt;/p>
+&lt;h3 id="예시">예시
+&lt;/h3>&lt;p>두 태그를 한 줄에 놓는 html 예제&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
@@ -69,8 +69,8 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="2개-이상의-클래스">2개 이상의 클래스&lt;/h2>
-&lt;p>2개 이상의 클래스가 1개의 태그에 설정 된 경우 클래스를 선택자로 하여 정의한 CSS 적용 룰&lt;/p>
+&lt;/div>&lt;h2 id="2개-이상의-클래스">2개 이상의 클래스
+&lt;/h2>&lt;p>2개 이상의 클래스가 1개의 태그에 설정 된 경우 클래스를 선택자로 하여 정의한 CSS 적용 룰&lt;/p>
 &lt;ul>
 &lt;li>태그에 선언된 클래스의 선언 순서는 영향을 미치지 않는다.&lt;/li>
 &lt;li>태그에 선언된 클래스를 선택자로 한 CSS의 정의 순서만이 적용에 영향을 미친다.
@@ -79,19 +79,19 @@
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="border-vs-outline">border vs. outline&lt;/h2>
-&lt;p>border는 box model의 일부이며, outline은 box model에 속하지 않는다. outline은 border를 포함해서 요소를 완전히 둘러싼다. outline의 경우 해당 요소를 특별히 강조하기 위해 사용된다. (&lt;a class="link" href="https://cssdeck.com/blog/css-tips-outline-vs-border/" target="_blank" rel="noopener"
+&lt;h2 id="border-vs-outline">border vs. outline
+&lt;/h2>&lt;p>border는 box model의 일부이며, outline은 box model에 속하지 않는다. outline은 border를 포함해서 요소를 완전히 둘러싼다. outline의 경우 해당 요소를 특별히 강조하기 위해 사용된다. (&lt;a class="link" href="https://cssdeck.com/blog/css-tips-outline-vs-border/" target="_blank" rel="noopener"
 >참고&lt;/a>)&lt;/p>
-&lt;h2 id="margin-auto">&lt;code>margin: auto&lt;/code>&lt;/h2>
-&lt;p>&lt;code>margin: auto&lt;/code>로 할 경우, 해당 태그가 width나 height 기준으로 100%에 맞도록 자동으로 margin을 추가해준다.
+&lt;h2 id="margin-auto">&lt;code>margin: auto&lt;/code>
+&lt;/h2>&lt;p>&lt;code>margin: auto&lt;/code>로 할 경우, 해당 태그가 width나 height 기준으로 100%에 맞도록 자동으로 margin을 추가해준다.
 일반적으로는 width를 % 단위로 줄이고, &lt;code>margin: auto&lt;/code>를 사용하여 중앙 정렬을 할 때 많이 사용된다.&lt;/p>
-&lt;h2 id="동일-z-index">동일 z-index&lt;/h2>
-&lt;p>&lt;code>position: fixed&lt;/code>인 2개 이상의 태그가 동일한 z-index를 가진경우에는 나중에 정의된 태그가 더 위에 위치한다.&lt;/p>
-&lt;h2 id="stacking-context">stacking context&lt;/h2>
-&lt;p>형제 태그에 대한 z-index 적용은 서로 독립적이어서, 자식 태그의 z-index는 부모 태그에게만 영향을 줄 수 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context" target="_blank" rel="noopener"
+&lt;h2 id="동일-z-index">동일 z-index
+&lt;/h2>&lt;p>&lt;code>position: fixed&lt;/code>인 2개 이상의 태그가 동일한 z-index를 가진경우에는 나중에 정의된 태그가 더 위에 위치한다.&lt;/p>
+&lt;h2 id="stacking-context">stacking context
+&lt;/h2>&lt;p>형제 태그에 대한 z-index 적용은 서로 독립적이어서, 자식 태그의 z-index는 부모 태그에게만 영향을 줄 수 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context" target="_blank" rel="noopener"
 >참고&lt;/a>)&lt;/p>
-&lt;h2 id="이미지와-컨테이너-사이에-공백이-생기는-문제-대응">이미지와 컨테이너 사이에 공백이 생기는 문제 대응&lt;/h2>
-&lt;p>컨테이너가 둘려진 이미지가 인라인 요소라면 컨테이너에 공백이 생기는 버그가 있다. 해결하기 위한 방법은 아래와 같다.&lt;/p>
+&lt;h2 id="이미지와-컨테이너-사이에-공백이-생기는-문제-대응">이미지와 컨테이너 사이에 공백이 생기는 문제 대응
+&lt;/h2>&lt;p>컨테이너가 둘려진 이미지가 인라인 요소라면 컨테이너에 공백이 생기는 버그가 있다. 해결하기 위한 방법은 아래와 같다.&lt;/p>
 &lt;ol>
 &lt;li>이미지에 &lt;code>vertial-align: top&lt;/code>을 설정&lt;/li>
 &lt;li>이미지를 &lt;code>display: block&lt;/code>으로 변경&lt;/li>

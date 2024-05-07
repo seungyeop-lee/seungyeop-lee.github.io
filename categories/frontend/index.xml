@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FrontEnd on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/categories/frontend/</link><description>Recent content in FrontEnd on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Wed, 23 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/categories/frontend/index.xml" rel="self" type="application/rss+xml"/><item><title>React Standard Architecture</title><link>https://blog.seungyeop-lee.com/post/react-standard-architecture/</link><pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/react-standard-architecture/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/cover.png" alt="Featured image of post React Standard Architecture" />&lt;p>Next.js에서 사용 가능한 React 표준(범용) 아키텍처를 고민 할 일이 생겨서 여기에 그 과정을 정리한다.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Frontend on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/categories/frontend/</link><description>Recent content in Frontend on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Wed, 23 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/categories/frontend/index.xml" rel="self" type="application/rss+xml"/><item><title>React Standard Architecture</title><link>https://blog.seungyeop-lee.com/post/react-standard-architecture/</link><pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/react-standard-architecture/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/cover.png" alt="Featured image of post React Standard Architecture" />&lt;p>Next.js에서 사용 가능한 React 표준(범용) 아키텍처를 고민 할 일이 생겨서 여기에 그 과정을 정리한다.&lt;/p>
 &lt;p>아키텍처는 아직 완성되지 않았다고 생각하며, 개선점이 나올 때마다 이 글에 업데이트 할 예정이다.&lt;/p>
-&lt;h2 id="기본-설계-방향">기본 설계 방향&lt;/h2>
-&lt;ul>
+&lt;h2 id="기본-설계-방향">기본 설계 방향
+&lt;/h2>&lt;ul>
 &lt;li>각 요소의 역할이 뚜렷하고 중복되지 않도록한다.&lt;/li>
 &lt;li>의존관계가 순환하지 않도록한다.&lt;/li>
 &lt;/ul>
-&lt;h2 id="version1">version1&lt;/h2>
-&lt;p>&lt;a class="link" href="https://medium.com/@yujso66/%EB%B2%88%EC%97%AD-%EC%9C%84%EC%A0%AF-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C-b3e95b261c18" title="[번역] 위젯 주도 개발"
+&lt;h2 id="version1">version1
+&lt;/h2>&lt;p>&lt;a class="link" href="https://medium.com/@yujso66/%EB%B2%88%EC%97%AD-%EC%9C%84%EC%A0%AF-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C-b3e95b261c18" title="[번역] 위젯 주도 개발"
 target="_blank" rel="noopener"
 >위젯 주도 개발&lt;/a>이라는 글에서 힌트를 얻어 기본적인 역할 별로 요소를 나누고 서로의 의존관계를 설정하였다.&lt;/p>
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version1.png"
@@ -30,8 +30,8 @@ data-flex-basis="566px"
 &lt;/li>
 &lt;li>&lt;strong>queries&lt;/strong>: 데이터 상태를 관리한다. 주로 API 서버와 통신하는 역할을 한다.&lt;/li>
 &lt;/ul>
-&lt;h2 id="version2">version2&lt;/h2>
-&lt;p>&lt;a class="link" href="#version1" >version1&lt;/a>의 구조를 바탕으로 각 역할에 대해 좀 더 드릴 다운하였다.&lt;/p>
+&lt;h2 id="version2">version2
+&lt;/h2>&lt;p>&lt;a class="link" href="#version1" >version1&lt;/a>의 구조를 바탕으로 각 역할에 대해 좀 더 드릴 다운하였다.&lt;/p>
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version2.png"
 width="2282"
 height="1440"
@@ -77,8 +77,8 @@ data-flex-basis="380px"
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="version3">version3&lt;/h2>
-&lt;p>&lt;a class="link" href="#version2" >version2&lt;/a>의 의존관계가 명료하지 않고, 역할이 중복된 느낌을 받아 전체적인 리팩토링이 필요하다고 판단하였다.&lt;/p>
+&lt;h2 id="version3">version3
+&lt;/h2>&lt;p>&lt;a class="link" href="#version2" >version2&lt;/a>의 의존관계가 명료하지 않고, 역할이 중복된 느낌을 받아 전체적인 리팩토링이 필요하다고 판단하였다.&lt;/p>
 &lt;p>widget의 모음을 나타내는 단어로서 &lt;a class="link" href="https://github.com/alan2207/bulletproof-react" title="Bulletproof React"
 target="_blank" rel="noopener"
 >Bulletproof React&lt;/a> 레포지토리에서 사용된 feature(기능)라는 용어를 차용하여 아키텍처를 재구성하였다.&lt;/p>
@@ -127,8 +127,8 @@ data-flex-basis="351px"
 &lt;li>&lt;strong>component&lt;/strong>: 프로젝트의 공용 component&lt;/li>
 &lt;li>&lt;strong>state&lt;/strong>: 프로젝트 내 공통 데이터 상태 관리&lt;/li>
 &lt;/ul>
-&lt;h2 id="version4">version4&lt;/h2>
-&lt;p>영속화 데이터 상태 관리부분과 api 호출부분의 연관성이 높으므로 repository로 그룹화하였다.
+&lt;h2 id="version4">version4
+&lt;/h2>&lt;p>영속화 데이터 상태 관리부분과 api 호출부분의 연관성이 높으므로 repository로 그룹화하였다.
 그로인해 widget의 책임이 줄어들고, 역할이 더 명확해졌다.
 또한, repository부분을 mocking하는 것으로 서버부분의 구현이 없이도 화면개발이 용이해져 유연성이 향상되었다.&lt;/p>
 &lt;p>단순 API호출이 필요한 경우에는 react query를 통하지 않고, widget에서 바로 api호출이 가능하도록하였다.&lt;/p>
@@ -157,8 +157,8 @@ data-flex-basis="325px"
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="version5">version5&lt;/h2>
-&lt;p>widget의 책임이 줄어듦으로서, container와 presentation, data logic과 ui logic으로 나눈 설계가 표준 아키텍처로 사용하기에는 과해 보였다.
+&lt;h2 id="version5">version5
+&lt;/h2>&lt;p>widget의 책임이 줄어듦으로서, container와 presentation, data logic과 ui logic으로 나눈 설계가 표준 아키텍처로 사용하기에는 과해 보였다.
 (&lt;a class="link" href="#version4" >version4&lt;/a>로 만든 간단한 게시판에서 컬럼 1개를 삭제하는 작업을 했을 때, 수정해야하는 부분이 너무 많다고 느껴졌다.)&lt;/p>
 &lt;p>그래서 container와 presentation을 widget으로, data logic과 ui logic을 widget logic으로 통폐합하였다.&lt;/p>
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version5.png"
@@ -184,8 +184,8 @@ data-flex-basis="325px"
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="version6">version6&lt;/h2>
-&lt;p>widget에서 사용하는 데이터 타입과 api를 통해 전달되는 데이터의 형태가 다른 패턴이 발생 할 수 있음을 확인하였으므로 수정작업을 진행하였다.
+&lt;h2 id="version6">version6
+&lt;/h2>&lt;p>widget에서 사용하는 데이터 타입과 api를 통해 전달되는 데이터의 형태가 다른 패턴이 발생 할 수 있음을 확인하였으므로 수정작업을 진행하였다.
 (ex. 1개의 widget에서 사용하는 데이터가 2개 이상의 api를 조합하여 만들 필요가 있는 경우)&lt;/p>
 &lt;p>그래서 api 매핑용 데이터 타입 (api type)과 widget용 데이터 타입(type)으로 나누었다.&lt;/p>
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version6.png"
@@ -211,8 +211,8 @@ data-flex-basis="325px"
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="version7">version7&lt;/h2>
-&lt;p>version6를 실제로 사용해 보았을 때, widget logic이 react query가 제공하는 타입에 암묵적 의존하는 것을 확인하였다.
+&lt;h2 id="version7">version7
+&lt;/h2>&lt;p>version6를 실제로 사용해 보았을 때, widget logic이 react query가 제공하는 타입에 암묵적 의존하는 것을 확인하였다.
 그로 인해, 서버가 아직 준비되어 있지 않아, mock 데이터를 우선 사용하여 화면작업을 해야하는 경우,
 주니어 개발자들이 많이 헤메는 현상을 확인하였다.&lt;/p>
 &lt;p>이러한 어려움을 해소하고자, repository와 react query를 분리하는 수정작업을 진행하였다.&lt;/p>
@@ -243,8 +243,8 @@ data-flex-basis="278px"
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="version8">version8&lt;/h2>
-&lt;p>서버에서 화면전용 API를 제공해주지 않고, 각 feature가 여러개의 API를 조합하여 사용해야하는 경우를 대비한 아키텍처이다.&lt;/p>
+&lt;h2 id="version8">version8
+&lt;/h2>&lt;p>서버에서 화면전용 API를 제공해주지 않고, 각 feature가 여러개의 API를 조합하여 사용해야하는 경우를 대비한 아키텍처이다.&lt;/p>
 &lt;p>범용 아키텍처를 지향하므로 react query 부분도 optional하게 변경하였다.&lt;/p>
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version8.png"
 width="2042"
@@ -275,8 +275,8 @@ data-flex-basis="259px"
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="version9">version9&lt;/h2>
-&lt;p>feature와 관계없이 공통으로 사용되어야 하는 요소들을 위치시키기위해 common widget을 추가하였다.&lt;/p>
+&lt;h2 id="version9">version9
+&lt;/h2>&lt;p>feature와 관계없이 공통으로 사용되어야 하는 요소들을 위치시키기위해 common widget을 추가하였다.&lt;/p>
 &lt;p>(ex. 시스템에 등록되어 있는 전체 회원이 표시되는 dropdown component)&lt;/p>
 &lt;p>또한 선택적으로 사용되는 부분의 경우 점선을 이용하여 선택 이용 부분임을 나타내었다.&lt;/p>
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version9.png"
@@ -300,8 +300,8 @@ data-flex-basis="266px"
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="version10">version10&lt;/h2>
-&lt;p>단순 CRUD가 아닌 비즈니스 로직에 대한 책임을 갖는 요소가 없어서 Service를 도입하였다. Repository는 필요 시 사용하고, Service를 통해서만 접근하도록 하였다.&lt;/p>
+&lt;h2 id="version10">version10
+&lt;/h2>&lt;p>단순 CRUD가 아닌 비즈니스 로직에 대한 책임을 갖는 요소가 없어서 Service를 도입하였다. Repository는 필요 시 사용하고, Service를 통해서만 접근하도록 하였다.&lt;/p>
 &lt;p>또한 영속화 데이터에 대한 관리를 Repository에게 위임함으로서, React Query를 생략하였다.&lt;/p>
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version10.png"
 width="2282"
@@ -322,8 +322,8 @@ data-flex-basis="266px"
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="version11">version11&lt;/h2>
-&lt;p>widget에서 공통 component를 사용 할 때, 커스텀해서 사용해야 하는 경우가 빈번하게 발생하고, 그럴 경우 커스텀하는 코드가 widget에 섞이게 되는 문제가 확인되었다.&lt;/p>
+&lt;h2 id="version11">version11
+&lt;/h2>&lt;p>widget에서 공통 component를 사용 할 때, 커스텀해서 사용해야 하는 경우가 빈번하게 발생하고, 그럴 경우 커스텀하는 코드가 widget에 섞이게 되는 문제가 확인되었다.&lt;/p>
 &lt;p>이를 피하기위해 공통 component를 사용하는 곳을 feature component로 이동시키고, widget은 feature component만 사용하는 방식으로 수정하였다.&lt;/p>
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version11.png"
 width="2282"
@@ -335,8 +335,8 @@ class="gallery-image"
 data-flex-grow="112"
 data-flex-basis="269px"
 >&lt;/p>
-&lt;h2 id="version11---simple">version11 - simple&lt;/h2>
-&lt;p>version이 올라갈 수록 아키텍처가 복잡해져서, 선택적 요소를 제외한 가장 단순한 아키텍처를 다시 그려보았다.&lt;/p>
+&lt;h2 id="version11---simple">version11 - simple
+&lt;/h2>&lt;p>version이 올라갈 수록 아키텍처가 복잡해져서, 선택적 요소를 제외한 가장 단순한 아키텍처를 다시 그려보았다.&lt;/p>
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version11-simple.png"
 width="1882"
 height="1282"
@@ -347,27 +347,27 @@ class="gallery-image"
 data-flex-grow="146"
 data-flex-basis="352px"
 >&lt;/p>
-&lt;h2 id="ref">ref.&lt;/h2>
-&lt;ul>
+&lt;h2 id="ref">ref.
+&lt;/h2>&lt;ul>
 &lt;li>&lt;a class="link" href="https://medium.com/@yujso66/%EB%B2%88%EC%97%AD-%EC%9C%84%EC%A0%AF-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C-b3e95b261c18" title="[번역] 위젯 주도 개발"
 target="_blank" rel="noopener"
 >[번역] 위젯 주도 개발&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="https://github.com/alan2207/bulletproof-react" title="Bulletproof React"
 target="_blank" rel="noopener"
 >Bulletproof React&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>CSS Tips</title><link>https://blog.seungyeop-lee.com/post/css-tips/</link><pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/css-tips/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/css-tips/cover.png" alt="Featured image of post CSS Tips" />&lt;h2 id="상속">상속&lt;/h2>
-&lt;p>부모로부터 상속받은 속성은 브라우저의 디폴트 CSS 속성보다 우선순위가 낮다.&lt;/p>
-&lt;h2 id="여백-상쇄">여백 상쇄&lt;/h2>
-&lt;p>여백 상쇄(margin collapsing)로 인해 margin이 설정한 것과 다르게 보이는 경우가 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener"
+&lt;/ul></description></item><item><title>CSS Tips</title><link>https://blog.seungyeop-lee.com/post/css-tips/</link><pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/css-tips/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/css-tips/cover.png" alt="Featured image of post CSS Tips" />&lt;h2 id="상속">상속
+&lt;/h2>&lt;p>부모로부터 상속받은 속성은 브라우저의 디폴트 CSS 속성보다 우선순위가 낮다.&lt;/p>
+&lt;h2 id="여백-상쇄">여백 상쇄
+&lt;/h2>&lt;p>여백 상쇄(margin collapsing)로 인해 margin이 설정한 것과 다르게 보이는 경우가 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener"
 >참조&lt;/a>)&lt;/p>
 &lt;ol>
 &lt;li>둘 다 margin을 가진 인접 형제 요소&lt;/li>
 &lt;li>첫째 및/또는 마지막 (혹은 유일한)의 자식 요소에 margin이 설정된 하나 또는 둘 이상의 자식 요소를 가진 부모 요소 (자식의 margin이 부모의 margin보다 클 경우 발생)&lt;/li>
 &lt;/ol>
-&lt;h2 id="줄바꿈-문자">줄바꿈 문자&lt;/h2>
-&lt;p>줄바꿈 문자도 문자로 판단하여, 그만큼의 공간을 차지한다.&lt;/p>
-&lt;h3 id="예시">예시&lt;/h3>
-&lt;p>두 태그를 한 줄에 놓는 html 예제&lt;/p>
+&lt;h2 id="줄바꿈-문자">줄바꿈 문자
+&lt;/h2>&lt;p>줄바꿈 문자도 문자로 판단하여, 그만큼의 공간을 차지한다.&lt;/p>
+&lt;h3 id="예시">예시
+&lt;/h3>&lt;p>두 태그를 한 줄에 놓는 html 예제&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
@@ -426,8 +426,8 @@ target="_blank" rel="noopener"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="2개-이상의-클래스">2개 이상의 클래스&lt;/h2>
-&lt;p>2개 이상의 클래스가 1개의 태그에 설정 된 경우 클래스를 선택자로 하여 정의한 CSS 적용 룰&lt;/p>
+&lt;/div>&lt;h2 id="2개-이상의-클래스">2개 이상의 클래스
+&lt;/h2>&lt;p>2개 이상의 클래스가 1개의 태그에 설정 된 경우 클래스를 선택자로 하여 정의한 CSS 적용 룰&lt;/p>
 &lt;ul>
 &lt;li>태그에 선언된 클래스의 선언 순서는 영향을 미치지 않는다.&lt;/li>
 &lt;li>태그에 선언된 클래스를 선택자로 한 CSS의 정의 순서만이 적용에 영향을 미친다.
@@ -436,19 +436,19 @@ target="_blank" rel="noopener"
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="border-vs-outline">border vs. outline&lt;/h2>
-&lt;p>border는 box model의 일부이며, outline은 box model에 속하지 않는다. outline은 border를 포함해서 요소를 완전히 둘러싼다. outline의 경우 해당 요소를 특별히 강조하기 위해 사용된다. (&lt;a class="link" href="https://cssdeck.com/blog/css-tips-outline-vs-border/" target="_blank" rel="noopener"
+&lt;h2 id="border-vs-outline">border vs. outline
+&lt;/h2>&lt;p>border는 box model의 일부이며, outline은 box model에 속하지 않는다. outline은 border를 포함해서 요소를 완전히 둘러싼다. outline의 경우 해당 요소를 특별히 강조하기 위해 사용된다. (&lt;a class="link" href="https://cssdeck.com/blog/css-tips-outline-vs-border/" target="_blank" rel="noopener"
 >참고&lt;/a>)&lt;/p>
-&lt;h2 id="margin-auto">&lt;code>margin: auto&lt;/code>&lt;/h2>
-&lt;p>&lt;code>margin: auto&lt;/code>로 할 경우, 해당 태그가 width나 height 기준으로 100%에 맞도록 자동으로 margin을 추가해준다.
+&lt;h2 id="margin-auto">&lt;code>margin: auto&lt;/code>
+&lt;/h2>&lt;p>&lt;code>margin: auto&lt;/code>로 할 경우, 해당 태그가 width나 height 기준으로 100%에 맞도록 자동으로 margin을 추가해준다.
 일반적으로는 width를 % 단위로 줄이고, &lt;code>margin: auto&lt;/code>를 사용하여 중앙 정렬을 할 때 많이 사용된다.&lt;/p>
-&lt;h2 id="동일-z-index">동일 z-index&lt;/h2>
-&lt;p>&lt;code>position: fixed&lt;/code>인 2개 이상의 태그가 동일한 z-index를 가진경우에는 나중에 정의된 태그가 더 위에 위치한다.&lt;/p>
-&lt;h2 id="stacking-context">stacking context&lt;/h2>
-&lt;p>형제 태그에 대한 z-index 적용은 서로 독립적이어서, 자식 태그의 z-index는 부모 태그에게만 영향을 줄 수 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context" target="_blank" rel="noopener"
+&lt;h2 id="동일-z-index">동일 z-index
+&lt;/h2>&lt;p>&lt;code>position: fixed&lt;/code>인 2개 이상의 태그가 동일한 z-index를 가진경우에는 나중에 정의된 태그가 더 위에 위치한다.&lt;/p>
+&lt;h2 id="stacking-context">stacking context
+&lt;/h2>&lt;p>형제 태그에 대한 z-index 적용은 서로 독립적이어서, 자식 태그의 z-index는 부모 태그에게만 영향을 줄 수 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context" target="_blank" rel="noopener"
 >참고&lt;/a>)&lt;/p>
-&lt;h2 id="이미지와-컨테이너-사이에-공백이-생기는-문제-대응">이미지와 컨테이너 사이에 공백이 생기는 문제 대응&lt;/h2>
-&lt;p>컨테이너가 둘려진 이미지가 인라인 요소라면 컨테이너에 공백이 생기는 버그가 있다. 해결하기 위한 방법은 아래와 같다.&lt;/p>
+&lt;h2 id="이미지와-컨테이너-사이에-공백이-생기는-문제-대응">이미지와 컨테이너 사이에 공백이 생기는 문제 대응
+&lt;/h2>&lt;p>컨테이너가 둘려진 이미지가 인라인 요소라면 컨테이너에 공백이 생기는 버그가 있다. 해결하기 위한 방법은 아래와 같다.&lt;/p>
 &lt;ol>
 &lt;li>이미지에 &lt;code>vertial-align: top&lt;/code>을 설정&lt;/li>
 &lt;li>이미지를 &lt;code>display: block&lt;/code>으로 변경&lt;/li>

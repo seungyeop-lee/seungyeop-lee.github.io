@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tips on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/tags/tips/</link><description>Recent content in Tips on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Wed, 24 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/tags/tips/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker와 Web browser로 MySQL Workbench 사용하기</title><link>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link><pubDate>Wed, 24 Jan 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/cover.png" alt="Featured image of post Docker와 Web browser로 MySQL Workbench 사용하기" />&lt;h2 id="tldr">TL;DR&lt;/h2>
-&lt;ol>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tips on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/tags/tips/</link><description>Recent content in Tips on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Wed, 24 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/tags/tips/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker와 Web browser로 MySQL Workbench 사용하기</title><link>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link><pubDate>Wed, 24 Jan 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/cover.png" alt="Featured image of post Docker와 Web browser로 MySQL Workbench 사용하기" />&lt;h2 id="tldr">TL;DR
+&lt;/h2>&lt;ol>
 &lt;li>&lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker" target="_blank" rel="noopener"
 >mysqlworkbench-on-docker 예제&lt;/a>를 다운로드한다.&lt;/li>
 &lt;li>&lt;code>make up&lt;/code> 명령어를 실행한다.&lt;/li>
 &lt;li>웹 브라우저에서 &lt;code>http://localhost:3000&lt;/code>으로 접속하여, &amp;lsquo;IME 입력 모드&amp;rsquo;를 활성화 시킨 후 MySQL Workbench를 사용한다.&lt;/li>
 &lt;li>사용이 끝나면 &lt;code>make down&lt;/code> 명령어를 실행하여 컨테이너를 종료한다.&lt;/li>
 &lt;/ol>
-&lt;h2 id="발단">발단&lt;/h2>
-&lt;p>MySQL Workbench는 GUI 기반의 MySQL 관리 툴이다. 여기에는 ERD를 그리는 기능도 포함되어 있다.
+&lt;h2 id="발단">발단
+&lt;/h2>&lt;p>MySQL Workbench는 GUI 기반의 MySQL 관리 툴이다. 여기에는 ERD를 그리는 기능도 포함되어 있다.
 무료로 사용 할 수있는 여러 ERD Tool을 비교했을 때, MySQL Workbench의 ERD가 가장 편리하다고 생각한다.&lt;/p>
 &lt;p>그러나, MacOS Sonoma 업데이트 후에 MySQL Workbench에서 ERD 모델을 열려고하면 강제종료 되는 문제가 발생했고, (8.0.34 버전)
 2024년 01월 24일 현재 최신 버전인 8.0.36을 설치하여 사용 할 경우에도, 다음과 같은 문제가 발생한다.&lt;/p>
@@ -27,8 +27,8 @@ data-flex-basis="343px"
 >&lt;/p>
 &lt;p>이러한 문제가 언제 고쳐질지 알 수 없고, 이번처럼 운영체제 업데이트로 인한 이슈가 언제 또 발생 할 지 모른다는 불안감이 생겼다.&lt;/p>
 &lt;p>하지만 다른 대안이 없기 때문에 MacOS에서 MySQL Workbench를 안정적으로 실행 할 수 있는 방안을 찾기 시작했다.&lt;/p>
-&lt;h2 id="docker로-mysql-workbench-실행시키기">Docker로 MySQL Workbench 실행시키기&lt;/h2>
-&lt;p>&lt;a class="link" href="https://docs.linuxserver.io/images/docker-mysql-workbench/" target="_blank" rel="noopener"
+&lt;h2 id="docker로-mysql-workbench-실행시키기">Docker로 MySQL Workbench 실행시키기
+&lt;/h2>&lt;p>&lt;a class="link" href="https://docs.linuxserver.io/images/docker-mysql-workbench/" target="_blank" rel="noopener"
 >linuxserver/mysql-workbench&lt;/a>를 발견하였다.
 linuxserver라는 그룹은 Docker를 이용해 linux 어플리케이션을 실행시킬 수 있게 이미지화하는 작업을 전문적한다.&lt;/p>
 &lt;p>문서에 나와있는대로 따라하면 간단히 MySQL Workbench 컨테이너를 띄우고, 접속 할 수 있다.&lt;/p>
@@ -53,8 +53,8 @@ class="gallery-image"
 data-flex-grow="279"
 data-flex-basis="669px"
 >&lt;/p>
-&lt;h2 id="한글-입출력-문제-대응">한글 입출력 문제 대응&lt;/h2>
-&lt;p>해당이미지에 한글 폰트가 없어서 생기는 문제로 보고 기존 이미지에 한글 폰트를 추가하는 Dockerfile을 작성하여 사용하였다.&lt;/p>
+&lt;h2 id="한글-입출력-문제-대응">한글 입출력 문제 대응
+&lt;/h2>&lt;p>해당이미지에 한글 폰트가 없어서 생기는 문제로 보고 기존 이미지에 한글 폰트를 추가하는 Dockerfile을 작성하여 사용하였다.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -91,22 +91,22 @@ class="gallery-image"
 data-flex-grow="384"
 data-flex-basis="923px"
 >&lt;/p>
-&lt;h2 id="결론">결론&lt;/h2>
-&lt;p>이제 MacOS에서 걱정없이 MySQL Workbench 사용이 가능해졌다!&lt;/p>
+&lt;h2 id="결론">결론
+&lt;/h2>&lt;p>이제 MacOS에서 걱정없이 MySQL Workbench 사용이 가능해졌다!&lt;/p>
 &lt;p>전체적인 설정 파일은 &lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker" target="_blank" rel="noopener"
->mysqlworkbench-on-docker 예제&lt;/a>를 참고하기 바란다.&lt;/p></description></item><item><title>CSS Tips</title><link>https://blog.seungyeop-lee.com/post/css-tips/</link><pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/css-tips/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/css-tips/cover.png" alt="Featured image of post CSS Tips" />&lt;h2 id="상속">상속&lt;/h2>
-&lt;p>부모로부터 상속받은 속성은 브라우저의 디폴트 CSS 속성보다 우선순위가 낮다.&lt;/p>
-&lt;h2 id="여백-상쇄">여백 상쇄&lt;/h2>
-&lt;p>여백 상쇄(margin collapsing)로 인해 margin이 설정한 것과 다르게 보이는 경우가 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener"
+>mysqlworkbench-on-docker 예제&lt;/a>를 참고하기 바란다.&lt;/p></description></item><item><title>CSS Tips</title><link>https://blog.seungyeop-lee.com/post/css-tips/</link><pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/css-tips/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/css-tips/cover.png" alt="Featured image of post CSS Tips" />&lt;h2 id="상속">상속
+&lt;/h2>&lt;p>부모로부터 상속받은 속성은 브라우저의 디폴트 CSS 속성보다 우선순위가 낮다.&lt;/p>
+&lt;h2 id="여백-상쇄">여백 상쇄
+&lt;/h2>&lt;p>여백 상쇄(margin collapsing)로 인해 margin이 설정한 것과 다르게 보이는 경우가 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener"
 >참조&lt;/a>)&lt;/p>
 &lt;ol>
 &lt;li>둘 다 margin을 가진 인접 형제 요소&lt;/li>
 &lt;li>첫째 및/또는 마지막 (혹은 유일한)의 자식 요소에 margin이 설정된 하나 또는 둘 이상의 자식 요소를 가진 부모 요소 (자식의 margin이 부모의 margin보다 클 경우 발생)&lt;/li>
 &lt;/ol>
-&lt;h2 id="줄바꿈-문자">줄바꿈 문자&lt;/h2>
-&lt;p>줄바꿈 문자도 문자로 판단하여, 그만큼의 공간을 차지한다.&lt;/p>
-&lt;h3 id="예시">예시&lt;/h3>
-&lt;p>두 태그를 한 줄에 놓는 html 예제&lt;/p>
+&lt;h2 id="줄바꿈-문자">줄바꿈 문자
+&lt;/h2>&lt;p>줄바꿈 문자도 문자로 판단하여, 그만큼의 공간을 차지한다.&lt;/p>
+&lt;h3 id="예시">예시
+&lt;/h3>&lt;p>두 태그를 한 줄에 놓는 html 예제&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
@@ -165,8 +165,8 @@ data-flex-basis="923px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="2개-이상의-클래스">2개 이상의 클래스&lt;/h2>
-&lt;p>2개 이상의 클래스가 1개의 태그에 설정 된 경우 클래스를 선택자로 하여 정의한 CSS 적용 룰&lt;/p>
+&lt;/div>&lt;h2 id="2개-이상의-클래스">2개 이상의 클래스
+&lt;/h2>&lt;p>2개 이상의 클래스가 1개의 태그에 설정 된 경우 클래스를 선택자로 하여 정의한 CSS 적용 룰&lt;/p>
 &lt;ul>
 &lt;li>태그에 선언된 클래스의 선언 순서는 영향을 미치지 않는다.&lt;/li>
 &lt;li>태그에 선언된 클래스를 선택자로 한 CSS의 정의 순서만이 적용에 영향을 미친다.
@@ -175,19 +175,19 @@ data-flex-basis="923px"
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="border-vs-outline">border vs. outline&lt;/h2>
-&lt;p>border는 box model의 일부이며, outline은 box model에 속하지 않는다. outline은 border를 포함해서 요소를 완전히 둘러싼다. outline의 경우 해당 요소를 특별히 강조하기 위해 사용된다. (&lt;a class="link" href="https://cssdeck.com/blog/css-tips-outline-vs-border/" target="_blank" rel="noopener"
+&lt;h2 id="border-vs-outline">border vs. outline
+&lt;/h2>&lt;p>border는 box model의 일부이며, outline은 box model에 속하지 않는다. outline은 border를 포함해서 요소를 완전히 둘러싼다. outline의 경우 해당 요소를 특별히 강조하기 위해 사용된다. (&lt;a class="link" href="https://cssdeck.com/blog/css-tips-outline-vs-border/" target="_blank" rel="noopener"
 >참고&lt;/a>)&lt;/p>
-&lt;h2 id="margin-auto">&lt;code>margin: auto&lt;/code>&lt;/h2>
-&lt;p>&lt;code>margin: auto&lt;/code>로 할 경우, 해당 태그가 width나 height 기준으로 100%에 맞도록 자동으로 margin을 추가해준다.
+&lt;h2 id="margin-auto">&lt;code>margin: auto&lt;/code>
+&lt;/h2>&lt;p>&lt;code>margin: auto&lt;/code>로 할 경우, 해당 태그가 width나 height 기준으로 100%에 맞도록 자동으로 margin을 추가해준다.
 일반적으로는 width를 % 단위로 줄이고, &lt;code>margin: auto&lt;/code>를 사용하여 중앙 정렬을 할 때 많이 사용된다.&lt;/p>
-&lt;h2 id="동일-z-index">동일 z-index&lt;/h2>
-&lt;p>&lt;code>position: fixed&lt;/code>인 2개 이상의 태그가 동일한 z-index를 가진경우에는 나중에 정의된 태그가 더 위에 위치한다.&lt;/p>
-&lt;h2 id="stacking-context">stacking context&lt;/h2>
-&lt;p>형제 태그에 대한 z-index 적용은 서로 독립적이어서, 자식 태그의 z-index는 부모 태그에게만 영향을 줄 수 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context" target="_blank" rel="noopener"
+&lt;h2 id="동일-z-index">동일 z-index
+&lt;/h2>&lt;p>&lt;code>position: fixed&lt;/code>인 2개 이상의 태그가 동일한 z-index를 가진경우에는 나중에 정의된 태그가 더 위에 위치한다.&lt;/p>
+&lt;h2 id="stacking-context">stacking context
+&lt;/h2>&lt;p>형제 태그에 대한 z-index 적용은 서로 독립적이어서, 자식 태그의 z-index는 부모 태그에게만 영향을 줄 수 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context" target="_blank" rel="noopener"
 >참고&lt;/a>)&lt;/p>
-&lt;h2 id="이미지와-컨테이너-사이에-공백이-생기는-문제-대응">이미지와 컨테이너 사이에 공백이 생기는 문제 대응&lt;/h2>
-&lt;p>컨테이너가 둘려진 이미지가 인라인 요소라면 컨테이너에 공백이 생기는 버그가 있다. 해결하기 위한 방법은 아래와 같다.&lt;/p>
+&lt;h2 id="이미지와-컨테이너-사이에-공백이-생기는-문제-대응">이미지와 컨테이너 사이에 공백이 생기는 문제 대응
+&lt;/h2>&lt;p>컨테이너가 둘려진 이미지가 인라인 요소라면 컨테이너에 공백이 생기는 버그가 있다. 해결하기 위한 방법은 아래와 같다.&lt;/p>
 &lt;ol>
 &lt;li>이미지에 &lt;code>vertial-align: top&lt;/code>을 설정&lt;/li>
 &lt;li>이미지를 &lt;code>display: block&lt;/code>으로 변경&lt;/li>
