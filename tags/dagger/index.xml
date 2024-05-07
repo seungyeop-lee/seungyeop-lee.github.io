@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dagger on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/tags/dagger/</link><description>Recent content in Dagger on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Tue, 07 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/tags/dagger/index.xml" rel="self" type="application/rss+xml"/><item><title>Dagger Functions와 함께하는 CI/CD Pipeline as Code</title><link>https://blog.seungyeop-lee.com/post/dagger-functions-introduction/</link><pubDate>Tue, 07 May 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/dagger-functions-introduction/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/dagger-functions-introduction/cover.jpeg" alt="Featured image of post Dagger Functions와 함께하는 CI/CD Pipeline as Code" />&lt;p>&lt;a class="link" href="https://dagger.io/" title="Dagger"
+target="_blank" rel="noopener"
+>Dagger&lt;/a>란 Code로 CI/CD Pipeline을 만들고, 플렛폼에 종속적이지 않도록 Pipeline을 실행 할 수 있게 해주는 오픈소스 툴이다.
+Dagger Engine이 DinD 방식으로 각 Pipeline을 Container로 격리시켜 플렛폼에 종속적이지 않으며, 캐싱이 가능한 것이 특징이다.
+Benefit으로 &amp;lsquo;No More YAML Soup&amp;rsquo;과 &amp;lsquo;Eliminate Push And Pray&amp;rsquo;가 인상적이다.&lt;/p>
+&lt;p>프로젝트 초창기부터 관심을 가지고 있었으나, CUE를 사용했던 시절에는 CUE에 대한 허들이 너무 높아서 사용을 포기했었고,
+Go SDK가 나온 다음에는 사용성이 좋아졌으나, Pipeline을 만들기 위해 작은것 하나하나를 전부 스스로 만들어내야하는 불편함이 있었다.&lt;/p>
+&lt;p>최근에 Dagger Functions와 다른 사람들이 만든 Dagger Functions를 모듈로 설치해서 사용 할 수있는 &lt;a class="link" href="https://daggerverse.dev/" title="Daggerverse"
+target="_blank" rel="noopener"
+>Daggerverse&lt;/a>가 출시되면서 사용성이 좋아졌다고 느꼈다.
+동아리에서 만드는 서비스의 CI/CD를 Dagger를 이용해 구축해보면서 이제는 확실히 사용 할 만하다고 느껴졌고, 구축에 필요했지만 없던 몇몇 모듈은 Daggerverse에 배포도 해보았다. (&lt;a class="link" href="https://daggerverse.dev/mod/github.com/seungyeop-lee/daggerverse/ssh" title="Daggerverse - ssh"
+target="_blank" rel="noopener"
+>ssh&lt;/a>, &lt;a class="link" href="https://daggerverse.dev/mod/github.com/seungyeop-lee/daggerverse/scp" title="Daggerverse - scp"
+target="_blank" rel="noopener"
+>scp&lt;/a>, &lt;a class="link" href="https://daggerverse.dev/mod/github.com/seungyeop-lee/daggerverse/private-git" title="Daggerverse - private-git"
+target="_blank" rel="noopener"
+>private-git&lt;/a>)&lt;/p>
+&lt;p>좀 더 많은 사람들이 Dagger를 사용했으면 하는 바람으로 Dagger와 Dagger Functions를 소개하는 글을 작성한다.&lt;/p>
+&lt;h2 id="dagger-소개">Dagger 소개&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://blog.outsider.ne.kr/1642" title="CI/CD 파이프라인 엔진 Dagger"
+target="_blank" rel="noopener"
+>Outsider님의 소개글&lt;/a>을 참고하길 바란다.&lt;/li>
+&lt;li>현재는 CUE를 버리고, Go, Python, Typescript SDK를 제공한다.&lt;/li>
+&lt;/ul>
+&lt;h3 id="dagger-사용-예시">Dagger 사용 예시&lt;/h3>
+&lt;ul>
+&lt;li>빌드, 테스트, 배포, 보안 검사 등 다양한 CI/CD 작업을 자동화하는 데 사용할 수 있다.&lt;/li>
+&lt;li>예를 들어
+&lt;ul>
+&lt;li>Go 프로젝트 빌드 및 테스트&lt;/li>
+&lt;li>Docker 이미지 빌드 및 배포&lt;/li>
+&lt;li>Kubernetes 클러스터에 애플리케이션 배포&lt;/li>
+&lt;li>취약성 검사&lt;/li>
+&lt;li>그외, 컨테이너를 통해 구동 할 수 있는 모든 것&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="dagger-functions-소개">Dagger Functions 소개&lt;/h2>
+&lt;p>Dagger Functions는 CI/CD Pipeline을 구성하는 기본 요소다.
+즉, CI/CD Pipeline은 Dagger Function(이하 Function)을 조립하여 만들 수 있다.&lt;/p>
+&lt;h3 id="dagger-functions-장점">Dagger Functions 장점&lt;/h3>
+&lt;ul>
+&lt;li>작은 작업을 캡슐화하여 Pipeline의 복잡도를 낮추고, 재사용이 가능해진다.&lt;/li>
+&lt;li>서로 다른 언어에서 만든 Function을 사용하는 것이 가능하다.
+&lt;ul>
+&lt;li>ex. Go SDK로 만든 Function을 Typescript SDK로 만든 Pipeline에 사용 가능&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Daggerverse를 통해 미리 만들어진 Function을 사용하는 것이 가능하여 Pipeline 구축이 용이하다.&lt;/li>
+&lt;/ul>
+&lt;h2 id="dagger-functions-시작하기">Dagger Functions 시작하기&lt;/h2>
+&lt;p>본 실습은 MacOS, Docker Desktop 환경에서 진행하는 것을 가정합니다.
+Windows 사용시에는 그에 맞는 명령어로 변환해서 실습해주세요.&lt;/p>
+&lt;p>Go SDK를 사용하여 Function을 작성합니다.&lt;/p>
+&lt;h3 id="dagger-설치">Dagger 설치&lt;/h3>
+&lt;p>&lt;a class="link" href="https://docs.dagger.io/install" title="Dagger Installation"
+target="_blank" rel="noopener"
+>Dagger Installation&lt;/a> 문서를 참고하여 설치한다.&lt;/p>
+&lt;h3 id="dagger-module-만들기">Dagger Module 만들기&lt;/h3>
+&lt;ol>
+&lt;li>폴더를 만든다.
+&lt;ul>
+&lt;li>&lt;code>mkdir my-module&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>폴더로 이동한다.
+&lt;ul>
+&lt;li>&lt;code>cd my-module&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>모듈을 초기화 한다.
+&lt;ul>
+&lt;li>&lt;code>dagger init --sdk go --source . --name my-module&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="dagger-function-작성">Dagger Function 작성&lt;/h3>
+&lt;ol>
+&lt;li>&lt;code>main.go&lt;/code> 파일의 내용을 모두 지우고, 아래의 코드를 붙여 넣는다.&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">package&lt;/span> &lt;span class="nx">main&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;fmt&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">type&lt;/span> &lt;span class="nx">MyModule&lt;/span> &lt;span class="kd">struct&lt;/span>&lt;span class="p">{}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">func&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">m&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">MyModule&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="nf">Hello&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">name&lt;/span> &lt;span class="kt">string&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="kt">string&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">fmt&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Sprintf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Hello, %s!&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">name&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">func&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">m&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">MyModule&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="nf">GitClone&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">url&lt;/span> &lt;span class="kt">string&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">Directory&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">dag&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Git&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">url&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nf">Branch&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;main&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nf">Tree&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
+&lt;li>실행 가능한 Function을 확인한다.
+&lt;ul>
+&lt;li>&lt;code>dagger functions&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>hello&lt;/code> Function을 실행하고 결과를 확인한다.
+&lt;ul>
+&lt;li>&lt;code>dagger call hello --name &amp;quot;World&amp;quot;&lt;/code>&lt;/li>
+&lt;li>&lt;code>Hello, World!&lt;/code> 가 출력&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>git-clone&lt;/code> Function을 실행하고 결과를 확인한다.
+&lt;ul>
+&lt;li>&lt;code>dagger call git-clone --url=https://github.com/seungyeop-lee/daggerverse.git -o daggerverse&lt;/code>&lt;/li>
+&lt;li>&lt;code>daggerverse&lt;/code> 폴더에 Clone된 파일들을 확인 할 수 있음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="daggerverse-활용">Daggerverse 활용&lt;/h3>
+&lt;p>ssh 모듈을 설치하고, ssh를 이용해 원격의 서버에 명령어를 실행하도록 한다.&lt;/p>
+&lt;ol>
+&lt;li>ssh 모듈을 설치한다.
+&lt;ul>
+&lt;li>&lt;code>dagger install github.com/seungyeop-lee/daggerverse/ssh&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>main.go&lt;/code> 파일에 아래의 코드를 추가한다.&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">func&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">m&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">MyModule&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="nf">SshCommand&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">ctx&lt;/span> &lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Context&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">address&lt;/span> &lt;span class="kt">string&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">password&lt;/span> &lt;span class="kt">string&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">command&lt;/span> &lt;span class="kt">string&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">)&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kt">string&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">error&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">output&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">err&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">dag&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">SSH&lt;/span>&lt;span class="p">().&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">Config&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">address&lt;/span>&lt;span class="p">).&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">WithPassword&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">dag&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">SetSecret&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;password&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">password&lt;/span>&lt;span class="p">)).&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">Command&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">command&lt;/span>&lt;span class="p">).&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">Stdout&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">ctx&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="nx">err&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="kc">nil&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="s">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">err&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">output&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">nil&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="3">
+&lt;li>실행 가능한 Function에 &lt;code>ssh-command&lt;/code>가 추가 되었는지 확인한다.
+&lt;ul>
+&lt;li>&lt;code>dagger functions&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>ssh-command&lt;/code> Function을 실행하고 결과를 확인한다.
+&lt;ul>
+&lt;li>&lt;code>dagger call -v ssh-command --address=&amp;quot;user@your_server_address&amp;quot; --password=&amp;quot;user_password&amp;quot; --command=&amp;quot;ls -al&amp;quot;&lt;/code>&lt;/li>
+&lt;li>&lt;code>ls -al&lt;/code>의 결과가 출력된다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>Note 1. 본 실습에서는 password를 단순 입력했으나, 실제로는 secret을 사용해야 한다. 자세한 사항은 &lt;a class="link" href="https://docs.dagger.io/manuals/developer/go/203021/secrets" title="Dagger docs - Secrets"
+target="_blank" rel="noopener"
+>Dagger Docs/Secrets 문서&lt;/a> 참조&lt;/p>
+&lt;p>Note 2. 본 실습은 &lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/dagger-function-introduction" title="dagger-functions-introduction 예제"
+target="_blank" rel="noopener"
+>git repository&lt;/a>에 동일하게 올라와있으니 참고&lt;/p>
+&lt;h2 id="마무리">마무리&lt;/h2>
+&lt;p>Dagger와 Dagger Functions를 간단히 알아보았다.
+더 자세히 알고 싶으면 Dagger 공식 문서의 &lt;a class="link" href="https://docs.dagger.io/quickstart" title="Dagger docs - Quickstart"
+target="_blank" rel="noopener"
+>Quickstart&lt;/a> 및 &lt;a class="link" href="https://docs.dagger.io/manuals/user" title="Dagger docs - User Manual"
+target="_blank" rel="noopener"
+>User Manual&lt;/a>, &lt;a class="link" href="https://docs.dagger.io/manuals/developer" title="Dagger docs - Developer Manual"
+target="_blank" rel="noopener"
+>Developer Manual&lt;/a>을 참고하길 바란다.&lt;/p>
+&lt;h2 id="ref">ref.&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://dagger.io/" title="Dagger"
+target="_blank" rel="noopener"
+>Dagger&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://daggerverse.dev/" title="Daggerverse"
+target="_blank" rel="noopener"
+>Daggerverse&lt;/a>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://daggerverse.dev/mod/github.com/seungyeop-lee/daggerverse/ssh" title="Daggerverse - ssh"
+target="_blank" rel="noopener"
+>ssh&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://daggerverse.dev/mod/github.com/seungyeop-lee/daggerverse/scp" title="Daggerverse - scp"
+target="_blank" rel="noopener"
+>scp&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://daggerverse.dev/mod/github.com/seungyeop-lee/daggerverse/private-git" title="Daggerverse - private-git"
+target="_blank" rel="noopener"
+>private-git&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a class="link" href="https://blog.outsider.ne.kr/1642" title="CI/CD 파이프라인 엔진 Dagger"
+target="_blank" rel="noopener"
+>Outsider&amp;rsquo;s Dev Story - CI/CD 파이프라인 엔진 Dagger&lt;/a>&lt;/li>
+&lt;li>Dagger Docs
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://docs.dagger.io/install" title="Dagger Installation"
+target="_blank" rel="noopener"
+>Install&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://docs.dagger.io/manuals/developer/go/203021/secrets" title="Dagger docs - Secrets"
+target="_blank" rel="noopener"
+>Secrets&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://docs.dagger.io/quickstart" title="Dagger docs - Quickstart"
+target="_blank" rel="noopener"
+>Quickstart&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://docs.dagger.io/manuals/user" title="Dagger docs - User Manual"
+target="_blank" rel="noopener"
+>User Manual&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://docs.dagger.io/manuals/developer" title="Dagger docs - Developer Manual"
+target="_blank" rel="noopener"
+>Developer Manual&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/dagger-function-introduction" title="dagger-functions-introduction 예제"
+target="_blank" rel="noopener"
+>dagger-functions-introduction 예제&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
