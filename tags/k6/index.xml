@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>K6 on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/tags/k6/</link><description>Recent content in K6 on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 12 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/tags/k6/index.xml" rel="self" type="application/rss+xml"/><item><title>k6 테스트 결과 간단히 시각화하기 (Web Dashboard, HTML Test report)</title><link>https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/</link><pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/cover.png" alt="Featured image of post k6 테스트 결과 간단히 시각화하기 (Web Dashboard, HTML Test report)" />&lt;p>&lt;a class="link" href="https://k6.io/" target="_blank" rel="noopener"
+>k6&lt;/a>는 부하 테스트 툴 중에 사용성이나 성능, 필요 자원량 등이 다른 부하 테스트 툴과 비교하여 뛰어나다고 생각한다.
+여기에 하나 부족한 것이 있다면, 시각화 된 결과를 보기까지의 설정이 번거롭다는 것이다.&lt;/p>
+&lt;p>그런데 올 초 릴리즈 된 &lt;a class="link" href="https://github.com/grafana/k6/releases/tag/v0.49.0" target="_blank" rel="noopener"
+>0.49 버전&lt;/a>에 Web Dashboard와 HTML로 된 Test report를 생성하는 기능이 추가되었다.&lt;/p>
+&lt;p>국내에는 Grafana를 이용한 시각화 방법만 소개가 되어있고, Web Dashboard, Test report를 사용하는 방법은 소개되지 않은 것 같아 실습 위주의 소개글을 작성하게 되었다.&lt;/p>
+&lt;h2 id="실습-준비">실습 준비
+&lt;/h2>&lt;ul>
+&lt;li>실습을 위해서는 docker가 설치 되어 있어야 한다.&lt;/li>
+&lt;li>실습 코드는 MacOS 환경에서 테스트 되었다.&lt;/li>
+&lt;/ul>
+&lt;h2 id="실습">실습
+&lt;/h2>&lt;h3 id="테스트-대상-서버-기동">테스트 대상 서버 기동
+&lt;/h3>&lt;p>테스트를 위한 echo 서버를 기동한다.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">docker run -p 5678:5678 --name http_echo --rm -d hashicorp/http-echo:1.0.0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="k6-스크립트-작성">k6 스크립트 작성
+&lt;/h3>&lt;p>script.js 파일을 만들고 아래의 내용을 파일에 작성한다.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">http&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s2">&amp;#34;k6/http&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">export&lt;/span> &lt;span class="kd">let&lt;/span> &lt;span class="nx">options&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">vus&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="c1">// 5개의 가상 사용자를 생성한다.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">duration&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;10s&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="c1">// 10초 동안 부하를 발생 시킨다.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">export&lt;/span> &lt;span class="k">default&lt;/span> &lt;span class="kd">function&lt;/span> &lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">http&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;http://host.docker.internal:5678&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// 테스트 대상 서버로 GET 요청을 보낸다.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="k6로-부하-테스트-실행">k6로 부하 테스트 실행
+&lt;/h3>&lt;p>script.js 파일이 있는 디렉토리에서 아래의 명령어를 실행하여 부하 테스트을 수행한다.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">docker run &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --rm &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --add-host host.docker.internal:host-gateway &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -v ./:/k6-dir &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -p 5665:5665 &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="nv">K6_WEB_DASHBOARD&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nb">true&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="nv">K6_WEB_DASHBOARD_EXPORT&lt;/span>&lt;span class="o">=&lt;/span>/k6-dir/report.html &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="nv">K6_WEB_DASHBOARD_PERIOD&lt;/span>&lt;span class="o">=&lt;/span>1s &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> grafana/k6:0.52.0 run /k6-dir/script.js
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>옵션&lt;/th>
+&lt;th>설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;rm&lt;/td>
+&lt;td>부하테스트 종료 후 컨테이너를 삭제&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;add-host host.docker.internal:host-gateway&lt;/td>
+&lt;td>container 내부에서 docker가 실행되는 호스트에 접근 가능하도록 설정&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-v ./:/k6-dir&lt;/td>
+&lt;td>명령어 실행 폴더를 container에 bind&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-p 5665:5665&lt;/td>
+&lt;td>Web Dashboard 접속을 위해 container의 5665포트를 host의 5665포트로 bind&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-e K6_WEB_DASHBOARD=true&lt;/td>
+&lt;td>Web Dashboard 기능을 활성화&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-e K6_WEB_DASHBOARD_EXPORT=/k6-dir/report.html&lt;/td>
+&lt;td>부하 테스트 종료 후 Test report 작성 위치 설정&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-e K6_WEB_DASHBOARD_PERIOD=1s&lt;/td>
+&lt;td>부하 테스트 시, Test report용 데이터를 집계하는 주기 설정 (default 10s)&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="web-dashboard">Web Dashboard
+&lt;/h3>&lt;p>부하 테스트 중에 &lt;a class="link" href="http://localhost:5665" target="_blank" rel="noopener"
+>http://localhost:5665&lt;/a>로 접속하면 테스트 결과를 바로바로 Dashboard를 통해 확인이 가능하다.
+Dashboard에서 확인 가능한 정보는 전부 Test report에서도 확인 가능하다.&lt;/p>
+&lt;ul>
+&lt;li>주의!!
+&lt;ul>
+&lt;li>해당 페이지를 끄지 않으면 k6 테스트도 종료되지 않는다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/dashboard.png"
+width="3456"
+height="1914"
+srcset="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/dashboard_huddd9ce144d3a0362375f62b4605fe1d3_467485_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/dashboard_huddd9ce144d3a0362375f62b4605fe1d3_467485_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Web Dashboard"
+class="gallery-image"
+data-flex-grow="180"
+data-flex-basis="433px"
+>&lt;/p>
+&lt;h3 id="test-report-확인">Test report 확인
+&lt;/h3>&lt;p>생성된 report.html 파일을 웹브라우저로 열어 Test report를 확인한다.&lt;/p>
+&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/report.png"
+width="2190"
+height="1878"
+srcset="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/report_hu5f84d6b8fd5939a7286c661420491d1f_280546_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/report_hu5f84d6b8fd5939a7286c661420491d1f_280546_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Test report"
+class="gallery-image"
+data-flex-grow="116"
+data-flex-basis="279px"
+>&lt;/p>
+&lt;ul>
+&lt;li>Tip.
+&lt;ul>
+&lt;li>그래프의 특정 범위를 드레그하면 그 부분만 확대가 되고, 그래프를 더블클릭하면 원 상태로 돌아간다.&lt;/li>
+&lt;li>범례를 클릭하면 그래프에서 보일 범례를 조정하는 것이 가능하다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="테스트-환경-정리">테스트 환경 정리
+&lt;/h3>&lt;p>테스트를 위해 기동했던 echo 서버를 종료 시킨다.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">docker stop http_echo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="마무리">마무리
+&lt;/h2>&lt;p>k6의 Web Dashboard와 Test report를 이용해 간단히 시각화된 부하 테스트 결과를 얻는 실습을 진행했다.&lt;/p>
+&lt;p>더 자세한 사항은 &lt;a class="link" href="https://grafana.com/docs/k6/v0.52.x/results-output/web-dashboard/" target="_blank" rel="noopener"
+>k6 Web dashboard&lt;/a> 페이지를 참고하길 바란다.&lt;/p></description></item></channel></rss>
