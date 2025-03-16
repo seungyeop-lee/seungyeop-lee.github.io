@@ -1,4 +1,101 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tools on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/categories/tools/</link><description>Recent content in Tools on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 12 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/categories/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>k6 테스트 결과 간단히 시각화하기 (Web Dashboard, HTML Test report)</title><link>https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/</link><pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/cover.png" alt="Featured image of post k6 테스트 결과 간단히 시각화하기 (Web Dashboard, HTML Test report)" />&lt;p>&lt;a class="link" href="https://k6.io/" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tools on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/categories/tools/</link><description>Recent content in Tools on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sun, 16 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/categories/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>Supabase Backup &amp; Migration CheetSheet</title><link>https://blog.seungyeop-lee.com/post/supabase-backup-migration-cheetsheet/</link><pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/supabase-backup-migration-cheetsheet/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/supabase-backup-migration-cheetsheet/cover.jpeg" alt="Featured image of post Supabase Backup &amp; Migration CheetSheet" />&lt;h2 id="setting-local-env">setting local env
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">supabase init
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase start
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="from-remote-to-local">From remote To local
+&lt;/h2>&lt;h3 id="schema">Schema
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 1. Remote DB Schema 복사&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># schema_migration 이력이 없는 경우&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase db pull
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># schema_migration 이력이 있는 경우&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase migration fetch
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 2. local DB 리셋&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase db reset
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="data">Data
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 1. Remote DB 데이터 복사&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase db dump --data-only -s public &amp;gt; supabase/seed.sql
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 2. local DB 리셋&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase db reset
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="from-local-to-remote">From local To remote
+&lt;/h2>&lt;h3 id="schema-1">Schema
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 1. Remote DB Schema 복사 (migration)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># schema_migration 이력이 없는 경우&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase db pull
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># schema_migration 이력이 있는 경우&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase migration fetch
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 2. Remote DB Schema 복사 (dump)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkdir -p supabase/schemas
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase db dump &amp;gt; supabase/schemas/prod.sql
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 3. supabase/schemas 폴더에 적용 할 DDL sql 파일 추가&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 4. migration과 schemas의 ddl을 비교하여 새로운 migration 파일 생성&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase db diff -f &lt;span class="o">[&lt;/span>name&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 5. migration 반영&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase db push
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="data-1">Data
+&lt;/h3>&lt;p>From remote To local / Data 응용 (&amp;ndash;db-url or &amp;ndash;linked 사용)&lt;/p></description></item><item><title>k6 테스트 결과 간단히 시각화하기 (Web Dashboard, HTML Test report)</title><link>https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/</link><pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/cover.png" alt="Featured image of post k6 테스트 결과 간단히 시각화하기 (Web Dashboard, HTML Test report)" />&lt;p>&lt;a class="link" href="https://k6.io/" target="_blank" rel="noopener"
 >k6&lt;/a>는 부하 테스트 툴 중에 사용성이나 성능, 필요 자원량 등이 다른 부하 테스트 툴과 비교하여 뛰어나다고 생각한다.
 여기에 하나 부족한 것이 있다면, 시각화 된 결과를 보기까지의 설정이 번거롭다는 것이다.&lt;/p>
 &lt;p>그런데 올 초 릴리즈 된 &lt;a class="link" href="https://github.com/grafana/k6/releases/tag/v0.49.0" target="_blank" rel="noopener"
@@ -126,7 +223,7 @@ Dashboard에서 확인 가능한 정보는 전부 Test report에서도 확인 �
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/dashboard.png"
 width="3456"
 height="1914"
-srcset="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/dashboard_huddd9ce144d3a0362375f62b4605fe1d3_467485_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/dashboard_huddd9ce144d3a0362375f62b4605fe1d3_467485_1024x0_resize_box_3.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/dashboard_hu_c1465e8f8333d62d.png 480w, https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/dashboard_hu_4ae6e3c7ed8a9266.png 1024w"
 loading="lazy"
 alt="Web Dashboard"
 class="gallery-image"
@@ -138,7 +235,7 @@ data-flex-basis="433px"
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/report.png"
 width="2190"
 height="1878"
-srcset="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/report_hu5f84d6b8fd5939a7286c661420491d1f_280546_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/report_hu5f84d6b8fd5939a7286c661420491d1f_280546_1024x0_resize_box_3.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/report_hu_c46bf1ab74bd99f8.png 480w, https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/report_hu_ea322a51e7dfb16e.png 1024w"
 loading="lazy"
 alt="Test report"
 class="gallery-image"
@@ -445,7 +542,7 @@ target="_blank" rel="noopener"
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1.png"
 width="1371"
 height="959"
-srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1_hubaa7cd1251a84d0bd5aa506332f8b42d_128444_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1_hubaa7cd1251a84d0bd5aa506332f8b42d_128444_1024x0_resize_box_3.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1_hu_c6c45c46e33b1ff1.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1_hu_fe38dcde8eabfed1.png 1024w"
 loading="lazy"
 alt="부분적으로 UI가 표시되지 않음"
 class="gallery-image"
@@ -462,7 +559,7 @@ linuxserver라는 그룹은 Docker를 이용해 linux 어플리케이션을 실�
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1.png"
 width="1609"
 height="1012"
-srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1_huae9d86b810f8dff2dc345ea551b92c41_128131_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1_huae9d86b810f8dff2dc345ea551b92c41_128131_1024x0_resize_box_3.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1_hu_b97d217bba29743e.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1_hu_c12d513419f6197e.png 1024w"
 loading="lazy"
 alt="UI가 문제없이 표시된다."
 class="gallery-image"
@@ -473,7 +570,7 @@ data-flex-basis="381px"
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2.png"
 width="893"
 height="320"
-srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2_hua03b06ae4cd618eec0c4069e19e58ce0_44907_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2_hua03b06ae4cd618eec0c4069e19e58ce0_44907_1024x0_resize_box_3.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2_hu_abfed891f1b6ed30.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2_hu_f30ba8ddcf5b2e0b.png 1024w"
 loading="lazy"
 alt="한글입력이 되지 않는다."
 class="gallery-image"
@@ -500,7 +597,7 @@ data-flex-basis="669px"
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3.png"
 width="1353"
 height="940"
-srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3_hu8871e7862df766fe77c3ca697bbabad4_185011_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3_hu8871e7862df766fe77c3ca697bbabad4_185011_1024x0_resize_box_3.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3_hu_3a42dfa2641fbd85.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3_hu_e4ad60824fbaa026.png 1024w"
 loading="lazy"
 alt="IME 입력 활성화"
 class="gallery-image"
@@ -511,7 +608,7 @@ data-flex-basis="345px"
 &lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4.png"
 width="1185"
 height="308"
-srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4_hu21ead88ce360a00f850aa081c2e98015_44889_480x0_resize_box_3.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4_hu21ead88ce360a00f850aa081c2e98015_44889_1024x0_resize_box_3.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4_hu_ca21a17facfc4063.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4_hu_35117e594a1f6a0b.png 1024w"
 loading="lazy"
 alt="한글입력에 문제가 없다."
 class="gallery-image"
