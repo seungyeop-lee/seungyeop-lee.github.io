@@ -1,226 +1,226 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tools on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/categories/tools/</link><description>Recent content in Tools on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sun, 16 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/categories/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>Supabase Backup &amp; Migration CheetSheet</title><link>https://blog.seungyeop-lee.com/post/supabase-backup-migration-cheetsheet/</link><pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/supabase-backup-migration-cheetsheet/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/supabase-backup-migration-cheetsheet/cover.jpeg" alt="Featured image of post Supabase Backup &amp; Migration CheetSheet" />&lt;h2 id="setting-local-env">setting local env
-&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">supabase init
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase start
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="from-remote-to-local">From remote To local
-&lt;/h2>&lt;h3 id="schema">Schema
-&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;span class="lnt">8
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 1. Remote DB Schema 복사&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># schema_migration 이력이 없는 경우&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase db pull
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># schema_migration 이력이 있는 경우&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase migration fetch
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 2. local DB 리셋&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase db reset
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="data">Data
-&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 1. Remote DB 데이터 복사&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase db dump --data-only -s public &amp;gt; supabase/seed.sql
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 2. local DB 리셋&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase db reset
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="from-local-to-remote">From local To remote
-&lt;/h2>&lt;h3 id="schema-1">Schema
-&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 1. Remote DB Schema 복사 (migration)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># schema_migration 이력이 없는 경우&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase db pull
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># schema_migration 이력이 있는 경우&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase migration fetch
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 2. Remote DB Schema 복사 (dump)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkdir -p supabase/schemas
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase db dump &amp;gt; supabase/schemas/prod.sql
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 3. supabase/schemas 폴더에 적용 할 DDL sql 파일 추가&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 4. migration과 schemas의 ddl을 비교하여 새로운 migration 파일 생성&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase db diff -f &lt;span class="o">[&lt;/span>name&lt;span class="o">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 5. migration 반영&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supabase db push
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="data-1">Data
-&lt;/h3>&lt;p>From remote To local / Data 응용 (&amp;ndash;db-url or &amp;ndash;linked 사용)&lt;/p></description></item><item><title>k6 테스트 결과 간단히 시각화하기 (Web Dashboard, HTML Test report)</title><link>https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/</link><pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/cover.png" alt="Featured image of post k6 테스트 결과 간단히 시각화하기 (Web Dashboard, HTML Test report)" />&lt;p>&lt;a class="link" href="https://k6.io/" target="_blank" rel="noopener"
->k6&lt;/a>는 부하 테스트 툴 중에 사용성이나 성능, 필요 자원량 등이 다른 부하 테스트 툴과 비교하여 뛰어나다고 생각한다.
-여기에 하나 부족한 것이 있다면, 시각화 된 결과를 보기까지의 설정이 번거롭다는 것이다.&lt;/p>
-&lt;p>그런데 올 초 릴리즈 된 &lt;a class="link" href="https://github.com/grafana/k6/releases/tag/v0.49.0" target="_blank" rel="noopener"
->0.49 버전&lt;/a>에 Web Dashboard와 HTML로 된 Test report를 생성하는 기능이 추가되었다.&lt;/p>
-&lt;p>국내에는 Grafana를 이용한 시각화 방법만 소개가 되어있고, Web Dashboard, Test report를 사용하는 방법은 소개되지 않은 것 같아 실습 위주의 소개글을 작성하게 되었다.&lt;/p>
-&lt;h2 id="실습-준비">실습 준비
-&lt;/h2>&lt;ul>
-&lt;li>실습을 위해서는 docker가 설치 되어 있어야 한다.&lt;/li>
-&lt;li>실습 코드는 MacOS 환경에서 테스트 되었다.&lt;/li>
-&lt;/ul>
-&lt;h2 id="실습">실습
-&lt;/h2>&lt;h3 id="테스트-대상-서버-기동">테스트 대상 서버 기동
-&lt;/h3>&lt;p>테스트를 위한 echo 서버를 기동한다.&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">docker run -p 5678:5678 --name http_echo --rm -d hashicorp/http-echo:1.0.0
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="k6-스크립트-작성">k6 스크립트 작성
-&lt;/h3>&lt;p>script.js 파일을 만들고 아래의 내용을 파일에 작성한다.&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">http&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s2">&amp;#34;k6/http&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">export&lt;/span> &lt;span class="kd">let&lt;/span> &lt;span class="nx">options&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">vus&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="c1">// 5개의 가상 사용자를 생성한다.
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">duration&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;10s&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="c1">// 10초 동안 부하를 발생 시킨다.
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">export&lt;/span> &lt;span class="k">default&lt;/span> &lt;span class="kd">function&lt;/span> &lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">http&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;http://host.docker.internal:5678&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// 테스트 대상 서버로 GET 요청을 보낸다.
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="k6로-부하-테스트-실행">k6로 부하 테스트 실행
-&lt;/h3>&lt;p>script.js 파일이 있는 디렉토리에서 아래의 명령어를 실행하여 부하 테스트을 수행한다.&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;span class="lnt">8
-&lt;/span>&lt;span class="lnt">9
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">docker run &lt;span class="se">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --rm &lt;span class="se">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --add-host host.docker.internal:host-gateway &lt;span class="se">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -v ./:/k6-dir &lt;span class="se">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -p 5665:5665 &lt;span class="se">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="nv">K6_WEB_DASHBOARD&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nb">true&lt;/span> &lt;span class="se">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="nv">K6_WEB_DASHBOARD_EXPORT&lt;/span>&lt;span class="o">=&lt;/span>/k6-dir/report.html &lt;span class="se">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="nv">K6_WEB_DASHBOARD_PERIOD&lt;/span>&lt;span class="o">=&lt;/span>1s &lt;span class="se">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> grafana/k6:0.52.0 run /k6-dir/script.js
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>옵션&lt;/th>
-&lt;th>설명&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&amp;ndash;rm&lt;/td>
-&lt;td>부하테스트 종료 후 컨테이너를 삭제&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&amp;ndash;add-host host.docker.internal:host-gateway&lt;/td>
-&lt;td>container 내부에서 docker가 실행되는 호스트에 접근 가능하도록 설정&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-v ./:/k6-dir&lt;/td>
-&lt;td>명령어 실행 폴더를 container에 bind&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-p 5665:5665&lt;/td>
-&lt;td>Web Dashboard 접속을 위해 container의 5665포트를 host의 5665포트로 bind&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-e K6_WEB_DASHBOARD=true&lt;/td>
-&lt;td>Web Dashboard 기능을 활성화&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-e K6_WEB_DASHBOARD_EXPORT=/k6-dir/report.html&lt;/td>
-&lt;td>부하 테스트 종료 후 Test report 작성 위치 설정&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-e K6_WEB_DASHBOARD_PERIOD=1s&lt;/td>
-&lt;td>부하 테스트 시, Test report용 데이터를 집계하는 주기 설정 (default 10s)&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h3 id="web-dashboard">Web Dashboard
-&lt;/h3>&lt;p>부하 테스트 중에 &lt;a class="link" href="http://localhost:5665" target="_blank" rel="noopener"
->http://localhost:5665&lt;/a>로 접속하면 테스트 결과를 바로바로 Dashboard를 통해 확인이 가능하다.
-Dashboard에서 확인 가능한 정보는 전부 Test report에서도 확인 가능하다.&lt;/p>
-&lt;ul>
-&lt;li>주의!!
-&lt;ul>
-&lt;li>해당 페이지를 끄지 않으면 k6 테스트도 종료되지 않는다.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/dashboard.png"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tools on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/categories/tools/</link><description>Recent content in Tools on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sun, 16 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/categories/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>Supabase Backup &amp; Migration CheetSheet</title><link>https://blog.seungyeop-lee.com/post/supabase-backup-migration-cheetsheet/</link><pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/supabase-backup-migration-cheetsheet/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/supabase-backup-migration-cheetsheet/cover.jpeg" alt="Featured image of post Supabase Backup &amp; Migration CheetSheet" /&gt;&lt;h2 id="setting-local-env"&gt;setting local env
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;supabase init
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;supabase start
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="from-remote-to-local"&gt;From remote To local
+&lt;/h2&gt;&lt;h3 id="schema"&gt;Schema
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 1. Remote DB Schema 복사&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# schema_migration 이력이 없는 경우&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;supabase db pull
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# schema_migration 이력이 있는 경우&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;supabase migration fetch
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 2. local DB 리셋&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;supabase db reset
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="data"&gt;Data
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 1. Remote DB 데이터 복사&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;supabase db dump --data-only -s public &amp;gt; supabase/seed.sql
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 2. local DB 리셋&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;supabase db reset
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="from-local-to-remote"&gt;From local To remote
+&lt;/h2&gt;&lt;h3 id="schema-1"&gt;Schema
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 1. Remote DB Schema 복사 (migration)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# schema_migration 이력이 없는 경우&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;supabase db pull
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# schema_migration 이력이 있는 경우&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;supabase migration fetch
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 2. Remote DB Schema 복사 (dump)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mkdir -p supabase/schemas
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;supabase db dump &amp;gt; supabase/schemas/prod.sql
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 3. supabase/schemas 폴더에 적용 할 DDL sql 파일 추가&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 4. migration과 schemas의 ddl을 비교하여 새로운 migration 파일 생성&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;supabase db diff -f &lt;span class="o"&gt;[&lt;/span&gt;name&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 5. migration 반영&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;supabase db push
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="data-1"&gt;Data
+&lt;/h3&gt;&lt;p&gt;From remote To local / Data 응용 (&amp;ndash;db-url or &amp;ndash;linked 사용)&lt;/p&gt;</description></item><item><title>k6 테스트 결과 간단히 시각화하기 (Web Dashboard, HTML Test report)</title><link>https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/</link><pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/cover.png" alt="Featured image of post k6 테스트 결과 간단히 시각화하기 (Web Dashboard, HTML Test report)" /&gt;&lt;p&gt;&lt;a class="link" href="https://k6.io/" target="_blank" rel="noopener"
+&gt;k6&lt;/a&gt;는 부하 테스트 툴 중에 사용성이나 성능, 필요 자원량 등이 다른 부하 테스트 툴과 비교하여 뛰어나다고 생각한다.
+여기에 하나 부족한 것이 있다면, 시각화 된 결과를 보기까지의 설정이 번거롭다는 것이다.&lt;/p&gt;
+&lt;p&gt;그런데 올 초 릴리즈 된 &lt;a class="link" href="https://github.com/grafana/k6/releases/tag/v0.49.0" target="_blank" rel="noopener"
+&gt;0.49 버전&lt;/a&gt;에 Web Dashboard와 HTML로 된 Test report를 생성하는 기능이 추가되었다.&lt;/p&gt;
+&lt;p&gt;국내에는 Grafana를 이용한 시각화 방법만 소개가 되어있고, Web Dashboard, Test report를 사용하는 방법은 소개되지 않은 것 같아 실습 위주의 소개글을 작성하게 되었다.&lt;/p&gt;
+&lt;h2 id="실습-준비"&gt;실습 준비
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;실습을 위해서는 docker가 설치 되어 있어야 한다.&lt;/li&gt;
+&lt;li&gt;실습 코드는 MacOS 환경에서 테스트 되었다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="실습"&gt;실습
+&lt;/h2&gt;&lt;h3 id="테스트-대상-서버-기동"&gt;테스트 대상 서버 기동
+&lt;/h3&gt;&lt;p&gt;테스트를 위한 echo 서버를 기동한다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker run -p 5678:5678 --name http_echo --rm -d hashicorp/http-echo:1.0.0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="k6-스크립트-작성"&gt;k6 스크립트 작성
+&lt;/h3&gt;&lt;p&gt;script.js 파일을 만들고 아래의 내용을 파일에 작성한다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;import&lt;/span&gt; &lt;span class="nx"&gt;http&lt;/span&gt; &lt;span class="nx"&gt;from&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;k6/http&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;export&lt;/span&gt; &lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;options&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;vus&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;// 5개의 가상 사용자를 생성한다.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;duration&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;10s&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;// 10초 동안 부하를 발생 시킨다.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;export&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;http&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;http://host.docker.internal:5678&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// 테스트 대상 서버로 GET 요청을 보낸다.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="k6로-부하-테스트-실행"&gt;k6로 부하 테스트 실행
+&lt;/h3&gt;&lt;p&gt;script.js 파일이 있는 디렉토리에서 아래의 명령어를 실행하여 부하 테스트을 수행한다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;span class="lnt"&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker run &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; --rm &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; --add-host host.docker.internal:host-gateway &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -v ./:/k6-dir &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -p 5665:5665 &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -e &lt;span class="nv"&gt;K6_WEB_DASHBOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -e &lt;span class="nv"&gt;K6_WEB_DASHBOARD_EXPORT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/k6-dir/report.html &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -e &lt;span class="nv"&gt;K6_WEB_DASHBOARD_PERIOD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1s &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; grafana/k6:0.52.0 run /k6-dir/script.js
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;옵션&lt;/th&gt;
+&lt;th&gt;설명&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;rm&lt;/td&gt;
+&lt;td&gt;부하테스트 종료 후 컨테이너를 삭제&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;add-host host.docker.internal:host-gateway&lt;/td&gt;
+&lt;td&gt;container 내부에서 docker가 실행되는 호스트에 접근 가능하도록 설정&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-v ./:/k6-dir&lt;/td&gt;
+&lt;td&gt;명령어 실행 폴더를 container에 bind&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-p 5665:5665&lt;/td&gt;
+&lt;td&gt;Web Dashboard 접속을 위해 container의 5665포트를 host의 5665포트로 bind&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-e K6_WEB_DASHBOARD=true&lt;/td&gt;
+&lt;td&gt;Web Dashboard 기능을 활성화&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-e K6_WEB_DASHBOARD_EXPORT=/k6-dir/report.html&lt;/td&gt;
+&lt;td&gt;부하 테스트 종료 후 Test report 작성 위치 설정&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-e K6_WEB_DASHBOARD_PERIOD=1s&lt;/td&gt;
+&lt;td&gt;부하 테스트 시, Test report용 데이터를 집계하는 주기 설정 (default 10s)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="web-dashboard"&gt;Web Dashboard
+&lt;/h3&gt;&lt;p&gt;부하 테스트 중에 &lt;a class="link" href="http://localhost:5665" target="_blank" rel="noopener"
+&gt;http://localhost:5665&lt;/a&gt;로 접속하면 테스트 결과를 바로바로 Dashboard를 통해 확인이 가능하다.
+Dashboard에서 확인 가능한 정보는 전부 Test report에서도 확인 가능하다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;주의!!
+&lt;ul&gt;
+&lt;li&gt;해당 페이지를 끄지 않으면 k6 테스트도 종료되지 않는다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/dashboard.png"
 width="3456"
 height="1914"
 srcset="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/dashboard_hu_c1465e8f8333d62d.png 480w, https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/dashboard_hu_4ae6e3c7ed8a9266.png 1024w"
@@ -229,10 +229,10 @@ alt="Web Dashboard"
 class="gallery-image"
 data-flex-grow="180"
 data-flex-basis="433px"
->&lt;/p>
-&lt;h3 id="test-report-확인">Test report 확인
-&lt;/h3>&lt;p>생성된 report.html 파일을 웹브라우저로 열어 Test report를 확인한다.&lt;/p>
-&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/report.png"
+&gt;&lt;/p&gt;
+&lt;h3 id="test-report-확인"&gt;Test report 확인
+&lt;/h3&gt;&lt;p&gt;생성된 report.html 파일을 웹브라우저로 열어 Test report를 확인한다.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/report.png"
 width="2190"
 height="1878"
 srcset="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/report_hu_c46bf1ab74bd99f8.png 480w, https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/report_hu_ea322a51e7dfb16e.png 1024w"
@@ -241,305 +241,305 @@ alt="Test report"
 class="gallery-image"
 data-flex-grow="116"
 data-flex-basis="279px"
->&lt;/p>
-&lt;ul>
-&lt;li>Tip.
-&lt;ul>
-&lt;li>그래프의 특정 범위를 드레그하면 그 부분만 확대가 되고, 그래프를 더블클릭하면 원 상태로 돌아간다.&lt;/li>
-&lt;li>범례를 클릭하면 그래프에서 보일 범례를 조정하는 것이 가능하다.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="테스트-환경-정리">테스트 환경 정리
-&lt;/h3>&lt;p>테스트를 위해 기동했던 echo 서버를 종료 시킨다.&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">docker stop http_echo
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="마무리">마무리
-&lt;/h2>&lt;p>k6의 Web Dashboard와 Test report를 이용해 간단히 시각화된 부하 테스트 결과를 얻는 실습을 진행했다.&lt;/p>
-&lt;p>더 자세한 사항은 &lt;a class="link" href="https://grafana.com/docs/k6/v0.52.x/results-output/web-dashboard/" target="_blank" rel="noopener"
->k6 Web dashboard&lt;/a> 페이지를 참고하길 바란다.&lt;/p></description></item><item><title>Dagger Functions와 함께하는 CI/CD Pipeline as Code</title><link>https://blog.seungyeop-lee.com/post/dagger-functions-introduction/</link><pubDate>Tue, 07 May 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/dagger-functions-introduction/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/dagger-functions-introduction/cover.jpeg" alt="Featured image of post Dagger Functions와 함께하는 CI/CD Pipeline as Code" />&lt;p>&lt;a class="link" href="https://dagger.io/" title="Dagger"
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tip.
+&lt;ul&gt;
+&lt;li&gt;그래프의 특정 범위를 드레그하면 그 부분만 확대가 되고, 그래프를 더블클릭하면 원 상태로 돌아간다.&lt;/li&gt;
+&lt;li&gt;범례를 클릭하면 그래프에서 보일 범례를 조정하는 것이 가능하다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="테스트-환경-정리"&gt;테스트 환경 정리
+&lt;/h3&gt;&lt;p&gt;테스트를 위해 기동했던 echo 서버를 종료 시킨다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker stop http_echo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="마무리"&gt;마무리
+&lt;/h2&gt;&lt;p&gt;k6의 Web Dashboard와 Test report를 이용해 간단히 시각화된 부하 테스트 결과를 얻는 실습을 진행했다.&lt;/p&gt;
+&lt;p&gt;더 자세한 사항은 &lt;a class="link" href="https://grafana.com/docs/k6/v0.52.x/results-output/web-dashboard/" target="_blank" rel="noopener"
+&gt;k6 Web dashboard&lt;/a&gt; 페이지를 참고하길 바란다.&lt;/p&gt;</description></item><item><title>Dagger Functions와 함께하는 CI/CD Pipeline as Code</title><link>https://blog.seungyeop-lee.com/post/dagger-functions-introduction/</link><pubDate>Tue, 07 May 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/dagger-functions-introduction/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/dagger-functions-introduction/cover.jpeg" alt="Featured image of post Dagger Functions와 함께하는 CI/CD Pipeline as Code" /&gt;&lt;p&gt;&lt;a class="link" href="https://dagger.io/" title="Dagger"
 target="_blank" rel="noopener"
->Dagger&lt;/a>란 Code로 CI/CD Pipeline을 만들고, 플렛폼에 종속적이지 않도록 Pipeline을 실행 할 수 있게 해주는 오픈소스 툴이다.
+&gt;Dagger&lt;/a&gt;란 Code로 CI/CD Pipeline을 만들고, 플렛폼에 종속적이지 않도록 Pipeline을 실행 할 수 있게 해주는 오픈소스 툴이다.
 Dagger Engine이 DinD 방식으로 각 Pipeline을 Container로 격리시켜 플렛폼에 종속적이지 않으며, 캐싱이 가능한 것이 특징이다.
-Benefit으로 &amp;lsquo;No More YAML Soup&amp;rsquo;과 &amp;lsquo;Eliminate Push And Pray&amp;rsquo;가 인상적이다.&lt;/p>
-&lt;p>프로젝트 초창기부터 관심을 가지고 있었으나, CUE를 사용했던 시절에는 CUE에 대한 허들이 너무 높아서 사용을 포기했었고,
-Go SDK가 나온 다음에는 사용성이 좋아졌으나, Pipeline을 만들기 위해 작은것 하나하나를 전부 스스로 만들어내야하는 불편함이 있었다.&lt;/p>
-&lt;p>최근에 Dagger Functions와 다른 사람들이 만든 Dagger Functions를 모듈로 설치해서 사용 할 수있는 &lt;a class="link" href="https://daggerverse.dev/" title="Daggerverse"
+Benefit으로 &amp;lsquo;No More YAML Soup&amp;rsquo;과 &amp;lsquo;Eliminate Push And Pray&amp;rsquo;가 인상적이다.&lt;/p&gt;
+&lt;p&gt;프로젝트 초창기부터 관심을 가지고 있었으나, CUE를 사용했던 시절에는 CUE에 대한 허들이 너무 높아서 사용을 포기했었고,
+Go SDK가 나온 다음에는 사용성이 좋아졌으나, Pipeline을 만들기 위해 작은것 하나하나를 전부 스스로 만들어내야하는 불편함이 있었다.&lt;/p&gt;
+&lt;p&gt;최근에 Dagger Functions와 다른 사람들이 만든 Dagger Functions를 모듈로 설치해서 사용 할 수있는 &lt;a class="link" href="https://daggerverse.dev/" title="Daggerverse"
 target="_blank" rel="noopener"
->Daggerverse&lt;/a>가 출시되면서 사용성이 좋아졌다고 느꼈다.
+&gt;Daggerverse&lt;/a&gt;가 출시되면서 사용성이 좋아졌다고 느꼈다.
 동아리에서 만드는 서비스의 CI/CD를 Dagger를 이용해 구축해보면서 이제는 확실히 사용 할 만하다고 느껴졌고, 구축에 필요했지만 없던 몇몇 모듈은 Daggerverse에 배포도 해보았다. (&lt;a class="link" href="https://daggerverse.dev/mod/github.com/seungyeop-lee/daggerverse/ssh" title="Daggerverse - ssh"
 target="_blank" rel="noopener"
->ssh&lt;/a>, &lt;a class="link" href="https://daggerverse.dev/mod/github.com/seungyeop-lee/daggerverse/scp" title="Daggerverse - scp"
+&gt;ssh&lt;/a&gt;, &lt;a class="link" href="https://daggerverse.dev/mod/github.com/seungyeop-lee/daggerverse/scp" title="Daggerverse - scp"
 target="_blank" rel="noopener"
->scp&lt;/a>, &lt;a class="link" href="https://daggerverse.dev/mod/github.com/seungyeop-lee/daggerverse/private-git" title="Daggerverse - private-git"
+&gt;scp&lt;/a&gt;, &lt;a class="link" href="https://daggerverse.dev/mod/github.com/seungyeop-lee/daggerverse/private-git" title="Daggerverse - private-git"
 target="_blank" rel="noopener"
->private-git&lt;/a>)&lt;/p>
-&lt;p>좀 더 많은 사람들이 Dagger를 사용했으면 하는 바람으로 Dagger와 Dagger Functions를 소개하는 글을 작성한다.&lt;/p>
-&lt;h2 id="dagger-소개">Dagger 소개
-&lt;/h2>&lt;ul>
-&lt;li>&lt;a class="link" href="https://blog.outsider.ne.kr/1642" title="CI/CD 파이프라인 엔진 Dagger"
+&gt;private-git&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;좀 더 많은 사람들이 Dagger를 사용했으면 하는 바람으로 Dagger와 Dagger Functions를 소개하는 글을 작성한다.&lt;/p&gt;
+&lt;h2 id="dagger-소개"&gt;Dagger 소개
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://blog.outsider.ne.kr/1642" title="CI/CD 파이프라인 엔진 Dagger"
 target="_blank" rel="noopener"
->Outsider님의 소개글&lt;/a>을 참고하길 바란다.&lt;/li>
-&lt;li>현재는 CUE를 버리고, Go, Python, Typescript SDK를 제공한다.&lt;/li>
-&lt;/ul>
-&lt;h3 id="dagger-사용-예시">Dagger 사용 예시
-&lt;/h3>&lt;ul>
-&lt;li>빌드, 테스트, 배포, 보안 검사 등 다양한 CI/CD 작업을 자동화하는 데 사용할 수 있다.&lt;/li>
-&lt;li>예를 들어
-&lt;ul>
-&lt;li>Go 프로젝트 빌드 및 테스트&lt;/li>
-&lt;li>Docker 이미지 빌드 및 배포&lt;/li>
-&lt;li>Kubernetes 클러스터에 애플리케이션 배포&lt;/li>
-&lt;li>취약성 검사&lt;/li>
-&lt;li>그외, 컨테이너를 통해 구동 할 수 있는 모든 것&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="dagger-functions-소개">Dagger Functions 소개
-&lt;/h2>&lt;p>Dagger Functions는 CI/CD Pipeline을 구성하는 기본 요소다.
-즉, CI/CD Pipeline은 Dagger Function(이하 Function)을 조립하여 만들 수 있다.&lt;/p>
-&lt;h3 id="dagger-functions-장점">Dagger Functions 장점
-&lt;/h3>&lt;ul>
-&lt;li>작은 작업을 캡슐화하여 Pipeline의 복잡도를 낮추고, 재사용이 가능해진다.&lt;/li>
-&lt;li>서로 다른 언어에서 만든 Function을 사용하는 것이 가능하다.
-&lt;ul>
-&lt;li>ex. Go SDK로 만든 Function을 Typescript SDK로 만든 Pipeline에 사용 가능&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Daggerverse를 통해 미리 만들어진 Function을 사용하는 것이 가능하여 Pipeline 구축이 용이하다.&lt;/li>
-&lt;/ul>
-&lt;h2 id="dagger-functions-시작하기">Dagger Functions 시작하기
-&lt;/h2>&lt;p>본 실습은 MacOS, Docker Desktop 환경에서 진행하는 것을 가정합니다.
-Windows 사용시에는 그에 맞는 명령어로 변환해서 실습해주세요.&lt;/p>
-&lt;p>Go SDK를 사용하여 Function을 작성합니다.&lt;/p>
-&lt;h3 id="dagger-설치">Dagger 설치
-&lt;/h3>&lt;p>&lt;a class="link" href="https://docs.dagger.io/install" title="Dagger Installation"
+&gt;Outsider님의 소개글&lt;/a&gt;을 참고하길 바란다.&lt;/li&gt;
+&lt;li&gt;현재는 CUE를 버리고, Go, Python, Typescript SDK를 제공한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="dagger-사용-예시"&gt;Dagger 사용 예시
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;빌드, 테스트, 배포, 보안 검사 등 다양한 CI/CD 작업을 자동화하는 데 사용할 수 있다.&lt;/li&gt;
+&lt;li&gt;예를 들어
+&lt;ul&gt;
+&lt;li&gt;Go 프로젝트 빌드 및 테스트&lt;/li&gt;
+&lt;li&gt;Docker 이미지 빌드 및 배포&lt;/li&gt;
+&lt;li&gt;Kubernetes 클러스터에 애플리케이션 배포&lt;/li&gt;
+&lt;li&gt;취약성 검사&lt;/li&gt;
+&lt;li&gt;그외, 컨테이너를 통해 구동 할 수 있는 모든 것&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="dagger-functions-소개"&gt;Dagger Functions 소개
+&lt;/h2&gt;&lt;p&gt;Dagger Functions는 CI/CD Pipeline을 구성하는 기본 요소다.
+즉, CI/CD Pipeline은 Dagger Function(이하 Function)을 조립하여 만들 수 있다.&lt;/p&gt;
+&lt;h3 id="dagger-functions-장점"&gt;Dagger Functions 장점
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;작은 작업을 캡슐화하여 Pipeline의 복잡도를 낮추고, 재사용이 가능해진다.&lt;/li&gt;
+&lt;li&gt;서로 다른 언어에서 만든 Function을 사용하는 것이 가능하다.
+&lt;ul&gt;
+&lt;li&gt;ex. Go SDK로 만든 Function을 Typescript SDK로 만든 Pipeline에 사용 가능&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Daggerverse를 통해 미리 만들어진 Function을 사용하는 것이 가능하여 Pipeline 구축이 용이하다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="dagger-functions-시작하기"&gt;Dagger Functions 시작하기
+&lt;/h2&gt;&lt;p&gt;본 실습은 MacOS, Docker Desktop 환경에서 진행하는 것을 가정합니다.
+Windows 사용시에는 그에 맞는 명령어로 변환해서 실습해주세요.&lt;/p&gt;
+&lt;p&gt;Go SDK를 사용하여 Function을 작성합니다.&lt;/p&gt;
+&lt;h3 id="dagger-설치"&gt;Dagger 설치
+&lt;/h3&gt;&lt;p&gt;&lt;a class="link" href="https://docs.dagger.io/install" title="Dagger Installation"
 target="_blank" rel="noopener"
->Dagger Installation&lt;/a> 문서를 참고하여 설치한다.&lt;/p>
-&lt;h3 id="dagger-module-만들기">Dagger Module 만들기
-&lt;/h3>&lt;ol>
-&lt;li>폴더를 만든다.
-&lt;ul>
-&lt;li>&lt;code>mkdir my-module&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>폴더로 이동한다.
-&lt;ul>
-&lt;li>&lt;code>cd my-module&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>모듈을 초기화 한다.
-&lt;ul>
-&lt;li>&lt;code>dagger init --sdk go --source . --name my-module&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ol>
-&lt;h3 id="dagger-function-작성">Dagger Function 작성
-&lt;/h3>&lt;ol>
-&lt;li>&lt;code>main.go&lt;/code> 파일의 내용을 모두 지우고, 아래의 코드를 붙여 넣는다.&lt;/li>
-&lt;/ol>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">package&lt;/span> &lt;span class="nx">main&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="p">(&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;fmt&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">type&lt;/span> &lt;span class="nx">MyModule&lt;/span> &lt;span class="kd">struct&lt;/span>&lt;span class="p">{}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">func&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">m&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">MyModule&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="nf">Hello&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">name&lt;/span> &lt;span class="kt">string&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="kt">string&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">fmt&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Sprintf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Hello, %s!&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">name&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">func&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">m&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">MyModule&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="nf">GitClone&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">url&lt;/span> &lt;span class="kt">string&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">Directory&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">dag&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Git&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">url&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nf">Branch&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;main&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nf">Tree&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;ol start="2">
-&lt;li>실행 가능한 Function을 확인한다.
-&lt;ul>
-&lt;li>&lt;code>dagger functions&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;code>hello&lt;/code> Function을 실행하고 결과를 확인한다.
-&lt;ul>
-&lt;li>&lt;code>dagger call hello --name &amp;quot;World&amp;quot;&lt;/code>&lt;/li>
-&lt;li>&lt;code>Hello, World!&lt;/code> 가 출력&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;code>git-clone&lt;/code> Function을 실행하고 결과를 확인한다.
-&lt;ul>
-&lt;li>&lt;code>dagger call git-clone --url=https://github.com/seungyeop-lee/daggerverse.git -o daggerverse&lt;/code>&lt;/li>
-&lt;li>&lt;code>daggerverse&lt;/code> 폴더에 Clone된 파일들을 확인 할 수 있음&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ol>
-&lt;h3 id="daggerverse-활용">Daggerverse 활용
-&lt;/h3>&lt;p>ssh 모듈을 설치하고, ssh를 이용해 원격의 서버에 명령어를 실행하도록 한다.&lt;/p>
-&lt;ol>
-&lt;li>ssh 모듈을 설치한다.
-&lt;ul>
-&lt;li>&lt;code>dagger install github.com/seungyeop-lee/daggerverse/ssh&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;code>main.go&lt;/code> 파일에 아래의 코드를 추가한다.&lt;/li>
-&lt;/ol>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">func&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">m&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">MyModule&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="nf">SshCommand&lt;/span>&lt;span class="p">(&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">ctx&lt;/span> &lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Context&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">address&lt;/span> &lt;span class="kt">string&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">password&lt;/span> &lt;span class="kt">string&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">command&lt;/span> &lt;span class="kt">string&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">)&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kt">string&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">error&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">output&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">err&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">dag&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">SSH&lt;/span>&lt;span class="p">().&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">Config&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">address&lt;/span>&lt;span class="p">).&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">WithPassword&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">dag&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">SetSecret&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;password&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">password&lt;/span>&lt;span class="p">)).&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">Command&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">command&lt;/span>&lt;span class="p">).&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">Stdout&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">ctx&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="nx">err&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="kc">nil&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="s">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">err&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">output&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">nil&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;ol start="3">
-&lt;li>실행 가능한 Function에 &lt;code>ssh-command&lt;/code>가 추가 되었는지 확인한다.
-&lt;ul>
-&lt;li>&lt;code>dagger functions&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;code>ssh-command&lt;/code> Function을 실행하고 결과를 확인한다.
-&lt;ul>
-&lt;li>&lt;code>dagger call -v ssh-command --address=&amp;quot;user@your_server_address&amp;quot; --password=&amp;quot;user_password&amp;quot; --command=&amp;quot;ls -al&amp;quot;&lt;/code>&lt;/li>
-&lt;li>&lt;code>ls -al&lt;/code>의 결과가 출력된다.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ol>
-&lt;p>Note 1. 본 실습에서는 password를 단순 입력했으나, 실제로는 secret을 사용해야 한다. 자세한 사항은 &lt;a class="link" href="https://docs.dagger.io/manuals/developer/go/203021/secrets" title="Dagger docs - Secrets"
+&gt;Dagger Installation&lt;/a&gt; 문서를 참고하여 설치한다.&lt;/p&gt;
+&lt;h3 id="dagger-module-만들기"&gt;Dagger Module 만들기
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;폴더를 만든다.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mkdir my-module&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;폴더로 이동한다.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cd my-module&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;모듈을 초기화 한다.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;dagger init --sdk go --source . --name my-module&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="dagger-function-작성"&gt;Dagger Function 작성
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;main.go&lt;/code&gt; 파일의 내용을 모두 지우고, 아래의 코드를 붙여 넣는다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;package&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;main&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;type&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;MyModule&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;struct&lt;/span&gt;&lt;span class="p"&gt;{}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;func&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;m&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nx"&gt;MyModule&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;Hello&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;name&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;Sprintf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;Hello, %s!&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;func&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;m&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nx"&gt;MyModule&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;GitClone&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;url&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nx"&gt;Directory&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;dag&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;Git&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;url&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nf"&gt;Branch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;main&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nf"&gt;Tree&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start="2"&gt;
+&lt;li&gt;실행 가능한 Function을 확인한다.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;dagger functions&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hello&lt;/code&gt; Function을 실행하고 결과를 확인한다.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;dagger call hello --name &amp;quot;World&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Hello, World!&lt;/code&gt; 가 출력&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git-clone&lt;/code&gt; Function을 실행하고 결과를 확인한다.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;dagger call git-clone --url=https://github.com/seungyeop-lee/daggerverse.git -o daggerverse&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;daggerverse&lt;/code&gt; 폴더에 Clone된 파일들을 확인 할 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="daggerverse-활용"&gt;Daggerverse 활용
+&lt;/h3&gt;&lt;p&gt;ssh 모듈을 설치하고, ssh를 이용해 원격의 서버에 명령어를 실행하도록 한다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ssh 모듈을 설치한다.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;dagger install github.com/seungyeop-lee/daggerverse/ssh&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;main.go&lt;/code&gt; 파일에 아래의 코드를 추가한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;func&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;m&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nx"&gt;MyModule&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;SshCommand&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;ctx&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;context&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Context&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;address&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;password&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;command&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;error&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;output&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;err&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;dag&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;SSH&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;Config&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;address&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;WithPassword&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;dag&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;SetSecret&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;password&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;password&lt;/span&gt;&lt;span class="p"&gt;)).&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;Command&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;command&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;Stdout&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;ctx&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;err&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;!=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;nil&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;err&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;output&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;nil&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start="3"&gt;
+&lt;li&gt;실행 가능한 Function에 &lt;code&gt;ssh-command&lt;/code&gt;가 추가 되었는지 확인한다.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;dagger functions&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ssh-command&lt;/code&gt; Function을 실행하고 결과를 확인한다.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;dagger call -v ssh-command --address=&amp;quot;user@your_server_address&amp;quot; --password=&amp;quot;user_password&amp;quot; --command=&amp;quot;ls -al&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ls -al&lt;/code&gt;의 결과가 출력된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Note 1. 본 실습에서는 password를 단순 입력했으나, 실제로는 secret을 사용해야 한다. 자세한 사항은 &lt;a class="link" href="https://docs.dagger.io/manuals/developer/go/203021/secrets" title="Dagger docs - Secrets"
 target="_blank" rel="noopener"
->Dagger Docs/Secrets 문서&lt;/a> 참조&lt;/p>
-&lt;p>Note 2. 본 실습은 &lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/dagger-function-introduction" title="dagger-functions-introduction 예제"
+&gt;Dagger Docs/Secrets 문서&lt;/a&gt; 참조&lt;/p&gt;
+&lt;p&gt;Note 2. 본 실습은 &lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/dagger-function-introduction" title="dagger-functions-introduction 예제"
 target="_blank" rel="noopener"
->git repository&lt;/a>에 동일하게 올라와있으니 참고&lt;/p>
-&lt;h2 id="마무리">마무리
-&lt;/h2>&lt;p>Dagger와 Dagger Functions를 간단히 알아보았다.
+&gt;git repository&lt;/a&gt;에 동일하게 올라와있으니 참고&lt;/p&gt;
+&lt;h2 id="마무리"&gt;마무리
+&lt;/h2&gt;&lt;p&gt;Dagger와 Dagger Functions를 간단히 알아보았다.
 더 자세히 알고 싶으면 Dagger 공식 문서의 &lt;a class="link" href="https://docs.dagger.io/quickstart" title="Dagger docs - Quickstart"
 target="_blank" rel="noopener"
->Quickstart&lt;/a> 및 &lt;a class="link" href="https://docs.dagger.io/manuals/user" title="Dagger docs - User Manual"
+&gt;Quickstart&lt;/a&gt; 및 &lt;a class="link" href="https://docs.dagger.io/manuals/user" title="Dagger docs - User Manual"
 target="_blank" rel="noopener"
->User Manual&lt;/a>, &lt;a class="link" href="https://docs.dagger.io/manuals/developer" title="Dagger docs - Developer Manual"
+&gt;User Manual&lt;/a&gt;, &lt;a class="link" href="https://docs.dagger.io/manuals/developer" title="Dagger docs - Developer Manual"
 target="_blank" rel="noopener"
->Developer Manual&lt;/a>을 참고하길 바란다.&lt;/p>
-&lt;h2 id="ref">ref.
-&lt;/h2>&lt;ul>
-&lt;li>&lt;a class="link" href="https://dagger.io/" title="Dagger"
+&gt;Developer Manual&lt;/a&gt;을 참고하길 바란다.&lt;/p&gt;
+&lt;h2 id="ref"&gt;ref.
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://dagger.io/" title="Dagger"
 target="_blank" rel="noopener"
->Dagger&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="https://daggerverse.dev/" title="Daggerverse"
+&gt;Dagger&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://daggerverse.dev/" title="Daggerverse"
 target="_blank" rel="noopener"
->Daggerverse&lt;/a>
-&lt;ul>
-&lt;li>&lt;a class="link" href="https://daggerverse.dev/mod/github.com/seungyeop-lee/daggerverse/ssh" title="Daggerverse - ssh"
+&gt;Daggerverse&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://daggerverse.dev/mod/github.com/seungyeop-lee/daggerverse/ssh" title="Daggerverse - ssh"
 target="_blank" rel="noopener"
->ssh&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="https://daggerverse.dev/mod/github.com/seungyeop-lee/daggerverse/scp" title="Daggerverse - scp"
+&gt;ssh&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://daggerverse.dev/mod/github.com/seungyeop-lee/daggerverse/scp" title="Daggerverse - scp"
 target="_blank" rel="noopener"
->scp&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="https://daggerverse.dev/mod/github.com/seungyeop-lee/daggerverse/private-git" title="Daggerverse - private-git"
+&gt;scp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://daggerverse.dev/mod/github.com/seungyeop-lee/daggerverse/private-git" title="Daggerverse - private-git"
 target="_blank" rel="noopener"
->private-git&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;a class="link" href="https://blog.outsider.ne.kr/1642" title="CI/CD 파이프라인 엔진 Dagger"
+&gt;private-git&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://blog.outsider.ne.kr/1642" title="CI/CD 파이프라인 엔진 Dagger"
 target="_blank" rel="noopener"
->Outsider&amp;rsquo;s Dev Story - CI/CD 파이프라인 엔진 Dagger&lt;/a>&lt;/li>
-&lt;li>Dagger Docs
-&lt;ul>
-&lt;li>&lt;a class="link" href="https://docs.dagger.io/install" title="Dagger Installation"
+&gt;Outsider&amp;rsquo;s Dev Story - CI/CD 파이프라인 엔진 Dagger&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Dagger Docs
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://docs.dagger.io/install" title="Dagger Installation"
 target="_blank" rel="noopener"
->Install&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="https://docs.dagger.io/manuals/developer/go/203021/secrets" title="Dagger docs - Secrets"
+&gt;Install&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://docs.dagger.io/manuals/developer/go/203021/secrets" title="Dagger docs - Secrets"
 target="_blank" rel="noopener"
->Secrets&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="https://docs.dagger.io/quickstart" title="Dagger docs - Quickstart"
+&gt;Secrets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://docs.dagger.io/quickstart" title="Dagger docs - Quickstart"
 target="_blank" rel="noopener"
->Quickstart&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="https://docs.dagger.io/manuals/user" title="Dagger docs - User Manual"
+&gt;Quickstart&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://docs.dagger.io/manuals/user" title="Dagger docs - User Manual"
 target="_blank" rel="noopener"
->User Manual&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="https://docs.dagger.io/manuals/developer" title="Dagger docs - Developer Manual"
+&gt;User Manual&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://docs.dagger.io/manuals/developer" title="Dagger docs - Developer Manual"
 target="_blank" rel="noopener"
->Developer Manual&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/dagger-function-introduction" title="dagger-functions-introduction 예제"
+&gt;Developer Manual&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/dagger-function-introduction" title="dagger-functions-introduction 예제"
 target="_blank" rel="noopener"
->dagger-functions-introduction 예제&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Docker와 Web browser로 MySQL Workbench 사용하기</title><link>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link><pubDate>Wed, 24 Jan 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/cover.png" alt="Featured image of post Docker와 Web browser로 MySQL Workbench 사용하기" />&lt;h2 id="tldr">TL;DR
-&lt;/h2>&lt;ol>
-&lt;li>&lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker" target="_blank" rel="noopener"
->mysqlworkbench-on-docker 예제&lt;/a>를 다운로드한다.&lt;/li>
-&lt;li>&lt;code>make up&lt;/code> 명령어를 실행한다.&lt;/li>
-&lt;li>웹 브라우저에서 &lt;code>http://localhost:3000&lt;/code>으로 접속하여, &amp;lsquo;IME 입력 모드&amp;rsquo;를 활성화 시킨 후 MySQL Workbench를 사용한다.&lt;/li>
-&lt;li>사용이 끝나면 &lt;code>make down&lt;/code> 명령어를 실행하여 컨테이너를 종료한다.&lt;/li>
-&lt;/ol>
-&lt;h2 id="발단">발단
-&lt;/h2>&lt;p>MySQL Workbench는 GUI 기반의 MySQL 관리 툴이다. 여기에는 ERD를 그리는 기능도 포함되어 있다.
-무료로 사용 할 수있는 여러 ERD Tool을 비교했을 때, MySQL Workbench의 ERD가 가장 편리하다고 생각한다.&lt;/p>
-&lt;p>그러나, MacOS Sonoma 업데이트 후에 MySQL Workbench에서 ERD 모델을 열려고하면 강제종료 되는 문제가 발생했고, (8.0.34 버전)
-2024년 01월 24일 현재 최신 버전인 8.0.36을 설치하여 사용 할 경우에도, 다음과 같은 문제가 발생한다.&lt;/p>
-&lt;ul>
-&lt;li>부분적으로 UI가 표시되지 않음&lt;/li>
-&lt;li>간혈적으로 프로그램이 강제 종료 됨&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1.png"
+&gt;dagger-functions-introduction 예제&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Docker와 Web browser로 MySQL Workbench 사용하기</title><link>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link><pubDate>Wed, 24 Jan 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/cover.png" alt="Featured image of post Docker와 Web browser로 MySQL Workbench 사용하기" /&gt;&lt;h2 id="tldr"&gt;TL;DR
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker" target="_blank" rel="noopener"
+&gt;mysqlworkbench-on-docker 예제&lt;/a&gt;를 다운로드한다.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;make up&lt;/code&gt; 명령어를 실행한다.&lt;/li&gt;
+&lt;li&gt;웹 브라우저에서 &lt;code&gt;http://localhost:3000&lt;/code&gt;으로 접속하여, &amp;lsquo;IME 입력 모드&amp;rsquo;를 활성화 시킨 후 MySQL Workbench를 사용한다.&lt;/li&gt;
+&lt;li&gt;사용이 끝나면 &lt;code&gt;make down&lt;/code&gt; 명령어를 실행하여 컨테이너를 종료한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="발단"&gt;발단
+&lt;/h2&gt;&lt;p&gt;MySQL Workbench는 GUI 기반의 MySQL 관리 툴이다. 여기에는 ERD를 그리는 기능도 포함되어 있다.
+무료로 사용 할 수있는 여러 ERD Tool을 비교했을 때, MySQL Workbench의 ERD가 가장 편리하다고 생각한다.&lt;/p&gt;
+&lt;p&gt;그러나, MacOS Sonoma 업데이트 후에 MySQL Workbench에서 ERD 모델을 열려고하면 강제종료 되는 문제가 발생했고, (8.0.34 버전)
+2024년 01월 24일 현재 최신 버전인 8.0.36을 설치하여 사용 할 경우에도, 다음과 같은 문제가 발생한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;부분적으로 UI가 표시되지 않음&lt;/li&gt;
+&lt;li&gt;간혈적으로 프로그램이 강제 종료 됨&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1.png"
 width="1371"
 height="959"
 srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1_hu_c6c45c46e33b1ff1.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1_hu_fe38dcde8eabfed1.png 1024w"
@@ -548,15 +548,15 @@ alt="부분적으로 UI가 표시되지 않음"
 class="gallery-image"
 data-flex-grow="142"
 data-flex-basis="343px"
->&lt;/p>
-&lt;p>이러한 문제가 언제 고쳐질지 알 수 없고, 이번처럼 운영체제 업데이트로 인한 이슈가 언제 또 발생 할 지 모른다는 불안감이 생겼다.&lt;/p>
-&lt;p>하지만 다른 대안이 없기 때문에 MacOS에서 MySQL Workbench를 안정적으로 실행 할 수 있는 방안을 찾기 시작했다.&lt;/p>
-&lt;h2 id="docker로-mysql-workbench-실행시키기">Docker로 MySQL Workbench 실행시키기
-&lt;/h2>&lt;p>&lt;a class="link" href="https://docs.linuxserver.io/images/docker-mysql-workbench/" target="_blank" rel="noopener"
->linuxserver/mysql-workbench&lt;/a>를 발견하였다.
-linuxserver라는 그룹은 Docker를 이용해 linux 어플리케이션을 실행시킬 수 있게 이미지화하는 작업을 전문적한다.&lt;/p>
-&lt;p>문서에 나와있는대로 따라하면 간단히 MySQL Workbench 컨테이너를 띄우고, 접속 할 수 있다.&lt;/p>
-&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;이러한 문제가 언제 고쳐질지 알 수 없고, 이번처럼 운영체제 업데이트로 인한 이슈가 언제 또 발생 할 지 모른다는 불안감이 생겼다.&lt;/p&gt;
+&lt;p&gt;하지만 다른 대안이 없기 때문에 MacOS에서 MySQL Workbench를 안정적으로 실행 할 수 있는 방안을 찾기 시작했다.&lt;/p&gt;
+&lt;h2 id="docker로-mysql-workbench-실행시키기"&gt;Docker로 MySQL Workbench 실행시키기
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://docs.linuxserver.io/images/docker-mysql-workbench/" target="_blank" rel="noopener"
+&gt;linuxserver/mysql-workbench&lt;/a&gt;를 발견하였다.
+linuxserver라는 그룹은 Docker를 이용해 linux 어플리케이션을 실행시킬 수 있게 이미지화하는 작업을 전문적한다.&lt;/p&gt;
+&lt;p&gt;문서에 나와있는대로 따라하면 간단히 MySQL Workbench 컨테이너를 띄우고, 접속 할 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1.png"
 width="1609"
 height="1012"
 srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1_hu_b97d217bba29743e.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1_hu_c12d513419f6197e.png 1024w"
@@ -565,9 +565,9 @@ alt="UI가 문제없이 표시된다."
 class="gallery-image"
 data-flex-grow="158"
 data-flex-basis="381px"
->&lt;/p>
-&lt;p>하지만 한글이 입력되지 않는다는 문제가 있었다.&lt;/p>
-&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;하지만 한글이 입력되지 않는다는 문제가 있었다.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2.png"
 width="893"
 height="320"
 srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2_hu_abfed891f1b6ed30.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2_hu_f30ba8ddcf5b2e0b.png 1024w"
@@ -576,25 +576,25 @@ alt="한글입력이 되지 않는다."
 class="gallery-image"
 data-flex-grow="279"
 data-flex-basis="669px"
->&lt;/p>
-&lt;h2 id="한글-입출력-문제-대응">한글 입출력 문제 대응
-&lt;/h2>&lt;p>해당이미지에 한글 폰트가 없어서 생기는 문제로 보고 기존 이미지에 한글 폰트를 추가하는 Dockerfile을 작성하여 사용하였다.&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span class="line">&lt;span class="cl">&lt;span class="k">FROM&lt;/span>&lt;span class="s"> lscr.io/linuxserver/mysql-workbench:8.0.36&lt;/span>&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> apt-get -y update &lt;span class="se">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> apt-get install -y fonts-nanum&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>그리고 IME 입력을 활성화 시켜준다. (활성화하지 않으면 자모 분리가 일어남)&lt;/p>
-&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3.png"
+&gt;&lt;/p&gt;
+&lt;h2 id="한글-입출력-문제-대응"&gt;한글 입출력 문제 대응
+&lt;/h2&gt;&lt;p&gt;해당이미지에 한글 폰트가 없어서 생기는 문제로 보고 기존 이미지에 한글 폰트를 추가하는 Dockerfile을 작성하여 사용하였다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-dockerfile" data-lang="dockerfile"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;lscr.io/linuxserver/mysql-workbench:8.0.36&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get -y update &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y fonts-nanum&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;그리고 IME 입력을 활성화 시켜준다. (활성화하지 않으면 자모 분리가 일어남)&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3.png"
 width="1353"
 height="940"
 srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3_hu_3a42dfa2641fbd85.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3_hu_e4ad60824fbaa026.png 1024w"
@@ -603,9 +603,9 @@ alt="IME 입력 활성화"
 class="gallery-image"
 data-flex-grow="143"
 data-flex-basis="345px"
->&lt;/p>
-&lt;p>테스트를 해보면 한글입력이 잘 되는 것을 확인 할 수 있다.&lt;/p>
-&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;테스트를 해보면 한글입력이 잘 되는 것을 확인 할 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4.png"
 width="1185"
 height="308"
 srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4_hu_ca21a17facfc4063.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4_hu_35117e594a1f6a0b.png 1024w"
@@ -614,8 +614,8 @@ alt="한글입력에 문제가 없다."
 class="gallery-image"
 data-flex-grow="384"
 data-flex-basis="923px"
->&lt;/p>
-&lt;h2 id="결론">결론
-&lt;/h2>&lt;p>이제 MacOS에서 걱정없이 MySQL Workbench 사용이 가능해졌다!&lt;/p>
-&lt;p>전체적인 설정 파일은 &lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker" target="_blank" rel="noopener"
->mysqlworkbench-on-docker 예제&lt;/a>를 참고하기 바란다.&lt;/p></description></item></channel></rss>
+&gt;&lt;/p&gt;
+&lt;h2 id="결론"&gt;결론
+&lt;/h2&gt;&lt;p&gt;이제 MacOS에서 걱정없이 MySQL Workbench 사용이 가능해졌다!&lt;/p&gt;
+&lt;p&gt;전체적인 설정 파일은 &lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker" target="_blank" rel="noopener"
+&gt;mysqlworkbench-on-docker 예제&lt;/a&gt;를 참고하기 바란다.&lt;/p&gt;</description></item></channel></rss>

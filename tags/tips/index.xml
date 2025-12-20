@@ -1,21 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tips on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/tags/tips/</link><description>Recent content in Tips on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Wed, 24 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/tags/tips/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker와 Web browser로 MySQL Workbench 사용하기</title><link>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link><pubDate>Wed, 24 Jan 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/cover.png" alt="Featured image of post Docker와 Web browser로 MySQL Workbench 사용하기" />&lt;h2 id="tldr">TL;DR
-&lt;/h2>&lt;ol>
-&lt;li>&lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker" target="_blank" rel="noopener"
->mysqlworkbench-on-docker 예제&lt;/a>를 다운로드한다.&lt;/li>
-&lt;li>&lt;code>make up&lt;/code> 명령어를 실행한다.&lt;/li>
-&lt;li>웹 브라우저에서 &lt;code>http://localhost:3000&lt;/code>으로 접속하여, &amp;lsquo;IME 입력 모드&amp;rsquo;를 활성화 시킨 후 MySQL Workbench를 사용한다.&lt;/li>
-&lt;li>사용이 끝나면 &lt;code>make down&lt;/code> 명령어를 실행하여 컨테이너를 종료한다.&lt;/li>
-&lt;/ol>
-&lt;h2 id="발단">발단
-&lt;/h2>&lt;p>MySQL Workbench는 GUI 기반의 MySQL 관리 툴이다. 여기에는 ERD를 그리는 기능도 포함되어 있다.
-무료로 사용 할 수있는 여러 ERD Tool을 비교했을 때, MySQL Workbench의 ERD가 가장 편리하다고 생각한다.&lt;/p>
-&lt;p>그러나, MacOS Sonoma 업데이트 후에 MySQL Workbench에서 ERD 모델을 열려고하면 강제종료 되는 문제가 발생했고, (8.0.34 버전)
-2024년 01월 24일 현재 최신 버전인 8.0.36을 설치하여 사용 할 경우에도, 다음과 같은 문제가 발생한다.&lt;/p>
-&lt;ul>
-&lt;li>부분적으로 UI가 표시되지 않음&lt;/li>
-&lt;li>간혈적으로 프로그램이 강제 종료 됨&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1.png"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tips on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/tags/tips/</link><description>Recent content in Tips on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Wed, 24 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/tags/tips/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker와 Web browser로 MySQL Workbench 사용하기</title><link>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link><pubDate>Wed, 24 Jan 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/cover.png" alt="Featured image of post Docker와 Web browser로 MySQL Workbench 사용하기" /&gt;&lt;h2 id="tldr"&gt;TL;DR
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker" target="_blank" rel="noopener"
+&gt;mysqlworkbench-on-docker 예제&lt;/a&gt;를 다운로드한다.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;make up&lt;/code&gt; 명령어를 실행한다.&lt;/li&gt;
+&lt;li&gt;웹 브라우저에서 &lt;code&gt;http://localhost:3000&lt;/code&gt;으로 접속하여, &amp;lsquo;IME 입력 모드&amp;rsquo;를 활성화 시킨 후 MySQL Workbench를 사용한다.&lt;/li&gt;
+&lt;li&gt;사용이 끝나면 &lt;code&gt;make down&lt;/code&gt; 명령어를 실행하여 컨테이너를 종료한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="발단"&gt;발단
+&lt;/h2&gt;&lt;p&gt;MySQL Workbench는 GUI 기반의 MySQL 관리 툴이다. 여기에는 ERD를 그리는 기능도 포함되어 있다.
+무료로 사용 할 수있는 여러 ERD Tool을 비교했을 때, MySQL Workbench의 ERD가 가장 편리하다고 생각한다.&lt;/p&gt;
+&lt;p&gt;그러나, MacOS Sonoma 업데이트 후에 MySQL Workbench에서 ERD 모델을 열려고하면 강제종료 되는 문제가 발생했고, (8.0.34 버전)
+2024년 01월 24일 현재 최신 버전인 8.0.36을 설치하여 사용 할 경우에도, 다음과 같은 문제가 발생한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;부분적으로 UI가 표시되지 않음&lt;/li&gt;
+&lt;li&gt;간혈적으로 프로그램이 강제 종료 됨&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1.png"
 width="1371"
 height="959"
 srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1_hu_c6c45c46e33b1ff1.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1_hu_fe38dcde8eabfed1.png 1024w"
@@ -24,15 +24,15 @@ alt="부분적으로 UI가 표시되지 않음"
 class="gallery-image"
 data-flex-grow="142"
 data-flex-basis="343px"
->&lt;/p>
-&lt;p>이러한 문제가 언제 고쳐질지 알 수 없고, 이번처럼 운영체제 업데이트로 인한 이슈가 언제 또 발생 할 지 모른다는 불안감이 생겼다.&lt;/p>
-&lt;p>하지만 다른 대안이 없기 때문에 MacOS에서 MySQL Workbench를 안정적으로 실행 할 수 있는 방안을 찾기 시작했다.&lt;/p>
-&lt;h2 id="docker로-mysql-workbench-실행시키기">Docker로 MySQL Workbench 실행시키기
-&lt;/h2>&lt;p>&lt;a class="link" href="https://docs.linuxserver.io/images/docker-mysql-workbench/" target="_blank" rel="noopener"
->linuxserver/mysql-workbench&lt;/a>를 발견하였다.
-linuxserver라는 그룹은 Docker를 이용해 linux 어플리케이션을 실행시킬 수 있게 이미지화하는 작업을 전문적한다.&lt;/p>
-&lt;p>문서에 나와있는대로 따라하면 간단히 MySQL Workbench 컨테이너를 띄우고, 접속 할 수 있다.&lt;/p>
-&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;이러한 문제가 언제 고쳐질지 알 수 없고, 이번처럼 운영체제 업데이트로 인한 이슈가 언제 또 발생 할 지 모른다는 불안감이 생겼다.&lt;/p&gt;
+&lt;p&gt;하지만 다른 대안이 없기 때문에 MacOS에서 MySQL Workbench를 안정적으로 실행 할 수 있는 방안을 찾기 시작했다.&lt;/p&gt;
+&lt;h2 id="docker로-mysql-workbench-실행시키기"&gt;Docker로 MySQL Workbench 실행시키기
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://docs.linuxserver.io/images/docker-mysql-workbench/" target="_blank" rel="noopener"
+&gt;linuxserver/mysql-workbench&lt;/a&gt;를 발견하였다.
+linuxserver라는 그룹은 Docker를 이용해 linux 어플리케이션을 실행시킬 수 있게 이미지화하는 작업을 전문적한다.&lt;/p&gt;
+&lt;p&gt;문서에 나와있는대로 따라하면 간단히 MySQL Workbench 컨테이너를 띄우고, 접속 할 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1.png"
 width="1609"
 height="1012"
 srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1_hu_b97d217bba29743e.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1_hu_c12d513419f6197e.png 1024w"
@@ -41,9 +41,9 @@ alt="UI가 문제없이 표시된다."
 class="gallery-image"
 data-flex-grow="158"
 data-flex-basis="381px"
->&lt;/p>
-&lt;p>하지만 한글이 입력되지 않는다는 문제가 있었다.&lt;/p>
-&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;하지만 한글이 입력되지 않는다는 문제가 있었다.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2.png"
 width="893"
 height="320"
 srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2_hu_abfed891f1b6ed30.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2_hu_f30ba8ddcf5b2e0b.png 1024w"
@@ -52,25 +52,25 @@ alt="한글입력이 되지 않는다."
 class="gallery-image"
 data-flex-grow="279"
 data-flex-basis="669px"
->&lt;/p>
-&lt;h2 id="한글-입출력-문제-대응">한글 입출력 문제 대응
-&lt;/h2>&lt;p>해당이미지에 한글 폰트가 없어서 생기는 문제로 보고 기존 이미지에 한글 폰트를 추가하는 Dockerfile을 작성하여 사용하였다.&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span class="line">&lt;span class="cl">&lt;span class="k">FROM&lt;/span>&lt;span class="s"> lscr.io/linuxserver/mysql-workbench:8.0.36&lt;/span>&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> apt-get -y update &lt;span class="se">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> apt-get install -y fonts-nanum&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>그리고 IME 입력을 활성화 시켜준다. (활성화하지 않으면 자모 분리가 일어남)&lt;/p>
-&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3.png"
+&gt;&lt;/p&gt;
+&lt;h2 id="한글-입출력-문제-대응"&gt;한글 입출력 문제 대응
+&lt;/h2&gt;&lt;p&gt;해당이미지에 한글 폰트가 없어서 생기는 문제로 보고 기존 이미지에 한글 폰트를 추가하는 Dockerfile을 작성하여 사용하였다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-dockerfile" data-lang="dockerfile"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;lscr.io/linuxserver/mysql-workbench:8.0.36&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; apt-get -y update &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y fonts-nanum&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;그리고 IME 입력을 활성화 시켜준다. (활성화하지 않으면 자모 분리가 일어남)&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3.png"
 width="1353"
 height="940"
 srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3_hu_3a42dfa2641fbd85.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3_hu_e4ad60824fbaa026.png 1024w"
@@ -79,9 +79,9 @@ alt="IME 입력 활성화"
 class="gallery-image"
 data-flex-grow="143"
 data-flex-basis="345px"
->&lt;/p>
-&lt;p>테스트를 해보면 한글입력이 잘 되는 것을 확인 할 수 있다.&lt;/p>
-&lt;p>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;테스트를 해보면 한글입력이 잘 되는 것을 확인 할 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4.png"
 width="1185"
 height="308"
 srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4_hu_ca21a17facfc4063.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4_hu_35117e594a1f6a0b.png 1024w"
@@ -90,105 +90,105 @@ alt="한글입력에 문제가 없다."
 class="gallery-image"
 data-flex-grow="384"
 data-flex-basis="923px"
->&lt;/p>
-&lt;h2 id="결론">결론
-&lt;/h2>&lt;p>이제 MacOS에서 걱정없이 MySQL Workbench 사용이 가능해졌다!&lt;/p>
-&lt;p>전체적인 설정 파일은 &lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker" target="_blank" rel="noopener"
->mysqlworkbench-on-docker 예제&lt;/a>를 참고하기 바란다.&lt;/p></description></item><item><title>CSS Tips</title><link>https://blog.seungyeop-lee.com/post/css-tips/</link><pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/css-tips/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/css-tips/cover.png" alt="Featured image of post CSS Tips" />&lt;h2 id="상속">상속
-&lt;/h2>&lt;p>부모로부터 상속받은 속성은 브라우저의 디폴트 CSS 속성보다 우선순위가 낮다.&lt;/p>
-&lt;h2 id="여백-상쇄">여백 상쇄
-&lt;/h2>&lt;p>여백 상쇄(margin collapsing)로 인해 margin이 설정한 것과 다르게 보이는 경우가 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener"
->참조&lt;/a>)&lt;/p>
-&lt;ol>
-&lt;li>둘 다 margin을 가진 인접 형제 요소&lt;/li>
-&lt;li>첫째 및/또는 마지막 (혹은 유일한)의 자식 요소에 margin이 설정된 하나 또는 둘 이상의 자식 요소를 가진 부모 요소 (자식의 margin이 부모의 margin보다 클 경우 발생)&lt;/li>
-&lt;/ol>
-&lt;h2 id="줄바꿈-문자">줄바꿈 문자
-&lt;/h2>&lt;p>줄바꿈 문자도 문자로 판단하여, 그만큼의 공간을 차지한다.&lt;/p>
-&lt;h3 id="예시">예시
-&lt;/h3>&lt;p>두 태그를 한 줄에 놓는 html 예제&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;span class="lnt">23
-&lt;/span>&lt;span class="lnt">24
-&lt;/span>&lt;span class="lnt">25
-&lt;/span>&lt;span class="lnt">26
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">style&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">*&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">box-sizing&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">border-box&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nc">main-div&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">display&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">inline-block&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">width&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">50&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nc">main-nav&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">display&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">inline-block&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c">/* main-div 50px + 줄 바꿈 기호(공백) 5px */&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">width&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nb">calc&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">100&lt;/span>&lt;span class="kt">%&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="mi">55&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">style&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">class&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;main-div&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 내용1
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">nav&lt;/span> &lt;span class="na">class&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;main-nav&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 내용2
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">nav&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="2개-이상의-클래스">2개 이상의 클래스
-&lt;/h2>&lt;p>2개 이상의 클래스가 1개의 태그에 설정 된 경우 클래스를 선택자로 하여 정의한 CSS 적용 룰&lt;/p>
-&lt;ul>
-&lt;li>태그에 선언된 클래스의 선언 순서는 영향을 미치지 않는다.&lt;/li>
-&lt;li>태그에 선언된 클래스를 선택자로 한 CSS의 정의 순서만이 적용에 영향을 미친다.
-&lt;ul>
-&lt;li>나중에 정의된 CSS가 먼저 정의된 CSS를 덮어쓴다.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="border-vs-outline">border vs. outline
-&lt;/h2>&lt;p>border는 box model의 일부이며, outline은 box model에 속하지 않는다. outline은 border를 포함해서 요소를 완전히 둘러싼다. outline의 경우 해당 요소를 특별히 강조하기 위해 사용된다. (&lt;a class="link" href="https://cssdeck.com/blog/css-tips-outline-vs-border/" target="_blank" rel="noopener"
->참고&lt;/a>)&lt;/p>
-&lt;h2 id="margin-auto">&lt;code>margin: auto&lt;/code>
-&lt;/h2>&lt;p>&lt;code>margin: auto&lt;/code>로 할 경우, 해당 태그가 width나 height 기준으로 100%에 맞도록 자동으로 margin을 추가해준다.
-일반적으로는 width를 % 단위로 줄이고, &lt;code>margin: auto&lt;/code>를 사용하여 중앙 정렬을 할 때 많이 사용된다.&lt;/p>
-&lt;h2 id="동일-z-index">동일 z-index
-&lt;/h2>&lt;p>&lt;code>position: fixed&lt;/code>인 2개 이상의 태그가 동일한 z-index를 가진경우에는 나중에 정의된 태그가 더 위에 위치한다.&lt;/p>
-&lt;h2 id="stacking-context">stacking context
-&lt;/h2>&lt;p>형제 태그에 대한 z-index 적용은 서로 독립적이어서, 자식 태그의 z-index는 부모 태그에게만 영향을 줄 수 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context" target="_blank" rel="noopener"
->참고&lt;/a>)&lt;/p>
-&lt;h2 id="이미지와-컨테이너-사이에-공백이-생기는-문제-대응">이미지와 컨테이너 사이에 공백이 생기는 문제 대응
-&lt;/h2>&lt;p>컨테이너가 둘려진 이미지가 인라인 요소라면 컨테이너에 공백이 생기는 버그가 있다. 해결하기 위한 방법은 아래와 같다.&lt;/p>
-&lt;ol>
-&lt;li>이미지에 &lt;code>vertial-align: top&lt;/code>을 설정&lt;/li>
-&lt;li>이미지를 &lt;code>display: block&lt;/code>으로 변경&lt;/li>
-&lt;/ol></description></item></channel></rss>
+&gt;&lt;/p&gt;
+&lt;h2 id="결론"&gt;결론
+&lt;/h2&gt;&lt;p&gt;이제 MacOS에서 걱정없이 MySQL Workbench 사용이 가능해졌다!&lt;/p&gt;
+&lt;p&gt;전체적인 설정 파일은 &lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker" target="_blank" rel="noopener"
+&gt;mysqlworkbench-on-docker 예제&lt;/a&gt;를 참고하기 바란다.&lt;/p&gt;</description></item><item><title>CSS Tips</title><link>https://blog.seungyeop-lee.com/post/css-tips/</link><pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/css-tips/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/css-tips/cover.png" alt="Featured image of post CSS Tips" /&gt;&lt;h2 id="상속"&gt;상속
+&lt;/h2&gt;&lt;p&gt;부모로부터 상속받은 속성은 브라우저의 디폴트 CSS 속성보다 우선순위가 낮다.&lt;/p&gt;
+&lt;h2 id="여백-상쇄"&gt;여백 상쇄
+&lt;/h2&gt;&lt;p&gt;여백 상쇄(margin collapsing)로 인해 margin이 설정한 것과 다르게 보이는 경우가 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener"
+&gt;참조&lt;/a&gt;)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;둘 다 margin을 가진 인접 형제 요소&lt;/li&gt;
+&lt;li&gt;첫째 및/또는 마지막 (혹은 유일한)의 자식 요소에 margin이 설정된 하나 또는 둘 이상의 자식 요소를 가진 부모 요소 (자식의 margin이 부모의 margin보다 클 경우 발생)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="줄바꿈-문자"&gt;줄바꿈 문자
+&lt;/h2&gt;&lt;p&gt;줄바꿈 문자도 문자로 판단하여, 그만큼의 공간을 차지한다.&lt;/p&gt;
+&lt;h3 id="예시"&gt;예시
+&lt;/h3&gt;&lt;p&gt;두 태그를 한 줄에 놓는 html 예제&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;style&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;box-sizing&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;border-box&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;main-div&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;inline-block&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;main-nav&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;inline-block&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c"&gt;/* main-div 50px + 줄 바꿈 기호(공백) 5px */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;calc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;55&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;style&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;main-div&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 내용1
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;nav&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;main-nav&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 내용2
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;nav&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="2개-이상의-클래스"&gt;2개 이상의 클래스
+&lt;/h2&gt;&lt;p&gt;2개 이상의 클래스가 1개의 태그에 설정 된 경우 클래스를 선택자로 하여 정의한 CSS 적용 룰&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;태그에 선언된 클래스의 선언 순서는 영향을 미치지 않는다.&lt;/li&gt;
+&lt;li&gt;태그에 선언된 클래스를 선택자로 한 CSS의 정의 순서만이 적용에 영향을 미친다.
+&lt;ul&gt;
+&lt;li&gt;나중에 정의된 CSS가 먼저 정의된 CSS를 덮어쓴다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="border-vs-outline"&gt;border vs. outline
+&lt;/h2&gt;&lt;p&gt;border는 box model의 일부이며, outline은 box model에 속하지 않는다. outline은 border를 포함해서 요소를 완전히 둘러싼다. outline의 경우 해당 요소를 특별히 강조하기 위해 사용된다. (&lt;a class="link" href="https://cssdeck.com/blog/css-tips-outline-vs-border/" target="_blank" rel="noopener"
+&gt;참고&lt;/a&gt;)&lt;/p&gt;
+&lt;h2 id="margin-auto"&gt;&lt;code&gt;margin: auto&lt;/code&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;margin: auto&lt;/code&gt;로 할 경우, 해당 태그가 width나 height 기준으로 100%에 맞도록 자동으로 margin을 추가해준다.
+일반적으로는 width를 % 단위로 줄이고, &lt;code&gt;margin: auto&lt;/code&gt;를 사용하여 중앙 정렬을 할 때 많이 사용된다.&lt;/p&gt;
+&lt;h2 id="동일-z-index"&gt;동일 z-index
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;position: fixed&lt;/code&gt;인 2개 이상의 태그가 동일한 z-index를 가진경우에는 나중에 정의된 태그가 더 위에 위치한다.&lt;/p&gt;
+&lt;h2 id="stacking-context"&gt;stacking context
+&lt;/h2&gt;&lt;p&gt;형제 태그에 대한 z-index 적용은 서로 독립적이어서, 자식 태그의 z-index는 부모 태그에게만 영향을 줄 수 있다. (&lt;a class="link" href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context" target="_blank" rel="noopener"
+&gt;참고&lt;/a&gt;)&lt;/p&gt;
+&lt;h2 id="이미지와-컨테이너-사이에-공백이-생기는-문제-대응"&gt;이미지와 컨테이너 사이에 공백이 생기는 문제 대응
+&lt;/h2&gt;&lt;p&gt;컨테이너가 둘려진 이미지가 인라인 요소라면 컨테이너에 공백이 생기는 버그가 있다. 해결하기 위한 방법은 아래와 같다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;이미지에 &lt;code&gt;vertial-align: top&lt;/code&gt;을 설정&lt;/li&gt;
+&lt;li&gt;이미지를 &lt;code&gt;display: block&lt;/code&gt;으로 변경&lt;/li&gt;
+&lt;/ol&gt;</description></item></channel></rss>
