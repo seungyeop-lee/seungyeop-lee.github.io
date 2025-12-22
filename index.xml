@@ -1,4 +1,71 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/</link><description>Recent content on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sat, 20 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Claude와 나눈 AI 협업 이야기</title><link>https://blog.seungyeop-lee.com/post/ai-collaboration-with-claude/index/</link><pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/ai-collaboration-with-claude/index/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/ai-collaboration-with-claude/index/ai-collaboration-with-claude.png" alt="Featured image of post Claude와 나눈 AI 협업 이야기" /&gt;&lt;p&gt;요 몇 주간, 회사 프로젝트를 하면서 정말 많은 시간을 Claude Code를 사용해서 작업해 왔다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/</link><description>Recent content on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Mon, 22 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Claude와 나눈 AI 시대 인간의 차별화 능력</title><link>https://blog.seungyeop-lee.com/post/human-edge-in-ai-era/index/</link><pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/human-edge-in-ai-era/index/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/human-edge-in-ai-era/index/human-edge-in-ai-era.png" alt="Featured image of post Claude와 나눈 AI 시대 인간의 차별화 능력" /&gt;&lt;p&gt;어제 모각코 멤버들과 송년회를 하면서 &amp;lsquo;AI 시대에 다른 사람과의 차별성을 어떻게 만들 것인가&amp;rsquo;에 대한 이야기가 오갔다.&lt;/p&gt;
+&lt;p&gt;나도 막연하게나마, AI를 남용하지 않는 선에서 잘 활용하는 능력, 그리고 지속적으로 공부하면서 AI에게 일을 더 잘 시킬 수 있는 능력을 발전시켜야 한다고 주장했다.&lt;/p&gt;
+&lt;p&gt;그리고 오늘 아침에 &lt;a class="link" href="https://www.hani.co.kr/arti/economy/it/1235823.html" target="_blank" rel="noopener"
+&gt;&amp;lsquo;생각하는 AI의 출현? &amp;ldquo;왜&amp;rdquo; 앞에서 멈춘 &amp;ldquo;영리한 한스&amp;rdquo; 일뿐&amp;rsquo;&lt;/a&gt;이라는 기사를 우연히 보게 되었다.&lt;/p&gt;
+&lt;p&gt;여기에 AI 시대의 차별성에 대한 힌트가 있다는 느낌이 들었고, Claude와 대화를 시작했다.&lt;/p&gt;
+&lt;p&gt;대화가 끝나고, 과정과 결론이 의미 있다고 생각되어 기록으로 남긴다. 이 내용은 Claude와 내가 나눴던 대화 내용을 기반으로 Claude가 정리한 결과물이다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;안내&lt;/strong&gt;: 이 글은 아래 기사의 내용을 기반으로 대화가 진행되었습니다. 기사를 먼저 읽고 오시면 내용 이해에 도움이 됩니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;참고 자료:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;기사: &lt;a class="link" href="https://www.hani.co.kr/arti/economy/it/1235823.html" target="_blank" rel="noopener"
+&gt;한겨레 - &amp;lsquo;생각하는 AI의 출현? &amp;ldquo;왜&amp;rdquo; 앞에서 멈춘 &amp;ldquo;영리한 한스&amp;rdquo; 일뿐&amp;rsquo;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;논문: &lt;a class="link" href="https://arxiv.org/abs/2402.12715" target="_blank" rel="noopener"
+&gt;The Clever Hans Mirage: A Comprehensive Survey on Spurious Correlations in Machine Learning (arXiv)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;저서: &lt;a class="link" href="https://www.amazon.com/Book-Why-Science-Cause-Effect/dp/046509760X" target="_blank" rel="noopener"
+&gt;The Book of Why: The New Science of Cause and Effect&lt;/a&gt; - Judea Pearl, Dana Mackenzie (2018)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;대화 환경&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;모델&lt;/strong&gt;: Claude Opus 4.5 (&lt;code&gt;claude-opus-4-5-20251101&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;도구&lt;/strong&gt;: Claude Code (Anthropic 공식 CLI)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="목차"&gt;목차
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;목차 이름을 클릭하면 상세 내용으로 이동한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id="1-펄의-인과적-사고-3단계"&gt;1. &lt;a class="link" href="../pearl-ladder" &gt;펄의 인과적 사고 3단계&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;AI는 정말 2단계에 도달했나?&lt;/li&gt;
+&lt;li&gt;1단계와 2단계의 경계가 흐릿한 이유&lt;/li&gt;
+&lt;li&gt;펄의 사다리 정리: 수동적 관찰 → 능동적 개입 → 상상적 시뮬레이션&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="2-ai는-도구다"&gt;2. &lt;a class="link" href="../ai-limitation" &gt;AI는 도구다&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;AI가 착각한다&amp;quot;는 표현의 문제&lt;/li&gt;
+&lt;li&gt;마케팅이 만든 프레임&lt;/li&gt;
+&lt;li&gt;AI의 추론은 패턴 재생산&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="3-좋은-질문이란"&gt;3. &lt;a class="link" href="../good-questions" &gt;좋은 질문이란&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;좋은 질문의 특성&lt;/li&gt;
+&lt;li&gt;의심은 펄의 사다리 바깥에 있다&lt;/li&gt;
+&lt;li&gt;인식론적 경계와 메타인지&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="4-결론-ai-시대-인간의-핵심-능력"&gt;4. &lt;a class="link" href="../conclusion" &gt;결론: AI 시대 인간의 핵심 능력&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;인식론적 경계 (의심)&lt;/li&gt;
+&lt;li&gt;인과 탐구 (왜)&lt;/li&gt;
+&lt;li&gt;반사실적 상상 (만약에)&lt;/li&gt;
+&lt;li&gt;메타인지 (자기 점검)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="핵심-인사이트"&gt;핵심 인사이트
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;AI는 추론하는 주체가 아니라 도구다&lt;/strong&gt;: &amp;ldquo;착각&amp;quot;이나 &amp;ldquo;이해&amp;quot;의 주체로 보는 프레임 자체가 문제&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;펄의 1단계와 2단계는 AI 입장에서 흐릿하다&lt;/strong&gt;: 둘 다 수동적 데이터 학습&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;모두가 AI를 쓸 수 있는 시대에, &amp;ldquo;어떤 질문을 할지 아는 것&amp;quot;이 진짜 경쟁력&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;AI 시대 인간의 차별화 핵심 능력&lt;/strong&gt;: 인식론적 경계, 인과 탐구, 반사실적 상상, 메타인지&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>Claude와 나눈 AI 협업 이야기</title><link>https://blog.seungyeop-lee.com/post/ai-collaboration-with-claude/index/</link><pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/ai-collaboration-with-claude/index/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/ai-collaboration-with-claude/index/ai-collaboration-with-claude.png" alt="Featured image of post Claude와 나눈 AI 협업 이야기" /&gt;&lt;p&gt;요 몇 주간, 회사 프로젝트를 하면서 정말 많은 시간을 Claude Code를 사용해서 작업해 왔다.&lt;/p&gt;
 &lt;p&gt;그러면서 내가 지금까지 가지고 있었던 상식? 인식? 과 좀 많이 다르다는 느낌을 지속적으로 받았다. &amp;lsquo;어떨 때는 이렇게 쓰면 안되겠다.&amp;rsquo; 또 어떨 때는 &amp;lsquo;이렇게 쓰는게 더 맞는거 같은데 그럼 일반적으로 이야기하는거랑 다른거 같은데?&amp;rsquo; 같은 생각들&amp;hellip;&lt;/p&gt;
 &lt;p&gt;집중적으로 작업하던 회사 프로젝트의 코어 부분에 대한 작업이 얼추 마무리 되면서, 지금까지의 내 느낌에 대해 Claude에게 묻고 싶어졌다.&lt;/p&gt;
 &lt;p&gt;그렇게 두서 없는 Claude와의 대화가 진행되었다.&lt;/p&gt;
