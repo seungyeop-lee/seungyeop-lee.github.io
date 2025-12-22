@@ -1,6 +1,6 @@
 ---
 title: "Claude와 나눈 AI 협업 이야기 - 이해관계자 압박과 인식의 두려움"
-date: 2025-12-20
+date: 2025-12-22
 categories:
 - AI
 tags:

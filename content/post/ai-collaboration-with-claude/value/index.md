@@ -1,6 +1,6 @@
 ---
 title: "Claude와 나눈 AI 협업 이야기 - AI의 실제 가치: 코드 생성이 아닌 사고 파트너"
-date: 2025-12-20
+date: 2025-12-22
 categories:
 - AI
 tags:

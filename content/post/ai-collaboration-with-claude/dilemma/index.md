@@ -1,6 +1,6 @@
 ---
 title: "Claude와 나눈 AI 협업 이야기 - AI 협업의 딜레마: 속도 vs 코드 품질"
-date: 2025-12-20
+date: 2025-12-22
 categories:
 - AI
 tags:

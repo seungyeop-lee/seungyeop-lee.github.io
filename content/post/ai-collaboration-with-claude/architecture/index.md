@@ -1,6 +1,6 @@
 ---
 title: "Claude와 나눈 AI 협업 이야기 - AI 시대의 아키텍처와 패턴 전략"
-date: 2025-12-20
+date: 2025-12-22
 categories:
 - AI
 tags:
