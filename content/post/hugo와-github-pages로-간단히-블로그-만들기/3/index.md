@@ -15,7 +15,7 @@ slug: "3"
 aliases: [/blog/post/hugo와-github-pages로-간단히-블로그-만들기/3/]
 ---
 
-[목차](../index/) / [이전글](../2)
+[목차](../series/) / [이전글](../2)
 
 ## 기본 설정
 
@@ -91,4 +91,4 @@ pre = "search"
 
 현재는 Archives와 Search 페이지가 만들어져 있지 않아서, 클릭하면 `404 page not found`가 페이지에 표시됩니다. Archives와 Search 페이지 추가는 다음글에서 수행하겠습니다.
 
-[목차](../index/) / [다음글](../4)
+[목차](../series/) / [다음글](../4)

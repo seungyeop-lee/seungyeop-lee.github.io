@@ -16,7 +16,7 @@ hidden: true
 slug: "architecture"
 ---
 
-[목차](../index/)
+[목차](../series/)
 
 **AI 시대에는 코드 작성은 저렴해지고 리팩토링은 비싸졌다. 처음부터 구조를 잡아라.**
 
@@ -110,4 +110,4 @@ slug: "architecture"
 
 **제안:** "가벼운 레이어드" + "명시적 규칙"으로 시작, 도메인 복잡도 올라가면 Hexagonal로 진화
 
-[목차](../index/) / [다음글](../strategies)
+[목차](../series/) / [다음글](../strategies)

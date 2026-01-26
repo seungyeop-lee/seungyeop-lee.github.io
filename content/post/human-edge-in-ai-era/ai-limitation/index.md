@@ -15,7 +15,7 @@ hidden: true
 slug: "ai-limitation"
 ---
 
-[목차](../index/)
+[목차](../series/)
 
 **AI가 상관관계를 인과관계로 "착각"한다는 표현은 정확하지 않다. AI는 믿음 자체가 없다. 도구는 착각하지 않는다.**
 
@@ -65,4 +65,4 @@ slug: "ai-limitation"
 - 추론 "형식"은 맞는데 내용이 틀리는 경우 (환각)
 - 형식적으로 그럴듯해 보여서 오히려 더 위험
 
-[목차](../index/) / [다음글](../good-questions)
+[목차](../series/) / [다음글](../good-questions)

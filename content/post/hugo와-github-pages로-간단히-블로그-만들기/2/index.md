@@ -15,7 +15,7 @@ slug: "2"
 aliases: [/blog/post/hugo와-github-pages로-간단히-블로그-만들기/2/]
 ---
 
-[목차](../index/) / [이전글](../1)
+[목차](../series/) / [이전글](../1)
 
 ## github pages를 이용하여 배포하기
 
@@ -143,4 +143,4 @@ $ git push
 
 ![](12.png)
 
-[목차](../index/) / [다음글](../3)
+[목차](../series/) / [다음글](../3)

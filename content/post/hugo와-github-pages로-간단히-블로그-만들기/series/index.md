@@ -11,9 +11,8 @@ tags:
   - 블로그 만들기
 draft: false
 layout: "single"
-slug: "index"
+slug: "series"
 image: "hugo와-github-pages로-간단히-블로그-만들기.png"
-aliases: [/blog/post/hugo와-github-pages로-간단히-블로그-만들기/index/]
 ---
 
 ## 목차

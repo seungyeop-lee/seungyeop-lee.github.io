@@ -12,7 +12,7 @@ tags:
 - 대화
 draft: false
 layout: "single"
-slug: "index"
+slug: "series"
 image: "human-edge-in-ai-era.png"
 ---
 

@@ -15,7 +15,7 @@ slug: "4"
 aliases: [/blog/post/hugo와-github-pages로-간단히-블로그-만들기/4/]
 ---
 
-[목차](../index/) / [이전글](../3)
+[목차](../series/) / [이전글](../3)
 
 ## 포스팅 작성
 
@@ -110,4 +110,4 @@ outputs:
 
 ![](6.png)
 
-[목차](../index/)
+[목차](../series/)

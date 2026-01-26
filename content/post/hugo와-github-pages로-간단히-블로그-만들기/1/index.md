@@ -15,7 +15,7 @@ slug: "1"
 aliases: [/blog/post/hugo와-github-pages로-간단히-블로그-만들기/1/]
 ---
 
-[목차](../index/)
+[목차](../series/)
 
 ## 로컬에서 블로그 만들기
 
@@ -95,4 +95,4 @@ $ hugo server
 
 ![](1.png)
 
-[목차](../index/) / [다음글](../2)
+[목차](../series/) / [다음글](../2)

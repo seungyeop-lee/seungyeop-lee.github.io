@@ -13,7 +13,7 @@ tags:
 - 경험담
 draft: false
 layout: "single"
-slug: "index"
+slug: "series"
 image: "ai-collaboration-with-claude.png"
 ---
 

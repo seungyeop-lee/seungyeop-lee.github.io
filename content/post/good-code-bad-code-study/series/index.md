@@ -12,7 +12,7 @@ tags:
   - Good Code, Bad Code
 draft: false
 layout: "single"
-slug: "index"
+slug: "series"
 image: cover.jpeg
 ---
 
