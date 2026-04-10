@@ -17,5 +17,4 @@ links:
 slug: "links"
 comments: false
 license: false
-aliases: [/blog/links/]
 ---

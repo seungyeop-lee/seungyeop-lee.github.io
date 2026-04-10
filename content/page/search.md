@@ -6,6 +6,5 @@ layout: "search"
 outputs:
   - html
   - json
-aliases: [/blog/search/]
 ---
 
