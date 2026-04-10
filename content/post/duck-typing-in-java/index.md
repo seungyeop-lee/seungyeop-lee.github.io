@@ -13,6 +13,7 @@ tags:
 draft: false
 hidden: false 
 image: cover.jpg
+slug: "duck-typing-in-java"
 ---
 
 ## TL;DR

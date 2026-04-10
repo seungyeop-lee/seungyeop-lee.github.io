@@ -12,6 +12,7 @@ tags:
 draft: false
 hidden: false 
 image: cover.jpg
+slug: "jidogujik-release"
 ---
 
 > ## 2024. 03. 13 추가

@@ -13,6 +13,7 @@ tags:
 draft: false
 hidden: false 
 image: cover.png
+slug: "react-standard-architecture"
 ---
 
 Next.js에서 사용 가능한 React 표준(범용) 아키텍처를 고민 할 일이 생겨서 여기에 그 과정을 정리한다. 

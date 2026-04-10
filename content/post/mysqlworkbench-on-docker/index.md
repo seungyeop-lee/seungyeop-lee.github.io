@@ -16,6 +16,7 @@ links:
     website: https://docs.linuxserver.io/images/docker-mysql-workbench/
   - title: mysqlworkbench-on-docker 예제
     website: https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker
+slug: "mysqlworkbench-on-docker"
 ---
 
 ## TL;DR

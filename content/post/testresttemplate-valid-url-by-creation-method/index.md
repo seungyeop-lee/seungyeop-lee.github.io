@@ -14,6 +14,7 @@ image: cover.png
 links:
   - title: 예제코드
     website: https://github.com/seungyeop-lee/blog-example/tree/main/spring-test/for-testresttemplate
+slug: "testresttemplate-valid-url-by-creation-method"
 ---
 
 ## TL;DR

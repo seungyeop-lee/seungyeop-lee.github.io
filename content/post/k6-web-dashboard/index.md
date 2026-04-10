@@ -16,6 +16,7 @@ links:
     website: https://github.com/seungyeop-lee/blog-example/tree/main/k6-web-dashboard
   - title: Grafana k6 - Web dashboard
     website: https://grafana.com/docs/k6/v0.52.x/results-output/web-dashboard/
+slug: "k6-web-dashboard"
 ---
 
 [k6](https://k6.io/)는 부하 테스트 툴 중에 사용성이나 성능, 필요 자원량 등이 다른 부하 테스트 툴과 비교하여 뛰어나다고 생각한다.

@@ -13,6 +13,7 @@ draft: false
 hidden: false
 image: cover.png
 aliases: [/blog/post/spring-boot-3에서-querydsl-사용-시-build-실패-문제-해결/]
+slug: "spring-boot-3-querydsl-build-fail"
 ---
 
 ## Spring Boot 3에 기존 QueryDSL 설정을 사용하면 벌어지는 일

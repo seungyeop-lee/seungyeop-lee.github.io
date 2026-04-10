@@ -13,6 +13,7 @@ tags:
 draft: false
 hidden: false 
 image: cover.png
+slug: "jidogujik-improvement"
 ---
 
 > ## 2024. 03. 13 추가

@@ -19,6 +19,7 @@ image: cover.png
 links:
   - title: 예제코드
     website: https://github.com/seungyeop-lee/blog-example/tree/main/architecture-in-spring/modules
+slug: "simple-arch-with-mybatis"
 ---
 
 2023-09-04 추가: TO-BE v3까지 오면서 더 이상 "단순 아키텍처"라고 부르기 힘든 수준이 된거 같다...

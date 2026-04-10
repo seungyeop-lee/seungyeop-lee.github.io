@@ -15,6 +15,7 @@ image: cover.jpeg
 links:
   - title: Supabase Local Development & CLI Docs
     website: https://supabase.com/docs/guides/local-development
+slug: "supabase-backup-and-migration-cheatsheet"
 ---
 
 ## setting local env
