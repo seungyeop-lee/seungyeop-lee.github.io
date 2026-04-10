@@ -10,7 +10,6 @@ tags:
 draft: false
 hidden: false
 image: cover.png 
-aliases: [/blog/post/css-tips/]
 slug: "css-tips"
 ---
 

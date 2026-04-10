@@ -12,7 +12,6 @@ tags:
 draft: false
 hidden: true
 slug: "3"
-aliases: [/blog/post/hugo와-github-pages로-간단히-블로그-만들기/3/]
 ---
 
 [목차](../series/) / [이전글](../2)

@@ -12,7 +12,6 @@ tags:
 draft: false
 hidden: false
 image: cover.png
-aliases: [/blog/post/spring-boot-3에서-querydsl-사용-시-build-실패-문제-해결/]
 slug: "spring-boot-3-querydsl-build-fail"
 ---
 
