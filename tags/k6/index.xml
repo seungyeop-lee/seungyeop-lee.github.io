@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>K6 on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/tags/k6/</link><description>Recent content in K6 on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 12 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/tags/k6/index.xml" rel="self" type="application/rss+xml"/><item><title>k6 테스트 결과 간단히 시각화하기 (Web Dashboard, HTML Test report)</title><link>https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/</link><pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/cover.png" alt="Featured image of post k6 테스트 결과 간단히 시각화하기 (Web Dashboard, HTML Test report)" /&gt;&lt;p&gt;&lt;a class="link" href="https://k6.io/" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>K6 on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/tags/k6/</link><description>Recent content in K6 on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 12 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/tags/k6/index.xml" rel="self" type="application/rss+xml"/><item><title>k6 테스트 결과 간단히 시각화하기 (Web Dashboard, HTML Test report)</title><link>https://blog.seungyeop-lee.com/post/k6-web-dashboard/</link><pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/k6-web-dashboard/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/k6-web-dashboard/cover.png" alt="Featured image of post k6 테스트 결과 간단히 시각화하기 (Web Dashboard, HTML Test report)" /&gt;&lt;p&gt;&lt;a class="link" href="https://k6.io/" target="_blank" rel="noopener"
 &gt;k6&lt;/a&gt;는 부하 테스트 툴 중에 사용성이나 성능, 필요 자원량 등이 다른 부하 테스트 툴과 비교하여 뛰어나다고 생각한다.
 여기에 하나 부족한 것이 있다면, 시각화 된 결과를 보기까지의 설정이 번거롭다는 것이다.&lt;/p&gt;
 &lt;p&gt;그런데 올 초 릴리즈 된 &lt;a class="link" href="https://github.com/grafana/k6/releases/tag/v0.49.0" target="_blank" rel="noopener"
@@ -123,10 +123,10 @@ Dashboard에서 확인 가능한 정보는 전부 Test report에서도 확인 �
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/dashboard.png"
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/k6-web-dashboard/dashboard.png"
 width="3456"
 height="1914"
-srcset="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/dashboard_hu_c1465e8f8333d62d.png 480w, https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/dashboard_hu_4ae6e3c7ed8a9266.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/k6-web-dashboard/dashboard_hu_ed157a6d72fb08df.png 480w, https://blog.seungyeop-lee.com/post/k6-web-dashboard/dashboard_hu_c579d9cc71c44e16.png 1024w"
 loading="lazy"
 alt="Web Dashboard"
 class="gallery-image"
@@ -135,10 +135,10 @@ data-flex-basis="433px"
 &gt;&lt;/p&gt;
 &lt;h3 id="test-report-확인"&gt;Test report 확인
 &lt;/h3&gt;&lt;p&gt;생성된 report.html 파일을 웹브라우저로 열어 Test report를 확인한다.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/report.png"
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/k6-web-dashboard/report.png"
 width="2190"
 height="1878"
-srcset="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/report_hu_c46bf1ab74bd99f8.png 480w, https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/report_hu_ea322a51e7dfb16e.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/k6-web-dashboard/report_hu_9ae4c4198bc59613.png 480w, https://blog.seungyeop-lee.com/post/k6-web-dashboard/report_hu_9a50be3e278f9677.png 1024w"
 loading="lazy"
 alt="Test report"
 class="gallery-image"

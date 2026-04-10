@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/tags/docker/</link><description>Recent content in Docker on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Wed, 24 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker와 Web browser로 MySQL Workbench 사용하기</title><link>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link><pubDate>Wed, 24 Jan 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/cover.png" alt="Featured image of post Docker와 Web browser로 MySQL Workbench 사용하기" /&gt;&lt;h2 id="tldr"&gt;TL;DR
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/tags/docker/</link><description>Recent content in Docker on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Wed, 24 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker와 Web browser로 MySQL Workbench 사용하기</title><link>https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/</link><pubDate>Wed, 24 Jan 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/cover.png" alt="Featured image of post Docker와 Web browser로 MySQL Workbench 사용하기" /&gt;&lt;h2 id="tldr"&gt;TL;DR
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;&lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker" target="_blank" rel="noopener"
 &gt;mysqlworkbench-on-docker 예제&lt;/a&gt;를 다운로드한다.&lt;/li&gt;
@@ -15,10 +15,10 @@
 &lt;li&gt;부분적으로 UI가 표시되지 않음&lt;/li&gt;
 &lt;li&gt;간혈적으로 프로그램이 강제 종료 됨&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1.png"
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/macos-1.png"
 width="1371"
 height="959"
-srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1_hu_c6c45c46e33b1ff1.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1_hu_fe38dcde8eabfed1.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/macos-1_hu_4fa5c45ad4100b91.png 480w, https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/macos-1_hu_9cdb1e356ab6f3d5.png 1024w"
 loading="lazy"
 alt="부분적으로 UI가 표시되지 않음"
 class="gallery-image"
@@ -32,10 +32,10 @@ data-flex-basis="343px"
 &gt;linuxserver/mysql-workbench&lt;/a&gt;를 발견하였다.
 linuxserver라는 그룹은 Docker를 이용해 linux 어플리케이션을 실행시킬 수 있게 이미지화하는 작업을 전문적한다.&lt;/p&gt;
 &lt;p&gt;문서에 나와있는대로 따라하면 간단히 MySQL Workbench 컨테이너를 띄우고, 접속 할 수 있다.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1.png"
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-1.png"
 width="1609"
 height="1012"
-srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1_hu_b97d217bba29743e.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1_hu_c12d513419f6197e.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-1_hu_f58ed6b5e03292cd.png 480w, https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-1_hu_9943eb15275033ab.png 1024w"
 loading="lazy"
 alt="UI가 문제없이 표시된다."
 class="gallery-image"
@@ -43,10 +43,10 @@ data-flex-grow="158"
 data-flex-basis="381px"
 &gt;&lt;/p&gt;
 &lt;p&gt;하지만 한글이 입력되지 않는다는 문제가 있었다.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2.png"
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-2.png"
 width="893"
 height="320"
-srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2_hu_abfed891f1b6ed30.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2_hu_f30ba8ddcf5b2e0b.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-2_hu_e90225f89cb21acb.png 480w, https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-2_hu_d417643a7f4341f.png 1024w"
 loading="lazy"
 alt="한글입력이 되지 않는다."
 class="gallery-image"
@@ -70,10 +70,10 @@ data-flex-basis="669px"
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;그리고 IME 입력을 활성화 시켜준다. (활성화하지 않으면 자모 분리가 일어남)&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3.png"
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-3.png"
 width="1353"
 height="940"
-srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3_hu_3a42dfa2641fbd85.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3_hu_e4ad60824fbaa026.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-3_hu_92f37f7961347bd9.png 480w, https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-3_hu_fd238b5e4787ad94.png 1024w"
 loading="lazy"
 alt="IME 입력 활성화"
 class="gallery-image"
@@ -81,10 +81,10 @@ data-flex-grow="143"
 data-flex-basis="345px"
 &gt;&lt;/p&gt;
 &lt;p&gt;테스트를 해보면 한글입력이 잘 되는 것을 확인 할 수 있다.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4.png"
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-4.png"
 width="1185"
 height="308"
-srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4_hu_ca21a17facfc4063.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4_hu_35117e594a1f6a0b.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-4_hu_e78b07d5a44a70ff.png 480w, https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-4_hu_228ef7f02dc53975.png 1024w"
 loading="lazy"
 alt="한글입력에 문제가 없다."
 class="gallery-image"

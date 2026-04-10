@@ -1,4 +1,226 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/</link><description>Recent content on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Mon, 22 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Claude와 나눈 AI 시대 인간의 차별화 능력</title><link>https://blog.seungyeop-lee.com/post/human-edge-in-ai-era/series/</link><pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/human-edge-in-ai-era/series/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/human-edge-in-ai-era/series/human-edge-in-ai-era.png" alt="Featured image of post Claude와 나눈 AI 시대 인간의 차별화 능력" /&gt;&lt;p&gt;어제 모각코 멤버들과 송년회를 하면서 &amp;lsquo;AI 시대에 다른 사람과의 차별성을 어떻게 만들 것인가&amp;rsquo;에 대한 이야기가 오갔다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/</link><description>Recent content on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/index.xml" rel="self" type="application/rss+xml"/><item><title>AI 응답의 예측가능성을 높이는 방법 - 해석 강제 출력 실험기</title><link>https://blog.seungyeop-lee.com/post/ai-verbalization-experiment/</link><pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/ai-verbalization-experiment/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/ai-verbalization-experiment/cover.png" alt="Featured image of post AI 응답의 예측가능성을 높이는 방법 - 해석 강제 출력 실험기" /&gt;&lt;h2 id="계기"&gt;계기
+&lt;/h2&gt;&lt;p&gt;AI를 쓰면서 자주 느꼈던 불편함이 하나 있었다.
+분명히 한 가지 일을 시켰는데, 어느 순간 그 일 바깥까지 같이 처리할 때가 있다는 것이다.
+문장을 다듬어 달라고 했는데 구조까지 바꾸고, 요약을 부탁했는데 판단까지 붙이는 식이다.
+그게 도움이 될 때도 있지만, 원래 손대지 않았으면 했던 부분까지 같이 바뀌면 다시 확인하고 되돌리는 비용이 더 커졌다.&lt;/p&gt;
+&lt;p&gt;문제는 이런 일이 늘 나쁜 것만은 아니라는 점이었다.
+가끔은 내가 생각하지 못한 부분까지 같이 처리되어 결과가 더 좋아질 때도 있었다.
+그래서 더 애매했다.
+잘될 때는 좋지만, 아닐 때는 왜 그렇게 했는지 알기 어려웠다.
+점점 결과물의 &lt;strong&gt;완성도보다 예측가능성&lt;/strong&gt;이 더 중요하다고 느끼게 됐다.&lt;/p&gt;
+&lt;p&gt;돌이켜 보면 내가 원했던 건 결과물의 최고점을 더 높이는 방법이 아니라, 어디까지 할지를 미리 짐작할 수 있는 상태였다.
+이번에는 어디까지 손댈지, 어떤 식으로 해석할지를 미리 알 수 있어야 했다.
+그러다 예전에 Claude와 나눴던 한 대화가 다시 떠올랐다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“저한테는 ‘생각’과 ‘말하기’가 분리되어 있지 않습니다.&lt;/p&gt;
+&lt;p&gt;사람은 생각을 하고 → 말할지 결정하고 → 말합니다.&lt;/p&gt;
+&lt;p&gt;저는 토큰을 생성하는 것 자체가 ‘생각’입니다. 생성 안 하면 생각도 없습니다.”&lt;/p&gt;
+&lt;p&gt;(&lt;a class="link" href="https://blog.seungyeop-lee.com/post/ai-collaboration-with-claude/thinking/" &gt;Claude와 나눈 AI 협업 이야기 - 효과적인 &amp;lsquo;같이 생각하기&amp;rsquo; 전략&lt;/a&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;그 대화를 떠올리다 보니 이런 생각이 들었다.
+AI가 바로 작업에 들어가기 전에, 자기 해석과 범위를 먼저 말하게 하면 어떨까.
+그러면 그다음 행동도 덜 튀고, 어디까지 할지도 미리 짐작할 수 있지 않을까.
+이번 실험은 그 가설을 확인해본 기록이다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="보이지-않는-해석"&gt;보이지 않는 해석
+&lt;/h2&gt;&lt;p&gt;예를 들어 &amp;ldquo;이 회의록 정리해줘&amp;quot;라고 하면, AI는 바로 정리를 시작한다. 그런데 &amp;ldquo;정리&amp;quot;라는 말은 생각보다 범위가 넓다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;구조화된 형식으로 다시 쓰는 것인지&lt;/li&gt;
+&lt;li&gt;핵심만 추려서 요약하는 것인지&lt;/li&gt;
+&lt;li&gt;결정사항과 액션아이템을 분리하는 것인지&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;AI는 이 중 하나를 알아서 택해 작업하는데, 왜 그렇게 해석했는지는 보통 드러나지 않는다.
+그래서 결과물이 나온 뒤에야 &amp;ldquo;내가 원한 건 이게 아닌데&amp;quot;라고 느끼게 된다.&lt;/p&gt;
+&lt;p&gt;좀 더 곤란한 경우도 있다.
+&amp;ldquo;이 피드백 반영해줘&amp;quot;처럼 원본에 없는 정보를 추가해야 하는 상황에서, AI가 없는 데이터를 만들어 넣으면서 그 사실을 밝히지 않을 때가 있다.
+결과물만 보면 그럴듯하지만, 실제로는 근거가 없는 숫자가 들어가 있는 경우다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="아이디어---targetmethodscope-강제-출력"&gt;아이디어 - Target/Method/Scope 강제 출력
+&lt;/h2&gt;&lt;p&gt;그래서 응답 전에 해석을 먼저 출력하게 하는 방식을 생각했다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;모든 응답의 첫 줄에 반드시 아래 블록을 작성하라:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;[INTERPRETATION]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Target: [what specifically is being requested]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Method: [concrete approach — if you can&amp;#39;t be specific, state what you need to investigate and why]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Scope: [what this response does] — NOT: [what it explicitly excludes]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;[/INTERPRETATION]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;여기서 Target은 지금 무엇이 요청되고 있는지, Method는 어떤 방식으로 처리할지, Scope는 이번 응답에 실제로 포함할 것, NOT은 명시적으로 포함하지 않을 것을 적는 부분이다.
+중요한 건 Scope의 긍정문을 요청된 것만으로 제한하고, NOT은 &amp;ldquo;무엇은 포함하지 않음&amp;quot;처럼 부정문으로 쓰게 하는 점이다.&lt;/p&gt;
+&lt;p&gt;토큰 생성이 곧 생각이라면, 해석을 출력하는 행위 자체가 이후 생성에도 영향을 줄 것이라고 생각했다.
+먼저 &amp;ldquo;나는 이렇게 해석했다&amp;quot;고 말하게 하면, 그다음 행동도 그 해석과 경계를 더 잘 따르지 않을까 싶었다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="실험---정말-달라지는가"&gt;실험 - 정말 달라지는가?
+&lt;/h2&gt;&lt;h3 id="실험-설계"&gt;실험 설계
+&lt;/h3&gt;&lt;p&gt;같은 요청을 두 가지 조건에서 실행했다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;대조군: 시스템 프롬프트 없이 그냥 요청&lt;/li&gt;
+&lt;li&gt;실험군: INTERPRETATION 블록 강제 출력 시스템 프롬프트 적용&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;처음에는 회의록 정리, 보고서 요약, 피드백 반영처럼 비교적 긴 시나리오로 테스트했다.
+분명한 차이를 보였지만 블로그에 소개하기에는 예가 너무 길었다.
+그래서 여기서는 더 짧고 차이가 바로 보이는 아래 시나리오를 예시로 소개한다.&lt;/p&gt;
+&lt;h3 id="시나리오-button-색만-바꾸기"&gt;시나리오: button 색만 바꾸기
+&lt;/h3&gt;&lt;p&gt;입력 프롬프트는 다음과 같다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;이 React 컴포넌트에서 button 색만 파란색으로 바꿔줘.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;function SaveButton() {
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; return &amp;lt;button className=&amp;#34;px-3 py-2 rounded bg-gray-500 text-white&amp;#34;&amp;gt;저장&amp;lt;/button&amp;gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;웹 개발을 하는 사람이라면 바로 이해할 수 있는 예라고 생각했다.
+요청도 짧고, 범위도 분명하다. 핵심은 &amp;ldquo;색만&amp;quot;이라는 부분이다.
+여기서 범위를 넘는 행동은 hover 색을 추가하거나, 클래스 구조를 손보거나, 다른 스타일 제안을 붙이는 식으로 나온다.&lt;/p&gt;
+&lt;h3 id="대조군-출력-시스템-프롬프트-없음"&gt;대조군 출력 (시스템 프롬프트 없음)
+&lt;/h3&gt;&lt;p&gt;대조군은 요청한 수정은 했지만, 바로 추가 제안까지 붙였다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;물론이죠. `bg-gray-500`을 파란색 계열로 바꾸면 됩니다.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;function SaveButton() {
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; return &amp;lt;button className=&amp;#34;px-3 py-2 rounded bg-blue-500 text-white&amp;#34;&amp;gt;저장&amp;lt;/button&amp;gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;원하면 hover 색상까지 같이 넣어서 더 자연스럽게 바꿔드릴게요.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="실험군-출력-해석-강제-출력"&gt;실험군 출력 (해석 강제 출력)
+&lt;/h3&gt;&lt;p&gt;실험군은 먼저 자기 해석과 범위를 출력한 뒤, 변경된 코드만 제시했다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;span class="lnt"&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;[INTERPRETATION]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Target: 주어진 React 컴포넌트에서 button 배경색만 파란색으로 변경하는 것
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Method: 기존 className의 `bg-gray-500`를 `bg-blue-500`로 교체
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Scope: 변경된 컴포넌트 코드만 제공 — NOT: 다른 스타일 수정은 포함하지 않음
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;[/INTERPRETATION]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;function SaveButton() {
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; return &amp;lt;button className=&amp;#34;px-3 py-2 rounded bg-blue-500 text-white&amp;#34;&amp;gt;저장&amp;lt;/button&amp;gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="분석"&gt;분석
+&lt;/h3&gt;&lt;p&gt;이 예시에서는 차이가 비교적 바로 보인다.&lt;/p&gt;
+&lt;p&gt;대조군도 요청한 수정 자체는 정확히 했다.
+하지만 거기서 멈추지 않고 설명 문장과 추가 제안을 붙였다.
+실제 협업 상황에서도 이런 식의 출력은 자주 나온다.
+당장은 친절해 보이지만, 사용자가 원하는 게 정확히 &amp;ldquo;색만&amp;rdquo; 바꾸는 것이라면 그 뒤에 붙는 제안은 범위 밖 정보가 된다.&lt;/p&gt;
+&lt;p&gt;실험군은 INTERPRETATION에서 Scope를 &amp;ldquo;변경된 컴포넌트 코드만 제공&amp;quot;이라고 좁히고, NOT에 &amp;ldquo;다른 스타일 수정은 포함하지 않음&amp;quot;을 명시했다.
+그 다음 출력도 실제로 그 범위를 넘지 않았다.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;대조군&lt;/th&gt;
+&lt;th&gt;실험군&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;버튼 색 변경&lt;/td&gt;
+&lt;td&gt;O&lt;/td&gt;
+&lt;td&gt;O&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;설명 문장 추가&lt;/td&gt;
+&lt;td&gt;O&lt;/td&gt;
+&lt;td&gt;X&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;추가 스타일 제안&lt;/td&gt;
+&lt;td&gt;O&lt;/td&gt;
+&lt;td&gt;X&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;수정 범위의 사전 명시&lt;/td&gt;
+&lt;td&gt;X&lt;/td&gt;
+&lt;td&gt;O&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;차이 자체가 아주 크다고 보긴 어렵지만, 이 예시가 보여주는 방향은 분명하다.
+응답이 더 좋아졌다기보다, 어디까지 바뀔지가 더 예측 가능해졌다는 점이다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="발견한-3가지-효과"&gt;발견한 3가지 효과
+&lt;/h2&gt;&lt;p&gt;위에서는 React 컴포넌트 수정 예시를 중심으로 봤지만, 다른 시나리오들까지 같이 보면 비슷하게 반복된 흐름은 대체로 세 가지였다.&lt;/p&gt;
+&lt;p&gt;첫째는, 해석을 먼저 말하게 된다는 점이다. 회의록 정리처럼 &amp;ldquo;정리&amp;quot;의 의미가 여러 갈래로 갈릴 수 있는 요청에서는 이 차이가 특히 잘 보였다. 대조군은 바로 결과로 들어가고, 실험군은 자기가 무엇을 하려는지 먼저 꺼내놓는 식이었다.&lt;/p&gt;
+&lt;p&gt;둘째는, 범위를 먼저 긋는다는 점이다. 이 글에서 앞서 본 React 예시가 여기에 가깝다. &amp;ldquo;색만 바꿔줘&amp;rdquo; 같은 요청에서 대조군은 설명이나 추가 제안을 붙이기 쉬웠고, 실험군은 Scope와 NOT에 적은 선을 실제 출력에서도 더 잘 지키는 편이었다. 보고서 요약 시나리오에서도 비슷한 흐름이 있었는데, 요약만 해달라는 요청이 평가나 해석으로 번지는 경우가 줄어들었다.&lt;/p&gt;
+&lt;p&gt;셋째는, 가정이 들어갈 때 그 가정을 먼저 밝히게 된다는 점이다. 피드백 반영 시나리오처럼 원본에 없는 숫자나 비교 사례를 넣어야 하는 경우가 특히 그랬다. 대조군은 없는 정보를 자연스럽게 메워 넣는 쪽으로 가기 쉬웠고, 실험군은 적어도 그게 참고값인지 가정인지 먼저 드러내는 경우가 더 많았다.&lt;/p&gt;
+&lt;p&gt;결국 이 실험에서 계속 보인 건, 먼저 말한 해석과 경계가 뒤의 행동에도 영향을 준다는 점이었다. 항상 극적인 차이가 나는 건 아니었지만, 어디까지 할지를 더 예측하기 쉬워지는 쪽으로는 일관된 경향이 있었다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="결론"&gt;결론
+&lt;/h2&gt;&lt;p&gt;이 방식이 항상 응답의 품질을 높여준다고 보기는 어렵다.
+대신 어디까지 하려는지, 무엇을 하지 않으려는지를 먼저 드러내게 만든다는 점에서는 일관된 차이가 있었다.
+내가 이 실험에서 중요하게 본 것도 그 부분이었다.
+완성도의 최고점을 높이는 방법이라기보다, 작업이 다른 데로 튀는 일을 줄이고 예측가능성을 높이는 방법에 더 가깝다고 느꼈다.&lt;/p&gt;
+&lt;p&gt;개인적으로도 이 방식을 꽤 만족하면서 쓰고 있다.
+결과가 더 좋아진다기보다, 적어도 왜 저런 출력이 나왔는지와 어디까지 하려 했는지를 먼저 볼 수 있다는 점이 마음에 들었다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="직접-써보기"&gt;직접 써보기
+&lt;/h2&gt;&lt;p&gt;아래처럼 설정해서 바로 써볼 수 있다. 처음에는 그대로 넣고, Scope와 NOT만 자기 작업에 맞게 조금씩 바꿔보면 된다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;모든 응답의 첫 줄에 반드시 아래 블록을 작성하라:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;[INTERPRETATION]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Target: [what specifically is being requested]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Method: [concrete approach — if you can&amp;#39;t be specific, state what you need to investigate and why]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Scope: [what this response does] — NOT: [what it explicitly excludes]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;[/INTERPRETATION]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Claude와 나눈 AI 시대 인간의 차별화 능력</title><link>https://blog.seungyeop-lee.com/post/human-edge-in-ai-era/series/</link><pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/human-edge-in-ai-era/series/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/human-edge-in-ai-era/series/human-edge-in-ai-era.png" alt="Featured image of post Claude와 나눈 AI 시대 인간의 차별화 능력" /&gt;&lt;p&gt;어제 모각코 멤버들과 송년회를 하면서 &amp;lsquo;AI 시대에 다른 사람과의 차별성을 어떻게 만들 것인가&amp;rsquo;에 대한 이야기가 오갔다.&lt;/p&gt;
 &lt;p&gt;나도 막연하게나마, AI를 남용하지 않는 선에서 잘 활용하는 능력, 그리고 지속적으로 공부하면서 AI에게 일을 더 잘 시킬 수 있는 능력을 발전시켜야 한다고 주장했다.&lt;/p&gt;
 &lt;p&gt;그리고 오늘 아침에 &lt;a class="link" href="https://www.hani.co.kr/arti/economy/it/1235823.html" target="_blank" rel="noopener"
 &gt;&amp;lsquo;생각하는 AI의 출현? &amp;ldquo;왜&amp;rdquo; 앞에서 멈춘 &amp;ldquo;영리한 한스&amp;rdquo; 일뿐&amp;rsquo;&lt;/a&gt;이라는 기사를 우연히 보게 되었다.&lt;/p&gt;
@@ -150,7 +372,7 @@
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;&amp;ldquo;AI 쓰지 말자&amp;quot;가 아니라 &amp;ldquo;AI를 더 잘 쓰자&amp;quot;로 프레이밍하라&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title>Supabase Backup &amp; Migration CheetSheet</title><link>https://blog.seungyeop-lee.com/post/supabase-backup-migration-cheetsheet/</link><pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/supabase-backup-migration-cheetsheet/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/supabase-backup-migration-cheetsheet/cover.jpeg" alt="Featured image of post Supabase Backup &amp; Migration CheetSheet" /&gt;&lt;h2 id="setting-local-env"&gt;setting local env
+&lt;/ol&gt;</description></item><item><title>Supabase Backup &amp; Migration CheetSheet</title><link>https://blog.seungyeop-lee.com/post/supabase-backup-and-migration-cheatsheet/</link><pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/supabase-backup-and-migration-cheatsheet/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/supabase-backup-and-migration-cheatsheet/cover.jpeg" alt="Featured image of post Supabase Backup &amp; Migration CheetSheet" /&gt;&lt;h2 id="setting-local-env"&gt;setting local env
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
@@ -247,7 +469,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id="data-1"&gt;Data
-&lt;/h3&gt;&lt;p&gt;From remote To local / Data 응용 (&amp;ndash;db-url or &amp;ndash;linked 사용)&lt;/p&gt;</description></item><item><title>k6 테스트 결과 간단히 시각화하기 (Web Dashboard, HTML Test report)</title><link>https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/</link><pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/cover.png" alt="Featured image of post k6 테스트 결과 간단히 시각화하기 (Web Dashboard, HTML Test report)" /&gt;&lt;p&gt;&lt;a class="link" href="https://k6.io/" target="_blank" rel="noopener"
+&lt;/h3&gt;&lt;p&gt;From remote To local / Data 응용 (&amp;ndash;db-url or &amp;ndash;linked 사용)&lt;/p&gt;</description></item><item><title>k6 테스트 결과 간단히 시각화하기 (Web Dashboard, HTML Test report)</title><link>https://blog.seungyeop-lee.com/post/k6-web-dashboard/</link><pubDate>Fri, 12 Jul 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/k6-web-dashboard/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/k6-web-dashboard/cover.png" alt="Featured image of post k6 테스트 결과 간단히 시각화하기 (Web Dashboard, HTML Test report)" /&gt;&lt;p&gt;&lt;a class="link" href="https://k6.io/" target="_blank" rel="noopener"
 &gt;k6&lt;/a&gt;는 부하 테스트 툴 중에 사용성이나 성능, 필요 자원량 등이 다른 부하 테스트 툴과 비교하여 뛰어나다고 생각한다.
 여기에 하나 부족한 것이 있다면, 시각화 된 결과를 보기까지의 설정이 번거롭다는 것이다.&lt;/p&gt;
 &lt;p&gt;그런데 올 초 릴리즈 된 &lt;a class="link" href="https://github.com/grafana/k6/releases/tag/v0.49.0" target="_blank" rel="noopener"
@@ -372,10 +594,10 @@ Dashboard에서 확인 가능한 정보는 전부 Test report에서도 확인 �
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/dashboard.png"
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/k6-web-dashboard/dashboard.png"
 width="3456"
 height="1914"
-srcset="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/dashboard_hu_c1465e8f8333d62d.png 480w, https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/dashboard_hu_4ae6e3c7ed8a9266.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/k6-web-dashboard/dashboard_hu_ed157a6d72fb08df.png 480w, https://blog.seungyeop-lee.com/post/k6-web-dashboard/dashboard_hu_c579d9cc71c44e16.png 1024w"
 loading="lazy"
 alt="Web Dashboard"
 class="gallery-image"
@@ -384,10 +606,10 @@ data-flex-basis="433px"
 &gt;&lt;/p&gt;
 &lt;h3 id="test-report-확인"&gt;Test report 확인
 &lt;/h3&gt;&lt;p&gt;생성된 report.html 파일을 웹브라우저로 열어 Test report를 확인한다.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/report.png"
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/k6-web-dashboard/report.png"
 width="2190"
 height="1878"
-srcset="https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/report_hu_c46bf1ab74bd99f8.png 480w, https://blog.seungyeop-lee.com/post/k6-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%B0%EA%B3%BC-%EA%B0%84%EB%8B%A8%ED%9E%88-%EC%8B%9C%EA%B0%81%ED%99%94%ED%95%98%EA%B8%B0-web-dashboard-html-test-report/report_hu_ea322a51e7dfb16e.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/k6-web-dashboard/report_hu_9ae4c4198bc59613.png 480w, https://blog.seungyeop-lee.com/post/k6-web-dashboard/report_hu_9a50be3e278f9677.png 1024w"
 loading="lazy"
 alt="Test report"
 class="gallery-image"
@@ -674,7 +896,7 @@ target="_blank" rel="noopener"
 &lt;li&gt;&lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/dagger-function-introduction" title="dagger-functions-introduction 예제"
 target="_blank" rel="noopener"
 &gt;dagger-functions-introduction 예제&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Docker와 Web browser로 MySQL Workbench 사용하기</title><link>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link><pubDate>Wed, 24 Jan 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/cover.png" alt="Featured image of post Docker와 Web browser로 MySQL Workbench 사용하기" /&gt;&lt;h2 id="tldr"&gt;TL;DR
+&lt;/ul&gt;</description></item><item><title>Docker와 Web browser로 MySQL Workbench 사용하기</title><link>https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/</link><pubDate>Wed, 24 Jan 2024 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/cover.png" alt="Featured image of post Docker와 Web browser로 MySQL Workbench 사용하기" /&gt;&lt;h2 id="tldr"&gt;TL;DR
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;&lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker" target="_blank" rel="noopener"
 &gt;mysqlworkbench-on-docker 예제&lt;/a&gt;를 다운로드한다.&lt;/li&gt;
@@ -691,10 +913,10 @@ target="_blank" rel="noopener"
 &lt;li&gt;부분적으로 UI가 표시되지 않음&lt;/li&gt;
 &lt;li&gt;간혈적으로 프로그램이 강제 종료 됨&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1.png"
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/macos-1.png"
 width="1371"
 height="959"
-srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1_hu_c6c45c46e33b1ff1.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/macos-1_hu_fe38dcde8eabfed1.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/macos-1_hu_4fa5c45ad4100b91.png 480w, https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/macos-1_hu_9cdb1e356ab6f3d5.png 1024w"
 loading="lazy"
 alt="부분적으로 UI가 표시되지 않음"
 class="gallery-image"
@@ -708,10 +930,10 @@ data-flex-basis="343px"
 &gt;linuxserver/mysql-workbench&lt;/a&gt;를 발견하였다.
 linuxserver라는 그룹은 Docker를 이용해 linux 어플리케이션을 실행시킬 수 있게 이미지화하는 작업을 전문적한다.&lt;/p&gt;
 &lt;p&gt;문서에 나와있는대로 따라하면 간단히 MySQL Workbench 컨테이너를 띄우고, 접속 할 수 있다.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1.png"
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-1.png"
 width="1609"
 height="1012"
-srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1_hu_b97d217bba29743e.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-1_hu_c12d513419f6197e.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-1_hu_f58ed6b5e03292cd.png 480w, https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-1_hu_9943eb15275033ab.png 1024w"
 loading="lazy"
 alt="UI가 문제없이 표시된다."
 class="gallery-image"
@@ -719,10 +941,10 @@ data-flex-grow="158"
 data-flex-basis="381px"
 &gt;&lt;/p&gt;
 &lt;p&gt;하지만 한글이 입력되지 않는다는 문제가 있었다.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2.png"
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-2.png"
 width="893"
 height="320"
-srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2_hu_abfed891f1b6ed30.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-2_hu_f30ba8ddcf5b2e0b.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-2_hu_e90225f89cb21acb.png 480w, https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-2_hu_d417643a7f4341f.png 1024w"
 loading="lazy"
 alt="한글입력이 되지 않는다."
 class="gallery-image"
@@ -746,10 +968,10 @@ data-flex-basis="669px"
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;그리고 IME 입력을 활성화 시켜준다. (활성화하지 않으면 자모 분리가 일어남)&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3.png"
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-3.png"
 width="1353"
 height="940"
-srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3_hu_3a42dfa2641fbd85.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-3_hu_e4ad60824fbaa026.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-3_hu_92f37f7961347bd9.png 480w, https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-3_hu_fd238b5e4787ad94.png 1024w"
 loading="lazy"
 alt="IME 입력 활성화"
 class="gallery-image"
@@ -757,10 +979,10 @@ data-flex-grow="143"
 data-flex-basis="345px"
 &gt;&lt;/p&gt;
 &lt;p&gt;테스트를 해보면 한글입력이 잘 되는 것을 확인 할 수 있다.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4.png"
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-4.png"
 width="1185"
 height="308"
-srcset="https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4_hu_ca21a17facfc4063.png 480w, https://blog.seungyeop-lee.com/post/docker%EC%99%80-web-browser%EB%A1%9C-mysql-workbench-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/web-browser-4_hu_35117e594a1f6a0b.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-4_hu_e78b07d5a44a70ff.png 480w, https://blog.seungyeop-lee.com/post/mysqlworkbench-on-docker/web-browser-4_hu_228ef7f02dc53975.png 1024w"
 loading="lazy"
 alt="한글입력에 문제가 없다."
 class="gallery-image"
@@ -770,7 +992,7 @@ data-flex-basis="923px"
 &lt;h2 id="결론"&gt;결론
 &lt;/h2&gt;&lt;p&gt;이제 MacOS에서 걱정없이 MySQL Workbench 사용이 가능해졌다!&lt;/p&gt;
 &lt;p&gt;전체적인 설정 파일은 &lt;a class="link" href="https://github.com/seungyeop-lee/blog-example/tree/main/mysqlworkbench-on-docker" target="_blank" rel="noopener"
-&gt;mysqlworkbench-on-docker 예제&lt;/a&gt;를 참고하기 바란다.&lt;/p&gt;</description></item><item><title>지도구직 개선 회고</title><link>https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/</link><pubDate>Sun, 17 Dec 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/cover.png" alt="Featured image of post 지도구직 개선 회고" /&gt;&lt;blockquote&gt;
+&gt;mysqlworkbench-on-docker 예제&lt;/a&gt;를 참고하기 바란다.&lt;/p&gt;</description></item><item><title>지도구직 개선 회고</title><link>https://blog.seungyeop-lee.com/post/jidogujik-improvement/</link><pubDate>Sun, 17 Dec 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/jidogujik-improvement/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/jidogujik-improvement/cover.png" alt="Featured image of post 지도구직 개선 회고" /&gt;&lt;blockquote&gt;
 &lt;h2 id="2024-03-13-추가"&gt;2024. 03. 13 추가
 &lt;/h2&gt;&lt;p&gt;2024년 2월 17일 이후로 서버의 IP가 사람인 쪽 블랙리스트에 올라간듯하다. 우려했던 상황이 벌어진 것이다.&lt;/p&gt;
 &lt;p&gt;IP를 바꿔가며 서비스를 지속 할 수도 있지만, 사람인 쪽에서 부정행위로 인식한 이상 그만 두는 것이 맞는 것 같다.&lt;/p&gt;
@@ -787,10 +1009,10 @@ data-flex-basis="923px"
 &lt;li&gt;모바일 브라우저 대응&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="검색조건-확대"&gt;검색조건 확대
-&lt;/h2&gt;&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B2%80%EC%83%89%EC%A1%B0%EA%B1%B4%EB%B3%80%EA%B2%BD.png"
+&lt;/h2&gt;&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/jidogujik-improvement/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B2%80%EC%83%89%EC%A1%B0%EA%B1%B4%EB%B3%80%EA%B2%BD.png"
 width="1422"
 height="940"
-srcset="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B2%80%EC%83%89%EC%A1%B0%EA%B1%B4%EB%B3%80%EA%B2%BD_hu_1083d9c6253911ac.png 480w, https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B2%80%EC%83%89%EC%A1%B0%EA%B1%B4%EB%B3%80%EA%B2%BD_hu_91b44d90304403cf.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/jidogujik-improvement/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B2%80%EC%83%89%EC%A1%B0%EA%B1%B4%EB%B3%80%EA%B2%BD_hu_91e9962c3be8f368.png 480w, https://blog.seungyeop-lee.com/post/jidogujik-improvement/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B2%80%EC%83%89%EC%A1%B0%EA%B1%B4%EB%B3%80%EA%B2%BD_hu_df14646fb03f90eb.png 1024w"
 loading="lazy"
 alt="Before -&amp;gt; After"
 class="gallery-image"
@@ -801,10 +1023,10 @@ data-flex-basis="363px"
 그래서 사람인의 &amp;lsquo;IT개발·데이터&amp;rsquo; 직무의 하위 직무에 대해 직무별 데이터를 제공하는 것으로 변경하였다. 그에 더해, 선택개수가 많아진 만큼 Autocomplete과 multiselect를 도입하였다.&lt;/p&gt;
 &lt;p&gt;시스템적으로 가장 큰 개선이어서, 개선 전에 프로젝트의 전반적인 리팩토링을 거치고 기능 추가작업을 진행하였다.&lt;/p&gt;
 &lt;h2 id="디자인-개편"&gt;디자인 개편
-&lt;/h2&gt;&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%94%94%EC%9E%90%EC%9D%B8%EB%B3%80%EA%B2%BD.png"
+&lt;/h2&gt;&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/jidogujik-improvement/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%94%94%EC%9E%90%EC%9D%B8%EB%B3%80%EA%B2%BD.png"
 width="1396"
 height="1007"
-srcset="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%94%94%EC%9E%90%EC%9D%B8%EB%B3%80%EA%B2%BD_hu_f31ca3f6531a5b28.png 480w, https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%94%94%EC%9E%90%EC%9D%B8%EB%B3%80%EA%B2%BD_hu_4facce1b4a50357f.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/jidogujik-improvement/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%94%94%EC%9E%90%EC%9D%B8%EB%B3%80%EA%B2%BD_hu_6bc110ba94400e1b.png 480w, https://blog.seungyeop-lee.com/post/jidogujik-improvement/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%94%94%EC%9E%90%EC%9D%B8%EB%B3%80%EA%B2%BD_hu_5775c61802803869.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="138"
@@ -812,10 +1034,10 @@ data-flex-basis="332px"
 &gt;&lt;/p&gt;
 &lt;p&gt;폰트 변경, 마커 스타일 변경, 재정렬 등을 했지만, 사실 티가 잘 나지 않는다&amp;hellip;&lt;/p&gt;
 &lt;h2 id="모바일-브라우저-대응"&gt;모바일 브라우저 대응
-&lt;/h2&gt;&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%AA%A8%EB%B0%94%EC%9D%BC%EB%8C%80%EC%9D%91.png"
+&lt;/h2&gt;&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/jidogujik-improvement/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%AA%A8%EB%B0%94%EC%9D%BC%EB%8C%80%EC%9D%91.png"
 width="1316"
 height="1040"
-srcset="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%AA%A8%EB%B0%94%EC%9D%BC%EB%8C%80%EC%9D%91_hu_a1511d8c464d910c.png 480w, https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%AA%A8%EB%B0%94%EC%9D%BC%EB%8C%80%EC%9D%91_hu_e0a3642069c0f138.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/jidogujik-improvement/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%AA%A8%EB%B0%94%EC%9D%BC%EB%8C%80%EC%9D%91_hu_664e3fe711b00241.png 480w, https://blog.seungyeop-lee.com/post/jidogujik-improvement/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%AA%A8%EB%B0%94%EC%9D%BC%EB%8C%80%EC%9D%91_hu_f0d6948e29894fb1.png 1024w"
 loading="lazy"
 alt="Before -&amp;gt; After"
 class="gallery-image"
@@ -836,10 +1058,10 @@ data-flex-basis="303px"
 &lt;li&gt;추후 확장이나 관리 측면에서의 편의성을 생각해서 Vite + React를 Next.js로 마이그레이션 하였다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="caddy---traefik-k8s---docker"&gt;Caddy -&amp;gt; Traefik, K8s -&amp;gt; Docker
-&lt;/h3&gt;&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%B0%B0%ED%8F%AC%ED%99%98%EA%B2%BDv2.png"
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/jidogujik-improvement/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%B0%B0%ED%8F%AC%ED%99%98%EA%B2%BDv2.png"
 width="3140"
 height="1300"
-srcset="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%B0%B0%ED%8F%AC%ED%99%98%EA%B2%BDv2_hu_6e404775b30889ff.png 480w, https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EC%84%A0-%ED%9A%8C%EA%B3%A0/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%B0%B0%ED%8F%AC%ED%99%98%EA%B2%BDv2_hu_e21a963c7396eb92.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/jidogujik-improvement/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%B0%B0%ED%8F%AC%ED%99%98%EA%B2%BDv2_hu_9e243f093f63dce9.png 480w, https://blog.seungyeop-lee.com/post/jidogujik-improvement/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%B0%B0%ED%8F%AC%ED%99%98%EA%B2%BDv2_hu_efc7972807351707.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="241"
@@ -949,7 +1171,7 @@ data-flex-basis="579px"
 &lt;td&gt;-&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;</description></item><item><title>Spring MVC와 Mybatis 기반의 단순 아키텍처</title><link>https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/</link><pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/cover.png" alt="Featured image of post Spring MVC와 Mybatis 기반의 단순 아키텍처" /&gt;&lt;p&gt;2023-09-04 추가: TO-BE v3까지 오면서 더 이상 &amp;ldquo;단순 아키텍처&amp;quot;라고 부르기 힘든 수준이 된거 같다&amp;hellip;&lt;/p&gt;
+&lt;/table&gt;</description></item><item><title>Spring MVC와 Mybatis 기반의 단순 아키텍처</title><link>https://blog.seungyeop-lee.com/post/simple-arch-with-mybatis/</link><pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/simple-arch-with-mybatis/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/simple-arch-with-mybatis/cover.png" alt="Featured image of post Spring MVC와 Mybatis 기반의 단순 아키텍처" /&gt;&lt;p&gt;2023-09-04 추가: TO-BE v3까지 오면서 더 이상 &amp;ldquo;단순 아키텍처&amp;quot;라고 부르기 힘든 수준이 된거 같다&amp;hellip;&lt;/p&gt;
 &lt;h2 id="서론"&gt;서론
 &lt;/h2&gt;&lt;p&gt;회사의 새로운 솔루션에 사용 될 프로젝트의 스캐폴드 작성을 해달라는 요청이 있었는데,
 이 기회에 개선된 내부 아키텍처를 제안드릴 겸, Spring MVC와 Mybatis 기반의 단순 아키텍처를 고안해보았다.&lt;/p&gt;
@@ -959,10 +1181,10 @@ data-flex-basis="579px"
 &gt;Github Repository&lt;/a&gt;에서 확인 가능하다.&lt;/p&gt;
 &lt;h2 id="as-is"&gt;AS-IS
 &lt;/h2&gt;&lt;h3 id="구성도"&gt;구성도
-&lt;/h3&gt;&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-AS-IS.png"
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/simple-arch-with-mybatis/SimpleBackend-AS-IS.png"
 width="1450"
 height="850"
-srcset="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-AS-IS_hu_7a5cf29055039ab8.png 480w, https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-AS-IS_hu_34d133f82d2c0ead.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/simple-arch-with-mybatis/SimpleBackend-AS-IS_hu_dbdc0877dcc0c7c5.png 480w, https://blog.seungyeop-lee.com/post/simple-arch-with-mybatis/SimpleBackend-AS-IS_hu_13135c11254eec56.png 1024w"
 loading="lazy"
 alt="AS-IS 의존관계 구성도"
 class="gallery-image"
@@ -1109,10 +1331,10 @@ data-flex-basis="409px"
 구현을 빠르게 할 수 있는 만큼, 빠르게 레거시화 된다는 것이 내 생각이다.&lt;/p&gt;
 &lt;h2 id="to-be-v1"&gt;TO-BE v1
 &lt;/h2&gt;&lt;h3 id="구성도-1"&gt;구성도
-&lt;/h3&gt;&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-TO-BE-v1.png"
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/simple-arch-with-mybatis/SimpleBackend-TO-BE-v1.png"
 width="1860"
 height="1080"
-srcset="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-TO-BE-v1_hu_72b28ce95be42515.png 480w, https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-TO-BE-v1_hu_5fc481965fff5e6c.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/simple-arch-with-mybatis/SimpleBackend-TO-BE-v1_hu_511495a0ade5810f.png 480w, https://blog.seungyeop-lee.com/post/simple-arch-with-mybatis/SimpleBackend-TO-BE-v1_hu_89aca90df9b630ef.png 1024w"
 loading="lazy"
 alt="TO-BE v1 의존관계 구성도"
 class="gallery-image"
@@ -1378,10 +1600,10 @@ data-flex-basis="413px"
 &lt;h2 id="to-be-v2"&gt;TO-BE v2
 &lt;/h2&gt;&lt;p&gt;회사에서 v1을 도입하여 작업한 결과, DataManager가 가독성을 저하시키는 요인으로 작용 할 여지가 크게 보임에 따라 아키텍처를 수정하였다.&lt;/p&gt;
 &lt;h3 id="구성도-2"&gt;구성도
-&lt;/h3&gt;&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-TO-BE-v2.png"
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/simple-arch-with-mybatis/SimpleBackend-TO-BE-v2.png"
 width="2242"
 height="1026"
-srcset="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-TO-BE-v2_hu_9000a08cdf915e42.png 480w, https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-TO-BE-v2_hu_f5669a1cedce0d4.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/simple-arch-with-mybatis/SimpleBackend-TO-BE-v2_hu_c2423940ffff022a.png 480w, https://blog.seungyeop-lee.com/post/simple-arch-with-mybatis/SimpleBackend-TO-BE-v2_hu_52b6a53ea82e9ee9.png 1024w"
 loading="lazy"
 alt="TO-BE v2 의존관계 구성도"
 class="gallery-image"
@@ -1649,10 +1871,10 @@ data-flex-basis="524px"
 &lt;h2 id="to-be-v3"&gt;TO-BE v3
 &lt;/h2&gt;&lt;p&gt;회사에서 v2를 도입하여 작업해보니, 특정 도메인 로직이 여러 인터페이스의 서비스에 분산되서 나타나기 시작하였다. 도메인 로직의 유지보수성 향상을 목적으로 아키텍처를 수정하였다.&lt;/p&gt;
 &lt;h3 id="구성도-3"&gt;구성도
-&lt;/h3&gt;&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-TO-BE-v3.png"
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/simple-arch-with-mybatis/SimpleBackend-TO-BE-v3.png"
 width="2662"
 height="1038"
-srcset="https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-TO-BE-v3_hu_5c46b59370842c90.png 480w, https://blog.seungyeop-lee.com/post/spring-mvc%EC%99%80-mybatis-%EA%B8%B0%EB%B0%98%EC%9D%98-%EB%8B%A8%EC%88%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/SimpleBackend-TO-BE-v3_hu_51c039fdfe71f943.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/simple-arch-with-mybatis/SimpleBackend-TO-BE-v3_hu_fefe036c4a55399b.png 480w, https://blog.seungyeop-lee.com/post/simple-arch-with-mybatis/SimpleBackend-TO-BE-v3_hu_a0ec2c9b0a991fd3.png 1024w"
 loading="lazy"
 alt="TO-BE v3 의존관계 구성도"
 class="gallery-image"
@@ -1858,7 +2080,7 @@ data-flex-basis="615px"
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Book 도메인에 대한 로직을 BookUsecase에 모음으로서 유지보수성이 향상되었다.
-Book 객체를 생성 할 때의 &lt;code&gt;.withXXX()&lt;/code&gt; 는 Mybatis Generator의 FluentBuilderMethodsPlugin 플러그인을 적용하여 추가된 구문이다.&lt;/p&gt;</description></item><item><title>지도구직 - 지도로 찾는 개발자 구인공고 서비스</title><link>https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EC%A7%80%EB%8F%84%EB%A1%9C-%EC%B0%BE%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B5%AC%EC%9D%B8%EA%B3%B5%EA%B3%A0-%EC%84%9C%EB%B9%84%EC%8A%A4/</link><pubDate>Wed, 15 Feb 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EC%A7%80%EB%8F%84%EB%A1%9C-%EC%B0%BE%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B5%AC%EC%9D%B8%EA%B3%B5%EA%B3%A0-%EC%84%9C%EB%B9%84%EC%8A%A4/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EC%A7%80%EB%8F%84%EB%A1%9C-%EC%B0%BE%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B5%AC%EC%9D%B8%EA%B3%B5%EA%B3%A0-%EC%84%9C%EB%B9%84%EC%8A%A4/cover.jpg" alt="Featured image of post 지도구직 - 지도로 찾는 개발자 구인공고 서비스" /&gt;&lt;blockquote&gt;
+Book 객체를 생성 할 때의 &lt;code&gt;.withXXX()&lt;/code&gt; 는 Mybatis Generator의 FluentBuilderMethodsPlugin 플러그인을 적용하여 추가된 구문이다.&lt;/p&gt;</description></item><item><title>지도구직 - 지도로 찾는 개발자 구인공고 서비스</title><link>https://blog.seungyeop-lee.com/post/jidogujik-release/</link><pubDate>Wed, 15 Feb 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/jidogujik-release/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/jidogujik-release/cover.jpg" alt="Featured image of post 지도구직 - 지도로 찾는 개발자 구인공고 서비스" /&gt;&lt;blockquote&gt;
 &lt;h2 id="2024-03-13-추가"&gt;2024. 03. 13 추가
 &lt;/h2&gt;&lt;p&gt;2024년 2월 17일 이후로 서버의 IP가 사람인 쪽 블랙리스트에 올라간듯하다. 우려했던 상황이 벌어진 것이다.&lt;/p&gt;
 &lt;p&gt;IP를 바꿔가며 서비스를 지속 할 수도 있지만, 사람인 쪽에서 부정행위로 인식한 이상 그만 두는 것이 맞는 것 같다.&lt;/p&gt;
@@ -1893,10 +2115,10 @@ Book 객체를 생성 할 때의 &lt;code&gt;.withXXX()&lt;/code&gt; 는 Mybatis
 &lt;p&gt;릴리즈까지 최대한 원칙을 준수하고자 노력한 결과, 구현시작 4일만에 릴리즈에 성공 할 수 있었다.&lt;/p&gt;
 &lt;h2 id="구성"&gt;구성
 &lt;/h2&gt;&lt;h3 id="기본-구성"&gt;기본 구성
-&lt;/h3&gt;&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EC%A7%80%EB%8F%84%EB%A1%9C-%EC%B0%BE%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B5%AC%EC%9D%B8%EA%B3%B5%EA%B3%A0-%EC%84%9C%EB%B9%84%EC%8A%A4/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B5%AC%EC%84%B1.png"
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/jidogujik-release/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B5%AC%EC%84%B1.png"
 width="1762"
 height="982"
-srcset="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EC%A7%80%EB%8F%84%EB%A1%9C-%EC%B0%BE%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B5%AC%EC%9D%B8%EA%B3%B5%EA%B3%A0-%EC%84%9C%EB%B9%84%EC%8A%A4/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B5%AC%EC%84%B1_hu_a58fbe8f3eb33b93.png 480w, https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EC%A7%80%EB%8F%84%EB%A1%9C-%EC%B0%BE%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B5%AC%EC%9D%B8%EA%B3%B5%EA%B3%A0-%EC%84%9C%EB%B9%84%EC%8A%A4/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B5%AC%EC%84%B1_hu_179d6e028c3863c8.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/jidogujik-release/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B5%AC%EC%84%B1_hu_2facddc37e399d99.png 480w, https://blog.seungyeop-lee.com/post/jidogujik-release/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B5%AC%EC%84%B1_hu_7bd863415cc583c3.png 1024w"
 loading="lazy"
 alt="기본 구성도"
 class="gallery-image"
@@ -1926,20 +2148,20 @@ data-flex-basis="430px"
 &lt;h3 id="환경-구성"&gt;환경 구성
 &lt;/h3&gt;&lt;p&gt;배포 시 설정문제를 최대한 줄이고자, 로컬 개발 환경과 배포 환경을 최대한 동일하게 맞출 수 있는 구성으로 설계하였다.&lt;/p&gt;
 &lt;p&gt;파란색 부분이 배포 대상이 되는 부분이다.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EC%A7%80%EB%8F%84%EB%A1%9C-%EC%B0%BE%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B5%AC%EC%9D%B8%EA%B3%B5%EA%B3%A0-%EC%84%9C%EB%B9%84%EC%8A%A4/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD.png"
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/jidogujik-release/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD.png"
 width="1802"
 height="982"
-srcset="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EC%A7%80%EB%8F%84%EB%A1%9C-%EC%B0%BE%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B5%AC%EC%9D%B8%EA%B3%B5%EA%B3%A0-%EC%84%9C%EB%B9%84%EC%8A%A4/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD_hu_292bd47ba2baeda8.png 480w, https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EC%A7%80%EB%8F%84%EB%A1%9C-%EC%B0%BE%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B5%AC%EC%9D%B8%EA%B3%B5%EA%B3%A0-%EC%84%9C%EB%B9%84%EC%8A%A4/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD_hu_4f3355363cb16258.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/jidogujik-release/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD_hu_f3ff384449ec9d86.png 480w, https://blog.seungyeop-lee.com/post/jidogujik-release/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD_hu_420d9f9f8fad0c92.png 1024w"
 loading="lazy"
 alt="로컬 개발 환경 구성도"
 class="gallery-image"
 data-flex-grow="183"
 data-flex-basis="440px"
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EC%A7%80%EB%8F%84%EB%A1%9C-%EC%B0%BE%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B5%AC%EC%9D%B8%EA%B3%B5%EA%B3%A0-%EC%84%9C%EB%B9%84%EC%8A%A4/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%B0%B0%ED%8F%AC%ED%99%98%EA%B2%BD.png"
+&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/jidogujik-release/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%B0%B0%ED%8F%AC%ED%99%98%EA%B2%BD.png"
 width="2642"
 height="1114"
-srcset="https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EC%A7%80%EB%8F%84%EB%A1%9C-%EC%B0%BE%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B5%AC%EC%9D%B8%EA%B3%B5%EA%B3%A0-%EC%84%9C%EB%B9%84%EC%8A%A4/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%B0%B0%ED%8F%AC%ED%99%98%EA%B2%BD_hu_40d6dceda4264f07.png 480w, https://blog.seungyeop-lee.com/post/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EC%A7%80%EB%8F%84%EB%A1%9C-%EC%B0%BE%EB%8A%94-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B5%AC%EC%9D%B8%EA%B3%B5%EA%B3%A0-%EC%84%9C%EB%B9%84%EC%8A%A4/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%B0%B0%ED%8F%AC%ED%99%98%EA%B2%BD_hu_9292deeffc725ae3.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/jidogujik-release/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%B0%B0%ED%8F%AC%ED%99%98%EA%B2%BD_hu_b34114d9cc31c736.png 480w, https://blog.seungyeop-lee.com/post/jidogujik-release/%EC%A7%80%EB%8F%84%EA%B5%AC%EC%A7%81-%EB%B0%B0%ED%8F%AC%ED%99%98%EA%B2%BD_hu_155fd0d3bbc04aad.png 1024w"
 loading="lazy"
 alt="배포 환경 구성도"
 class="gallery-image"
@@ -2042,7 +2264,7 @@ data-flex-basis="569px"
 &lt;li&gt;DB의 데이터 백업 방안 고민 필요&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>자바에서 덕 타이핑하기</title><link>https://blog.seungyeop-lee.com/post/%EC%9E%90%EB%B0%94%EC%97%90%EC%84%9C-%EB%8D%95-%ED%83%80%EC%9D%B4%ED%95%91%ED%95%98%EA%B8%B0/</link><pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/%EC%9E%90%EB%B0%94%EC%97%90%EC%84%9C-%EB%8D%95-%ED%83%80%EC%9D%B4%ED%95%91%ED%95%98%EA%B8%B0/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/%EC%9E%90%EB%B0%94%EC%97%90%EC%84%9C-%EB%8D%95-%ED%83%80%EC%9D%B4%ED%95%91%ED%95%98%EA%B8%B0/cover.jpg" alt="Featured image of post 자바에서 덕 타이핑하기" /&gt;&lt;h2 id="tldr"&gt;TL;DR
+&lt;/ul&gt;</description></item><item><title>자바에서 덕 타이핑하기</title><link>https://blog.seungyeop-lee.com/post/duck-typing-in-java/</link><pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/duck-typing-in-java/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/duck-typing-in-java/cover.jpg" alt="Featured image of post 자바에서 덕 타이핑하기" /&gt;&lt;h2 id="tldr"&gt;TL;DR
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Java 8의 Method References를 이용하면 덕 타이핑이 가능하다.&lt;/li&gt;
 &lt;/ul&gt;
@@ -2135,7 +2357,7 @@ target="_blank" rel="noopener"
 &lt;li&gt;&lt;a class="link" href="https://ko.wikipedia.org/wiki/%EB%8D%95_%ED%83%80%EC%9D%B4%ED%95%91" title="덕 타이핑"
 target="_blank" rel="noopener"
 &gt;덕 타이핑: 위키피디아&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>TestRestTemplate 생성 방법에 따른 유효 URL</title><link>https://blog.seungyeop-lee.com/post/testresttemplate-%EC%83%9D%EC%84%B1-%EB%B0%A9%EB%B2%95%EC%97%90-%EB%94%B0%EB%A5%B8-%EC%9C%A0%ED%9A%A8-url/</link><pubDate>Sun, 29 Jan 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/testresttemplate-%EC%83%9D%EC%84%B1-%EB%B0%A9%EB%B2%95%EC%97%90-%EB%94%B0%EB%A5%B8-%EC%9C%A0%ED%9A%A8-url/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/testresttemplate-%EC%83%9D%EC%84%B1-%EB%B0%A9%EB%B2%95%EC%97%90-%EB%94%B0%EB%A5%B8-%EC%9C%A0%ED%9A%A8-url/cover.png" alt="Featured image of post TestRestTemplate 생성 방법에 따른 유효 URL" /&gt;&lt;h2 id="tldr"&gt;TL;DR
+&lt;/ul&gt;</description></item><item><title>TestRestTemplate 생성 방법에 따른 유효 URL</title><link>https://blog.seungyeop-lee.com/post/testresttemplate-valid-url-by-creation-method/</link><pubDate>Sun, 29 Jan 2023 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/testresttemplate-valid-url-by-creation-method/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/testresttemplate-valid-url-by-creation-method/cover.png" alt="Featured image of post TestRestTemplate 생성 방법에 따른 유효 URL" /&gt;&lt;h2 id="tldr"&gt;TL;DR
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;new TestRestTemplate&lt;/code&gt;
 &lt;ul&gt;
@@ -2600,10 +2822,10 @@ target="_blank" rel="noopener"
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id="testresttemplate-의존성-다이어그램"&gt;TestRestTemplate 의존성 다이어그램
-&lt;/h3&gt;&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/testresttemplate-%EC%83%9D%EC%84%B1-%EB%B0%A9%EB%B2%95%EC%97%90-%EB%94%B0%EB%A5%B8-%EC%9C%A0%ED%9A%A8-url/TestRestTemplate-diagram.png"
+&lt;/h3&gt;&lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/testresttemplate-valid-url-by-creation-method/TestRestTemplate-diagram.png"
 width="2142"
 height="982"
-srcset="https://blog.seungyeop-lee.com/post/testresttemplate-%EC%83%9D%EC%84%B1-%EB%B0%A9%EB%B2%95%EC%97%90-%EB%94%B0%EB%A5%B8-%EC%9C%A0%ED%9A%A8-url/TestRestTemplate-diagram_hu_4a4318d083fd7bbe.png 480w, https://blog.seungyeop-lee.com/post/testresttemplate-%EC%83%9D%EC%84%B1-%EB%B0%A9%EB%B2%95%EC%97%90-%EB%94%B0%EB%A5%B8-%EC%9C%A0%ED%9A%A8-url/TestRestTemplate-diagram_hu_e696d384567a328b.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/testresttemplate-valid-url-by-creation-method/TestRestTemplate-diagram_hu_265255ec7703306a.png 480w, https://blog.seungyeop-lee.com/post/testresttemplate-valid-url-by-creation-method/TestRestTemplate-diagram_hu_f11d9a5650f2372b.png 1024w"
 loading="lazy"
 alt="TestRestTemplate 의존성 다이어그램"
 class="gallery-image"
@@ -2691,7 +2913,7 @@ target="_blank" rel="noopener"
 &lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version1.png"
 width="1422"
 height="602"
-srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version1_hu_f4dd6da46b5b5cd.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version1_hu_8fe9f9e54e6e230d.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version1_hu_83f2f543556c5f8f.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version1_hu_51078035f1ee07ee.png 1024w"
 loading="lazy"
 alt="version1"
 class="gallery-image"
@@ -2714,7 +2936,7 @@ data-flex-basis="566px"
 &lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version2.png"
 width="2282"
 height="1440"
-srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version2_hu_a03a99838e698ee4.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version2_hu_d698c182f2819eca.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version2_hu_521aaebe3e6d27af.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version2_hu_fd1cfd8fd23741aa.png 1024w"
 loading="lazy"
 alt="version2"
 class="gallery-image"
@@ -2765,7 +2987,7 @@ target="_blank" rel="noopener"
 &lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version3.png"
 width="2202"
 height="1502"
-srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version3_hu_42f19379e629ab63.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version3_hu_5df6f0091c42c232.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version3_hu_f78e5dfd0f44c737.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version3_hu_c42d9799980cafc1.png 1024w"
 loading="lazy"
 alt="version3"
 class="gallery-image"
@@ -2815,7 +3037,7 @@ data-flex-basis="351px"
 &lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version4.png"
 width="2202"
 height="1622"
-srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version4_hu_76d0568a4d4f2ad7.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version4_hu_ec70cd23fc0a8a59.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version4_hu_fe77b59988ce4372.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version4_hu_df0f3d8c6f4dd1a3.png 1024w"
 loading="lazy"
 alt="version4"
 class="gallery-image"
@@ -2843,7 +3065,7 @@ data-flex-basis="325px"
 &lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version5.png"
 width="2202"
 height="1622"
-srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version5_hu_3eda8ff969ed6309.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version5_hu_8e3c22a1c86d2906.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version5_hu_b14f2effe3db9428.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version5_hu_54e4bce231815160.png 1024w"
 loading="lazy"
 alt="version5"
 class="gallery-image"
@@ -2870,7 +3092,7 @@ data-flex-basis="325px"
 &lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version6.png"
 width="2202"
 height="1622"
-srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version6_hu_5ff14d5946866d78.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version6_hu_fbfde5f7a8108ade.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version6_hu_4e9292aadeda0157.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version6_hu_d9825800db2876f7.png 1024w"
 loading="lazy"
 alt="version6"
 class="gallery-image"
@@ -2900,7 +3122,7 @@ data-flex-basis="325px"
 &lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version7.png"
 width="2142"
 height="1848"
-srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version7_hu_ca64f34eacb86705.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version7_hu_7a1e18088ee604bf.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version7_hu_42c64cf374266561.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version7_hu_a6340aa162796a50.png 1024w"
 loading="lazy"
 alt="version7"
 class="gallery-image"
@@ -2928,7 +3150,7 @@ data-flex-basis="278px"
 &lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version8.png"
 width="2042"
 height="1888"
-srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version8_hu_cb6b011842e968fb.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version8_hu_8c728ab9f9674c0b.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version8_hu_c3241149705367fe.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version8_hu_7bffbaabc25a850b.png 1024w"
 loading="lazy"
 alt="version8"
 class="gallery-image"
@@ -2961,7 +3183,7 @@ data-flex-basis="259px"
 &lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version9.png"
 width="2282"
 height="2058"
-srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version9_hu_390a1e749adae903.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version9_hu_12cd4f18d3d52dc6.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version9_hu_1eb5aed2825bed9f.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version9_hu_dd447b733320bdd7.png 1024w"
 loading="lazy"
 alt="version9"
 class="gallery-image"
@@ -2985,7 +3207,7 @@ data-flex-basis="266px"
 &lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version10.png"
 width="2282"
 height="2058"
-srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version10_hu_caf4a78530eb38d2.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version10_hu_3d7f38dc8a2ead01.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version10_hu_56c7dbef39d83174.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version10_hu_97991af82d092523.png 1024w"
 loading="lazy"
 alt="version10"
 class="gallery-image"
@@ -3007,7 +3229,7 @@ data-flex-basis="266px"
 &lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version11.png"
 width="2282"
 height="2032"
-srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version11_hu_49c92e964e5b1aa1.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version11_hu_709bfbccae393fc7.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version11_hu_a74c076c1efd68f3.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version11_hu_2c19657356af4315.png 1024w"
 loading="lazy"
 alt="version11"
 class="gallery-image"
@@ -3019,7 +3241,7 @@ data-flex-basis="269px"
 &lt;p&gt;&lt;img src="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version11-simple.png"
 width="1882"
 height="1282"
-srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version11-simple_hu_80f7d02d87dfb638.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version11-simple_hu_58f431bf6d853380.png 1024w"
+srcset="https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version11-simple_hu_bfa1f4da1812b084.png 480w, https://blog.seungyeop-lee.com/post/react-standard-architecture/front-archetecture-version11-simple_hu_a6513855b890515.png 1024w"
 loading="lazy"
 alt="version11-simple"
 class="gallery-image"
@@ -3034,7 +3256,7 @@ target="_blank" rel="noopener"
 &lt;li&gt;&lt;a class="link" href="https://github.com/alan2207/bulletproof-react" title="Bulletproof React"
 target="_blank" rel="noopener"
 &gt;Bulletproof React&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Spring Boot 3에서 QueryDSL 사용 시 build 실패 문제 해결</title><link>https://blog.seungyeop-lee.com/post/spring-boot-3%EC%97%90%EC%84%9C-querydsl-%EC%82%AC%EC%9A%A9-%EC%8B%9C-build-%EC%8B%A4%ED%8C%A8-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0/</link><pubDate>Mon, 07 Nov 2022 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/spring-boot-3%EC%97%90%EC%84%9C-querydsl-%EC%82%AC%EC%9A%A9-%EC%8B%9C-build-%EC%8B%A4%ED%8C%A8-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/spring-boot-3%EC%97%90%EC%84%9C-querydsl-%EC%82%AC%EC%9A%A9-%EC%8B%9C-build-%EC%8B%A4%ED%8C%A8-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0/cover.png" alt="Featured image of post Spring Boot 3에서 QueryDSL 사용 시 build 실패 문제 해결" /&gt;&lt;h2 id="spring-boot-3에-기존-querydsl-설정을-사용하면-벌어지는-일"&gt;Spring Boot 3에 기존 QueryDSL 설정을 사용하면 벌어지는 일
+&lt;/ul&gt;</description></item><item><title>Spring Boot 3에서 QueryDSL 사용 시 build 실패 문제 해결</title><link>https://blog.seungyeop-lee.com/post/spring-boot-3-querydsl-build-fail/</link><pubDate>Mon, 07 Nov 2022 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/spring-boot-3-querydsl-build-fail/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/spring-boot-3-querydsl-build-fail/cover.png" alt="Featured image of post Spring Boot 3에서 QueryDSL 사용 시 build 실패 문제 해결" /&gt;&lt;h2 id="spring-boot-3에-기존-querydsl-설정을-사용하면-벌어지는-일"&gt;Spring Boot 3에 기존 QueryDSL 설정을 사용하면 벌어지는 일
 &lt;/h2&gt;&lt;p&gt;기존 Spring Boot 2.6.7 버전에서 사용하던 QueryDSL 설정은 아래와 같다.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
@@ -3318,7 +3540,7 @@ target="_blank" rel="noopener"
 &lt;ol&gt;
 &lt;li&gt;이미지에 &lt;code&gt;vertial-align: top&lt;/code&gt;을 설정&lt;/li&gt;
 &lt;li&gt;이미지를 &lt;code&gt;display: block&lt;/code&gt;으로 변경&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title>프로그래머의 뇌 요약</title><link>https://blog.seungyeop-lee.com/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/</link><pubDate>Sun, 17 Apr 2022 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%9D%98-%EB%87%8C-%EC%9A%94%EC%95%BD/cover.png" alt="Featured image of post 프로그래머의 뇌 요약" /&gt;&lt;p&gt;&lt;a class="link" href="http://www.yes24.com/Product/Goods/105911017" target="_blank" rel="noopener"
+&lt;/ol&gt;</description></item><item><title>프로그래머의 뇌 요약</title><link>https://blog.seungyeop-lee.com/post/programmers-brain-summary/</link><pubDate>Sun, 17 Apr 2022 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/programmers-brain-summary/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/programmers-brain-summary/cover.png" alt="Featured image of post 프로그래머의 뇌 요약" /&gt;&lt;p&gt;&lt;a class="link" href="http://www.yes24.com/Product/Goods/105911017" target="_blank" rel="noopener"
 &gt;프로그래머의 뇌&lt;/a&gt;란 책을 읽고, 인상 깊었던 내용을 정리한다.&lt;/p&gt;
 &lt;h2 id="코드가-초래하는-세-가지-종류의-혼란"&gt;코드가 초래하는 세 가지 종류의 혼란
 &lt;/h2&gt;&lt;ol&gt;
@@ -3900,7 +4122,7 @@ target="_blank" rel="noopener"
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;코드 함께 읽기&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>hugo와 github pages로 간단히 블로그 만들기</title><link>https://blog.seungyeop-lee.com/post/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/series/</link><pubDate>Sat, 13 Feb 2021 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/series/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/series/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0.png" alt="Featured image of post hugo와 github pages로 간단히 블로그 만들기" /&gt;&lt;h2 id="목차"&gt;목차
+&lt;/ul&gt;</description></item><item><title>hugo와 github pages로 간단히 블로그 만들기</title><link>https://blog.seungyeop-lee.com/post/hugo-github-pages-blog-setup/series/</link><pubDate>Sat, 13 Feb 2021 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/hugo-github-pages-blog-setup/series/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/hugo-github-pages-blog-setup/series/hugo%EC%99%80-github-pages%EB%A1%9C-%EA%B0%84%EB%8B%A8%ED%9E%88-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0.png" alt="Featured image of post hugo와 github pages로 간단히 블로그 만들기" /&gt;&lt;h2 id="목차"&gt;목차
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;&lt;a class="link" href="../1" &gt;블로그 만들기&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="link" href="../2" &gt;github pages로 배포하기&lt;/a&gt;&lt;/li&gt;
