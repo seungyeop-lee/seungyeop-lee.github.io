@@ -1,6 +1,7 @@
 ---
 title: "AI 응답의 예측가능성을 높이는 방법 - 해석 강제 출력 실험기"
 date: 2026-04-10
+lastmod: 2026-04-19
 categories:
   - AI
 tags:
@@ -14,6 +15,15 @@ hidden: false
 slug: "ai-verbalization-experiment"
 image: "cover.png"
 ---
+
+> ## 2026. 04. 19 추가
+>
+> 우연히 CoT(Chain-of-Thought)가 오히려 성능을 떨어뜨릴 수 있다는 이야기를 접했다. 좀 찾아보니 관련 연구가 꽤 있었고, 이 방법이 무조건 좋은 건 아닐 수 있다는 점을 같이 고지해 두는 편이 낫겠다 싶어 남긴다.
+>
+> - [Mind Your Step (by Step) (arXiv:2410.21333)](https://arxiv.org/abs/2410.21333): CoT가 암묵적 패턴·시각 과제에서 오히려 성능을 떨어뜨렸다(o1-preview가 GPT-4o 대비 최대 36.3%p 하락). "해석 먼저 발화"라는 이 글의 처방이 과제 종류에 따라 역효과일 수 있다는 근거.
+> - [Self-distillation과 epistemic verbalization 억제 (arXiv:2603.24472)](https://arxiv.org/html/2603.24472v1): 불확실성 표현("Wait", "Hmm")을 제거하면 최대 40% 성능 하락. 확신 있는 스타일로 몰아가면 잘못된 가설에 조기 확정하기 쉬워진다는 결과. INTERPRETATION 블록이 Scope/NOT을 단정적으로 선언하도록 강제한다는 점에서 같은 메커니즘이 개입할 여지가 있다.
+>
+> 요청이 모호할수록 선언된 해석이 잘못된 방향으로 경로를 고정시키기 쉬워진다. 예측가능성을 얻는 대신 탐색 폭이 줄어드는 트레이드오프는 같이 기억해 두는 편이 좋겠다.
 
 ## 계기
 
