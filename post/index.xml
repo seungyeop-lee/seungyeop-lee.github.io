@@ -1,4 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/post/</link><description>Recent content in Posts on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/post/index.xml" rel="self" type="application/rss+xml"/><item><title>AI 응답의 예측가능성을 높이는 방법 - 해석 강제 출력 실험기</title><link>https://blog.seungyeop-lee.com/post/ai-verbalization-experiment/</link><pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/ai-verbalization-experiment/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/ai-verbalization-experiment/cover.png" alt="Featured image of post AI 응답의 예측가능성을 높이는 방법 - 해석 강제 출력 실험기" /&gt;&lt;h2 id="계기"&gt;계기
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 펭귄의 외부 저장소</title><link>https://blog.seungyeop-lee.com/post/</link><description>Recent content in Posts on 펭귄의 외부 저장소</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sun, 19 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seungyeop-lee.com/post/index.xml" rel="self" type="application/rss+xml"/><item><title>AI 응답의 예측가능성을 높이는 방법 - 해석 강제 출력 실험기</title><link>https://blog.seungyeop-lee.com/post/ai-verbalization-experiment/</link><pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate><guid>https://blog.seungyeop-lee.com/post/ai-verbalization-experiment/</guid><description>&lt;img src="https://blog.seungyeop-lee.com/post/ai-verbalization-experiment/cover.png" alt="Featured image of post AI 응답의 예측가능성을 높이는 방법 - 해석 강제 출력 실험기" /&gt;&lt;blockquote&gt;
+&lt;h2 id="2026-04-19-추가"&gt;2026. 04. 19 추가
+&lt;/h2&gt;&lt;p&gt;우연히 CoT(Chain-of-Thought)가 오히려 성능을 떨어뜨릴 수 있다는 이야기를 접했다. 좀 찾아보니 관련 연구가 꽤 있었고, 이 방법이 무조건 좋은 건 아닐 수 있다는 점을 같이 고지해 두는 편이 낫겠다 싶어 남긴다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://arxiv.org/abs/2410.21333" target="_blank" rel="noopener"
+&gt;Mind Your Step (by Step) (arXiv:2410.21333)&lt;/a&gt;: CoT가 암묵적 패턴·시각 과제에서 오히려 성능을 떨어뜨렸다(o1-preview가 GPT-4o 대비 최대 36.3%p 하락). &amp;ldquo;해석 먼저 발화&amp;quot;라는 이 글의 처방이 과제 종류에 따라 역효과일 수 있다는 근거.&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://arxiv.org/html/2603.24472v1" target="_blank" rel="noopener"
+&gt;Self-distillation과 epistemic verbalization 억제 (arXiv:2603.24472)&lt;/a&gt;: 불확실성 표현(&amp;ldquo;Wait&amp;rdquo;, &amp;ldquo;Hmm&amp;rdquo;)을 제거하면 최대 40% 성능 하락. 확신 있는 스타일로 몰아가면 잘못된 가설에 조기 확정하기 쉬워진다는 결과. INTERPRETATION 블록이 Scope/NOT을 단정적으로 선언하도록 강제한다는 점에서 같은 메커니즘이 개입할 여지가 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;요청이 모호할수록 선언된 해석이 잘못된 방향으로 경로를 고정시키기 쉬워진다. 예측가능성을 얻는 대신 탐색 폭이 줄어드는 트레이드오프는 같이 기억해 두는 편이 좋겠다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="계기"&gt;계기
 &lt;/h2&gt;&lt;p&gt;AI를 쓰면서 자주 느꼈던 불편함이 하나 있었다.
 분명히 한 가지 일을 시켰는데, 어느 순간 그 일 바깥까지 같이 처리할 때가 있다는 것이다.
 문장을 다듬어 달라고 했는데 구조까지 바꾸고, 요약을 부탁했는데 판단까지 붙이는 식이다.
