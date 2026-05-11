@@ -44,6 +44,7 @@ mkdir content/post/{slug}/
 ```markdown
 ---
 title: "포스트 제목"
+description: "포스트 요약 (한글 기준 80–150자 권장)"
 date: 2025-01-01
 categories:
   - Backend
@@ -55,6 +56,8 @@ image: cover.png
 
 본문 내용...
 ```
+
+> `description`은 필수다. 누락 시 본문 요약이 통째로 `<meta name="description">`에 들어가 길이가 비정상적으로 길어진다.
 
 ### 3. 이미지 추가 (선택)
 
@@ -76,6 +79,7 @@ git add . && git commit -m "Add: 포스트 제목" && git push
 | 필드 | 필수 | 설명 |
 |------|------|------|
 | `title` | O | 포스트 제목 |
+| `description` | O | 포스트 요약 (한글 80–150자 권장, meta description으로 사용) |
 | `date` | O | 발행 날짜 (YYYY-MM-DD) |
 | `draft` | O | `false`여야 발행됨 |
 | `categories` | - | 카테고리 목록 |
