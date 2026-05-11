@@ -1,6 +1,6 @@
 title: '펭귄의 외부 저장소'
 baseurl: 'https://blog.seungyeop-lee.com'
-languageCode: ko-KR
+locale: ko-KR
 pagination:
   pagerSize: 5
 

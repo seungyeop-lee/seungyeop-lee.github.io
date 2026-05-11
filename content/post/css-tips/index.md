@@ -11,6 +11,8 @@ draft: false
 hidden: false
 image: cover.png 
 slug: "css-tips"
+aliases:
+  - /blog/post/css-tips/
 ---
 
 ## 상속
