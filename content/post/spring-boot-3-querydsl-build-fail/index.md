@@ -1,5 +1,6 @@
 ---
 title: "Spring Boot 3에서 QueryDSL 사용 시 build 실패 문제 해결"
+description: "Spring Boot 3로 올린 후 QueryDSL 빌드가 실패한 원인과 jakarta 패키지 기반의 해결법."
 date: 2022-11-07
 lastmod: 2023-08-26
 categories:

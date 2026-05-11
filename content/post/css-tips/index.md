@@ -1,5 +1,6 @@
 ---
 title: "CSS Tips"
+description: "CSS의 상속, 여백 상쇄, 줄바꿈 문자 등 작업 중 마주친 동작을 정리한 메모."
 date: 2022-09-23
 lastmod: 2022-09-29
 categories:

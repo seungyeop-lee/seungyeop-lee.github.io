@@ -1,5 +1,6 @@
 ---
 title: Dagger Functions와 함께하는 CI/CD Pipeline as Code
+description: "Dagger Functions와 Daggerverse 출시 이후 동아리 서비스의 CI/CD를 직접 구축해보고 정리한 Dagger 소개."
 date: 2024-05-07
 lastmod: 2024-05-08
 categories:

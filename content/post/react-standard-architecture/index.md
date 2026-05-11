@@ -1,5 +1,6 @@
 ---
 title: "React Standard Architecture"
+description: "Next.js에서 사용 가능한 React 범용 아키텍처를 고민하며 정리한 설계 과정."
 date: 2022-11-23
 lastmod: 2023-08-26
 categories:

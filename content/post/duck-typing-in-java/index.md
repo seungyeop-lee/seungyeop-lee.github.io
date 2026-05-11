@@ -1,5 +1,6 @@
 ---
 title: 자바에서 덕 타이핑하기
+description: "Java 8의 Method References로 자바에서 덕 타이핑이 가능해진 과정을 정리한 메모."
 date: 2023-02-05
 lastmod: 2023-08-26
 categories:

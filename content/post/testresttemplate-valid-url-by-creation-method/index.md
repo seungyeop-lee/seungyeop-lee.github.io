@@ -1,5 +1,6 @@
 ---
 title: TestRestTemplate 생성 방법에 따른 유효 URL
+description: "TestRestTemplate를 직접 생성한 경우와 @Autowired로 주입받은 경우의 URL 처리 차이를 학습 테스트와 코드 분석으로 확인한 기록."
 date: 2023-01-29
 lastmod: 2023-09-07
 categories:

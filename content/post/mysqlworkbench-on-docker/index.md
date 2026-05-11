@@ -1,5 +1,6 @@
 ---
 title: "Docker와 Web browser로 MySQL Workbench 사용하기"
+description: "MacOS Sonoma에서 MySQL Workbench가 강제 종료되는 문제를 Docker와 웹 브라우저로 우회한 방법."
 date: 2024-01-24
 lastmod: 2024-01-24
 categories:

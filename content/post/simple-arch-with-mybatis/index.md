@@ -1,5 +1,6 @@
 ---
 title: "Spring MVC와 Mybatis 기반의 단순 아키텍처"
+description: "회사 프로젝트 스캐폴드 요청을 계기로 고안한 Spring MVC와 Mybatis 기반의 단순 아키텍처와 예제."
 date: 2023-08-20
 lastmod: 2023-09-04
 categories:

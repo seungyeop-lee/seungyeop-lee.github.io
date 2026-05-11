@@ -1,5 +1,6 @@
 ---
 title: "Supabase Backup & Migration CheetSheet"
+description: "Supabase 로컬 환경 구성과 원격-로컬 간 스키마·데이터 백업·마이그레이션 명령어 모음."
 date: 2025-03-16
 lastmod: 2025-03-16
 categories:

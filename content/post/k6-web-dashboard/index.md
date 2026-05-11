@@ -1,5 +1,6 @@
 ---
 title: "k6 테스트 결과 간단히 시각화하기 (Web Dashboard, HTML Test report)"
+description: "k6 0.49에서 추가된 Web Dashboard와 HTML Test report로 부하 테스트 결과를 시각화하는 실습 메모."
 date: 2024-07-12
 lastmod: 2024-07-12
 categories:

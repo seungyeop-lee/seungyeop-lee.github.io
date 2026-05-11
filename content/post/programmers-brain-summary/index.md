@@ -1,5 +1,6 @@
 ---
 title: "프로그래머의 뇌 요약"
+description: "『프로그래머의 뇌』를 읽고 인상 깊었던 내용을 정리한 요약."
 date: 2022-04-17
 lastmod: 2022-04-24
 categories:
