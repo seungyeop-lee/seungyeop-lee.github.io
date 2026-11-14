@@ -1,6 +1,6 @@
 # 펭귄의 외부 저장소
 
-개인 블로그 소스 저장소. Hugo + GitHub Pages로 운영.
+개인 블로그 소스 저장소. Hugo + Cloudflare Workers로 운영.
 
 - 블로그: https://blog.seungyeop-lee.com
 - 테마: [Hugo Theme Stack v3](https://github.com/CaiJimmy/hugo-theme-stack)
@@ -91,12 +91,13 @@ git add . && git commit -m "Add: 포스트 제목" && git push
 
 ## 배포
 
-GitHub Actions로 자동 배포.
+Cloudflare Workers로 자동 배포.
 
 1. `main` 브랜치에 push
-2. `.github/workflows/gh-pages.yml` 실행
-3. `public/` 빌드 후 `gh-pages` 브랜치로 배포
-4. GitHub Pages에서 서빙
+2. Cloudflare가 `hugo --minify`로 빌드 후 `npx wrangler deploy`로 배포
+3. `blog.seungyeop-lee.com`에서 서빙
+
+빌드 설정은 Cloudflare 대시보드(빌드 명령 `hugo --minify`, 배포 명령 `npx wrangler deploy`, 변수 `HUGO_VERSION=extended_0.161.1`)에 있고, 에셋 디렉터리는 `wrangler.jsonc`가 지정한다.
 
 ## 카테고리 예시
 
