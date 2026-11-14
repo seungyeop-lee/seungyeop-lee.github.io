@@ -1,6 +1,6 @@
 {
   // Cloudflare Workers 정적 에셋 배포 설정
-  "name": "my-blog",
+  "name": "seungyeop-lee-github-io",
   "compatibility_date": "2026-11-14",
   "assets": {
     "directory": "./public",
